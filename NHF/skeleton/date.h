@@ -28,23 +28,21 @@ public:
      *
      * @param date Kiirandó időpont
      */
-    void print_date(std::chrono::system_clock::time_point date);
+    void print_date() const;
 
-    bool operator==(Date in);
+    bool operator==(const Date& in) const;
 
-    bool operator<(const Date& in);
+    bool operator<(const Date& in) const;
 
-    bool operator>(const Date& in);
+    bool operator>(const Date& in) const;
 
-    bool operator<=(const Date& in);
+    bool operator<=(const Date& in) const;
 
-    bool operator>=(const Date& in);
-
-    std::ostream& operator>>(const Date&);
+    bool operator>=(const Date& in) const;
 
 };
 
-std::ostream& operator<<(std::ostream os, const Date&);
+std::ostream& operator<<(std::ostream os, const Date& date);
 
 
 
@@ -106,7 +104,7 @@ public:
      * @param date paraméterként kapott dátum
      * @return A dátumpár között van?
      */
-    bool contains(const std::chrono::system_clock::time_point& date) const;
+    bool contains(const Date& date_in) const;
 
 
     /**@brief = operátor az = jel helyes működéséhez
