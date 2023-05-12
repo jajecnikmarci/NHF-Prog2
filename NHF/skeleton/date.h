@@ -8,11 +8,20 @@
 #include <iostream>
 #include <chrono>
 
+/**@brief Egy dátumot tárol time_point formátumba
+ * @param tp tárolt dátum
+ */
 class Date {
 private:
     std::chrono::system_clock::time_point tp;
 
 public:
+    /**@Konstruktor
+     *
+     * @param year Beállítandó év
+     * @param month Beállítandó hónap
+     * @param day Beállítandó nap
+     */
     Date(int year, int month, int day): tp(into_date(year,month,day)) {}
 
     /**@brief Időponttá alakít egy dátumot
@@ -24,24 +33,53 @@ public:
      */
     std::chrono::system_clock::time_point into_date(int year, int month, int day);
 
-    /**@brief Kiír egy időpontot
-     *
-     * @param date Kiirandó időpont
+    /**@brief Kiírja az időpontot
      */
     void print_date() const;
 
+    /**@brief == operátor összehasonlításhoz
+     *
+     * @param in Összehasonlítandó dátum
+     * @return Egyenlőek
+     */
     bool operator==(const Date& in) const;
 
+    /**@brief < operátor összehasonlításhoz
+     *
+     * @param in Összehasonlítandó dátum
+     * @return Kisebb?
+     */
     bool operator<(const Date& in) const;
 
+    /**@brief > operátor összehasonlításhoz
+     *
+     * @param in Összehasonlítandó dátum
+     * @return Nagyobb?
+     */
     bool operator>(const Date& in) const;
 
+    /**@brief <= operátor összehasonlításhoz
+     *
+     * @param in Összehasonlítandó dátum
+     * @return Kisebb vagy egyenlő?
+     */
     bool operator<=(const Date& in) const;
 
+    /**@brief >= operátor összehasonlításhoz
+     *
+     * @param in Összehasonlítandó dátum
+     * @return Nagyobb vagy egyenlő?
+     */
     bool operator>=(const Date& in) const;
 
 };
 
+/**@brief << operátor Kiíráshoz
+ *
+ * @param os ostream a kiíráshoz
+ * @param date kiírandó dátum
+ * @return Kiírja a dátumot majd visszaadja az ostream-et
+ */
 std::ostream& operator<<(std::ostream os, const Date& date);
 
 
