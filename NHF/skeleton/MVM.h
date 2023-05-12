@@ -12,6 +12,8 @@
 #include <iostream>
 #include <chrono>
 
+
+
 /**
  * @brief Ügyfeleket tároló class.
  */
@@ -22,11 +24,13 @@ private:
      */
     MyVector<Client *> clients;
 
+    
+public:
     /**
      * Az MVM adatai
      */
     static Company MVM_company;
-public:
+
     MVM() {}
     void addClient(Client* client_in);
 
@@ -42,7 +46,7 @@ public:
      * @brief
      * @return Az MVM adatait adja vissza.
      */
-    const Company getCompanyDetails();
+    const std::string getCompanyDetails();
 
     ~MVM();
 };

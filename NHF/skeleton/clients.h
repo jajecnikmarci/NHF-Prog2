@@ -9,7 +9,6 @@
 #include "myvektor.hpp"
 #include "contracts.h"
 #include <string>
-
 class Contract;
 /**@brief Ügyfél adatait tárolja
  * @param name Az ügyfél neve

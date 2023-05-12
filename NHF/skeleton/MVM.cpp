@@ -4,7 +4,7 @@
 
 #include "MVM.h"
 
-Company MVM::MVM_company = Company("MVM ZRT.",10760798244);
+Company MVM::MVM_company = Company("MVM ZRT.", 10760798244);
 
 void MVM::addClient(Client* client_in) {
     clients.push_back(client_in);
@@ -21,6 +21,10 @@ Client *MVM::getClient(const std::string name_in) {
         if (name_in==clients[i]->getName()) return clients[i];
     }
     return nullptr;
+}
+
+const std::string MVM::getCompanyDetails() {
+    return "Company name: " + MVM_company.getName() + ", Tax ID: " + std::to_string(MVM_company.getID());
 }
 
 MVM::~MVM(){
