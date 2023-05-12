@@ -9,7 +9,12 @@ std::string Client::getName() const{
 }
 
 void Client::addContract(Contract* contract_in) {
+    SumOfAll_contract++;
     mycontracts.push_back(contract_in);
+}
+
+size_t Client::getSumOfAll_Contract() {
+    return SumOfAll_contract;
 }
 
 std::string Client::getsub_Client_info() {
@@ -46,5 +51,6 @@ std::string Company::getsub_Client_info() {
 
 
 Company::~Company() {
+    //Felszabadítani a foglalt contractet
 
 }

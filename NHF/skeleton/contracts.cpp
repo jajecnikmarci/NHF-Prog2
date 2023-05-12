@@ -32,6 +32,10 @@ Client* Contract::getClient() {
     return client;
 }
 
+size_t Contract::getContractID() {
+    return contract_ID;
+}
+
 ContractType Contract::getCtype() const {
     return contract_type;
 }
@@ -103,5 +107,3 @@ void Contract::invoice( const Date &today) {
 Contract::~Contract() {
 
 }
-
-

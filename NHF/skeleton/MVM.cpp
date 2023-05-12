@@ -11,8 +11,9 @@ void MVM::addClient(Client* client_in) {
 }
 
 
-void MVM::addContract(Contract* contract_in) {
-    contract_in->getClient()->addContract(contract_in);
+void MVM::addContract(Client* client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, double tariff_in, double balance_in, double consumption_in) {
+    Contract* new_contract = new Contract(client_in, ctype_in, year_begin, month_begin, day_begin, year_end, month_end, day_end, invo_in_year, invo_in_month, invo_in_day, (client_in->getSumOfAll_Contract() + 1), tariff_in, balance_in, consumption_in);
+    client_in->addContract(new_contract);
 }
 
 Client *MVM::getClient(const std::string name_in) {
@@ -20,4 +21,8 @@ Client *MVM::getClient(const std::string name_in) {
         if (name_in==clients[i]->getName()) return clients[i];
     }
     return nullptr;
+}
+
+MVM::~MVM(){
+    //felszabadítani
 }
