@@ -30,7 +30,7 @@ public:
      */
     void print_date(std::chrono::system_clock::time_point date);
 
-    bool operator==(Date in);
+    bool operator==(const Date& in);
 
     bool operator<(const Date& in);
 
@@ -106,7 +106,7 @@ public:
      * @param date paraméterként kapott dátum
      * @return A dátumpár között van?
      */
-    bool contains(const std::chrono::system_clock::time_point& date) const;
+    bool contains(const Date& date_in) const;
 
 
     /**@brief = operátor az = jel helyes működéséhez
