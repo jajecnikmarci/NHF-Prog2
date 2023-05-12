@@ -66,8 +66,8 @@ void Contract::invoice( const Date &today) {
 
     // Write contract details
     outfile << "Contract details:" << std::endl;
- /*   outfile << "Client name: " << getClient()->getName() << std::endl;
-    outfile << "Client address: " << getClient()->getAddress() << std::endl;*/
+    outfile << "Client name: " << getClient()->getName() << std::endl;
+    outfile << "Client ID: " << getClient()->getsub_Client_info() << std::endl;
     outfile << "Contract type: " << getCtype() << std::endl;
     outfile << "Contract start date: " << getCtime().getBegin().toString() << std::endl;
     outfile << "Contract end date: " << getCtime().getEnd().toString() << std::endl;

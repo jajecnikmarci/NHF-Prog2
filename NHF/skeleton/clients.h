@@ -34,6 +34,13 @@ public:
      */
     void addContract(Contract* contract_in);
 
+    /**
+     * @brief Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben.
+     * 
+     * \return gyermek osztály személyes adatai kiíráshoz egy string-ben
+     */
+    virtual std::string getsub_Client_info();
+
     /**@brief Virtuális destruktor
      *
      */
@@ -66,6 +73,13 @@ public:
      * @return Magánszemély személyigazolványszáma
      */
     long getID() const;
+
+    /**
+     * @brief Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben.
+     *
+     * \return gyermek osztály személyes adatai kiíráshoz egy string-ben
+     */
+    std::string getsub_Client_info();
 
     /**@brief Destruktor
      *
@@ -101,6 +115,13 @@ public:
      * @return Cég adószáma
      */
     long getID() const;
+
+    /**
+     * @brief Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben.
+     *
+     * \return gyermek osztály személyes adatai kiíráshoz egy string-ben
+     */
+    std::string getsub_Client_info();
 
     /**@brief Destruktor
      *

@@ -74,6 +74,11 @@ public:
      */
     bool operator>=(const Date& in) const;
 
+    /**
+     * @brief Visszaadja a dátumot string formátumban.
+     * 
+     * \return 
+     */
     std::string toString() const;
 };
 
