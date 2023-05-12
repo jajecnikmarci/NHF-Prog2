@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <chrono>
+#include "sstream"
+#include "iomanip"
 
 /**@brief Egy dátumot tárol time_point formátumba
  * @param tp tárolt dátum
@@ -72,6 +74,7 @@ public:
      */
     bool operator>=(const Date& in) const;
 
+    std::string toString() const;
 };
 
 /**@brief << operátor Kiíráshoz

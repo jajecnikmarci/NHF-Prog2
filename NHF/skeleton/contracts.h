@@ -5,6 +5,8 @@
 #ifndef SKELETON_CONTRACTS_H
 #define SKELETON_CONTRACTS_H
 #include "clients.h"
+#include "iomanip"
+#include "fstream"
 
 class Client;
 
@@ -39,7 +41,7 @@ private:
     Client* client;
     ContractType contract_type;
     Contract_date contract_time;
-    time_t last_invoicing;
+    Date last_invoicing;
     double tariff;
     double balance;
     double consumption;
@@ -49,14 +51,21 @@ public:
      *
      * @param client_in Szerződést kötő ügyfél (kötelező)
      * @param ctype_in Szerződés típusa
-     * @param ctime_in Szerződés időtartama
-     * @param last_invoicing_in Utolsó számla kiállításának időpontja
+     * @param year_begin Szerződés kezdeti éve
+     * @param month_begin Szerződés kezdeti hónapja
+     * @param day_begin Szerződés kezdeti napja
+     * @param year_end Szerződés végső éve
+     * @param month_end Szerződés végső hónapja
+     * @param day_end Szerződés végső napja
+     * @param invo_in_year Legutóbbi számlázás éve
+     * @param invo_in_month Legutóbbi számlázás hónapja
+     * @param invo_in_day Legutóbbi számlázás napja
      * @param tariff_in KWh-kénti ár
      * @param balance_in Jelenlegi egyenleg
      * @param consumption_in Jelenlegi fogyasztás
      */
-    Contract(Client* client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, time_t last_invoicing_in = time(nullptr),double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)
-            :client(client_in), contract_type(ctype_in), contract_time(year_begin, month_begin, day_begin, year_end, month_end, day_end), last_invoicing(last_invoicing_in), tariff(tariff_in), balance(balance_in), consumption(consumption_in)
+    Contract(Client* client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day,double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)
+            :client(client_in), contract_type(ctype_in), contract_time(year_begin, month_begin, day_begin, year_end, month_end, day_end), last_invoicing(invo_in_year,invo_in_month,invo_in_day), tariff(tariff_in), balance(balance_in), consumption(consumption_in)
     {}
 
     // Setter functions
@@ -88,7 +97,7 @@ public:
      *
      * @param last_in Számlázás időpontja
      */
-    void setLast_invoicing(time_t last_in);
+    void setLast_invoicing(Date last_in);
 
     /**@brief Beállítja a szerződés időtartományát
      *
@@ -136,7 +145,7 @@ public:
      *
      * @return Legutótóbbi számla kiállításának az időpontja
      */
-    time_t getLast_invoicing() const;
+    Date getLast_invoicing() const;
 
     /**@brief Befizetés egyenlegrendezéshez
      *
@@ -146,19 +155,9 @@ public:
 
     /**@brief Számla kiállítása fájlba
      *
+     * @param today számla kiállításának napja (név amiatt mert a számlakiállítás napja általában a jelenlegi nappal egyezik meg)
      */
-    void invoicing() {
-        time_t now;
-        time(&now);
-        double consumption_since_last_invoice = consumption;
-        if (last_invoicing != 0) {
-            consumption_since_last_invoice -= (now - last_invoicing) / 3600.0 * consumption;
-        }
-        double invoice_amount = consumption_since_last_invoice * tariff;
-        std::cout << "Invoice amount: " << invoice_amount << std::endl;
-        balance -= invoice_amount;
-        last_invoicing = now;
-    }
+    void invoice( const Date& today);
 
     /**@brief Destruktor
      *

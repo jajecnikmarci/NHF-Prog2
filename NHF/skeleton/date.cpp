@@ -37,6 +37,19 @@ bool Date::operator>=(const Date& in) const {
     return tp >= in.tp;
 }
 
+std::string Date::toString() const {
+    // Convert the time_point to a time_t
+    std::time_t tt = std::chrono::system_clock::to_time_t(tp);
+
+    // Convert the time_t to a struct tm
+    std::tm tm = *std::localtime(&tt);
+
+    // Format the date as a string
+    std::stringstream ss;
+    ss << std::put_time(&tm, "%Y-%m-%d");
+    return ss.str();
+}
+
 
 std::ostream& operator<<(std::ostream os, const Date& date) {
     date.print_date();

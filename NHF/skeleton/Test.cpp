@@ -57,8 +57,6 @@ int main() {
 #endif
 #if TST > 1
     TEST(Contract_date, tesztek) {
-        // class Date(day, month, year)
-        // Contract_date(Date begin(day, month, year), Date end(day, month, year))
 
 
     }END
