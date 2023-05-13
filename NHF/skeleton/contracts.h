@@ -25,22 +25,12 @@ class Client;
  * @param consumption Tárolja a fogyasztást a legutóbbi számlakibocsájtás óta
  */
 class Contract {
-private:
-
-    Client* client;
-    int contract_ID;
-    Contract::ContractType contract_type;
-    Contract_date contract_time;
-    Date last_invoicing;
-    double tariff;
-    double balance;
-    double consumption;
 
 public:
     /** @enum ContractType
  * A szerződés fajtáját lehet beállítani vele
  */
-    enum ContractType {
+    enum class ContractType {
         Regular,
         VIP,
         Premium,
@@ -50,6 +40,8 @@ public:
         Government,
         Onetime
     };
+
+    Contract() {};
 
     /**@brief Alapértékes konstruktor egy szerződéshez
      *
@@ -68,7 +60,7 @@ public:
      * @param balance_in Jelenlegi egyenleg
      * @param consumption_in Jelenlegi fogyasztás
      */
-    Contract(Client* client_in, Contract::ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, size_t ContractID_in ,double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)
+    Contract(Client* client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, size_t ContractID_in ,double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)
             :client(client_in),contract_ID(ContractID_in), contract_type(ctype_in), contract_time(year_begin, month_begin, day_begin, year_end, month_end, day_end), last_invoicing(invo_in_year, invo_in_month, invo_in_day), tariff(tariff_in), balance(balance_in), consumption(consumption_in)
     {}
 
@@ -77,7 +69,7 @@ public:
      *
      * @param ctype_in Beállítandó szerződéstípus
      */
-    void setCtype(Contract::ContractType ctype_in);
+    void setCtype(ContractType ctype_in);
 
     /**@brief Beállítja az új tarifát
      *
@@ -121,7 +113,7 @@ public:
      *
      * @return Szerződés típusa
      */
-   Contract::ContractType getCtype() const;
+   ContractType getCtype() const;
 
     /**@brief Visszaadja a tarifát
      *
@@ -147,6 +139,8 @@ public:
      */
     Contract_date getCtime() const;
 
+    const std::string Ctype_toString() const;
+
     /**@brief Visszaadja a legutótóbbi számla kiállításának az időpontját
      *
      * @return Legutótóbbi számla kiállításának az időpontja
@@ -169,6 +163,17 @@ public:
      *
      */
     ~Contract();
+private:
+
+    Client* client;
+    int contract_ID;
+    ContractType contract_type;
+    Contract_date contract_time;
+    Date last_invoicing;
+    double tariff;
+    double balance;
+    double consumption;
+
 };
 
 #endif //SKELETON_CONTRACTS_H

@@ -36,7 +36,7 @@ size_t Contract::getContractID() {
     return contract_ID;
 }
 
-ContractType Contract::getCtype() const {
+Contract::ContractType Contract::getCtype() const {
     return contract_type;
 }
 
@@ -54,6 +54,20 @@ double Contract::getConsumption() const {
 
 Contract_date Contract::getCtime() const {
     return contract_time;
+}
+
+const std::string Contract::Ctype_toString() const {
+    switch (contract_type) {
+    case ContractType::Regular: return "Regular";
+    case ContractType::VIP: return "VIP";
+    case ContractType::Premium: return "Premium";
+    case ContractType::Corporate: return "Corporate";
+    case ContractType::Student: return "Student";
+    case ContractType::SeniorCitizen: return "SeniorCitizen";
+    case ContractType::Government: return "Government";
+    case ContractType::Onetime: return "Onetime";
+    default: return "Unknown";
+    }
 }
 
 Date Contract::getLast_invoicing() const {
@@ -75,7 +89,7 @@ void Contract::invoice( const Date &today) {
     outfile<<"Seller name: "<< MVM::MVM_company.getsub_Client_info() << std::endl;
     outfile << "Client name: " << getClient()->getName() << std::endl;
     outfile << "Client ID: " << getClient()->getsub_Client_info() << std::endl;
-    outfile << "Contract type: " << getCtype() << std::endl;
+    outfile << "Contract type: " << Ctype_toString() << std::endl;
     outfile << "Contract start date: " << getCtime().getBegin().toString() << std::endl;
     outfile << "Contract end date: " << getCtime().getEnd().toString() << std::endl;
     outfile << "Last invoicing date: " << getLast_invoicing().toString() << std::endl;

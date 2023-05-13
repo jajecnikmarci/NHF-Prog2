@@ -18,6 +18,8 @@ private:
     std::chrono::system_clock::time_point tp;
 
 public:
+    Date(){}
+
     /**@Konstruktor
      *
      * @param year Beállítandó év
@@ -103,6 +105,7 @@ private:
 
     
 public:
+    Contract_date(){}
 
     /**@brief Konstruktor
      *

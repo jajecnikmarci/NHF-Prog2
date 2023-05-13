@@ -8,7 +8,7 @@ std::string Client::getName() const{
     return name;
 }
 
-void Client::addContract(Contract* contract_in) {
+void Client::addContract(Contract& contract_in) {
     SumOfAll_contract++;
     mycontracts.push_back(contract_in);
 }

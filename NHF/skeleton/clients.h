@@ -17,7 +17,7 @@ class Contract;
 class Client{
 private:
     std::string name;
-    MyVector<Contract *> mycontracts;
+    MyVector<Contract> mycontracts;
     size_t SumOfAll_contract;
 public:
     /**@brief Alapértékes kontruktor
@@ -35,7 +35,7 @@ public:
      *
      * @param contract_in a hozzáadandó szerződésre mutató pointer.
      */
-    void addContract(Contract* contract_in);
+    void addContract(Contract& contract_in);
 
     /**
      * @brief Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben.

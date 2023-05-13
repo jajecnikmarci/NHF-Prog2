@@ -14,7 +14,7 @@
 
 class Client;
 class Company;
-enum ContractType;
+enum class ContractType;
 
 /**
  * @brief Ügyfeleket tároló class.
@@ -40,7 +40,7 @@ public:
      * @brief
      * @param contract_in
      */
-    void addContract(Client* client_in,Contract::ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, double tariff_in = 0.0, double balance_in = 0.0, double consumption_in = 0.0);
+    void addContract(Client* client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, double tariff_in = 0.0, double balance_in = 0.0, double consumption_in = 0.0);
 
     Client* getClient(const std::string name_in);
 
