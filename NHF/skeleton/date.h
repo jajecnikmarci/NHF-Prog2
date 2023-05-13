@@ -103,8 +103,11 @@ private:
     Date begin;
     Date end;
 
-    
 public:
+
+    /**@brief paraméter nélkül hívható konstruktor
+     *
+     */
     Contract_date(){}
 
     /**@brief Konstruktor
@@ -161,7 +164,7 @@ public:
      * @param contractDate_in Bejövő contractDate
      * @return Visszaadandó contractDate
      */
-    Contract_date& operator=( Contract_date& contractDate_in);
+    Contract_date& operator=(const Contract_date& contractDate_in);
 };
 
 

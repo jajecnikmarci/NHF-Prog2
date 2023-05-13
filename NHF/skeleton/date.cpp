@@ -77,7 +77,7 @@ bool Contract_date::contains(const Date& date_in) const {
     return (date_in >= begin && date_in <= end);
 }
 
-Contract_date &Contract_date::operator=(Contract_date &contractDate_in) {
+Contract_date &Contract_date::operator=(const Contract_date &contractDate_in) {
     if (!(this->begin==contractDate_in.begin && this->end==contractDate_in.end)) {
         this->begin = contractDate_in.begin;
         this->end = contractDate_in.end;

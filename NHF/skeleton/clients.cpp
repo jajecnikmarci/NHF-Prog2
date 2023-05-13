@@ -21,6 +21,17 @@ std::string Client::getsub_Client_info() {
     return "Client name: " + getName();
 }
 
+void Client::save_invoice(size_t contract_index, const Date& date) {
+    getContract(contract_index).invoice(date);
+}
+
+Contract &Client::getContract(size_t contract_index) {
+    if (contract_index<=0 || contract_index>getSumOfAll_Contract()) throw std::range_error("Nem létező contract");
+    for (size_t i = 0; i < mycontracts.size(); ++i) {
+        if (mycontracts[i].getContractID()==contract_index) return mycontracts[i];
+    }
+}
+
 std::string Person::getsub_Client_info() {
     return "Person name: " + getName() + ", ID: " + std::to_string(ID);
 }

@@ -40,6 +40,9 @@ class Contract {
 
 public:
 
+    /**@brief Paraméter nélküli konstruktor
+     *
+     */
     Contract() {};
 
     /**@brief Alapértékes konstruktor egy szerződéshez
@@ -55,6 +58,7 @@ public:
      * @param invo_in_year Legutóbbi számlázás éve
      * @param invo_in_month Legutóbbi számlázás hónapja
      * @param invo_in_day Legutóbbi számlázás napja
+     * @param ContractID_in A szerződés azonosítószáma
      * @param tariff_in KWh-kénti ár
      * @param balance_in Jelenlegi egyenleg
      * @param consumption_in Jelenlegi fogyasztás
@@ -106,7 +110,11 @@ public:
      */
     Client* getClient();
 
-    size_t getContractID();
+    /**@brief Visszaadja a szerződés azonosítóját
+     *
+     * @return szerződés azonosítója
+     */
+    size_t getContractID() const;
 
     /**@brief Visszaadja a szerződés típusát
      *
@@ -138,6 +146,10 @@ public:
      */
     Contract_date getCtime() const;
 
+    /**@brief A szerződés típusát adja vissza stringként
+     *
+     * @return szerződés típusa adja vissza stringként
+     */
     const std::string Ctype_toString() const;
 
     /**@brief Visszaadja a legutótóbbi számla kiállításának az időpontját

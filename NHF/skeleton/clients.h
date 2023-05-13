@@ -9,16 +9,21 @@
 #include "myvektor.hpp"
 #include "contracts.h"
 #include <string>
+
+///Elődefiniálás a mycontracts adattag használatához
 class Contract;
+
 /**@brief Ügyfél adatait tárolja
  * @param name Az ügyfél neve
  * @param mycontracts Az ügyfél szerződéseit tároló tömb
+ * @param SumOfAll_contracts Azt tárolja hogy a kliens megléte alatt összesen hány szerződést kötött (A szerződés azonosítására használ a felhasználó számára)
  */
 class Client{
 private:
     std::string name;
     MyVector<Contract> mycontracts;
     size_t SumOfAll_contract;
+
 public:
     /**@brief Alapértékes kontruktor
      *
@@ -27,13 +32,21 @@ public:
      */
     Client(const std::string name_in):name(std::string(name_in)), SumOfAll_contract(0){}
 
+    /**@brief Visszaadja a kliens által eddig kötött szerződések számát
+     *
+     * @return kliens által eddig kötött szerződések száma
+     */
     size_t getSumOfAll_Contract();
 
+    /**@brief Visszadja a kliens nevét
+     *
+     * @return kliens neve
+     */
     std::string getName() const;
 
     /**@brief Szerződés hozzáadása a mycontracts hez
      *
-     * @param contract_in a hozzáadandó szerződésre mutató pointer.
+     * @param contract_in a hozzáadandó szerződésre mutató referencia.
      */
     void addContract(Contract& contract_in);
 
@@ -49,7 +62,14 @@ public:
      * 
      * \param contract_index A szerződés sorszáma a tárolt szerződések között
      */
-    void save_invoice(size_t contract_index );
+    void save_invoice(size_t contract_index, const Date& date);
+
+    /**@brief Visszaadja azt a szerződést aminek az azonosítóját megadtuk
+     *
+     * @param contract_ID A szerződés azonosítója
+     * @return
+     */
+    Contract& getContract(size_t contract_ID);
 
     /**@brief Virtuális destruktor
      *

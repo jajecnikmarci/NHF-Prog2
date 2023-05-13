@@ -4,13 +4,20 @@
 #include "memtrace.h"
 #include "MVM.h"
 
-/**
-*@brief Teszt makro vezerli a vegrehajtando tesztesetek szamat.
-*/
-#define TST 2
-// TEST 1: MyVector
-// TEST 2: Contract_date
-// TEST 3: Contract
+/**@brief Teszt makro vezerli a vegrehajtando tesztesetek szamat.
+ * TST 1: MyVektor
+ * TST 2: Date
+ * TST 3: Contract_date
+ * TST 4: Client
+ * TST 5: Person
+ * TST 6: Company
+ * TST 7: Contract
+ * TST 8: MVM
+ * TST 9: Számlakészítés
+ * TST 10: Beolvasás Fájlból
+ */
+#define TST 10
+
 
 
 #define MEMTRACE_H
@@ -56,17 +63,49 @@ int main() {
     } END
 #endif
 #if TST > 1
-    TEST(Contract_date, tesztek) {
+    TEST(Date, tesztek) {
         
     }END
 #endif
 #if TST > 2
-        TEST(Contract_date, tesztek) {
-        MVM MVM;
-        Client* new_client = new Person("ANYA", 121833295);
-        MVM.addClient(new_client);
+    TEST(Contract_date, tesztek) {
+
     }END
 #endif
+#if TST > 3
+    TEST(Client, tesztek) {
 
+    }END
+#endif
+#if TST > 4
+    TEST(Person, tesztek) {
+
+    }END
+#endif
+#if TST > 5
+    TEST(Company, tesztek) {
+
+    }END
+#endif
+#if TST > 6
+    TEST(Contract, tesztek) {
+
+    }END
+#endif
+#if TST > 7
+    TEST(MVM, tesztek) {
+
+    }END
+#endif
+#if TST > 8
+    TEST(Szamlakeszites, tesztek) {
+
+    }END
+#endif
+#if TST > 9
+    TEST(Beolvasas_fajlbol, tesztek) {
+
+    }END
+#endif
     return 0;
 }

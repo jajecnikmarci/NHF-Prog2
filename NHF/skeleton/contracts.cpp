@@ -32,7 +32,7 @@ Client* Contract::getClient() {
     return client;
 }
 
-size_t Contract::getContractID() {
+size_t Contract::getContractID() const{
     return contract_ID;
 }
 
