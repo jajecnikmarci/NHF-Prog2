@@ -12,7 +12,9 @@
 #include <iostream>
 #include <chrono>
 
-
+class Client;
+class Company;
+enum ContractType;
 
 /**
  * @brief Ügyfeleket tároló class.
