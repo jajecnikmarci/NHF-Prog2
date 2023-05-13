@@ -57,8 +57,14 @@ int main() {
 #endif
 #if TST > 1
     TEST(Contract_date, tesztek) {
-
-
+        
+    }END
+#endif
+#if TST > 2
+        TEST(Contract_date, tesztek) {
+        MVM MVM;
+        Client* new_client = new Person("ANYA", 121833295);
+        MVM.addClient(new_client);
     }END
 #endif
 

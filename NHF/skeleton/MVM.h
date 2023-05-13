@@ -50,6 +50,8 @@ public:
      */
     const std::string getCompanyDetails();
 
+    void deleteClient(const std::string name_in);
+
     ~MVM();
 };
 

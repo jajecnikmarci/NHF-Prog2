@@ -51,6 +51,5 @@ std::string Company::getsub_Client_info() {
 
 
 Company::~Company() {
-    //Felszabadítani a foglalt contractet
 
 }

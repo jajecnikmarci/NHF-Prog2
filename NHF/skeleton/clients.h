@@ -25,7 +25,7 @@ public:
      * @param name_in Ügyfél neve
      * @param sumofContracts A kliens által eddig kötött szerződések száma (nem jelenlegi)
      */
-    Client(const std::string name_in, size_t sumofContracts):name(std::string(name_in)), SumOfAll_contract(sumofContracts){}
+    Client(const std::string name_in):name(std::string(name_in)), SumOfAll_contract(0){}
 
     size_t getSumOfAll_Contract();
 
@@ -69,8 +69,8 @@ public:
      * @param ID_in Bejövő magánszemély személyigazolványszáma
      * @param SumOfAll_contract A kliens által eddig kötött szerződések száma (nem jelenlegi)
     */
-    Person(const std::string name_in="", long ID_in=0, size_t SumOfAll_contract=0)
-    : Client(std::string(name_in),SumOfAll_contract), ID(ID_in)
+    Person(const std::string name_in="", long ID_in=0)
+    : Client(std::string(name_in)), ID(ID_in)
     {}
 
     /**@brief Személyigazolvány beállítása
@@ -112,8 +112,8 @@ public:
      * @param ID_in Bejövő Cég adószám
      * @param SumOfAllContract A kliens által eddig kötött szerződések száma (nem jelenlegi)
      */
-    Company(std::string name_in="", long ID_in=0, size_t SumOfAllContract=0)
-    : Client(name_in, SumOfAllContract), Tax_ID(ID_in)
+    Company(std::string name_in="", long ID_in=0)
+    : Client(name_in), Tax_ID(ID_in)
     {}
 
     /**@brief Cég adószámának állítása

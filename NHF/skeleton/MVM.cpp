@@ -28,6 +28,13 @@ const std::string MVM::getCompanyDetails() {
     return "Company name: " + MVM_company.getName() + ", Tax ID: " + std::to_string(MVM_company.getID());
 }
 
+void MVM::deleteClient(const std::string name_in) {
+    delete getClient(name_in);
+}
+
 MVM::~MVM(){
-    //felszabadítani
+    for (size_t i = 0; i < clients.size(); i++)
+    {
+        delete clients[i];
+    }
 }
