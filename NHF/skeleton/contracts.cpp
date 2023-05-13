@@ -36,7 +36,7 @@ size_t Contract::getContractID() {
     return contract_ID;
 }
 
-Contract::ContractType Contract::getCtype() const {
+ContractType Contract::getCtype() const {
     return contract_type;
 }
 
