@@ -66,7 +66,9 @@ void Contract::pay(double amount) {
 
 void Contract::invoice( const Date &today) {
     std::ofstream outfile;
-    outfile.open("invoice.txt");
+    std::string filename = client->getName() + "_" + std::to_string(contract_ID) + ".txt";
+
+    outfile.open(filename);
     // Write contract details
     outfile << "Contract details:" << std::endl; 
         outfile<< "Seller details:" << std::endl;
