@@ -1,0 +1,104 @@
+\hypertarget{_test_8cpp_source}{}\doxysection{Test.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gtest__lite_8h}{gtest\_lite.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}memtrace.h"{}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}MVM.h"{}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#define\ TST\ 10}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#define\ MEMTRACE\_H}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00024}00024\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#if\ TST\ >\ 0}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(\mbox{\hyperlink{class_my_vector}{MyVector}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_my_vector}{MyVector<int>}}\ int\_test;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_my_vector}{MyVector<double>}}\ double\_test;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(10,\ int\_test.\mbox{\hyperlink{class_my_vector_adbd398910d7ae5c2b42132e10ac6f749}{capacity}}());\ \textcolor{comment}{//\ Alapertelmezett\ ertek}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(0,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(1);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(1,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_aa896e95bb435535bdcc0b3e7bcb7f6fe}{pop\_back}}();}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(0,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_aa896e95bb435535bdcc0b3e7bcb7f6fe}{pop\_back}}();\ \textcolor{comment}{//Torles\ ha\ nincs\ semmi\ bajt\ okoz-\/e?}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 11;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(i);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ double\_test.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(i);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(20,\ int\_test.\mbox{\hyperlink{class_my_vector_adbd398910d7ae5c2b42132e10ac6f749}{capacity}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(11,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 11;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_adac3ad2d58897e80d95a64f0ec0b4229}{erase}}(0);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ double\_test.\mbox{\hyperlink{class_my_vector_aa896e95bb435535bdcc0b3e7bcb7f6fe}{pop\_back}}();}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(0,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(0,\ double\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 5;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(i);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 5;\ i++)}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_aff8385840165a184edc29446aa51936f}{EXPECT\_EQ}}(i,\ int\_test[i]);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a4b4fe697f312ef7d2618905a9bc12f04}{EXPECT\_THROW}}(int\_test[-\/1],\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a4b4fe697f312ef7d2618905a9bc12f04}{EXPECT\_THROW}}(int\_test[5],\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00063}00063\ \ \ \ \ \}\ \mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00064}00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00065}00065\ \textcolor{preprocessor}{\#if\ TST\ >\ 1}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(\mbox{\hyperlink{class_date}{Date}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00068}00068\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00069}00069\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00070}00070\ \textcolor{preprocessor}{\#if\ TST\ >\ 2}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(\mbox{\hyperlink{class_contract__date}{Contract\_date}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00073}00073\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00074}00074\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00075}00075\ \textcolor{preprocessor}{\#if\ TST\ >\ 3}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(\mbox{\hyperlink{class_client}{Client}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00078}00078\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00079}00079\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00080}00080\ \textcolor{preprocessor}{\#if\ TST\ >\ 4}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00081}00081\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(\mbox{\hyperlink{class_person}{Person}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00083}00083\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00084}00084\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00085}00085\ \textcolor{preprocessor}{\#if\ TST\ >\ 5}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(\mbox{\hyperlink{class_company}{Company}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00088}00088\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00089}00089\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00090}00090\ \textcolor{preprocessor}{\#if\ TST\ >\ 6}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00091}00091\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(\mbox{\hyperlink{class_contract}{Contract}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00093}00093\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00094}00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00095}00095\ \textcolor{preprocessor}{\#if\ TST\ >\ 7}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00096}00096\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(\mbox{\hyperlink{class_m_v_m}{MVM}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00098}00098\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00099}00099\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00100}00100\ \textcolor{preprocessor}{\#if\ TST\ >\ 8}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00101}00101\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(Szamlakeszites,\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00103}00103\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00104}00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00105}00105\ \textcolor{preprocessor}{\#if\ TST\ >\ 9}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{gtest__lite_8h_a379a7b57e74521cb2c8e99f0e2779a72}{TEST}}(Beolvasas\_fajlbol,\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00108}00108\ \ \ \ \ \}\mbox{\hyperlink{gtest__lite_8h_a29fd18bed01c4d836c7ebfe73a125c3f}{END}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00109}00109\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00111}00111\ \}}
+
+\end{DoxyCode}

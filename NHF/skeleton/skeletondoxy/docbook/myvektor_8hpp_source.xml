@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_myvektor_8hpp_source" xml:lang="en-US">
+<title>myvektor.hpp</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_myvektor_8hpp_source_1l00001"/>00001 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_myvektor_8hpp_source_1l00002"/>00002 <emphasis role="comment">//&#32;Created&#32;by&#32;Jajecnik&#32;Marcell&#32;on&#32;2023.&#32;05.&#32;04..</emphasis>
+<anchor xml:id="_myvektor_8hpp_source_1l00003"/>00003 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_myvektor_8hpp_source_1l00004"/>00004 
+<anchor xml:id="_myvektor_8hpp_source_1l00005"/>00005 <emphasis role="preprocessor">#ifndef&#32;SKELETON_MYVEKTOR_HPP</emphasis>
+<anchor xml:id="_myvektor_8hpp_source_1l00006"/>00006 <emphasis role="preprocessor">#define&#32;SKELETON_MYVEKTOR_HPP</emphasis>
+<anchor xml:id="_myvektor_8hpp_source_1l00007"/>00007 
+<anchor xml:id="_myvektor_8hpp_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;iostream&gt;</emphasis>
+<anchor xml:id="_myvektor_8hpp_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&lt;cstring&gt;</emphasis>
+<anchor xml:id="_myvektor_8hpp_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&lt;stdexcept&gt;</emphasis>
+<anchor xml:id="_myvektor_8hpp_source_1l00011"/>00011 
+<anchor xml:id="_myvektor_8hpp_source_1l00020"/>00020 <emphasis role="keyword">template</emphasis>&lt;<emphasis role="keyword">typename</emphasis>&#32;T&gt;
+<anchor xml:id="_myvektor_8hpp_source_1l00021"/><link linkend="_class_my_vector">00021</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_my_vector">MyVector</link>&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00022"/>00022 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_myvektor_8hpp_source_1l00023"/>00023 
+<anchor xml:id="_myvektor_8hpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;T*&#32;m_buffer;
+<anchor xml:id="_myvektor_8hpp_source_1l00025"/>00025 
+<anchor xml:id="_myvektor_8hpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;m_capacity;
+<anchor xml:id="_myvektor_8hpp_source_1l00027"/>00027 
+<anchor xml:id="_myvektor_8hpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;m_size;
+<anchor xml:id="_myvektor_8hpp_source_1l00029"/>00029 
+<anchor xml:id="_myvektor_8hpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;reserve(<emphasis role="keywordtype">size_t</emphasis>&#32;new_capacity)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_capacity&#32;&lt;=&#32;m_capacity)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_myvektor_8hpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;T*&#32;new_buffer&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;T[new_capacity];
+<anchor xml:id="_myvektor_8hpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;memcpy(new_buffer,&#32;m_buffer,&#32;m_size&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>(T));
+<anchor xml:id="_myvektor_8hpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>[]&#32;m_buffer;
+<anchor xml:id="_myvektor_8hpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_buffer&#32;=&#32;new_buffer;
+<anchor xml:id="_myvektor_8hpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_capacity&#32;=&#32;new_capacity;
+<anchor xml:id="_myvektor_8hpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00044"/>00044 
+<anchor xml:id="_myvektor_8hpp_source_1l00045"/>00045 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_myvektor_8hpp_source_1l00049"/><link linkend="_class_my_vector_1ac356762c5ced52c0d934476cef32e472">00049</link> &#32;&#32;&#32;&#32;<link linkend="_class_my_vector_1ac356762c5ced52c0d934476cef32e472">MyVector</link>():&#32;m_capacity(10),&#32;m_size(0)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_buffer&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;T[m_capacity];
+<anchor xml:id="_myvektor_8hpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00052"/>00052 
+<anchor xml:id="_myvektor_8hpp_source_1l00057"/><link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">00057</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">push_back</link>(T&#32;value)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(m_size&#32;==&#32;m_capacity)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;reserve(m_capacity&#32;*&#32;2);
+<anchor xml:id="_myvektor_8hpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_buffer[m_size]&#32;=&#32;value;
+<anchor xml:id="_myvektor_8hpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_size++;
+<anchor xml:id="_myvektor_8hpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00064"/>00064 
+<anchor xml:id="_myvektor_8hpp_source_1l00069"/><link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">00069</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_myvektor_8hpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_size;
+<anchor xml:id="_myvektor_8hpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00072"/>00072 
+<anchor xml:id="_myvektor_8hpp_source_1l00077"/><link linkend="_class_my_vector_1adbd398910d7ae5c2b42132e10ac6f749">00077</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_class_my_vector_1adbd398910d7ae5c2b42132e10ac6f749">capacity</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_myvektor_8hpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_capacity;
+<anchor xml:id="_myvektor_8hpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00080"/>00080 
+<anchor xml:id="_myvektor_8hpp_source_1l00085"/><link linkend="_class_my_vector_1adac3ad2d58897e80d95a64f0ec0b4229">00085</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_my_vector_1adac3ad2d58897e80d95a64f0ec0b4229">erase</link>(<emphasis role="keywordtype">size_t</emphasis>&#32;pos)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pos&#32;&gt;=&#32;m_size)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_myvektor_8hpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;pos;&#32;i&#32;&lt;&#32;m_size&#32;-&#32;1;&#32;i++)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_buffer[i]&#32;=&#32;m_buffer[i&#32;+&#32;1];
+<anchor xml:id="_myvektor_8hpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_size--;
+<anchor xml:id="_myvektor_8hpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00094"/>00094 
+<anchor xml:id="_myvektor_8hpp_source_1l00098"/><link linkend="_class_my_vector_1aa896e95bb435535bdcc0b3e7bcb7f6fe">00098</link> &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_my_vector_1aa896e95bb435535bdcc0b3e7bcb7f6fe">pop_back</link>()&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(m_size&#32;&gt;&#32;0)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;m_size--;
+<anchor xml:id="_myvektor_8hpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00103"/>00103 
+<anchor xml:id="_myvektor_8hpp_source_1l00109"/><link linkend="_class_my_vector_1acf173c5fcfee199d9bb6a524de8e83db">00109</link> &#32;&#32;&#32;&#32;T&amp;&#32;<link linkend="_class_my_vector_1acf173c5fcfee199d9bb6a524de8e83db">operator[]</link>(<emphasis role="keywordtype">size_t</emphasis>&#32;i)&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((i&lt;0&#32;||&#32;i&gt;=m_size))&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::range_error(<emphasis role="stringliteral">&quot;Index&#32;error&quot;</emphasis>);
+<anchor xml:id="_myvektor_8hpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_buffer[i];
+<anchor xml:id="_myvektor_8hpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00113"/>00113 
+<anchor xml:id="_myvektor_8hpp_source_1l00119"/><link linkend="_class_my_vector_1a142a57270d9e3306994a616ae2b07a4b">00119</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;T&amp;&#32;<link linkend="_class_my_vector_1a142a57270d9e3306994a616ae2b07a4b">operator[]</link>(<emphasis role="keywordtype">size_t</emphasis>&#32;i)<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_myvektor_8hpp_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((i&lt;0&#32;||&#32;i&gt;=m_size))&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::range_error(<emphasis role="stringliteral">&quot;Index&#32;error&quot;</emphasis>);
+<anchor xml:id="_myvektor_8hpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;m_buffer[i];
+<anchor xml:id="_myvektor_8hpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_myvektor_8hpp_source_1l00123"/>00123 
+<anchor xml:id="_myvektor_8hpp_source_1l00127"/><link linkend="_class_my_vector_1abe59f181259ff63fa583f4bd87a9737e">00127</link> &#32;&#32;&#32;&#32;<link linkend="_class_my_vector_1abe59f181259ff63fa583f4bd87a9737e">~MyVector</link>()&#32;{
+<anchor xml:id="_myvektor_8hpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>[]&#32;m_buffer;
+<anchor xml:id="_myvektor_8hpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_myvektor_8hpp_source_1l00130"/>00130 };
+<anchor xml:id="_myvektor_8hpp_source_1l00131"/>00131 
+<anchor xml:id="_myvektor_8hpp_source_1l00132"/>00132 
+<anchor xml:id="_myvektor_8hpp_source_1l00133"/>00133 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SKELETON_MYVEKTOR_HPP</emphasis>
+</programlisting></section>

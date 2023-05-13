@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_memtrace_8h_source" xml:lang="en-US">
+<title>memtrace.h</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_memtrace_8h_source_1l00001"/>00001 <emphasis role="comment">/*********************************</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00002"/>00002 <emphasis role="comment">Memoriaszivargas-detektor</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00003"/>00003 <emphasis role="comment">Keszitette:&#32;Peregi&#32;Tamas,&#32;BME&#32;IIT,&#32;2011</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00004"/>00004 <emphasis role="comment">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;petamas@iit.bme.hu</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00005"/>00005 <emphasis role="comment">Kanari:&#32;&#32;&#32;&#32;&#32;Szeberenyi&#32;Imre,&#32;2013.,</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00006"/>00006 <emphasis role="comment">VS&#32;2012:&#32;&#32;&#32;&#32;Szeberényi&#32;Imre,&#32;2015.,</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00007"/>00007 <emphasis role="comment">mem_dump:&#32;&#32;&#32;2016.</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00008"/>00008 <emphasis role="comment">inclue-ok:&#32;&#32;2017.,&#32;2018.,&#32;2019.,&#32;2021.</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00009"/>00009 <emphasis role="comment">*********************************/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00010"/>00010 
+<anchor xml:id="_memtrace_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#ifndef&#32;MEMTRACE_H</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#define&#32;MEMTRACE_H</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00013"/>00013 
+<anchor xml:id="_memtrace_8h_source_1l00014"/>00014 <emphasis role="preprocessor">#if&#32;defined(MEMTRACE)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00015"/>00015 
+<anchor xml:id="_memtrace_8h_source_1l00016"/>00016 <emphasis role="comment">/*ha&#32;definiálva&#32;van,&#32;akkor&#32;a&#32;hibakat&#32;ebbe&#32;a&#32;fajlba&#32;írja,&#32;egyébkent&#32;stderr-re*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00017"/>00017 <emphasis role="comment">/*#define&#32;MEMTRACE_ERRFILE&#32;MEMTRACE.ERR*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00018"/>00018 
+<anchor xml:id="_memtrace_8h_source_1l00019"/>00019 <emphasis role="comment">/*ha&#32;definialva&#32;van,&#32;akkor&#32;futas&#32;kozben&#32;lancolt&#32;listat&#32;epit.&#32;Javasolt&#32;a&#32;hasznalata*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00020"/>00020 <emphasis role="preprocessor">#define&#32;MEMTRACE_TO_MEMORY</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00021"/>00021 
+<anchor xml:id="_memtrace_8h_source_1l00022"/>00022 <emphasis role="comment">/*ha&#32;definialva&#32;van,&#32;akkor&#32;futas&#32;kozben&#32;fajlba&#32;irja&#32;a&#32;foglalasokat*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00023"/>00023 <emphasis role="comment">/*ekkor&#32;nincs&#32;ellenorzes,&#32;csak&#32;naplozas*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00024"/>00024 <emphasis role="comment">/*#define&#32;MEMTRACE_TO_FILE*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00025"/>00025 
+<anchor xml:id="_memtrace_8h_source_1l00026"/>00026 <emphasis role="comment">/*ha&#32;definialva&#32;van,&#32;akkor&#32;a&#32;megallaskor&#32;automatikus&#32;riport&#32;keszul&#32;*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00027"/>00027 <emphasis role="preprocessor">#define&#32;MEMTRACE_AUTO</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00028"/>00028 
+<anchor xml:id="_memtrace_8h_source_1l00029"/>00029 <emphasis role="comment">/*ha&#32;definialva&#32;van,&#32;akkor&#32;malloc()/calloc()/realloc()/free()&#32;kovetve&#32;lesz*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00030"/>00030 <emphasis role="preprocessor">#define&#32;MEMTRACE_C</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00031"/>00031 
+<anchor xml:id="_memtrace_8h_source_1l00032"/>00032 <emphasis role="preprocessor">#ifdef&#32;MEMTRACE_C</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="comment">/*ha&#32;definialva&#32;van,&#32;akkor&#32;free(NULL)&#32;nem&#32;okoz&#32;hibat*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00034"/>00034 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;ALLOW_FREE_NULL</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00035"/>00035 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00036"/>00036 
+<anchor xml:id="_memtrace_8h_source_1l00037"/>00037 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="comment">/*ha&#32;definialva&#32;van,&#32;akkor&#32;new/delete/new[]/delete[]&#32;kovetve&#32;lesz*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00039"/>00039 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;MEMTRACE_CPP</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00040"/>00040 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00041"/>00041 
+<anchor xml:id="_memtrace_8h_source_1l00042"/>00042 <emphasis role="preprocessor">#if&#32;defined(__cplusplus)&#32;&amp;&amp;&#32;defined(MEMTRACE_TO_MEMORY)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00043"/>00043 &#32;&#32;&#32;&#32;<emphasis role="comment">/*ha&#32;definialva&#32;van,&#32;akkor&#32;atexit&#32;helyett&#32;objektumot&#32;hasznal*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="comment">/*ajanlott&#32;bekapcsolni*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00045"/>00045 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;USE_ATEXIT_OBJECT</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00046"/>00046 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00047"/>00047 
+<anchor xml:id="_memtrace_8h_source_1l00048"/>00048 <emphasis role="comment">/******************************************/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00049"/>00049 <emphasis role="comment">/*&#32;INNEN&#32;NE&#32;MODOSITSD&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00050"/>00050 <emphasis role="comment">/******************************************/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00051"/>00051 <emphasis role="preprocessor">#ifdef&#32;NO_MEMTRACE_TO_FILE</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00052"/>00052 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#undef&#32;MEMTRACE_TO_FILE</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00053"/>00053 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00054"/>00054 
+<anchor xml:id="_memtrace_8h_source_1l00055"/>00055 <emphasis role="preprocessor">#ifdef&#32;NO_MEMTRACE_TO_MEMORY</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00056"/>00056 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#undef&#32;MEMTRACE_TO_MEMORY</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00057"/>00057 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00058"/>00058 
+<anchor xml:id="_memtrace_8h_source_1l00059"/>00059 <emphasis role="preprocessor">#ifndef&#32;MEMTRACE_AUTO</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00060"/>00060 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#undef&#32;USE_ATEXIT_OBJECT</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00061"/>00061 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00062"/>00062 
+<anchor xml:id="_memtrace_8h_source_1l00063"/>00063 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00064"/>00064 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;START_NAMESPACE&#32;namespace&#32;memtrace&#32;{</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00065"/>00065 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;END_NAMESPACE&#32;}&#32;</emphasis><emphasis role="comment">/*namespace*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00066"/>00066 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;TRACEC(func)&#32;memtrace::func</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00067"/>00067 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;new&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00068"/>00068 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00069"/>00069 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;START_NAMESPACE</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00070"/>00070 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;END_NAMESPACE</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00071"/>00071 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;TRACEC(func)&#32;func</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00072"/>00072 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00073"/>00073 
+<anchor xml:id="_memtrace_8h_source_1l00074"/>00074 <emphasis role="comment">//&#32;THROW&#32;deklaráció&#32;változatai</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00075"/>00075 <emphasis role="preprocessor">#if&#32;defined(_MSC_VER)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00076"/>00076 &#32;&#32;<emphasis role="comment">//&#32;VS&#32;rosszul&#32;kezeli&#32;az&#32;__cplusplus&#32;makrot</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00077"/>00077 <emphasis role="preprocessor">&#32;&#32;#if&#32;_MSC_VER&#32;&lt;&#32;1900</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00078"/>00078 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;*&#32;nem&#32;biztos,&#32;hogy&#32;jó&#32;így&#32;*</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00079"/>00079 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;THROW_BADALLOC</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00080"/>00080 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;THROW_NOTHING</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00081"/>00081 <emphasis role="preprocessor">&#32;&#32;#else</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00082"/>00082 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;C++11&#32;vagy&#32;újabb</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00083"/>00083 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;THROW_BADALLOC&#32;noexcept(false)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00084"/>00084 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;THROW_NOTHING&#32;noexcept</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00085"/>00085 <emphasis role="preprocessor">&#32;&#32;#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00086"/>00086 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00087"/>00087 <emphasis role="preprocessor">&#32;&#32;#if&#32;__cplusplus&#32;&lt;&#32;201103L</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;C++2003&#32;vagy&#32;régebbi</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00089"/>00089 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;THROW_BADALLOC&#32;throw&#32;(std::bad_alloc)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00090"/>00090 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;THROW_NOTHING&#32;throw&#32;()</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00091"/>00091 <emphasis role="preprocessor">&#32;&#32;#else</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00092"/>00092 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;C++11&#32;vagy&#32;újabb</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00093"/>00093 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;THROW_BADALLOC&#32;noexcept(false)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00094"/>00094 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;THROW_NOTHING&#32;noexcept</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00095"/>00095 <emphasis role="preprocessor">&#32;&#32;#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00096"/>00096 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00097"/>00097 
+<anchor xml:id="_memtrace_8h_source_1l00098"/>00098 START_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00099"/>00099 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;allocated_blocks();
+<anchor xml:id="_memtrace_8h_source_1l00100"/>00100 END_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00101"/>00101 
+<anchor xml:id="_memtrace_8h_source_1l00102"/>00102 <emphasis role="preprocessor">#if&#32;defined(MEMTRACE_TO_MEMORY)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00103"/>00103 START_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;mem_check(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_memtrace_8h_source_1l00105"/>00105 END_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00106"/>00106 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00107"/>00107 
+<anchor xml:id="_memtrace_8h_source_1l00108"/>00108 <emphasis role="preprocessor">#if&#32;defined(MEMTRACE_TO_MEMORY)&#32;&amp;&amp;&#32;defined(USE_ATEXIT_OBJECT)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00109"/>00109 <emphasis role="preprocessor">#include&#32;&lt;cstdio&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00110"/>00110 START_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00111"/>00111 &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis>atexit_class&#32;{
+<anchor xml:id="_memtrace_8h_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_memtrace_8h_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;counter;
+<anchor xml:id="_memtrace_8h_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;err;
+<anchor xml:id="_memtrace_8h_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_memtrace_8h_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;atexit_class()&#32;{
+<anchor xml:id="_memtrace_8h_source_1l00117"/>00117 <emphasis role="preprocessor">#if&#32;defined(CPORTA)&#32;&amp;&amp;&#32;!defined(CPORTA_NOSETBUF)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(counter&#32;==&#32;0)&#32;{
+<anchor xml:id="_memtrace_8h_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;setbuf(stdout,&#32;0);
+<anchor xml:id="_memtrace_8h_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;setbuf(stderr,&#32;0);
+<anchor xml:id="_memtrace_8h_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_memtrace_8h_source_1l00122"/>00122 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;counter++;
+<anchor xml:id="_memtrace_8h_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_memtrace_8h_source_1l00125"/>00125 
+<anchor xml:id="_memtrace_8h_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;check()&#32;{
+<anchor xml:id="_memtrace_8h_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(--counter&#32;==&#32;0)
+<anchor xml:id="_memtrace_8h_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;err&#32;=&#32;mem_check();
+<anchor xml:id="_memtrace_8h_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;err;
+<anchor xml:id="_memtrace_8h_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_memtrace_8h_source_1l00131"/>00131 
+<anchor xml:id="_memtrace_8h_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;~atexit_class()&#32;{
+<anchor xml:id="_memtrace_8h_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;check();
+<anchor xml:id="_memtrace_8h_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_memtrace_8h_source_1l00135"/>00135 &#32;&#32;&#32;&#32;};
+<anchor xml:id="_memtrace_8h_source_1l00136"/>00136 
+<anchor xml:id="_memtrace_8h_source_1l00137"/>00137 <emphasis role="keyword">static</emphasis>&#32;atexit_class&#32;atexit_obj;
+<anchor xml:id="_memtrace_8h_source_1l00138"/>00138 
+<anchor xml:id="_memtrace_8h_source_1l00139"/>00139 END_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00140"/>00140 <emphasis role="preprocessor">#endif</emphasis><emphasis role="comment">/*MEMTRACE_TO_MEMORY&#32;&amp;&amp;&#32;USE_ATEXIT_OBJECT*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00141"/>00141 
+<anchor xml:id="_memtrace_8h_source_1l00142"/>00142 <emphasis role="comment">/*Innentol&#32;csak&#32;a&#32;&quot;normal&quot;&#32;include&#32;eseten&#32;kell,&#32;kulonben&#32;osszezavarja&#32;a&#32;mukodest*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00143"/>00143 <emphasis role="preprocessor">#ifndef&#32;FROM_MEMTRACE_CPP</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00144"/>00144 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00145"/>00145 <emphasis role="preprocessor">#ifdef&#32;__cplusplus</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00146"/>00146 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;iostream&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00147"/>00147 <emphasis role="comment">/*&#32;ide&#32;gyűjtjük&#32;a&#32;nemtrace-vel&#32;összeakadó&#32;headereket,&#32;hogy&#32;előbb&#32;legyenek&#32;*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00148"/>00148 
+<anchor xml:id="_memtrace_8h_source_1l00149"/>00149 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;fstream&gt;</emphasis>&#32;&#32;<emphasis role="comment">//&#32;VS&#32;2013&#32;headerjében&#32;van&#32;deleted&#32;definició</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00150"/>00150 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;sstream&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00151"/>00151 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;vector&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00152"/>00152 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;list&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00153"/>00153 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;map&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00154"/>00154 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;algorithm&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00155"/>00155 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;functional&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00156"/>00156 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;memory&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00157"/>00157 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;iomanip&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00158"/>00158 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;locale&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00159"/>00159 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;typeinfo&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00160"/>00160 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;ostream&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00161"/>00161 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;stdexcept&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00162"/>00162 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;ctime&gt;</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00163"/>00163 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00164"/>00164 <emphasis role="preprocessor">#ifdef&#32;MEMTRACE_CPP</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00165"/>00165 &#32;&#32;&#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis>std&#32;{
+<anchor xml:id="_memtrace_8h_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;void&#32;(*new_handler)();
+<anchor xml:id="_memtrace_8h_source_1l00167"/>00167 }
+<anchor xml:id="_memtrace_8h_source_1l00168"/>00168 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00169"/>00169 
+<anchor xml:id="_memtrace_8h_source_1l00170"/>00170 <emphasis role="preprocessor">#ifdef&#32;MEMTRACE_C</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00171"/>00171 START_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00172"/>00172 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#undef&#32;malloc</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00173"/>00173 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;malloc(size)&#32;TRACEC(traced_malloc)(size,#size,__LINE__,__FILE__)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00174"/>00174 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*&#32;traced_malloc(<emphasis role="keywordtype">size_t</emphasis>&#32;size,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*size_txt,&#32;<emphasis role="keywordtype">int</emphasis>&#32;line,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*&#32;file);
+<anchor xml:id="_memtrace_8h_source_1l00175"/>00175 
+<anchor xml:id="_memtrace_8h_source_1l00176"/>00176 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#undef&#32;calloc</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00177"/>00177 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;calloc(count,size)&#32;TRACEC(traced_calloc)(count,&#32;size,&#32;#count&quot;,&quot;</emphasis>#size,__LINE__,__FILE__)
+<anchor xml:id="_memtrace_8h_source_1l00178"/>00178 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*&#32;traced_calloc(<emphasis role="keywordtype">size_t</emphasis>&#32;count,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;size,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*size_txt,&#32;<emphasis role="keywordtype">int</emphasis>&#32;line,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*&#32;file);
+<anchor xml:id="_memtrace_8h_source_1l00179"/>00179 
+<anchor xml:id="_memtrace_8h_source_1l00180"/>00180 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#undef&#32;free</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00181"/>00181 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;free(p)&#32;TRACEC(traced_free)(p,&#32;#p,__LINE__,__FILE__)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00182"/>00182 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;traced_free(<emphasis role="keywordtype">void</emphasis>&#32;*&#32;p,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*size_txt,&#32;<emphasis role="keywordtype">int</emphasis>&#32;line,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*&#32;file);
+<anchor xml:id="_memtrace_8h_source_1l00183"/>00183 
+<anchor xml:id="_memtrace_8h_source_1l00184"/>00184 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#undef&#32;realloc</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00185"/>00185 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;realloc(old,size)&#32;TRACEC(traced_realloc)(old,size,#size,__LINE__,__FILE__)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00186"/>00186 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;*&#32;traced_realloc(<emphasis role="keywordtype">void</emphasis>&#32;*&#32;old,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;size,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*size_txt,&#32;<emphasis role="keywordtype">int</emphasis>&#32;line,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*&#32;file);
+<anchor xml:id="_memtrace_8h_source_1l00187"/>00187 
+<anchor xml:id="_memtrace_8h_source_1l00188"/>00188 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;mem_dump(<emphasis role="keywordtype">void</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;*mem,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;size,&#32;FILE*&#32;fp&#32;=&#32;stdout);
+<anchor xml:id="_memtrace_8h_source_1l00189"/>00189 
+<anchor xml:id="_memtrace_8h_source_1l00190"/>00190 
+<anchor xml:id="_memtrace_8h_source_1l00191"/>00191 END_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00192"/>00192 <emphasis role="preprocessor">#endif</emphasis><emphasis role="comment">/*MEMTRACE_C*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00193"/>00193 
+<anchor xml:id="_memtrace_8h_source_1l00194"/>00194 <emphasis role="preprocessor">#ifdef&#32;MEMTRACE_CPP</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00195"/>00195 START_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00196"/>00196 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#undef&#32;set_new_handler</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00197"/>00197 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#define&#32;set_new_handler(f)&#32;TRACEC(_set_new_handler)(f)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00198"/>00198 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;_set_new_handler(std::new_handler&#32;h);
+<anchor xml:id="_memtrace_8h_source_1l00199"/>00199 
+<anchor xml:id="_memtrace_8h_source_1l00200"/>00200 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;set_delete_call(<emphasis role="keywordtype">int</emphasis>&#32;line,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*&#32;file);
+<anchor xml:id="_memtrace_8h_source_1l00201"/>00201 END_NAMESPACE
+<anchor xml:id="_memtrace_8h_source_1l00202"/>00202 
+<anchor xml:id="_memtrace_8h_source_1l00203"/>00203 <emphasis role="keywordtype">void</emphasis>&#32;*&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">new</emphasis>(<emphasis role="keywordtype">size_t</emphasis>&#32;size,&#32;<emphasis role="keywordtype">int</emphasis>&#32;line,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*&#32;file)&#32;THROW_BADALLOC;
+<anchor xml:id="_memtrace_8h_source_1l00204"/>00204 <emphasis role="keywordtype">void</emphasis>&#32;*&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">new</emphasis>[](<emphasis role="keywordtype">size_t</emphasis>&#32;size,&#32;<emphasis role="keywordtype">int</emphasis>&#32;line,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*&#32;file)&#32;THROW_BADALLOC;
+<anchor xml:id="_memtrace_8h_source_1l00205"/>00205 <emphasis role="keywordtype">void</emphasis>&#32;*&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">new</emphasis>(<emphasis role="keywordtype">size_t</emphasis>&#32;size)&#32;THROW_BADALLOC;
+<anchor xml:id="_memtrace_8h_source_1l00206"/>00206 <emphasis role="keywordtype">void</emphasis>&#32;*&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">new</emphasis>[](<emphasis role="keywordtype">size_t</emphasis>&#32;size)&#32;THROW_BADALLOC;
+<anchor xml:id="_memtrace_8h_source_1l00207"/>00207 <emphasis role="keywordtype">void</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">delete</emphasis>(<emphasis role="keywordtype">void</emphasis>&#32;*&#32;p)&#32;&#32;THROW_NOTHING;
+<anchor xml:id="_memtrace_8h_source_1l00208"/>00208 <emphasis role="keywordtype">void</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">delete</emphasis>[](<emphasis role="keywordtype">void</emphasis>&#32;*&#32;p)&#32;THROW_NOTHING;
+<anchor xml:id="_memtrace_8h_source_1l00209"/>00209 
+<anchor xml:id="_memtrace_8h_source_1l00210"/>00210 <emphasis role="preprocessor">#if&#32;__cplusplus&#32;&gt;=&#32;201402L</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00211"/>00211 <emphasis role="comment">//&#32;sized&#32;delete&#32;miatt:&#32;http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3536.html</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00212"/>00212 <emphasis role="keywordtype">void</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">delete</emphasis>(<emphasis role="keywordtype">void</emphasis>&#32;*&#32;p,&#32;size_t)&#32;&#32;THROW_NOTHING;
+<anchor xml:id="_memtrace_8h_source_1l00213"/>00213 <emphasis role="keywordtype">void</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">delete</emphasis>[](<emphasis role="keywordtype">void</emphasis>&#32;*&#32;p,&#32;size_t)&#32;THROW_NOTHING;
+<anchor xml:id="_memtrace_8h_source_1l00214"/>00214 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00215"/>00215 
+<anchor xml:id="_memtrace_8h_source_1l00216"/>00216 <emphasis role="comment">/*&#32;Visual&#32;C++&#32;2012&#32;miatt&#32;kell,&#32;mert&#32;háklis,&#32;hogy&#32;nincs&#32;megfelelő&#32;delete,&#32;bár&#32;senki&#32;sem&#32;használja&#32;*/</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00217"/>00217 <emphasis role="keywordtype">void</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">delete</emphasis>(<emphasis role="keywordtype">void</emphasis>&#32;*p,&#32;int,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*)&#32;THROW_NOTHING;
+<anchor xml:id="_memtrace_8h_source_1l00218"/>00218 <emphasis role="keywordtype">void</emphasis>&#32;<emphasis role="keyword">operator</emphasis>&#32;<emphasis role="keyword">delete</emphasis>[](<emphasis role="keywordtype">void</emphasis>&#32;*p,&#32;int,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*)&#32;THROW_NOTHING;
+<anchor xml:id="_memtrace_8h_source_1l00219"/>00219 
+<anchor xml:id="_memtrace_8h_source_1l00220"/>00220 
+<anchor xml:id="_memtrace_8h_source_1l00221"/>00221 <emphasis role="preprocessor">#define&#32;new&#32;new(__LINE__,&#32;__FILE__)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00222"/>00222 <emphasis role="preprocessor">#define&#32;delete&#32;memtrace::set_delete_call(__LINE__,&#32;__FILE__),delete</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00223"/>00223 
+<anchor xml:id="_memtrace_8h_source_1l00224"/>00224 <emphasis role="preprocessor">#ifdef&#32;CPORTA</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00225"/>00225 <emphasis role="preprocessor">#define&#32;system(...)&#32;&#32;</emphasis><emphasis role="comment">//&#32;system(__VA_ARGS__)</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00226"/>00226 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00227"/>00227 
+<anchor xml:id="_memtrace_8h_source_1l00228"/>00228 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*MEMTRACE_CPP*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00229"/>00229 
+<anchor xml:id="_memtrace_8h_source_1l00230"/>00230 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*FROM_MEMTRACE_CPP*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00231"/>00231 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00232"/>00232 <emphasis role="preprocessor">#pragma&#32;message&#32;(&#32;&quot;MEMTRACE&#32;NOT&#32;DEFINED&quot;</emphasis>&#32;)
+<anchor xml:id="_memtrace_8h_source_1l00233"/>00233 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*MEMTRACE*/</emphasis><emphasis role="preprocessor"></emphasis>
+<anchor xml:id="_memtrace_8h_source_1l00234"/>00234 
+<anchor xml:id="_memtrace_8h_source_1l00235"/>00235 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">/*MEMTRACE_H*/</emphasis><emphasis role="preprocessor"></emphasis>
+</programlisting></section>
