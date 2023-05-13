@@ -11,19 +11,7 @@
 
 class Client;
 
-/** @enum ContractType
- * A szerződés fajtáját lehet beállítani vele
- */
-enum ContractType {
-    Regular,
-    VIP,
-    Premium,
-    Corporate,
-    Student,
-    SeniorCitizen,
-    Government,
-    Onetime
-};
+
 
 /**
  * @class Contract
@@ -41,7 +29,7 @@ private:
 
     Client* client;
     int contract_ID;
-    ContractType contract_type;
+    Contract::ContractType contract_type;
     Contract_date contract_time;
     Date last_invoicing;
     double tariff;
@@ -49,6 +37,20 @@ private:
     double consumption;
 
 public:
+    /** @enum ContractType
+ * A szerződés fajtáját lehet beállítani vele
+ */
+    enum ContractType {
+        Regular,
+        VIP,
+        Premium,
+        Corporate,
+        Student,
+        SeniorCitizen,
+        Government,
+        Onetime
+    };
+
     /**@brief Alapértékes konstruktor egy szerződéshez
      *
      * @param client_in Szerződést kötő ügyfél (kötelező)
@@ -66,7 +68,7 @@ public:
      * @param balance_in Jelenlegi egyenleg
      * @param consumption_in Jelenlegi fogyasztás
      */
-    Contract(Client* client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, size_t ContractID_in ,double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)
+    Contract(Client* client_in, Contract::ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, size_t ContractID_in ,double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)
             :client(client_in),contract_ID(ContractID_in), contract_type(ctype_in), contract_time(year_begin, month_begin, day_begin, year_end, month_end, day_end), last_invoicing(invo_in_year, invo_in_month, invo_in_day), tariff(tariff_in), balance(balance_in), consumption(consumption_in)
     {}
 
@@ -75,7 +77,7 @@ public:
      *
      * @param ctype_in Beállítandó szerződéstípus
      */
-    void setCtype(ContractType ctype_in);
+    void setCtype(Contract::ContractType ctype_in);
 
     /**@brief Beállítja az új tarifát
      *
@@ -119,7 +121,7 @@ public:
      *
      * @return Szerződés típusa
      */
-    ContractType getCtype() const;
+   Contract::ContractType getCtype() const;
 
     /**@brief Visszaadja a tarifát
      *
