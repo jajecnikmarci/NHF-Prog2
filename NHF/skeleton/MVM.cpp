@@ -4,7 +4,7 @@
 
 #include "MVM.h"
 
-Company MVM::MVM_company = Company("MVM ZRT.", 10760798244);
+Company MVM::MVM_company = Company("MVM ZRT.", "10760798244");
 
 void MVM::addClient(Client* client_in) {
     clients.push_back(client_in);
@@ -17,19 +17,21 @@ Contract new_contract(client_in, ctype_in, year_begin, month_begin, day_begin, y
     client_in->addContract(new_contract);
 }
 
-Client *MVM::getClient(const std::string name_in) {
+Client *MVM::getClient(const std::string name_in, const std::string somekindofID) {
     for (size_t i = 0; i < clients.size(); ++i) {
-        if (name_in==clients[i]->getName()) return clients[i];
+        std::string subclient_info = clients[i]->getsub_Client_info();
+        if (name_in == clients[i]->getName() && (subclient_info.substr(subclient_info.length() - 11, 11) == somekindofID || subclient_info.substr(subclient_info.length() - 8, 8) == somekindofID));
+        return clients[i];
     }
     return nullptr;
 }
 
 const std::string MVM::getCompanyDetails() {
-    return "Company name: " + MVM_company.getName() + ", Tax ID: " + std::to_string(MVM_company.getID());
+    return "Company name: " + MVM_company.getName() + ", Tax ID: " + MVM_company.getID();
 }
 
-void MVM::deleteClient(const std::string name_in) {
-    delete getClient(name_in);
+void MVM::deleteClient(const std::string name_in, const std::string somekindofID) {
+    delete getClient(name_in, somekindofID);
 }
 
 MVM::~MVM(){

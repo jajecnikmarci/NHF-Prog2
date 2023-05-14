@@ -78,18 +78,18 @@ public:
 };
 
 /**@brief Magánszemély adatait tárolja
- * @param ID A személy személyazonosító száma
+ * @param ID A személy személyazonosító száma 8 jegyű
 */
 class Person: public Client{
 private:
-    long ID;
+    std::string ID;
 public:
     /**@brief Alapértékes konstruktor
      * @param name_in Bejövő magánszemély neve
      * @param ID_in Bejövő magánszemély személyigazolványszáma
      * @param SumOfAll_contract A kliens által eddig kötött szerződések száma (nem jelenlegi)
     */
-    Person(const std::string name_in="", long ID_in=0)
+    Person(const std::string name_in="", std::string ID_in="")
     : Client(std::string(name_in)), ID(ID_in)
     {}
 
@@ -97,13 +97,13 @@ public:
      *
      * @param ID_in Beérkező személyigazolványszám
      */
-    void setID(long ID_in);
+    void setID(std::string ID_in);
 
     /**@brief Magánszemély személyigazolványszámát adja vissza
      *
      * @return Magánszemély személyigazolványszáma
      */
-    long getID() const;
+    std::string getID() const;
 
     /**
      * @brief Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben.
@@ -119,11 +119,11 @@ public:
 };
 
 /**@brief Egy cég adatait tárolja
- *@param Tax_ID A cég adóazonosító száma
+ *@param Tax_ID A cég adóazonosító száma 11 jegyű
  */
 class Company: public Client{
 private:
-    long Tax_ID;
+    std::string Tax_ID;
 public:
 
     /**@brief Alapértékes kontruktor
@@ -132,7 +132,7 @@ public:
      * @param ID_in Bejövő Cég adószám
      * @param SumOfAllContract A kliens által eddig kötött szerződések száma (nem jelenlegi)
      */
-    Company(std::string name_in="", long ID_in=0)
+    Company(std::string name_in="", std::string ID_in=0)
     : Client(name_in), Tax_ID(ID_in)
     {}
 
@@ -140,13 +140,13 @@ public:
      *
      * @param ID_in Bejövő Cég adószám
      */
-    void setID(long ID_in);
+    void setID(std::string ID_in);
 
     /**@brief Cég adószámát adja vissza
      *
      * @return Cég adószáma
      */
-    long getID() const;
+    std::string getID() const;
 
     /**
      * @brief Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben.

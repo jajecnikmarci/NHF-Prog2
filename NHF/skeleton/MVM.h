@@ -67,7 +67,7 @@ public:
      * @param name_in Keresett ügyfél neve
      * @return Keresett ügyfél
      */
-    Client* getClient(const std::string name_in);
+    Client* getClient(const std::string name_in,const std::string somekindofID);
 
     /**
      * @brief Az MVM adatait adja vissza
@@ -79,7 +79,7 @@ public:
      *
      * @param name_in Törlendő ügyfél neve
      */
-    void deleteClient(const std::string name_in);
+    void deleteClient(const std::string name_in, const std::string somekindofID);
 
     /**@brief Destruktor
      *

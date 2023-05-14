@@ -33,14 +33,14 @@ Contract &Client::getContract(size_t contract_index) {
 }
 
 std::string Person::getsub_Client_info() {
-    return "Person name: " + getName() + ", ID: " + std::to_string(ID);
+    return "Person name: " + getName() + ", ID: " + ID;
 }
 
-long Person::getID() const {
+std::string Person::getID() const {
     return ID;
 }
 
-void Person::setID(long ID_in) {
+void Person::setID(std::string ID_in) {
     ID=ID_in;
 }
 
@@ -48,16 +48,16 @@ Person::~Person() {
 
 }
 
-long Company::getID() const {
+std::string Company::getID() const {
     return Tax_ID;
 }
 
-void Company::setID(long ID_in) {
+void Company::setID(std::string ID_in) {
     Tax_ID=ID_in;
 }
 
 std::string Company::getsub_Client_info() {
-    return "Company name: " + getName() + ", Tax ID: " + std::to_string(Tax_ID);
+    return "Company name: " + getName() + ", Tax ID: " + Tax_ID;
 }
 
 
