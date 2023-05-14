@@ -63,8 +63,9 @@ public:
     void addContract(Client* client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, double tariff_in = 0.0, double balance_in = 0.0, double consumption_in = 0.0);
 
     /**@brief Visszaadja a keresett ügyfelet a neve alapján
-     *
+     * @details A függvény mivel nem tudja hogy a client melyik alosztályát próbáljuk megkapni, így a módszer az hogy a sublientinfóját hasonlítjuk össze azzal amire számítanánk hogy lesz
      * @param name_in Keresett ügyfél neve
+     * @param somekindofID A keresett ügyfél valamilyen azonosítója
      * @return Keresett ügyfél
      */
     Client* getClient(const std::string name_in,const std::string somekindofID);
