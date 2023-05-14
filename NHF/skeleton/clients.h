@@ -132,7 +132,7 @@ public:
      * @param ID_in Bejövő Cég adószám
      * @param SumOfAllContract A kliens által eddig kötött szerződések száma (nem jelenlegi)
      */
-    Company(std::string name_in="", std::string ID_in=0)
+    Company(std::string name_in="", std::string ID_in="")
     : Client(name_in), Tax_ID(ID_in)
     {}
 
