@@ -120,7 +120,7 @@ public:
         if(begin_date > end_date) throw std::range_error("A szerződés kezdete később van mint a szerződés vége");
     }
 
-    /**@brief Konstruktor
+    /**@brief Konstruktor intekkel megadott paraméterekből
      *
      * @param year_begin Bejövő kezdeti év
      * @param month_begin Bejövő kezdeti hónap
@@ -148,7 +148,13 @@ public:
      */
     Date getEnd() const;
 
-    /**@brief Beállítja a kezdeti időpontot
+    /**@brief Beállítja a kezdeti időpontot Date-ből
+     *
+     * @param beg_in Bejövő dátum
+     */
+    void setBegin(Date beg_in);
+
+    /**@brief Beállítja a kezdeti időpontot intekből
      *
      * @param year Beállítandó év
      * @param month Beállítandó hónap
@@ -156,7 +162,13 @@ public:
      */
     void setBegin(int year, int month, int day);
 
-    /**@brief Beállítja a végső időpontot
+    /**@brief Beállítja a végső időpontot Date-ből
+     *
+     * @param beg_in Bejövő dátum
+     */
+    void setEnd(Date end_in);
+
+    /**@brief Beállítja a végső időpontot intekből
      *
      * @param year Beállítandó év
      * @param month Beállítandó hónap

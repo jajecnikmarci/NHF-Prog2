@@ -29,6 +29,7 @@ enum class ContractType {
  * @class Contract
  * @brief Egy szerződést tárol
  * @param client Tárolja a szerződéstkötő adatait
+ * @param contract_ID A szerződés azonosítószáma
  * @param contract_type A szerződés típusát tárolja
  * @param contract_time A szerződés időtartamát adja meg egy kezdő és egy végdátummal
  * @param last_invoicing Utolsó számlakibocsájtás ideje

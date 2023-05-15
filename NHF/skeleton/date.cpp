@@ -68,9 +68,17 @@ Date Contract_date::getEnd() const {
     return end;
 }
 
+void Contract_date::setBegin(Date beg_in) {
+    begin=beg_in;
+}
+
 void Contract_date::setBegin(int year, int month, int day) {
     begin = Date(year, month, day);
 
+}
+
+void Contract_date::setEnd(Date end_in) {
+    end= end_in;
 }
 
 void Contract_date::setEnd(int year, int month, int day) {
@@ -89,3 +97,5 @@ Contract_date& Contract_date::operator=(const Contract_date& contractDate_in) {
     //}
     return *this;
 }
+
+
