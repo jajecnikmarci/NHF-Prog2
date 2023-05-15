@@ -1,4 +1,4 @@
-//
+﻿//
 // Created by Jajecnik Marcell on 2023. 05. 04..
 //
 
@@ -69,20 +69,25 @@ Date Contract_date::getEnd() const {
 }
 
 void Contract_date::setBegin(Date beg_in) {
+    if (beg_in>end) throw std::range_error("A kezdeti időpont nem lehet nagyobb mint a végső dátum");
     begin=beg_in;
 }
 
 void Contract_date::setBegin(int year, int month, int day) {
-    begin = Date(year, month, day);
-
+    Date new_begin(year, month, day);
+    if (new_begin > end) throw std::range_error("A kezdeti időpont nem lehet nagyobb mint a végső dátum");
+    begin = new_begin;
 }
 
 void Contract_date::setEnd(Date end_in) {
+    if (end_in < begin) throw std::range_error("A végső időpont nem lehet kisebb mint a kezdeti dátum");
     end= end_in;
 }
 
 void Contract_date::setEnd(int year, int month, int day) {
-    end = Date(year, month, day);;
+    Date new_end(year, month, day);
+    if (new_end < begin) throw std::range_error("A végső időpont nem lehet kisebb mint a kezdeti dátum");
+    end = new_end;
 }
 
 bool Contract_date::contains(const Date& date_in) const {
@@ -90,11 +95,8 @@ bool Contract_date::contains(const Date& date_in) const {
 }
 
 Contract_date& Contract_date::operator=(const Contract_date& contractDate_in) {
-
-    //if (!(this->begin == contractDate_in.begin && this->end == contractDate_in.end)) {
         this->begin = contractDate_in.begin;
         this->end = contractDate_in.end;
-    //}
     return *this;
 }
 
