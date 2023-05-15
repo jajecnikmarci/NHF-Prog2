@@ -78,7 +78,6 @@ int main() {
         EXPECT_TRUE(d>=b);
         e.print_date();
         std::cout<<std::endl;
- //       std::cout << e<<std::endl;
     }END
 #endif
 #if TST > 2
