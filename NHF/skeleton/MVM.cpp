@@ -27,7 +27,7 @@ Client *MVM::getClient(const std::string name_in, const std::string somekindofID
 }
 
 const std::string MVM::getCompanyDetails() {
-    return "Company name: " + MVM_company.getName() + ", Tax ID: " + MVM_company.getID();
+    return MVM_company.getsub_Client_info();
 }
 
 void MVM::deleteClient(const std::string name_in, const std::string somekindofID) {

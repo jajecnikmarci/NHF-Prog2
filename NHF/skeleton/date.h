@@ -110,6 +110,16 @@ public:
      */
     Contract_date(){}
 
+    /**
+     * @brief Konstruktor kezdő és végdátum megadásával.
+     * 
+     * \param begin_date Kezdődátum
+     * \param end_date  Végdátum
+     */
+    Contract_date(Date begin_date, Date end_date):begin(begin_date),end(end_date) {
+        if(begin_date > end_date) throw std::range_error("A szerződés kezdete később van mint a szerződés vége");
+    }
+
     /**@brief Konstruktor
      *
      * @param year_begin Bejövő kezdeti év
@@ -120,8 +130,11 @@ public:
      * @param day_end Bejövő végzeti nap
      */
     Contract_date(int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end)
-        : begin(Date(year_begin, month_begin, day_begin)), end(Date(year_end, month_end, day_end))
-    {}
+    {
+        Date start(year_begin, month_begin, day_begin);
+        Date end(year_end, month_end, day_end);
+        *this = Contract_date(start, end);
+    }
 
     /**@brief Visszaadja a kezdeti időpontot
      *

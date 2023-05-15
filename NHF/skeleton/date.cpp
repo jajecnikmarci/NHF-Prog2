@@ -5,12 +5,16 @@
 #include "date.h"
 
 std::chrono::system_clock::time_point Date::into_date(int year, int month, int day) {
+    if (year < 1900 || month < 1 || month>12 || day < 1 || day>31)
+    {
+        throw std::range_error("Hibas datum, vagy 1900 elotti");
+    }
     std::tm tm = { 0, 0, 0, day, month - 1, year - 1900 }; // Month is 0-based, year is 1900-based
     std::time_t tt = std::mktime(&tm);
     return std::chrono::system_clock::from_time_t(tt);
 }
 
-void Date::print_date() const{
+void Date::print_date() const {
     std::time_t tt = std::chrono::system_clock::to_time_t(tp);
     char buffer[11];
     std::strftime(buffer, 11, "%Y-%m-%d", std::localtime(&tt));
@@ -77,10 +81,11 @@ bool Contract_date::contains(const Date& date_in) const {
     return (date_in >= begin && date_in <= end);
 }
 
-Contract_date &Contract_date::operator=(const Contract_date &contractDate_in) {
-    if (!(this->begin==contractDate_in.begin && this->end==contractDate_in.end)) {
+Contract_date& Contract_date::operator=(const Contract_date& contractDate_in) {
+
+    //if (!(this->begin == contractDate_in.begin && this->end == contractDate_in.end)) {
         this->begin = contractDate_in.begin;
         this->end = contractDate_in.end;
-    }
+    //}
     return *this;
 }

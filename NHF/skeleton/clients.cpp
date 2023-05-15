@@ -60,7 +60,6 @@ std::string Company::getsub_Client_info() {
     return "Company name: " + getName() + ", Tax ID: " + Tax_ID;
 }
 
-
 Company::~Company() {
 
 }
