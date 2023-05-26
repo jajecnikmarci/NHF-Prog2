@@ -229,7 +229,7 @@ int main() {
         {
             mvm.load_from_console();
         }
-        EXPECT_THROW(mvm.load_from_console(), std::range_error);///Hibás bemenet adása
+        EXPECT_THROW(mvm.load_from_console(), std::invalid_argument);///Hibás bemenet adása
 
     } END
     TEST(Fajlkezeles, save) {
@@ -237,7 +237,7 @@ int main() {
     } END
     TEST(Fajlkezeles, load_from_file) {
         MVM mvm2;
-        EXPECT_THROW(mvm2.load_from_save(10), std::range_error);///Nem létező mentés
+        EXPECT_THROW(mvm2.load_from_save(10), std::ios_base::failure);///Nem létező mentés
         EXPECT_NO_THROW(mvm2.load_from_save(1));
     } END
     
