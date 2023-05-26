@@ -209,7 +209,6 @@ int main() {
         mvm.addContract(a, ContractType::Regular, 2000, 03, 11, 2004, 03, 12, 2003, 12, 22);
         EXPECT_EQ(a->getSumOfAll_Contract()  , mvm.getClient("En", "198245uf")->getContract(1).getContractID());
         EXPECT_STREQ("Company name: Meseorszagi Villamos Muvek ZRT., Tax ID: 10760798244", mvm.getCompanyDetails().c_str());
-
     }END
 
 #endif
