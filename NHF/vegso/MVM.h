@@ -40,7 +40,21 @@ private:
     */ 
     void load_from_stream(std::istream& is);
 
+    /**
+     * @brief Megmondja egy stringről hogy csak számok vannak-e benne.
+     * 
+     * \param str_in Bejövő string
+     * \return Csak számok vannak benne?
+     */
     bool is_all_number(std::string& str_in);
+
+    /**
+     * @brief Megmondja egy stringről hogy double alakú-e
+     *
+     * \param str_in Bejövő string
+     * \return double alakú?
+     */
+    bool is_string_double(std::string& str_in);
     
 public:
     /**

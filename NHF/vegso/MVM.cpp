@@ -82,6 +82,25 @@ bool MVM::is_all_number(std::string& str_in) {
     return true;
 }
 
+bool MVM::is_string_double(std::string& str_in) {
+    size_t str_len = str_in.length();
+    int i = 0;
+    while (i<str_len&&str_in[i]!='.')
+    {
+        if (!std::isdigit(str_in[i])) return false;
+        i++;
+    }
+    if (i != str_len - 1) while (i<str_len)
+    {
+        while (i < str_len)
+        {
+            if (!std::isdigit(str_in[i])) return false;
+            i++;
+        }
+    };
+    return true;
+}
+
 ContractType MVM::Ctype_fromString(const std::string contract_type) {
     if (contract_type == std::string("Regular"))             return ContractType::Regular;
     if (contract_type == std::string("VIP"))                 return ContractType::VIP;
@@ -91,7 +110,7 @@ ContractType MVM::Ctype_fromString(const std::string contract_type) {
     if (contract_type == std::string("SeniorCitizen"))       return ContractType::SeniorCitizen;
     if (contract_type == std::string("Government"))          return ContractType::Government;
     if (contract_type == std::string("Onetime"))             return ContractType::Onetime;
-
+    throw std::invalid_argument("Nem letezo szerzodes tipus");
     return ContractType::Onetime;
 }
 
@@ -116,17 +135,36 @@ void MVM::load_from_stream(std::istream& is) {
             addClient(client_in);
         }
     }
-    else {
+    else if(sub_client_info_in.substr(0, 7) == "Company"){
         client_in = getClient(name_in, sub_client_info_in.substr(sub_client_info_in.length() - 11, 11));
         if (client_in == nullptr) {
             client_in = new Company(name_in, sub_client_info_in.substr(sub_client_info_in.length() - 11, 11));
             addClient(client_in);
         }
     }
-    if (!is_all_number(begin.substr(0, 4)) || !is_all_number(begin.substr(5, 2)) || !is_all_number(begin.substr(8, 2)) ||
-        !is_all_number(end_in.substr(0, 4)) || !is_all_number(end_in.substr(5, 2)) || !is_all_number(end_in.substr(8, 2)) ||
-        !is_all_number(last_invoicing_in.substr(0, 4)) || !is_all_number(last_invoicing_in.substr(5, 2)) || !is_all_number(last_invoicing_in.substr(8, 2)) ||
-        !is_all_number(tariff_in) || !is_all_number(balance_in) || !is_all_number(consumption_in)) 
+    else
+    {
+        throw std::invalid_argument("Rossz bejovo adat");
+    }
+
+    if (
+        (sub_client_info_in.length() != (6 + 1 + 8)) && (sub_client_info_in.length() != (7 + 1 + 11)) ||
+        begin.length() != 10  ||
+        end_in.length() != 10 ||
+        last_invoicing_in.length() != 10 ||
+        !is_all_number(begin.substr(0, 4)) ||
+        !is_all_number(begin.substr(5, 2)) ||
+        !is_all_number(begin.substr(8, 2)) ||
+        !is_all_number(end_in.substr(0, 4)) ||
+        !is_all_number(end_in.substr(5, 2)) ||
+        !is_all_number(end_in.substr(8, 2)) ||
+        !is_all_number(last_invoicing_in.substr(0, 4)) ||
+        !is_all_number(last_invoicing_in.substr(5, 2)) ||
+        !is_all_number(last_invoicing_in.substr(8, 2)) ||
+        !is_string_double(tariff_in) ||
+        !is_string_double(balance_in) ||
+        !is_string_double(consumption_in)
+        )
         throw std::invalid_argument("Rossz bejovo adat");
 
     //Conversion
@@ -211,7 +249,7 @@ void MVM::load_from_save(int version_id_in) {
         }
         catch (const std::invalid_argument& ia) {
             std::cerr << "Invalid argument: " << ia.what() << '\n';
-            throw std::invalid_argument("Rosszul megadott adat(ok)");
+            throw std::invalid_argument("Rossz forrasfajl");
         }
     }
     inputFile.close();
@@ -233,7 +271,7 @@ void MVM::load_from_console() {
     }
     catch (const std::invalid_argument& ia) {
         std::cerr << "Invalid argument: " << ia.what() << '\n';
-        throw std::invalid_argument("Rosszul megadott adat(ok)");
+            throw std::invalid_argument("Rosszul megadott adat(ok)");
     }
     std::cout << "Bevitel sikeres!" << std::endl;
 }
