@@ -19,7 +19,9 @@ void MVM::addContract(Client* client_in, ContractType ctype_in, int year_begin, 
 Client *MVM::getClient(const std::string name_in, const std::string somekindofID) {
     for (size_t i = 0; i < clients.size(); ++i) {
         std::string subclient_info = clients[i]->getsub_Client_info();
-        if (name_in == clients[i]->getName() && (subclient_info.substr(subclient_info.length() - 11, 11) == somekindofID || subclient_info.substr(subclient_info.length() - 8, 8) == somekindofID));
+        if (name_in == clients[i]->getName() &&
+            ((subclient_info.substr(subclient_info.length() - 11, 11) == somekindofID ||
+                subclient_info.substr(subclient_info.length() - 8, 8) == somekindofID)))
         return clients[i];
     }
     return nullptr;
@@ -90,14 +92,13 @@ bool MVM::is_string_double(std::string& str_in) {
         if (!std::isdigit(str_in[i])) return false;
         i++;
     }
-    if (i != str_len - 1) while (i<str_len)
+    i++;
+    while (i < str_len)
     {
-        while (i < str_len)
-        {
-            if (!std::isdigit(str_in[i])) return false;
-            i++;
-        }
+        if (!std::isdigit(str_in[i])) return false;
+        i++;
     };
+    
     return true;
 }
 
@@ -116,7 +117,8 @@ ContractType MVM::Ctype_fromString(const std::string contract_type) {
 
 void MVM::load_from_stream(std::istream& is) {
     std::string name_in, sub_client_info_in, contract_ID_in, ctype_in, begin, end_in,  last_invoicing_in, tariff_in, balance_in, consumption_in;
-    std::getline(is, name_in);
+    if (
+        !std::getline(is, name_in)) throw std::out_of_range("End of file");
     std::getline(is, sub_client_info_in);
     if (&is != &std::cin) std::getline(is, contract_ID_in); ///Csak ha fájlból olvasunk
     std::getline(is, ctype_in);
@@ -148,7 +150,6 @@ void MVM::load_from_stream(std::istream& is) {
     }
 
     if (
-        (sub_client_info_in.length() != (6 + 1 + 8)) && (sub_client_info_in.length() != (7 + 1 + 11)) ||
         begin.length() != 10  ||
         end_in.length() != 10 ||
         last_invoicing_in.length() != 10 ||
@@ -161,9 +162,9 @@ void MVM::load_from_stream(std::istream& is) {
         !is_all_number(last_invoicing_in.substr(0, 4)) ||
         !is_all_number(last_invoicing_in.substr(5, 2)) ||
         !is_all_number(last_invoicing_in.substr(8, 2)) ||
-        !is_string_double(tariff_in) ||
-        !is_string_double(balance_in) ||
-        !is_string_double(consumption_in)
+        !is_string_double(tariff_in) || ///
+        !is_string_double(balance_in) ||///
+        !is_string_double(consumption_in)///
         )
         throw std::invalid_argument("Rossz bejovo adat");
 
@@ -251,6 +252,7 @@ void MVM::load_from_save(int version_id_in) {
             std::cerr << "Invalid argument: " << ia.what() << '\n';
             throw std::invalid_argument("Rossz forrasfajl");
         }
+        catch (const std::out_of_range& end) { break; }
     }
     inputFile.close();
 }

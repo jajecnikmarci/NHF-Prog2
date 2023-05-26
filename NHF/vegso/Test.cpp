@@ -203,11 +203,11 @@ int main() {
     TEST(MVM, tesztek) {
 
         MVM mvm;
-        Person* a = new Person("En", "1982451");
+        Person* a = new Person("En", "198245uf");
         mvm.addClient(a);
-        EXPECT_TRUE(a == mvm.getClient("En", "1982451"));
+        EXPECT_TRUE(a == mvm.getClient("En", "198245uf"));
         mvm.addContract(a, ContractType::Regular, 2000, 03, 11, 2004, 03, 12, 2003, 12, 22);
-        EXPECT_EQ(a->getSumOfAll_Contract()  , mvm.getClient("En", "1982451")->getContract(1).getContractID());
+        EXPECT_EQ(a->getSumOfAll_Contract()  , mvm.getClient("En", "198245uf")->getContract(1).getContractID());
         EXPECT_STREQ("Company name: Meseorszagi Villamos Muvek ZRT., Tax ID: 10760798244", mvm.getCompanyDetails().c_str());
 
     }END
