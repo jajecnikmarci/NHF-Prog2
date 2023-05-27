@@ -1,0 +1,108 @@
+\hypertarget{date_8cpp_source}{}\doxysection{date.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ Jajecnik\ Marcell\ on\ 2023.\ 05.\ 04..}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}date.h"{}}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00007}\mbox{\hyperlink{class_date_a2202e96fc67fd8c0912acf73e953c7f1}{00007}}\ std::chrono::system\_clock::time\_point\ \mbox{\hyperlink{class_date_a2202e96fc67fd8c0912acf73e953c7f1}{Date::into\_date}}(\textcolor{keywordtype}{int}\ year,\ \textcolor{keywordtype}{int}\ month,\ \textcolor{keywordtype}{int}\ day)\ \{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{if}\ (year\ <\ 1900\ ||\ month\ <\ 1\ ||\ month>12\ ||\ day\ <\ 1\ ||\ day>31)}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::range\_error(\textcolor{stringliteral}{"{}Hibas\ datum,\ vagy\ 1900\ elotti"{}});}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00011}00011\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00012}00012\ \ \ \ \ std::tm\ tm\ =\ \{\ 0,\ 0,\ 0,\ day,\ month\ -\/\ 1,\ year\ -\/\ 1900\ \};\ \textcolor{comment}{//\ Month\ is\ 0-\/based,\ year\ is\ 1900-\/based}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00013}00013\ \ \ \ \ std::time\_t\ tt\ =\ std::mktime(\&tm);}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{return}\ std::chrono::system\_clock::from\_time\_t(tt);}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00017}\mbox{\hyperlink{class_date_a03ecf64f9dcda29cbe2162c0e256b80e}{00017}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_date_a03ecf64f9dcda29cbe2162c0e256b80e}{Date::print\_date}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00018}00018\ \ \ \ \ std::time\_t\ tt\ =\ std::chrono::system\_clock::to\_time\_t(tp);}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[11];}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00020}00020\ \ \ \ \ std::strftime(buffer,\ 11,\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d"{}},\ std::localtime(\&tt));}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00021}00021\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Date\ entered:\ "{}}\ <<\ buffer;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00024}\mbox{\hyperlink{class_date_a4b253a95e1347f37a25a973bc94857e3}{00024}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_date_a4b253a95e1347f37a25a973bc94857e3}{Date::operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ in)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{return}\ \ tp\ ==\ in.tp;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00028}\mbox{\hyperlink{class_date_a9bbef6e5e1e067ec4130d217ea596c80}{00028}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_date_a9bbef6e5e1e067ec4130d217ea596c80}{Date::operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ in)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ tp\ <\ in.tp;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00030}00030\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00032}\mbox{\hyperlink{class_date_ad83b1f55dc7621fb8b0dd2f973ace99b}{00032}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_date_ad83b1f55dc7621fb8b0dd2f973ace99b}{Date::operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ in)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{return}\ tp\ >\ in.tp;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00036}\mbox{\hyperlink{class_date_aa4d58863899698a3ef3e41f4d99d2842}{00036}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_date_aa4d58863899698a3ef3e41f4d99d2842}{Date::operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ in)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ tp\ <=\ in.tp;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00040}\mbox{\hyperlink{class_date_a134dc22bcb3df0056c44d440652a351c}{00040}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_date_a134dc22bcb3df0056c44d440652a351c}{Date::operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ in)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ tp\ >=\ in.tp;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00044}\mbox{\hyperlink{class_date_aceba42d25cb6a888cea3428f80d50359}{00044}}\ std::string\ \mbox{\hyperlink{class_date_aceba42d25cb6a888cea3428f80d50359}{Date::toString}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ Convert\ the\ time\_point\ to\ a\ time\_t}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00046}00046\ \ \ \ \ std::time\_t\ tt\ =\ std::chrono::system\_clock::to\_time\_t(tp);}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ Convert\ the\ time\_t\ to\ a\ struct\ tm}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00049}00049\ \ \ \ \ std::tm\ tm\ =\ *std::localtime(\&tt);}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{comment}{//\ Format\ the\ date\ as\ a\ string}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00052}00052\ \ \ \ \ std::stringstream\ ss;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00053}00053\ \ \ \ \ ss\ <<\ std::put\_time(\&tm,\ \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d"{}});}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00058}00058\ std::ostream\&\ operator<<(std::ostream\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ date)\ \{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00059}00059\ \ \ \ \ date.\mbox{\hyperlink{class_date_a03ecf64f9dcda29cbe2162c0e256b80e}{print\_date}}();}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00063}\mbox{\hyperlink{class_contract__date_ae9239c157785b2afd78125aff7df31cd}{00063}}\ \mbox{\hyperlink{class_date}{Date}}\ \mbox{\hyperlink{class_contract__date_ae9239c157785b2afd78125aff7df31cd}{Contract\_date::getBegin}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{return}\ begin;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00067}\mbox{\hyperlink{class_contract__date_a205ddfaf285d153b01ac81edb19a2a45}{00067}}\ \mbox{\hyperlink{class_date}{Date}}\ \mbox{\hyperlink{class_contract__date_a205ddfaf285d153b01ac81edb19a2a45}{Contract\_date::getEnd}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{return}\ end;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00071}\mbox{\hyperlink{class_contract__date_a96b800d3b24f62e3ff85b4fabcc86688}{00071}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract__date_a96b800d3b24f62e3ff85b4fabcc86688}{Contract\_date::setBegin}}(\mbox{\hyperlink{class_date}{Date}}\ beg\_in)\ \{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (beg\_in>end)\ \textcolor{keywordflow}{throw}\ std::range\_error(\textcolor{stringliteral}{"{}A\ kezdeti\ időpont\ nem\ lehet\ nagyobb\ mint\ a\ végső\ dátum"{}});}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00073}00073\ \ \ \ \ begin=beg\_in;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00076}\mbox{\hyperlink{class_contract__date_a6644688a83cccbe3becd55d99bd5d872}{00076}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract__date_a96b800d3b24f62e3ff85b4fabcc86688}{Contract\_date::setBegin}}(\textcolor{keywordtype}{int}\ year,\ \textcolor{keywordtype}{int}\ month,\ \textcolor{keywordtype}{int}\ day)\ \{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00077}00077\ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ new\_begin(year,\ month,\ day);}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_begin\ >\ end)\ \textcolor{keywordflow}{throw}\ std::range\_error(\textcolor{stringliteral}{"{}A\ kezdeti\ időpont\ nem\ lehet\ nagyobb\ mint\ a\ végső\ dátum"{}});}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00079}00079\ \ \ \ \ begin\ =\ new\_begin;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00082}\mbox{\hyperlink{class_contract__date_a4f2dbf299ee0ebb870de95ab189c11d8}{00082}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract__date_a4f2dbf299ee0ebb870de95ab189c11d8}{Contract\_date::setEnd}}(\mbox{\hyperlink{class_date}{Date}}\ end\_in)\ \{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (end\_in\ <\ begin)\ \textcolor{keywordflow}{throw}\ std::range\_error(\textcolor{stringliteral}{"{}A\ végső\ időpont\ nem\ lehet\ kisebb\ mint\ a\ kezdeti\ dátum"{}});}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00084}00084\ \ \ \ \ end=\ end\_in;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00087}\mbox{\hyperlink{class_contract__date_a2a5399e4a07a2f59ca4e67d88f328242}{00087}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract__date_a4f2dbf299ee0ebb870de95ab189c11d8}{Contract\_date::setEnd}}(\textcolor{keywordtype}{int}\ year,\ \textcolor{keywordtype}{int}\ month,\ \textcolor{keywordtype}{int}\ day)\ \{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ new\_end(year,\ month,\ day);}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_end\ <\ begin)\ \textcolor{keywordflow}{throw}\ std::range\_error(\textcolor{stringliteral}{"{}A\ végső\ időpont\ nem\ lehet\ kisebb\ mint\ a\ kezdeti\ dátum"{}});}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00090}00090\ \ \ \ \ end\ =\ new\_end;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00093}\mbox{\hyperlink{class_contract__date_ab03f84a312bef61c3be332ab48cfe32c}{00093}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_contract__date_ab03f84a312bef61c3be332ab48cfe32c}{Contract\_date::contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ date\_in)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{return}\ (date\_in\ >=\ begin\ \&\&\ date\_in\ <=\ end);}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00097}\mbox{\hyperlink{class_contract__date_a2aaf65032185157fb06cdb7481d54790}{00097}}\ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\&\ \mbox{\hyperlink{class_contract__date_a2aaf65032185157fb06cdb7481d54790}{Contract\_date::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\&\ contractDate\_in)\ \{}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ this-\/>begin\ =\ contractDate\_in.begin;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ this-\/>end\ =\ contractDate\_in.end;}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{date_8cpp_source_l00103}00103\ }
+
+\end{DoxyCode}

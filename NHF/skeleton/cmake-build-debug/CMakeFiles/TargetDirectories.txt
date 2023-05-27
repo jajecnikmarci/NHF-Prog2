@@ -1,0 +1,3 @@
+C:/Users/Marci/Documents/github/NHF-Prog2/NHF/skeleton/cmake-build-debug/CMakeFiles/skeleton.dir
+C:/Users/Marci/Documents/github/NHF-Prog2/NHF/skeleton/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Marci/Documents/github/NHF-Prog2/NHF/skeleton/cmake-build-debug/CMakeFiles/rebuild_cache.dir

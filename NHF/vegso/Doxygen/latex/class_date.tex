@@ -1,0 +1,256 @@
+\hypertarget{class_date}{}\doxysection{Date Class Reference}
+\label{class_date}\index{Date@{Date}}
+
+
+Egy dátumot tárol time\+\_\+point formátumba.  
+
+
+
+
+{\ttfamily \#include $<$date.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_date_a5874432b5f7339205866055201e885d7}{Date}} (int year, int month, int day)
+\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{class_date_a2202e96fc67fd8c0912acf73e953c7f1}{into\+\_\+date}} (int year, int month, int day)
+\begin{DoxyCompactList}\small\item\em Időponttá alakít egy dátumot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_a03ecf64f9dcda29cbe2162c0e256b80e}{print\+\_\+date}} () const
+\begin{DoxyCompactList}\small\item\em Kiírja az időpontot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_date_a4b253a95e1347f37a25a973bc94857e3}{operator==}} (const \mbox{\hyperlink{class_date}{Date}} \&in) const
+\begin{DoxyCompactList}\small\item\em == operátor összehasonlításhoz \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_date_a9bbef6e5e1e067ec4130d217ea596c80}{operator$<$}} (const \mbox{\hyperlink{class_date}{Date}} \&in) const
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<} operátor összehasonlításhoz \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_date_ad83b1f55dc7621fb8b0dd2f973ace99b}{operator$>$}} (const \mbox{\hyperlink{class_date}{Date}} \&in) const
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$>$}{>} operátor összehasonlításhoz \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_date_aa4d58863899698a3ef3e41f4d99d2842}{operator$<$=}} (const \mbox{\hyperlink{class_date}{Date}} \&in) const
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$<$}{<}= operátor összehasonlításhoz \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_date_a134dc22bcb3df0056c44d440652a351c}{operator$>$=}} (const \mbox{\hyperlink{class_date}{Date}} \&in) const
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$>$}{>}= operátor összehasonlításhoz \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_date_aceba42d25cb6a888cea3428f80d50359}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a dátumot string formátumban. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy dátumot tárol time\+\_\+point formátumba. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tp} & tárolt dátum \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8h_source_l00016}{16}} of file \mbox{\hyperlink{date_8h_source}{date.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}\label{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{date_8h_source_l00021}{21}} of file \mbox{\hyperlink{date_8h_source}{date.\+h}}.
+
+\mbox{\Hypertarget{class_date_a5874432b5f7339205866055201e885d7}\label{class_date_a5874432b5f7339205866055201e885d7}} 
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{Date()}{Date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Date\+::\+Date (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+@\+Konstruktor
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Beállítandó év \\
+\hline
+{\em month} & Beállítandó hónap \\
+\hline
+{\em day} & Beállítandó nap \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8h_source_l00029}{29}} of file \mbox{\hyperlink{date_8h_source}{date.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_date_a2202e96fc67fd8c0912acf73e953c7f1}\label{class_date_a2202e96fc67fd8c0912acf73e953c7f1}} 
+\index{Date@{Date}!into\_date@{into\_date}}
+\index{into\_date@{into\_date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{into\_date()}{into\_date()}}
+{\footnotesize\ttfamily std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point Date\+::into\+\_\+date (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption})}
+
+
+
+Időponttá alakít egy dátumot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Bejövő év \\
+\hline
+{\em month} & Bejövő hónap \\
+\hline
+{\em day} & Bejövő nap \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+időponttá alakított dátum 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_date_a9bbef6e5e1e067ec4130d217ea596c80}\label{class_date_a9bbef6e5e1e067ec4130d217ea596c80}} 
+\index{Date@{Date}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Date\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{in }\end{DoxyParamCaption}) const}
+
+
+
+\texorpdfstring{$<$}{<} operátor összehasonlításhoz 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Összehasonlítandó dátum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Kisebb? 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_date_aa4d58863899698a3ef3e41f4d99d2842}\label{class_date_aa4d58863899698a3ef3e41f4d99d2842}} 
+\index{Date@{Date}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool Date\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{in }\end{DoxyParamCaption}) const}
+
+
+
+\texorpdfstring{$<$}{<}= operátor összehasonlításhoz 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Összehasonlítandó dátum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Kisebb vagy egyenlő? 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_date_a4b253a95e1347f37a25a973bc94857e3}\label{class_date_a4b253a95e1347f37a25a973bc94857e3}} 
+\index{Date@{Date}!operator==@{operator==}}
+\index{operator==@{operator==}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Date\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{in }\end{DoxyParamCaption}) const}
+
+
+
+== operátor összehasonlításhoz 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Összehasonlítandó dátum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Egyenlőek 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_date_ad83b1f55dc7621fb8b0dd2f973ace99b}\label{class_date_ad83b1f55dc7621fb8b0dd2f973ace99b}} 
+\index{Date@{Date}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Date\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{in }\end{DoxyParamCaption}) const}
+
+
+
+\texorpdfstring{$>$}{>} operátor összehasonlításhoz 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Összehasonlítandó dátum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nagyobb? 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00032}{32}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_date_a134dc22bcb3df0056c44d440652a351c}\label{class_date_a134dc22bcb3df0056c44d440652a351c}} 
+\index{Date@{Date}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool Date\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{in }\end{DoxyParamCaption}) const}
+
+
+
+\texorpdfstring{$>$}{>}= operátor összehasonlításhoz 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Összehasonlítandó dátum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nagyobb vagy egyenlő? 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_date_a03ecf64f9dcda29cbe2162c0e256b80e}\label{class_date_a03ecf64f9dcda29cbe2162c0e256b80e}} 
+\index{Date@{Date}!print\_date@{print\_date}}
+\index{print\_date@{print\_date}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{print\_date()}{print\_date()}}
+{\footnotesize\ttfamily void Date\+::print\+\_\+date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Kiírja az időpontot. 
+
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_date_aceba42d25cb6a888cea3428f80d50359}\label{class_date_aceba42d25cb6a888cea3428f80d50359}} 
+\index{Date@{Date}!toString@{toString}}
+\index{toString@{toString}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily std\+::string Date\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a dátumot string formátumban. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+date.\+h\item 
+date.\+cpp\end{DoxyCompactItemize}

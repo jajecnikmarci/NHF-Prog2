@@ -1,0 +1,90 @@
+\hypertarget{contracts_8h_source}{}\doxysection{contracts.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ Jajecnik\ Marcell\ on\ 2023.\ 05.\ 05..}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00005}00005\ \textcolor{preprocessor}{\#ifndef\ SKELETON\_CONTRACTS\_H}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00006}00006\ \textcolor{preprocessor}{\#define\ SKELETON\_CONTRACTS\_H}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}clients.h"{}}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}iomanip"{}}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}fstream"{}}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}MVM.h"{}}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00013}00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_client}{Client}};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00018}00018\ \textcolor{keyword}{enum\ class}\ ContractType\ \{}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00019}00019\ \ \ \ \ Regular,}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00020}00020\ \ \ \ \ VIP,}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00021}00021\ \ \ \ \ Premium,}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00022}00022\ \ \ \ \ Corporate,}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00023}00023\ \ \ \ \ Student,}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00024}00024\ \ \ \ \ SeniorCitizen,}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00025}00025\ \ \ \ \ Government,}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00026}00026\ \ \ \ \ Onetime}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00027}00027\ \};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00041}\mbox{\hyperlink{class_contract}{00041}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_contract}{Contract}}\ \{}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00043}00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00048}\mbox{\hyperlink{class_contract_ac389a32c8012febf14c222ea23c84e71}{00048}}\ \ \ \ \ \mbox{\hyperlink{class_contract_ac389a32c8012febf14c222ea23c84e71}{Contract}}()\ \{\};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00068}\mbox{\hyperlink{class_contract_aef06ae6813a94a1154bf1b0a5f985444}{00068}}\ \ \ \ \ \mbox{\hyperlink{class_contract_aef06ae6813a94a1154bf1b0a5f985444}{Contract}}(\mbox{\hyperlink{class_client}{Client}}*\ client\_in,\ ContractType\ ctype\_in,\ \textcolor{keywordtype}{int}\ year\_begin,\ \textcolor{keywordtype}{int}\ month\_begin,\ \textcolor{keywordtype}{int}\ day\_begin,\ \textcolor{keywordtype}{int}\ year\_end,\ \textcolor{keywordtype}{int}\ month\_end,\ \textcolor{keywordtype}{int}\ day\_end,\ \textcolor{keywordtype}{int}\ invo\_in\_year,\ \textcolor{keywordtype}{int}\ invo\_in\_month,\ \textcolor{keywordtype}{int}\ invo\_in\_day,\ \textcolor{keywordtype}{size\_t}\ ContractID\_in\ ,\textcolor{keywordtype}{double}\ tariff\_in=0.0,\ \textcolor{keywordtype}{double}\ balance\_in=0.0,\ \textcolor{keywordtype}{double}\ consumption\_in=0.0)}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ :client(client\_in),contract\_ID(ContractID\_in),\ contract\_type(ctype\_in),\ contract\_time(year\_begin,\ month\_begin,\ day\_begin,\ year\_end,\ month\_end,\ day\_end),\ last\_invoicing(invo\_in\_year,\ invo\_in\_month,\ invo\_in\_day),\ tariff(tariff\_in),\ balance(balance\_in),\ consumption(consumption\_in)}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00070}00070\ \ \ \ \ \{\}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00072}00072\ \ \ \ \ \textcolor{comment}{//\ Setter\ functions}}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00077}00077\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract_a96cec0aff3df76236cc75e3bf63ef5ff}{setCtype}}(ContractType\ ctype\_in);}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract_ab5517c38f4f1d68e597071ae0a9e8b66}{setTariff}}(\textcolor{keywordtype}{double}\ tariff\_in);}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract_ad08bea11d8567f530ec5274d4ab56383}{setBalance}}(\textcolor{keywordtype}{double}\ balance\_in);}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00095}00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract_a5b850852413aa46c9bc8de86a96f1362}{addConsumption}}(\textcolor{keywordtype}{double}\ con\_in);}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract_a986868745160d0e296d894ee2bd88178}{setLast\_invoicing}}(\mbox{\hyperlink{class_date}{Date}}\ last\_in);}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract_aaf9ae551436a51ac41d2f08149366c79}{setCtime}}(\mbox{\hyperlink{class_contract__date}{Contract\_date}}\ ctime\_in);}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00113}00113\ \ \ \ \ \mbox{\hyperlink{class_client}{Client}}*\ \mbox{\hyperlink{class_contract_a2a54f1a29ab8a88a7c63d5aa7cdc0a58}{getClient}}();}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_contract_a222d689da62cfcd441933b7d48aa1840}{getContractID}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00125}00125\ \ \ \ ContractType\ \mbox{\hyperlink{class_contract_a68ae31a64d04c565de2c42731985eeae}{getCtype}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00131}00131\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_contract_a35dcdf9c4752101f31a34f80b38e9abc}{getTariff}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00137}00137\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_contract_a55ef08f4db0f8146fc42c2bb410b7960}{getBalance}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00143}00143\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_contract_a2c1439dea2951f6fe07b889061b89541}{getConsumption}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00149}00149\ \ \ \ \ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\ \mbox{\hyperlink{class_contract_a90dfc571475e24dab6be516786704708}{getCtime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00155}00155\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_contract_a39ab8eac1fca9c006f52421fb3b47de6}{Ctype\_toString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00161}00161\ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ \mbox{\hyperlink{class_contract_aa5fae1ce32f260c950f6cf135fef5ab4}{getLast\_invoicing}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00167}00167\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract_aec090387ce04a78ead889f19cf17db4f}{pay}}(\textcolor{keywordtype}{double}\ amount);}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00173}00173\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_contract_a3039cab38cd967e1d35d7736217671ae}{invoice}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ today);}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00178}00178\ \ \ \ \ \mbox{\hyperlink{class_contract_ac4be25f545f310d6e563326568612814}{\string~Contract}}();}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00179}00179\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00181}00181\ \ \ \ \ \mbox{\hyperlink{class_client}{Client}}*\ client;}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00182}00182\ \ \ \ \ \textcolor{keywordtype}{int}\ contract\_ID;}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00183}00183\ \ \ \ \ ContractType\ contract\_type;}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00184}00184\ \ \ \ \ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\ contract\_time;}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00185}00185\ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ last\_invoicing;}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00186}00186\ \ \ \ \ \textcolor{keywordtype}{double}\ tariff;}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00187}00187\ \ \ \ \ \textcolor{keywordtype}{double}\ balance;}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00188}00188\ \ \ \ \ \textcolor{keywordtype}{double}\ consumption;}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00190}00190\ \};}
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{contracts_8h_source_l00192}00192\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SKELETON\_CONTRACTS\_H}}
+
+\end{DoxyCode}

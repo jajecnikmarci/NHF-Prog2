@@ -7,7 +7,7 @@
 <anchor xml:id="__m_v_m_8cpp_source_1l00004"/>00004 
 <anchor xml:id="__m_v_m_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;MVM.h&quot;</emphasis>
 <anchor xml:id="__m_v_m_8cpp_source_1l00006"/>00006 
-<anchor xml:id="__m_v_m_8cpp_source_1l00007"/>00007 <link linkend="_class_company">Company</link>&#32;<link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM::MVM_company</link>&#32;=&#32;<link linkend="_class_company">Company</link>(<emphasis role="stringliteral">&quot;MVM&#32;ZRT.&quot;</emphasis>,&#32;10760798244);
+<anchor xml:id="__m_v_m_8cpp_source_1l00007"/>00007 <link linkend="_class_company">Company</link>&#32;<link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM::MVM_company</link>&#32;=&#32;<link linkend="_class_company">Company</link>(<emphasis role="stringliteral">&quot;MVM&#32;ZRT.&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;10760798244&quot;</emphasis>);
 <anchor xml:id="__m_v_m_8cpp_source_1l00008"/>00008 
 <anchor xml:id="__m_v_m_8cpp_source_1l00009"/><link linkend="_class_m_v_m_1a4d02ac8bb1dcc2ec5fcf1832cc662f44">00009</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1a4d02ac8bb1dcc2ec5fcf1832cc662f44">MVM::addClient</link>(<link linkend="_class_client">Client</link>*&#32;client_in)&#32;{
 <anchor xml:id="__m_v_m_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;clients.<link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">push_back</link>(client_in);
@@ -20,25 +20,27 @@
 <anchor xml:id="__m_v_m_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;client_in-&gt;<link linkend="_class_client_1a5952ea10336391d9641b0ad019a0b955">addContract</link>(new_contract);
 <anchor xml:id="__m_v_m_8cpp_source_1l00018"/>00018 }
 <anchor xml:id="__m_v_m_8cpp_source_1l00019"/>00019 
-<anchor xml:id="__m_v_m_8cpp_source_1l00020"/><link linkend="_class_m_v_m_1ad829a10312d549619216c8dab1ce00f6">00020</link> <link linkend="_class_client">Client</link>&#32;*<link linkend="_class_m_v_m_1ad829a10312d549619216c8dab1ce00f6">MVM::getClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in)&#32;{
+<anchor xml:id="__m_v_m_8cpp_source_1l00020"/><link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">00020</link> <link linkend="_class_client">Client</link>&#32;*<link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">MVM::getClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;somekindofID)&#32;{
 <anchor xml:id="__m_v_m_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;clients.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>();&#32;++i)&#32;{
-<anchor xml:id="__m_v_m_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(name_in==clients[i]-&gt;getName())&#32;<emphasis role="keywordflow">return</emphasis>&#32;clients[i];
-<anchor xml:id="__m_v_m_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;}
-<anchor xml:id="__m_v_m_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;
-<anchor xml:id="__m_v_m_8cpp_source_1l00025"/>00025 }
-<anchor xml:id="__m_v_m_8cpp_source_1l00026"/>00026 
-<anchor xml:id="__m_v_m_8cpp_source_1l00027"/><link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">00027</link> <emphasis role="keyword">const</emphasis>&#32;std::string&#32;<link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">MVM::getCompanyDetails</link>()&#32;{
-<anchor xml:id="__m_v_m_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Company&#32;name:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM_company</link>.<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>()&#32;+&#32;<emphasis role="stringliteral">&quot;,&#32;Tax&#32;ID:&#32;&quot;</emphasis>&#32;+&#32;std::to_string(<link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM_company</link>.<link linkend="_class_company_1a9b294a107223caaad48dc38b5b7a1508">getID</link>());
-<anchor xml:id="__m_v_m_8cpp_source_1l00029"/>00029 }
-<anchor xml:id="__m_v_m_8cpp_source_1l00030"/>00030 
-<anchor xml:id="__m_v_m_8cpp_source_1l00031"/><link linkend="_class_m_v_m_1a85592d6dbe4adadb6fe4cbfb1b4861f2">00031</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1a85592d6dbe4adadb6fe4cbfb1b4861f2">MVM::deleteClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in)&#32;{
-<anchor xml:id="__m_v_m_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;<link linkend="_class_m_v_m_1ad829a10312d549619216c8dab1ce00f6">getClient</link>(name_in);
-<anchor xml:id="__m_v_m_8cpp_source_1l00033"/>00033 }
-<anchor xml:id="__m_v_m_8cpp_source_1l00034"/>00034 
-<anchor xml:id="__m_v_m_8cpp_source_1l00035"/><link linkend="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00">00035</link> <link linkend="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00">MVM::~MVM</link>(){
-<anchor xml:id="__m_v_m_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;clients.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>();&#32;i++)
-<anchor xml:id="__m_v_m_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;{
-<anchor xml:id="__m_v_m_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;clients[i];
-<anchor xml:id="__m_v_m_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;}
-<anchor xml:id="__m_v_m_8cpp_source_1l00040"/>00040 }
+<anchor xml:id="__m_v_m_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::string&#32;subclient_info&#32;=&#32;clients[i]-&gt;getsub_Client_info();
+<anchor xml:id="__m_v_m_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(name_in&#32;==&#32;clients[i]-&gt;getName()&#32;&amp;&amp;&#32;(subclient_info.substr(subclient_info.length()&#32;-&#32;11,&#32;11)&#32;==&#32;somekindofID&#32;||&#32;subclient_info.substr(subclient_info.length()&#32;-&#32;8,&#32;8)&#32;==&#32;somekindofID));
+<anchor xml:id="__m_v_m_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;clients[i];
+<anchor xml:id="__m_v_m_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__m_v_m_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="__m_v_m_8cpp_source_1l00027"/>00027 }
+<anchor xml:id="__m_v_m_8cpp_source_1l00028"/>00028 
+<anchor xml:id="__m_v_m_8cpp_source_1l00029"/><link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">00029</link> <emphasis role="keyword">const</emphasis>&#32;std::string&#32;<link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">MVM::getCompanyDetails</link>()&#32;{
+<anchor xml:id="__m_v_m_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Company&#32;name:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM_company</link>.<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>()&#32;+&#32;<emphasis role="stringliteral">&quot;,&#32;Tax&#32;ID:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM_company</link>.<link linkend="_class_company_1a1ba074e68753c4e9e049f4f210137bac">getID</link>();
+<anchor xml:id="__m_v_m_8cpp_source_1l00031"/>00031 }
+<anchor xml:id="__m_v_m_8cpp_source_1l00032"/>00032 
+<anchor xml:id="__m_v_m_8cpp_source_1l00033"/><link linkend="_class_m_v_m_1aa1e7db7cfe6de5a5c2bca90a1b9cce84">00033</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1aa1e7db7cfe6de5a5c2bca90a1b9cce84">MVM::deleteClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;somekindofID)&#32;{
+<anchor xml:id="__m_v_m_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;<link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">getClient</link>(name_in,&#32;somekindofID);
+<anchor xml:id="__m_v_m_8cpp_source_1l00035"/>00035 }
+<anchor xml:id="__m_v_m_8cpp_source_1l00036"/>00036 
+<anchor xml:id="__m_v_m_8cpp_source_1l00037"/><link linkend="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00">00037</link> <link linkend="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00">MVM::~MVM</link>(){
+<anchor xml:id="__m_v_m_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;clients.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>();&#32;i++)
+<anchor xml:id="__m_v_m_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;{
+<anchor xml:id="__m_v_m_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;clients[i];
+<anchor xml:id="__m_v_m_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;}
+<anchor xml:id="__m_v_m_8cpp_source_1l00042"/>00042 }
 </programlisting></section>

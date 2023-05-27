@@ -1,0 +1,71 @@
+\hypertarget{clients_8cpp_source}{}\doxysection{clients.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ Jajecnik\ Marcell\ on\ 2023.\ 05.\ 04..}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}clients.h"{}}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00007}\mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{00007}}\ std::string\ \mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{Client::getName}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordflow}{return}\ name;}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00011}\mbox{\hyperlink{class_client_a5952ea10336391d9641b0ad019a0b955}{00011}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_a5952ea10336391d9641b0ad019a0b955}{Client::addContract}}(\mbox{\hyperlink{class_contract}{Contract}}\&\ contract\_in)\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{if}(contract\_in.\mbox{\hyperlink{class_contract_a222d689da62cfcd441933b7d48aa1840}{getContractID}}()>SumOfAll\_contract)\ SumOfAll\_contract\ =\ contract\_in.\mbox{\hyperlink{class_contract_a222d689da62cfcd441933b7d48aa1840}{getContractID}}();}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00013}00013\ \ \ \ \ mycontracts.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(contract\_in);}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00016}\mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{00016}}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{Client::getSumOfAll\_Contract}}()\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{return}\ SumOfAll\_contract;}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00020}\mbox{\hyperlink{class_client_a1b7af92ea4fa34d7cc1c8767bd1767c6}{00020}}\ std::string\ \mbox{\hyperlink{class_client_a1b7af92ea4fa34d7cc1c8767bd1767c6}{Client::getsub\_Client\_info}}()\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Client\ name:\ "{}}\ +\ \mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{getName}}();}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00024}\mbox{\hyperlink{class_client_a3383798ffb163dfa5a35cebc1c30b523}{00024}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_client_a3383798ffb163dfa5a35cebc1c30b523}{Client::save\_invoice}}(\textcolor{keywordtype}{size\_t}\ contract\_index,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_date}{Date}}\&\ date)\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{class_client_a53f8972b665226da2e582e35f8cfca1d}{getContract}}(contract\_index).\mbox{\hyperlink{class_contract_a3039cab38cd967e1d35d7736217671ae}{invoice}}(date);}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00028}\mbox{\hyperlink{class_client_a53f8972b665226da2e582e35f8cfca1d}{00028}}\ \mbox{\hyperlink{class_contract}{Contract}}\ \&\mbox{\hyperlink{class_client_a53f8972b665226da2e582e35f8cfca1d}{Client::getContract}}(\textcolor{keywordtype}{size\_t}\ contract\_index)\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (contract\_index<=0\ ||\ contract\_index>\mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{getSumOfAll\_Contract}}())\ \textcolor{keywordflow}{throw}\ std::range\_error(\textcolor{stringliteral}{"{}Túl/alul\ indexelés"{}});\ \textcolor{comment}{//\ Programozói\ hiba}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ mycontracts.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mycontracts[i].getContractID()==contract\_index)\ \textcolor{keywordflow}{return}\ mycontracts[i];}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::range\_error(\textcolor{stringliteral}{"{}Már\ törölt\ szerződés"{}});\ \textcolor{comment}{//\ Lehetne\ saját\ exception\ classal}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00036}\mbox{\hyperlink{class_person_a112a91312130609eddd72fa6dd86462e}{00036}}\ std::string\ \mbox{\hyperlink{class_person_a112a91312130609eddd72fa6dd86462e}{Person::getsub\_Client\_info}}()\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Person\ name:\ "{}}\ +\ \mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{getName}}()\ +\ \textcolor{stringliteral}{"{},\ ID:\ "{}}\ +\ ID;}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00040}\mbox{\hyperlink{class_person_afd8a761fd1e6982d36df931cf39d0d18}{00040}}\ std::string\ \mbox{\hyperlink{class_person_afd8a761fd1e6982d36df931cf39d0d18}{Person::getID}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ ID;}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00044}\mbox{\hyperlink{class_person_a48bd1dda5186f86d5ea09ba0fb47b87a}{00044}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_person_a48bd1dda5186f86d5ea09ba0fb47b87a}{Person::setID}}(std::string\ ID\_in)\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00045}00045\ \ \ \ \ ID=ID\_in;}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00048}\mbox{\hyperlink{class_person_a700ffd693321c5fe6880262acf43d4da}{00048}}\ \mbox{\hyperlink{class_person_a700ffd693321c5fe6880262acf43d4da}{Person::\string~Person}}()\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00052}\mbox{\hyperlink{class_company_a1ba074e68753c4e9e049f4f210137bac}{00052}}\ std::string\ \mbox{\hyperlink{class_company_a1ba074e68753c4e9e049f4f210137bac}{Company::getID}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ Tax\_ID;}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00056}\mbox{\hyperlink{class_company_a6e08c872488ba07ff4ede28930116c8c}{00056}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_company_a6e08c872488ba07ff4ede28930116c8c}{Company::setID}}(std::string\ ID\_in)\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00057}00057\ \ \ \ \ Tax\_ID=ID\_in;}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00058}00058\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00060}\mbox{\hyperlink{class_company_aef6b11a716b32be62330fd8968c4371f}{00060}}\ std::string\ \mbox{\hyperlink{class_company_aef6b11a716b32be62330fd8968c4371f}{Company::getsub\_Client\_info}}()\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Company\ name:\ "{}}\ +\ \mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{getName}}()\ +\ \textcolor{stringliteral}{"{},\ Tax\ ID:\ "{}}\ +\ Tax\_ID;}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00064}\mbox{\hyperlink{class_company_a61c2a9ec178e683310583ef15635b53c}{00064}}\ \mbox{\hyperlink{class_company_a61c2a9ec178e683310583ef15635b53c}{Company::\string~Company}}()\ \{}
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{clients_8cpp_source_l00066}00066\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_clients_8h_source" xml:lang="en-US">
+<title>clients.h</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_clients_8h_source_1l00001"/>00001 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_clients_8h_source_1l00002"/>00002 <emphasis role="comment">//&#32;Created&#32;by&#32;Jajecnik&#32;Marcell&#32;on&#32;2023.&#32;05.&#32;04..</emphasis>
+<anchor xml:id="_clients_8h_source_1l00003"/>00003 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_clients_8h_source_1l00004"/>00004 
+<anchor xml:id="_clients_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#ifndef&#32;SKELETON_CLIENTS_H</emphasis>
+<anchor xml:id="_clients_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#define&#32;SKELETON_CLIENTS_H</emphasis>
+<anchor xml:id="_clients_8h_source_1l00007"/>00007 
+<anchor xml:id="_clients_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;date.h&quot;</emphasis>
+<anchor xml:id="_clients_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;myvektor.hpp&quot;</emphasis>
+<anchor xml:id="_clients_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;contracts.h&quot;</emphasis>
+<anchor xml:id="_clients_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+<anchor xml:id="_clients_8h_source_1l00012"/>00012 
+<anchor xml:id="_clients_8h_source_1l00014"/>00014 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_contract">Contract</link>;
+<anchor xml:id="_clients_8h_source_1l00015"/>00015 
+<anchor xml:id="_clients_8h_source_1l00021"/><link linkend="_class_client">00021</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_client">Client</link>{
+<anchor xml:id="_clients_8h_source_1l00022"/>00022 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_clients_8h_source_1l00023"/>00023 &#32;&#32;&#32;&#32;std::string&#32;name;
+<anchor xml:id="_clients_8h_source_1l00024"/>00024 &#32;&#32;&#32;&#32;<link linkend="_class_my_vector">MyVector&lt;Contract&gt;</link>&#32;mycontracts;
+<anchor xml:id="_clients_8h_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;SumOfAll_contract;
+<anchor xml:id="_clients_8h_source_1l00026"/>00026 
+<anchor xml:id="_clients_8h_source_1l00027"/>00027 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_clients_8h_source_1l00033"/><link linkend="_class_client_1a8c050fbceb45574cbeb7753dd40d6f7f">00033</link> &#32;&#32;&#32;&#32;<link linkend="_class_client_1a8c050fbceb45574cbeb7753dd40d6f7f">Client</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in):name(std::string(name_in)),&#32;SumOfAll_contract(0){}
+<anchor xml:id="_clients_8h_source_1l00034"/>00034 
+<anchor xml:id="_clients_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link>();
+<anchor xml:id="_clients_8h_source_1l00040"/>00040 
+<anchor xml:id="_clients_8h_source_1l00045"/>00045 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_clients_8h_source_1l00046"/>00046 
+<anchor xml:id="_clients_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_client_1a5952ea10336391d9641b0ad019a0b955">addContract</link>(<link linkend="_class_contract">Contract</link>&amp;&#32;contract_in);
+<anchor xml:id="_clients_8h_source_1l00052"/>00052 
+<anchor xml:id="_clients_8h_source_1l00058"/>00058 &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;std::string&#32;<link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">getsub_Client_info</link>();
+<anchor xml:id="_clients_8h_source_1l00059"/>00059 
+<anchor xml:id="_clients_8h_source_1l00065"/>00065 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_client_1a3383798ffb163dfa5a35cebc1c30b523">save_invoice</link>(<emphasis role="keywordtype">size_t</emphasis>&#32;contract_index,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;date);
+<anchor xml:id="_clients_8h_source_1l00066"/>00066 
+<anchor xml:id="_clients_8h_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<link linkend="_class_contract">Contract</link>&amp;&#32;<link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">getContract</link>(<emphasis role="keywordtype">size_t</emphasis>&#32;contract_ID);
+<anchor xml:id="_clients_8h_source_1l00073"/>00073 
+<anchor xml:id="_clients_8h_source_1l00077"/><link linkend="_class_client_1a897ff0f31827f7be3c661623341605ed">00077</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_client_1a897ff0f31827f7be3c661623341605ed">~Client</link>(){};
+<anchor xml:id="_clients_8h_source_1l00078"/>00078 };
+<anchor xml:id="_clients_8h_source_1l00079"/>00079 
+<anchor xml:id="_clients_8h_source_1l00083"/><link linkend="_class_person">00083</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_person">Person</link>:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_client">Client</link>{
+<anchor xml:id="_clients_8h_source_1l00084"/>00084 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_clients_8h_source_1l00085"/>00085 &#32;&#32;&#32;&#32;std::string&#32;ID;
+<anchor xml:id="_clients_8h_source_1l00086"/>00086 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_clients_8h_source_1l00092"/><link linkend="_class_person_1a08f43166613723d370fcde4b266e8264">00092</link> &#32;&#32;&#32;&#32;<link linkend="_class_person_1a08f43166613723d370fcde4b266e8264">Person</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>,&#32;std::string&#32;ID_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>)
+<anchor xml:id="_clients_8h_source_1l00093"/>00093 &#32;&#32;&#32;&#32;:&#32;<link linkend="_class_client">Client</link>(std::string(name_in)),&#32;ID(ID_in)
+<anchor xml:id="_clients_8h_source_1l00094"/>00094 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_clients_8h_source_1l00095"/>00095 
+<anchor xml:id="_clients_8h_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_person_1a48bd1dda5186f86d5ea09ba0fb47b87a">setID</link>(std::string&#32;ID_in);
+<anchor xml:id="_clients_8h_source_1l00101"/>00101 
+<anchor xml:id="_clients_8h_source_1l00106"/>00106 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_person_1afd8a761fd1e6982d36df931cf39d0d18">getID</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_clients_8h_source_1l00107"/>00107 
+<anchor xml:id="_clients_8h_source_1l00113"/>00113 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_person_1a112a91312130609eddd72fa6dd86462e">getsub_Client_info</link>();
+<anchor xml:id="_clients_8h_source_1l00114"/>00114 
+<anchor xml:id="_clients_8h_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<link linkend="_class_person_1a700ffd693321c5fe6880262acf43d4da">~Person</link>();
+<anchor xml:id="_clients_8h_source_1l00119"/>00119 };
+<anchor xml:id="_clients_8h_source_1l00120"/>00120 
+<anchor xml:id="_clients_8h_source_1l00124"/><link linkend="_class_company">00124</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_company">Company</link>:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_client">Client</link>{
+<anchor xml:id="_clients_8h_source_1l00125"/>00125 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_clients_8h_source_1l00126"/>00126 &#32;&#32;&#32;&#32;std::string&#32;Tax_ID;
+<anchor xml:id="_clients_8h_source_1l00127"/>00127 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_clients_8h_source_1l00128"/>00128 
+<anchor xml:id="_clients_8h_source_1l00135"/><link linkend="_class_company_1a79b0b28b0d462b88ae8a92aaf6ef3542">00135</link> &#32;&#32;&#32;&#32;<link linkend="_class_company_1a79b0b28b0d462b88ae8a92aaf6ef3542">Company</link>(std::string&#32;name_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>,&#32;std::string&#32;ID_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>)
+<anchor xml:id="_clients_8h_source_1l00136"/>00136 &#32;&#32;&#32;&#32;:&#32;<link linkend="_class_client">Client</link>(name_in),&#32;Tax_ID(ID_in)
+<anchor xml:id="_clients_8h_source_1l00137"/>00137 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_clients_8h_source_1l00138"/>00138 
+<anchor xml:id="_clients_8h_source_1l00143"/>00143 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_company_1a6e08c872488ba07ff4ede28930116c8c">setID</link>(std::string&#32;ID_in);
+<anchor xml:id="_clients_8h_source_1l00144"/>00144 
+<anchor xml:id="_clients_8h_source_1l00149"/>00149 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_company_1a1ba074e68753c4e9e049f4f210137bac">getID</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_clients_8h_source_1l00150"/>00150 
+<anchor xml:id="_clients_8h_source_1l00156"/>00156 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_company_1aef6b11a716b32be62330fd8968c4371f">getsub_Client_info</link>();
+<anchor xml:id="_clients_8h_source_1l00157"/>00157 
+<anchor xml:id="_clients_8h_source_1l00161"/>00161 &#32;&#32;&#32;&#32;<link linkend="_class_company_1a61c2a9ec178e683310583ef15635b53c">~Company</link>();
+<anchor xml:id="_clients_8h_source_1l00162"/>00162 };
+<anchor xml:id="_clients_8h_source_1l00163"/>00163 
+<anchor xml:id="_clients_8h_source_1l00164"/>00164 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SKELETON_CLIENTS_H</emphasis>
+</programlisting></section>

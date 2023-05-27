@@ -1,0 +1,289 @@
+\hypertarget{class_m_v_m}{}\doxysection{MVM Class Reference}
+\label{class_m_v_m}\index{MVM@{MVM}}
+
+
+Ügyfeleket tároló class.  
+
+
+
+
+{\ttfamily \#include $<$MVM.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_v_m_acc3149bc47a4df1b418fd0ffa6d9f147}{MVM}} ()
+\begin{DoxyCompactList}\small\item\em paraméter nélkül hívható konstruktor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_v_m_a4d02ac8bb1dcc2ec5fcf1832cc662f44}{add\+Client}} (\mbox{\hyperlink{class_client}{Client}} $\ast$client\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Hozzáad egy új klienst. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_v_m_aaf3ab005673a931c43b503fd277b3ef1}{add\+Contract}} (\mbox{\hyperlink{class_client}{Client}} $\ast$client\+\_\+in, Contract\+Type ctype\+\_\+in, int year\+\_\+begin, int month\+\_\+begin, int day\+\_\+begin, int year\+\_\+end, int month\+\_\+end, int day\+\_\+end, int invo\+\_\+in\+\_\+year, int invo\+\_\+in\+\_\+month, int invo\+\_\+in\+\_\+day, double tariff\+\_\+in=0.\+0, double balance\+\_\+in=0.\+0, double consumption\+\_\+in=0.\+0)
+\item 
+\mbox{\hyperlink{class_client}{Client}} $\ast$ \mbox{\hyperlink{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}{get\+Client}} (const std\+::string name\+\_\+in, const std\+::string somekindof\+ID)
+\begin{DoxyCompactList}\small\item\em Visszaadja a keresett ügyfelet a neve alapján. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_m_v_m_a15c1b579505a0a699119de338e3f72ed}{get\+Company\+Details}} ()
+\begin{DoxyCompactList}\small\item\em Az \mbox{\hyperlink{class_m_v_m}{MVM}} adatait adja vissza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_v_m_aa1e7db7cfe6de5a5c2bca90a1b9cce84}{delete\+Client}} (const std\+::string name\+\_\+in, const std\+::string somekindof\+ID)
+\begin{DoxyCompactList}\small\item\em Kitöröl egy ügyfelet a neve alapján. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_v_m_acc3d356b0b8e2fef4a7b56b480daec0c}{save}} ()
+\begin{DoxyCompactList}\small\item\em Biztonsági mentés fájlba ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_v_m_aac79d563bd302a9441385ae5b16ebc0e}{load\+\_\+from\+\_\+save}} (int version\+\_\+id\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Beolvassa a ügyfeleket és a szerződéseiket egy fájlból. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_v_m_af8d9a226af83b063fe0bb7defb8e616c}{load\+\_\+from\+\_\+console}} ()
+\begin{DoxyCompactList}\small\item\em Belvas egy contractet a console-\/ról. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_m_v_m_afbd4ab1c335c46b4c6837fd5c957ee00}{$\sim$\+MVM}} ()
+\begin{DoxyCompactList}\small\item\em Destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_company}{Company}} \mbox{\hyperlink{class_m_v_m_a867aeb59ccbb16febf87084cf89d518a}{MVM\+\_\+company}} = \mbox{\hyperlink{class_company}{Company}}(\char`\"{}Meseorszagi Villamos Muvek ZRT.\char`\"{}, \char`\"{}10760798244\char`\"{})
+\item 
+static int \mbox{\hyperlink{class_m_v_m_a76ee8bd73194a5f2b0bc46c7b5cf22dc}{save\+\_\+version}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ügyfeleket tároló class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clients} & Ügyfeleket tároló indexelhető My\+Vektor \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8h_source_l00023}{23}} of file \mbox{\hyperlink{_m_v_m_8h_source}{MVM.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_m_v_m_acc3149bc47a4df1b418fd0ffa6d9f147}\label{class_m_v_m_acc3149bc47a4df1b418fd0ffa6d9f147}} 
+\index{MVM@{MVM}!MVM@{MVM}}
+\index{MVM@{MVM}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{MVM()}{MVM()}}
+{\footnotesize\ttfamily MVM\+::\+MVM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+paraméter nélkül hívható konstruktor 
+
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8h_source_l00073}{73}} of file \mbox{\hyperlink{_m_v_m_8h_source}{MVM.\+h}}.
+
+\mbox{\Hypertarget{class_m_v_m_afbd4ab1c335c46b4c6837fd5c957ee00}\label{class_m_v_m_afbd4ab1c335c46b4c6837fd5c957ee00}} 
+\index{MVM@{MVM}!````~MVM@{$\sim$MVM}}
+\index{````~MVM@{$\sim$MVM}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{$\sim$MVM()}{~MVM()}}
+{\footnotesize\ttfamily MVM\+::$\sim$\+MVM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destruktor. 
+
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00281}{281}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_m_v_m_a4d02ac8bb1dcc2ec5fcf1832cc662f44}\label{class_m_v_m_a4d02ac8bb1dcc2ec5fcf1832cc662f44}} 
+\index{MVM@{MVM}!addClient@{addClient}}
+\index{addClient@{addClient}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{addClient()}{addClient()}}
+{\footnotesize\ttfamily void MVM\+::add\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client}{Client}} $\ast$}]{client\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Hozzáad egy új klienst. 
+
+Eltárolja a klienst, amit előre létre kell hozni, de a felszabadítást az \mbox{\hyperlink{class_m_v_m}{MVM}} osztály végzi 
+\begin{DoxyParams}{Parameters}
+{\em client\+\_\+in} & Szerződést kötő ügyfél \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+\mbox{\Hypertarget{class_m_v_m_aaf3ab005673a931c43b503fd277b3ef1}\label{class_m_v_m_aaf3ab005673a931c43b503fd277b3ef1}} 
+\index{MVM@{MVM}!addContract@{addContract}}
+\index{addContract@{addContract}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{addContract()}{addContract()}}
+{\footnotesize\ttfamily void MVM\+::add\+Contract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client}{Client}} $\ast$}]{client\+\_\+in,  }\item[{Contract\+Type}]{ctype\+\_\+in,  }\item[{int}]{year\+\_\+begin,  }\item[{int}]{month\+\_\+begin,  }\item[{int}]{day\+\_\+begin,  }\item[{int}]{year\+\_\+end,  }\item[{int}]{month\+\_\+end,  }\item[{int}]{day\+\_\+end,  }\item[{int}]{invo\+\_\+in\+\_\+year,  }\item[{int}]{invo\+\_\+in\+\_\+month,  }\item[{int}]{invo\+\_\+in\+\_\+day,  }\item[{double}]{tariff\+\_\+in = {\ttfamily 0.0},  }\item[{double}]{balance\+\_\+in = {\ttfamily 0.0},  }\item[{double}]{consumption\+\_\+in = {\ttfamily 0.0} }\end{DoxyParamCaption})}
+
+@brief\+Hozzáad egy szerződést
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+\_\+in} & Szerződést kötő ügyfél \\
+\hline
+{\em ctype\+\_\+in} & Szerződés típusa \\
+\hline
+{\em year\+\_\+begin} & Szerződéskötés kezdeti éve \\
+\hline
+{\em month\+\_\+begin} & Szerződéskötés kezdeti hónapja \\
+\hline
+{\em day\+\_\+begin} & Szerződéskötés kezdeti napja \\
+\hline
+{\em year\+\_\+end} & Szerződéskötés végső éve \\
+\hline
+{\em month\+\_\+end} & Szerződéskötés végső hónapja \\
+\hline
+{\em day\+\_\+end} & Szerződéskötés végső napja \\
+\hline
+{\em invo\+\_\+in\+\_\+year} & Legutóbbi számlázás éve \\
+\hline
+{\em invo\+\_\+in\+\_\+month} & Legutóbbi számlázás hónapja \\
+\hline
+{\em invo\+\_\+in\+\_\+day} & Legutóbbi számlázás napja \\
+\hline
+{\em tariff\+\_\+in} & KWh-\/kénti ár \\
+\hline
+{\em balance\+\_\+in} & Bejövő egyenleg \\
+\hline
+{\em consumption\+\_\+in} & Bejövő fogyasztás \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+\mbox{\Hypertarget{class_m_v_m_aa1e7db7cfe6de5a5c2bca90a1b9cce84}\label{class_m_v_m_aa1e7db7cfe6de5a5c2bca90a1b9cce84}} 
+\index{MVM@{MVM}!deleteClient@{deleteClient}}
+\index{deleteClient@{deleteClient}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{deleteClient()}{deleteClient()}}
+{\footnotesize\ttfamily void MVM\+::delete\+Client (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in,  }\item[{const std\+::string}]{somekindof\+ID }\end{DoxyParamCaption})}
+
+
+
+Kitöröl egy ügyfelet a neve alapján. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+\_\+in} & Törlendő ügyfél neve \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+\mbox{\Hypertarget{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}\label{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}} 
+\index{MVM@{MVM}!getClient@{getClient}}
+\index{getClient@{getClient}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{getClient()}{getClient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_client}{Client}} $\ast$ MVM\+::get\+Client (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in,  }\item[{const std\+::string}]{somekindof\+ID }\end{DoxyParamCaption})}
+
+
+
+Visszaadja a keresett ügyfelet a neve alapján. 
+
+A függvény mivel nem tudja hogy a client melyik alosztályát próbáljuk megkapni, így a módszer az hogy a sublientinfóját hasonlítjuk össze azzal amire számítanánk hogy lesz 
+\begin{DoxyParams}{Parameters}
+{\em name\+\_\+in} & Keresett ügyfél neve \\
+\hline
+{\em somekindof\+ID} & A keresett ügyfél valamilyen azonosítója \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Keresett ügyfél 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+\mbox{\Hypertarget{class_m_v_m_a15c1b579505a0a699119de338e3f72ed}\label{class_m_v_m_a15c1b579505a0a699119de338e3f72ed}} 
+\index{MVM@{MVM}!getCompanyDetails@{getCompanyDetails}}
+\index{getCompanyDetails@{getCompanyDetails}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{getCompanyDetails()}{getCompanyDetails()}}
+{\footnotesize\ttfamily const std\+::string MVM\+::get\+Company\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Az \mbox{\hyperlink{class_m_v_m}{MVM}} adatait adja vissza. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_m_v_m}{MVM}} adatai 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+\mbox{\Hypertarget{class_m_v_m_af8d9a226af83b063fe0bb7defb8e616c}\label{class_m_v_m_af8d9a226af83b063fe0bb7defb8e616c}} 
+\index{MVM@{MVM}!load\_from\_console@{load\_from\_console}}
+\index{load\_from\_console@{load\_from\_console}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{load\_from\_console()}{load\_from\_console()}}
+{\footnotesize\ttfamily void MVM\+::load\+\_\+from\+\_\+console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Belvas egy contractet a console-\/ról. 
+
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00260}{260}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+\mbox{\Hypertarget{class_m_v_m_aac79d563bd302a9441385ae5b16ebc0e}\label{class_m_v_m_aac79d563bd302a9441385ae5b16ebc0e}} 
+\index{MVM@{MVM}!load\_from\_save@{load\_from\_save}}
+\index{load\_from\_save@{load\_from\_save}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{load\_from\_save()}{load\_from\_save()}}
+{\footnotesize\ttfamily void MVM\+::load\+\_\+from\+\_\+save (\begin{DoxyParamCaption}\item[{int}]{version\+\_\+id\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Beolvassa a ügyfeleket és a szerződéseiket egy fájlból. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em beolvasandó} & verzió azonosítója \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00238}{238}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+\mbox{\Hypertarget{class_m_v_m_acc3d356b0b8e2fef4a7b56b480daec0c}\label{class_m_v_m_acc3d356b0b8e2fef4a7b56b480daec0c}} 
+\index{MVM@{MVM}!save@{save}}
+\index{save@{save}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void MVM\+::save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Biztonsági mentés fájlba ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_m_v_m_a867aeb59ccbb16febf87084cf89d518a}\label{class_m_v_m_a867aeb59ccbb16febf87084cf89d518a}} 
+\index{MVM@{MVM}!MVM\_company@{MVM\_company}}
+\index{MVM\_company@{MVM\_company}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{MVM\_company}{MVM\_company}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_company}{Company}} MVM\+::\+MVM\+\_\+company = \mbox{\hyperlink{class_company}{Company}}(\char`\"{}Meseorszagi Villamos Muvek ZRT.\char`\"{}, \char`\"{}10760798244\char`\"{})\hspace{0.3cm}{\ttfamily [static]}}
+
+Az \mbox{\hyperlink{class_m_v_m}{MVM}} adatai 
+
+Definition at line \mbox{\hyperlink{_m_v_m_8h_source_l00063}{63}} of file \mbox{\hyperlink{_m_v_m_8h_source}{MVM.\+h}}.
+
+\mbox{\Hypertarget{class_m_v_m_a76ee8bd73194a5f2b0bc46c7b5cf22dc}\label{class_m_v_m_a76ee8bd73194a5f2b0bc46c7b5cf22dc}} 
+\index{MVM@{MVM}!save\_version@{save\_version}}
+\index{save\_version@{save\_version}!MVM@{MVM}}
+\doxysubsubsection{\texorpdfstring{save\_version}{save\_version}}
+{\footnotesize\ttfamily int MVM\+::save\+\_\+version = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+A mentések verziószámát tárolja. 
+
+Definition at line \mbox{\hyperlink{_m_v_m_8h_source_l00068}{68}} of file \mbox{\hyperlink{_m_v_m_8h_source}{MVM.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+MVM.\+h\item 
+MVM.\+cpp\end{DoxyCompactItemize}

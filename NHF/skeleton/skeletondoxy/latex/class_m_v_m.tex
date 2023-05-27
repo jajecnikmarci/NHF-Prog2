@@ -18,18 +18,18 @@ void \mbox{\hyperlink{class_m_v_m_a4d02ac8bb1dcc2ec5fcf1832cc662f44}{add\+Client
 \begin{DoxyCompactList}\small\item\em Hozzáad egy új klienst. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_m_v_m_aaf3ab005673a931c43b503fd277b3ef1}{add\+Contract}} (\mbox{\hyperlink{class_client}{Client}} $\ast$client\+\_\+in, Contract\+Type ctype\+\_\+in, int year\+\_\+begin, int month\+\_\+begin, int day\+\_\+begin, int year\+\_\+end, int month\+\_\+end, int day\+\_\+end, int invo\+\_\+in\+\_\+year, int invo\+\_\+in\+\_\+month, int invo\+\_\+in\+\_\+day, double tariff\+\_\+in=0.\+0, double balance\+\_\+in=0.\+0, double consumption\+\_\+in=0.\+0)
 \item 
-\mbox{\hyperlink{class_client}{Client}} $\ast$ \mbox{\hyperlink{class_m_v_m_ad829a10312d549619216c8dab1ce00f6}{get\+Client}} (const std\+::string name\+\_\+in)
+\mbox{\hyperlink{class_client}{Client}} $\ast$ \mbox{\hyperlink{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}{get\+Client}} (const std\+::string name\+\_\+in, const std\+::string somekindof\+ID)
 \begin{DoxyCompactList}\small\item\em Visszaadja a keresett ügyfelet a neve alapján. \end{DoxyCompactList}\item 
 const std\+::string \mbox{\hyperlink{class_m_v_m_a15c1b579505a0a699119de338e3f72ed}{get\+Company\+Details}} ()
 \begin{DoxyCompactList}\small\item\em Az \mbox{\hyperlink{class_m_v_m}{MVM}} adatait adja vissza. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_m_v_m_a85592d6dbe4adadb6fe4cbfb1b4861f2}{delete\+Client}} (const std\+::string name\+\_\+in)
+void \mbox{\hyperlink{class_m_v_m_aa1e7db7cfe6de5a5c2bca90a1b9cce84}{delete\+Client}} (const std\+::string name\+\_\+in, const std\+::string somekindof\+ID)
 \begin{DoxyCompactList}\small\item\em Kitöröl egy ügyfelet a neve alapján. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_m_v_m_afbd4ab1c335c46b4c6837fd5c957ee00}{$\sim$\+MVM}} ()
 \begin{DoxyCompactList}\small\item\em Destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{class_company}{Company}} \mbox{\hyperlink{class_m_v_m_a867aeb59ccbb16febf87084cf89d518a}{MVM\+\_\+company}} = \mbox{\hyperlink{class_company}{Company}}(\char`\"{}MVM ZRT.\char`\"{}, 10760798244)
+static \mbox{\hyperlink{class_company}{Company}} \mbox{\hyperlink{class_m_v_m_a867aeb59ccbb16febf87084cf89d518a}{MVM\+\_\+company}} = \mbox{\hyperlink{class_company}{Company}}(\char`\"{}MVM ZRT.\char`\"{}, \char`\"{}10760798244\char`\"{})
 \end{DoxyCompactItemize}
 
 
@@ -67,7 +67,7 @@ Destruktor.
 
 
 
-Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
 
 
 
@@ -134,11 +134,11 @@ Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00009}{9}} of file \mbox
 
 Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
 
-\mbox{\Hypertarget{class_m_v_m_a85592d6dbe4adadb6fe4cbfb1b4861f2}\label{class_m_v_m_a85592d6dbe4adadb6fe4cbfb1b4861f2}} 
+\mbox{\Hypertarget{class_m_v_m_aa1e7db7cfe6de5a5c2bca90a1b9cce84}\label{class_m_v_m_aa1e7db7cfe6de5a5c2bca90a1b9cce84}} 
 \index{MVM@{MVM}!deleteClient@{deleteClient}}
 \index{deleteClient@{deleteClient}!MVM@{MVM}}
 \doxysubsubsection{\texorpdfstring{deleteClient()}{deleteClient()}}
-{\footnotesize\ttfamily void MVM\+::delete\+Client (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void MVM\+::delete\+Client (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in,  }\item[{const std\+::string}]{somekindof\+ID }\end{DoxyParamCaption})}
 
 
 
@@ -151,21 +151,23 @@ Kitöröl egy ügyfelet a neve alapján.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
 
-\mbox{\Hypertarget{class_m_v_m_ad829a10312d549619216c8dab1ce00f6}\label{class_m_v_m_ad829a10312d549619216c8dab1ce00f6}} 
+\mbox{\Hypertarget{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}\label{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}} 
 \index{MVM@{MVM}!getClient@{getClient}}
 \index{getClient@{getClient}!MVM@{MVM}}
 \doxysubsubsection{\texorpdfstring{getClient()}{getClient()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_client}{Client}} $\ast$ MVM\+::get\+Client (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_client}{Client}} $\ast$ MVM\+::get\+Client (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in,  }\item[{const std\+::string}]{somekindof\+ID }\end{DoxyParamCaption})}
 
 
 
 Visszaadja a keresett ügyfelet a neve alapján. 
 
-
+A függvény mivel nem tudja hogy a client melyik alosztályát próbáljuk megkapni, így a módszer az hogy a sublientinfóját hasonlítjuk össze azzal amire számítanánk hogy lesz 
 \begin{DoxyParams}{Parameters}
 {\em name\+\_\+in} & Keresett ügyfél neve \\
+\hline
+{\em somekindof\+ID} & A keresett ügyfél valamilyen azonosítója \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -190,7 +192,7 @@ Az \mbox{\hyperlink{class_m_v_m}{MVM}} adatait adja vissza.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
+Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00029}{29}} of file \mbox{\hyperlink{_m_v_m_8cpp_source}{MVM.\+cpp}}.
 
 
 
@@ -199,7 +201,7 @@ Definition at line \mbox{\hyperlink{_m_v_m_8cpp_source_l00027}{27}} of file \mbo
 \index{MVM@{MVM}!MVM\_company@{MVM\_company}}
 \index{MVM\_company@{MVM\_company}!MVM@{MVM}}
 \doxysubsubsection{\texorpdfstring{MVM\_company}{MVM\_company}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_company}{Company}} MVM\+::\+MVM\+\_\+company = \mbox{\hyperlink{class_company}{Company}}(\char`\"{}MVM ZRT.\char`\"{}, 10760798244)\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_company}{Company}} MVM\+::\+MVM\+\_\+company = \mbox{\hyperlink{class_company}{Company}}(\char`\"{}MVM ZRT.\char`\"{}, \char`\"{}10760798244\char`\"{})\hspace{0.3cm}{\ttfamily [static]}}
 
 Az \mbox{\hyperlink{class_m_v_m}{MVM}} adatai 
 

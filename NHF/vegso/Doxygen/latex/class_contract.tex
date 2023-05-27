@@ -1,0 +1,474 @@
+\hypertarget{class_contract}{}\doxysection{Contract Class Reference}
+\label{class_contract}\index{Contract@{Contract}}
+
+
+Egy szerződést tárol.  
+
+
+
+
+{\ttfamily \#include $<$contracts.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_contract_ac389a32c8012febf14c222ea23c84e71}{Contract}} ()
+\begin{DoxyCompactList}\small\item\em Paraméter nélküli konstruktor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_contract_aef06ae6813a94a1154bf1b0a5f985444}{Contract}} (\mbox{\hyperlink{class_client}{Client}} $\ast$client\+\_\+in, Contract\+Type ctype\+\_\+in, int year\+\_\+begin, int month\+\_\+begin, int day\+\_\+begin, int year\+\_\+end, int month\+\_\+end, int day\+\_\+end, int invo\+\_\+in\+\_\+year, int invo\+\_\+in\+\_\+month, int invo\+\_\+in\+\_\+day, size\+\_\+t Contract\+ID\+\_\+in, double tariff\+\_\+in=0.\+0, double balance\+\_\+in=0.\+0, double consumption\+\_\+in=0.\+0)
+\begin{DoxyCompactList}\small\item\em Alapértékes konstruktor egy szerződéshez. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract_a96cec0aff3df76236cc75e3bf63ef5ff}{set\+Ctype}} (Contract\+Type ctype\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Beállítja a szerződés típusát. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract_ab5517c38f4f1d68e597071ae0a9e8b66}{set\+Tariff}} (double tariff\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Beállítja az új tarifát. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract_ad08bea11d8567f530ec5274d4ab56383}{set\+Balance}} (double balance\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Beállítja a jelenlegi egyenleget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract_a5b850852413aa46c9bc8de86a96f1362}{add\+Consumption}} (double con\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Hozzáad a fogyasztott mennyiséghez. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract_a986868745160d0e296d894ee2bd88178}{set\+Last\+\_\+invoicing}} (\mbox{\hyperlink{class_date}{Date}} last\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Beállítja a legutolsó számlázás idejét. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract_aaf9ae551436a51ac41d2f08149366c79}{set\+Ctime}} (\mbox{\hyperlink{class_contract__date}{Contract\+\_\+date}} ctime\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Beállítja a szerződés időtartományát. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_client}{Client}} $\ast$ \mbox{\hyperlink{class_contract_a2a54f1a29ab8a88a7c63d5aa7cdc0a58}{get\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Visszaadja az ügyfél adatait. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_contract_a222d689da62cfcd441933b7d48aa1840}{get\+Contract\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a szerződés azonosítóját. \end{DoxyCompactList}\item 
+Contract\+Type \mbox{\hyperlink{class_contract_a68ae31a64d04c565de2c42731985eeae}{get\+Ctype}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a szerződés típusát. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_contract_a35dcdf9c4752101f31a34f80b38e9abc}{get\+Tariff}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a tarifát. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_contract_a55ef08f4db0f8146fc42c2bb410b7960}{get\+Balance}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a jelenlegi egyenleget. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_contract_a2c1439dea2951f6fe07b889061b89541}{get\+Consumption}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja az eddigi fogyasztást a legutóbbi számla kiállítása óta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_contract__date}{Contract\+\_\+date}} \mbox{\hyperlink{class_contract_a90dfc571475e24dab6be516786704708}{get\+Ctime}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a szerződés időtartományát. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_contract_a39ab8eac1fca9c006f52421fb3b47de6}{Ctype\+\_\+to\+String}} () const
+\begin{DoxyCompactList}\small\item\em A szerződés típusát adja vissza stringként. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_contract_aa5fae1ce32f260c950f6cf135fef5ab4}{get\+Last\+\_\+invoicing}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a legutótóbbi számla kiállításának az időpontját. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract_aec090387ce04a78ead889f19cf17db4f}{pay}} (double amount)
+\begin{DoxyCompactList}\small\item\em Befizetés egyenlegrendezéshez. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract_a3039cab38cd967e1d35d7736217671ae}{invoice}} (const \mbox{\hyperlink{class_date}{Date}} \&today)
+\begin{DoxyCompactList}\small\item\em Számla kiállítása fájlba. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_contract_ac4be25f545f310d6e563326568612814}{$\sim$\+Contract}} ()
+\begin{DoxyCompactList}\small\item\em Destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy szerződést tárol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & Tárolja a szerződéstkötő adatait \\
+\hline
+{\em contract\+\_\+\+ID} & A szerződés azonosítószáma \\
+\hline
+{\em contract\+\_\+type} & A szerződés típusát tárolja \\
+\hline
+{\em contract\+\_\+time} & A szerződés időtartamát adja meg egy kezdő és egy végdátummal \\
+\hline
+{\em last\+\_\+invoicing} & Utolsó számlakibocsájtás ideje \\
+\hline
+{\em tariff} & A KWh-\/kénti árat adja meg \\
+\hline
+{\em balance} & Tárolja a szerződéshez tartozó számla egyenlegét \\
+\hline
+{\em consumption} & Tárolja a fogyasztást a legutóbbi számlakibocsájtás óta \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8h_source_l00041}{41}} of file \mbox{\hyperlink{contracts_8h_source}{contracts.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_contract_ac389a32c8012febf14c222ea23c84e71}\label{class_contract_ac389a32c8012febf14c222ea23c84e71}} 
+\index{Contract@{Contract}!Contract@{Contract}}
+\index{Contract@{Contract}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{Contract()}{Contract()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Contract\+::\+Contract (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Paraméter nélküli konstruktor. 
+
+
+
+Definition at line \mbox{\hyperlink{contracts_8h_source_l00048}{48}} of file \mbox{\hyperlink{contracts_8h_source}{contracts.\+h}}.
+
+\mbox{\Hypertarget{class_contract_aef06ae6813a94a1154bf1b0a5f985444}\label{class_contract_aef06ae6813a94a1154bf1b0a5f985444}} 
+\index{Contract@{Contract}!Contract@{Contract}}
+\index{Contract@{Contract}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{Contract()}{Contract()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Contract\+::\+Contract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_client}{Client}} $\ast$}]{client\+\_\+in,  }\item[{Contract\+Type}]{ctype\+\_\+in,  }\item[{int}]{year\+\_\+begin,  }\item[{int}]{month\+\_\+begin,  }\item[{int}]{day\+\_\+begin,  }\item[{int}]{year\+\_\+end,  }\item[{int}]{month\+\_\+end,  }\item[{int}]{day\+\_\+end,  }\item[{int}]{invo\+\_\+in\+\_\+year,  }\item[{int}]{invo\+\_\+in\+\_\+month,  }\item[{int}]{invo\+\_\+in\+\_\+day,  }\item[{size\+\_\+t}]{Contract\+ID\+\_\+in,  }\item[{double}]{tariff\+\_\+in = {\ttfamily 0.0},  }\item[{double}]{balance\+\_\+in = {\ttfamily 0.0},  }\item[{double}]{consumption\+\_\+in = {\ttfamily 0.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Alapértékes konstruktor egy szerződéshez. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+\_\+in} & Szerződést kötő ügyfél (kötelező) \\
+\hline
+{\em ctype\+\_\+in} & Szerződés típusa \\
+\hline
+{\em year\+\_\+begin} & Szerződés kezdeti éve \\
+\hline
+{\em month\+\_\+begin} & Szerződés kezdeti hónapja \\
+\hline
+{\em day\+\_\+begin} & Szerződés kezdeti napja \\
+\hline
+{\em year\+\_\+end} & Szerződés végső éve \\
+\hline
+{\em month\+\_\+end} & Szerződés végső hónapja \\
+\hline
+{\em day\+\_\+end} & Szerződés végső napja \\
+\hline
+{\em invo\+\_\+in\+\_\+year} & Legutóbbi számlázás éve \\
+\hline
+{\em invo\+\_\+in\+\_\+month} & Legutóbbi számlázás hónapja \\
+\hline
+{\em invo\+\_\+in\+\_\+day} & Legutóbbi számlázás napja \\
+\hline
+{\em Contract\+ID\+\_\+in} & A szerződés azonosítószáma \\
+\hline
+{\em tariff\+\_\+in} & KWh-\/kénti ár \\
+\hline
+{\em balance\+\_\+in} & Jelenlegi egyenleg \\
+\hline
+{\em consumption\+\_\+in} & Jelenlegi fogyasztás \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8h_source_l00068}{68}} of file \mbox{\hyperlink{contracts_8h_source}{contracts.\+h}}.
+
+\mbox{\Hypertarget{class_contract_ac4be25f545f310d6e563326568612814}\label{class_contract_ac4be25f545f310d6e563326568612814}} 
+\index{Contract@{Contract}!````~Contract@{$\sim$Contract}}
+\index{````~Contract@{$\sim$Contract}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{$\sim$Contract()}{~Contract()}}
+{\footnotesize\ttfamily Contract\+::$\sim$\+Contract (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destruktor. 
+
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00124}{124}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_contract_a5b850852413aa46c9bc8de86a96f1362}\label{class_contract_a5b850852413aa46c9bc8de86a96f1362}} 
+\index{Contract@{Contract}!addConsumption@{addConsumption}}
+\index{addConsumption@{addConsumption}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{addConsumption()}{addConsumption()}}
+{\footnotesize\ttfamily void Contract\+::add\+Consumption (\begin{DoxyParamCaption}\item[{double}]{con\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Hozzáad a fogyasztott mennyiséghez. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em con\+\_\+in} & Bejövő fogyasztás \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a39ab8eac1fca9c006f52421fb3b47de6}\label{class_contract_a39ab8eac1fca9c006f52421fb3b47de6}} 
+\index{Contract@{Contract}!Ctype\_toString@{Ctype\_toString}}
+\index{Ctype\_toString@{Ctype\_toString}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{Ctype\_toString()}{Ctype\_toString()}}
+{\footnotesize\ttfamily const std\+::string Contract\+::\+Ctype\+\_\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A szerződés típusát adja vissza stringként. 
+
+\begin{DoxyReturn}{Returns}
+szerződés típusa adja vissza stringként 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a55ef08f4db0f8146fc42c2bb410b7960}\label{class_contract_a55ef08f4db0f8146fc42c2bb410b7960}} 
+\index{Contract@{Contract}!getBalance@{getBalance}}
+\index{getBalance@{getBalance}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{getBalance()}{getBalance()}}
+{\footnotesize\ttfamily double Contract\+::get\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a jelenlegi egyenleget. 
+
+\begin{DoxyReturn}{Returns}
+Jelenlegi egyenleg 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00047}{47}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a2a54f1a29ab8a88a7c63d5aa7cdc0a58}\label{class_contract_a2a54f1a29ab8a88a7c63d5aa7cdc0a58}} 
+\index{Contract@{Contract}!getClient@{getClient}}
+\index{getClient@{getClient}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{getClient()}{getClient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_client}{Client}} $\ast$ Contract\+::get\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Visszaadja az ügyfél adatait. 
+
+\begin{DoxyReturn}{Returns}
+Ügyfél adatai 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a2c1439dea2951f6fe07b889061b89541}\label{class_contract_a2c1439dea2951f6fe07b889061b89541}} 
+\index{Contract@{Contract}!getConsumption@{getConsumption}}
+\index{getConsumption@{getConsumption}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{getConsumption()}{getConsumption()}}
+{\footnotesize\ttfamily double Contract\+::get\+Consumption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja az eddigi fogyasztást a legutóbbi számla kiállítása óta. 
+
+\begin{DoxyReturn}{Returns}
+Eddigi fogyasztás 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00051}{51}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a222d689da62cfcd441933b7d48aa1840}\label{class_contract_a222d689da62cfcd441933b7d48aa1840}} 
+\index{Contract@{Contract}!getContractID@{getContractID}}
+\index{getContractID@{getContractID}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{getContractID()}{getContractID()}}
+{\footnotesize\ttfamily size\+\_\+t Contract\+::get\+Contract\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a szerződés azonosítóját. 
+
+\begin{DoxyReturn}{Returns}
+szerződés azonosítója 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a90dfc571475e24dab6be516786704708}\label{class_contract_a90dfc571475e24dab6be516786704708}} 
+\index{Contract@{Contract}!getCtime@{getCtime}}
+\index{getCtime@{getCtime}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{getCtime()}{getCtime()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_contract__date}{Contract\+\_\+date}} Contract\+::get\+Ctime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a szerződés időtartományát. 
+
+\begin{DoxyReturn}{Returns}
+Szerződés időtartománya 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a68ae31a64d04c565de2c42731985eeae}\label{class_contract_a68ae31a64d04c565de2c42731985eeae}} 
+\index{Contract@{Contract}!getCtype@{getCtype}}
+\index{getCtype@{getCtype}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{getCtype()}{getCtype()}}
+{\footnotesize\ttfamily Contract\+Type Contract\+::get\+Ctype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a szerződés típusát. 
+
+\begin{DoxyReturn}{Returns}
+Szerződés típusa 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_aa5fae1ce32f260c950f6cf135fef5ab4}\label{class_contract_aa5fae1ce32f260c950f6cf135fef5ab4}} 
+\index{Contract@{Contract}!getLast\_invoicing@{getLast\_invoicing}}
+\index{getLast\_invoicing@{getLast\_invoicing}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{getLast\_invoicing()}{getLast\_invoicing()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} Contract\+::get\+Last\+\_\+invoicing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a legutótóbbi számla kiállításának az időpontját. 
+
+\begin{DoxyReturn}{Returns}
+Legutótóbbi számla kiállításának az időpontja 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00073}{73}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a35dcdf9c4752101f31a34f80b38e9abc}\label{class_contract_a35dcdf9c4752101f31a34f80b38e9abc}} 
+\index{Contract@{Contract}!getTariff@{getTariff}}
+\index{getTariff@{getTariff}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{getTariff()}{getTariff()}}
+{\footnotesize\ttfamily double Contract\+::get\+Tariff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a tarifát. 
+
+\begin{DoxyReturn}{Returns}
+Jelenlegi tarifa 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a3039cab38cd967e1d35d7736217671ae}\label{class_contract_a3039cab38cd967e1d35d7736217671ae}} 
+\index{Contract@{Contract}!invoice@{invoice}}
+\index{invoice@{invoice}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{invoice()}{invoice()}}
+{\footnotesize\ttfamily void Contract\+::invoice (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{today }\end{DoxyParamCaption})}
+
+
+
+Számla kiállítása fájlba. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em today} & számla kiállításának napja (név amiatt mert a számlakiállítás napja általában a jelenlegi nappal egyezik meg) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_aec090387ce04a78ead889f19cf17db4f}\label{class_contract_aec090387ce04a78ead889f19cf17db4f}} 
+\index{Contract@{Contract}!pay@{pay}}
+\index{pay@{pay}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{pay()}{pay()}}
+{\footnotesize\ttfamily void Contract\+::pay (\begin{DoxyParamCaption}\item[{double}]{amount }\end{DoxyParamCaption})}
+
+
+
+Befizetés egyenlegrendezéshez. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em amount} & Befizetett összeg \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_ad08bea11d8567f530ec5274d4ab56383}\label{class_contract_ad08bea11d8567f530ec5274d4ab56383}} 
+\index{Contract@{Contract}!setBalance@{setBalance}}
+\index{setBalance@{setBalance}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{setBalance()}{setBalance()}}
+{\footnotesize\ttfamily void Contract\+::set\+Balance (\begin{DoxyParamCaption}\item[{double}]{balance\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Beállítja a jelenlegi egyenleget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em balance\+\_\+in} & Beállítandó egyenleg \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_aaf9ae551436a51ac41d2f08149366c79}\label{class_contract_aaf9ae551436a51ac41d2f08149366c79}} 
+\index{Contract@{Contract}!setCtime@{setCtime}}
+\index{setCtime@{setCtime}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{setCtime()}{setCtime()}}
+{\footnotesize\ttfamily void Contract\+::set\+Ctime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_contract__date}{Contract\+\_\+date}}}]{ctime\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Beállítja a szerződés időtartományát. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctime\+\_\+in} & Bejövő időtartomány \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00027}{27}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a96cec0aff3df76236cc75e3bf63ef5ff}\label{class_contract_a96cec0aff3df76236cc75e3bf63ef5ff}} 
+\index{Contract@{Contract}!setCtype@{setCtype}}
+\index{setCtype@{setCtype}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{setCtype()}{setCtype()}}
+{\footnotesize\ttfamily void Contract\+::set\+Ctype (\begin{DoxyParamCaption}\item[{Contract\+Type}]{ctype\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Beállítja a szerződés típusát. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctype\+\_\+in} & Beállítandó szerződéstípus \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_a986868745160d0e296d894ee2bd88178}\label{class_contract_a986868745160d0e296d894ee2bd88178}} 
+\index{Contract@{Contract}!setLast\_invoicing@{setLast\_invoicing}}
+\index{setLast\_invoicing@{setLast\_invoicing}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{setLast\_invoicing()}{setLast\_invoicing()}}
+{\footnotesize\ttfamily void Contract\+::set\+Last\+\_\+invoicing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{last\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Beállítja a legutolsó számlázás idejét. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+\_\+in} & Számlázás időpontja \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract_ab5517c38f4f1d68e597071ae0a9e8b66}\label{class_contract_ab5517c38f4f1d68e597071ae0a9e8b66}} 
+\index{Contract@{Contract}!setTariff@{setTariff}}
+\index{setTariff@{setTariff}!Contract@{Contract}}
+\doxysubsubsection{\texorpdfstring{setTariff()}{setTariff()}}
+{\footnotesize\ttfamily void Contract\+::set\+Tariff (\begin{DoxyParamCaption}\item[{double}]{tariff\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Beállítja az új tarifát. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tariff\+\_\+in} & Beállítandó tarifa \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{contracts_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{contracts_8cpp_source}{contracts.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+contracts.\+h\item 
+contracts.\+cpp\end{DoxyCompactItemize}

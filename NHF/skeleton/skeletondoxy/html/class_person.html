@@ -92,15 +92,15 @@ Inheritance diagram for Person:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a019a151f54037f9e1a66f0bf1d1c33c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_person.html#a019a151f54037f9e1a66f0bf1d1c33c1">Person</a> (const std::string name_in=&quot;&quot;, long ID_in=0)</td></tr>
-<tr class="memdesc:a019a151f54037f9e1a66f0bf1d1c33c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alapértékes konstruktor.  <br /></td></tr>
-<tr class="separator:a019a151f54037f9e1a66f0bf1d1c33c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87486d9388f3cc56003e3a915d58fe72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_person.html#a87486d9388f3cc56003e3a915d58fe72">setID</a> (long ID_in)</td></tr>
-<tr class="memdesc:a87486d9388f3cc56003e3a915d58fe72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Személyigazolvány beállítása.  <br /></td></tr>
-<tr class="separator:a87486d9388f3cc56003e3a915d58fe72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac50ba2b24ebcdd41cd73d78f7dcda8b"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_person.html#aac50ba2b24ebcdd41cd73d78f7dcda8b">getID</a> () const</td></tr>
-<tr class="memdesc:aac50ba2b24ebcdd41cd73d78f7dcda8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Magánszemély személyigazolványszámát adja vissza.  <br /></td></tr>
-<tr class="separator:aac50ba2b24ebcdd41cd73d78f7dcda8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08f43166613723d370fcde4b266e8264"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_person.html#a08f43166613723d370fcde4b266e8264">Person</a> (const std::string name_in=&quot;&quot;, std::string ID_in=&quot;&quot;)</td></tr>
+<tr class="memdesc:a08f43166613723d370fcde4b266e8264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alapértékes konstruktor.  <br /></td></tr>
+<tr class="separator:a08f43166613723d370fcde4b266e8264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48bd1dda5186f86d5ea09ba0fb47b87a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_person.html#a48bd1dda5186f86d5ea09ba0fb47b87a">setID</a> (std::string ID_in)</td></tr>
+<tr class="memdesc:a48bd1dda5186f86d5ea09ba0fb47b87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Személyigazolvány beállítása.  <br /></td></tr>
+<tr class="separator:a48bd1dda5186f86d5ea09ba0fb47b87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd8a761fd1e6982d36df931cf39d0d18"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_person.html#afd8a761fd1e6982d36df931cf39d0d18">getID</a> () const</td></tr>
+<tr class="memdesc:afd8a761fd1e6982d36df931cf39d0d18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Magánszemély személyigazolványszámát adja vissza.  <br /></td></tr>
+<tr class="separator:afd8a761fd1e6982d36df931cf39d0d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a112a91312130609eddd72fa6dd86462e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_person.html#a112a91312130609eddd72fa6dd86462e">getsub_Client_info</a> ()</td></tr>
 <tr class="memdesc:a112a91312130609eddd72fa6dd86462e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben.  <br /></td></tr>
 <tr class="separator:a112a91312130609eddd72fa6dd86462e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,15 +137,15 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Magánszemély adatait tárolja. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ID</td><td>A személy személyazonosító száma </td></tr>
+    <tr><td class="paramname">ID</td><td>A személy személyazonosító száma 8 jegyű </td></tr>
   </table>
   </dd>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="clients_8h_source.html#l00083">83</a> of file <a class="el" href="clients_8h_source.html">clients.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a019a151f54037f9e1a66f0bf1d1c33c1" name="a019a151f54037f9e1a66f0bf1d1c33c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a019a151f54037f9e1a66f0bf1d1c33c1">&#9670;&#160;</a></span>Person()</h2>
+<a id="a08f43166613723d370fcde4b266e8264" name="a08f43166613723d370fcde4b266e8264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08f43166613723d370fcde4b266e8264">&#9670;&#160;</a></span>Person()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,8 +162,8 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">long&#160;</td>
-          <td class="paramname"><em>ID_in</em> = <code>0</code>&#160;</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>ID_in</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -214,14 +214,14 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aac50ba2b24ebcdd41cd73d78f7dcda8b" name="aac50ba2b24ebcdd41cd73d78f7dcda8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac50ba2b24ebcdd41cd73d78f7dcda8b">&#9670;&#160;</a></span>getID()</h2>
+<a id="afd8a761fd1e6982d36df931cf39d0d18" name="afd8a761fd1e6982d36df931cf39d0d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd8a761fd1e6982d36df931cf39d0d18">&#9670;&#160;</a></span>getID()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">long Person::getID </td>
+          <td class="memname">std::string Person::getID </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -268,8 +268,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a87486d9388f3cc56003e3a915d58fe72" name="a87486d9388f3cc56003e3a915d58fe72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87486d9388f3cc56003e3a915d58fe72">&#9670;&#160;</a></span>setID()</h2>
+<a id="a48bd1dda5186f86d5ea09ba0fb47b87a" name="a48bd1dda5186f86d5ea09ba0fb47b87a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48bd1dda5186f86d5ea09ba0fb47b87a">&#9670;&#160;</a></span>setID()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +277,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Person::setID </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>ID_in</em></td><td>)</td>
           <td></td>
         </tr>

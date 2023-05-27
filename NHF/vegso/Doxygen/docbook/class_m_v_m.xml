@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_m_v_m" xml:lang="en-US">
+<title>MVM Class Reference</title>
+<indexterm><primary>MVM</primary></indexterm>
+<para>
+
+<para>Ügyfeleket tároló class. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;MVM.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_m_v_m_1acc3149bc47a4df1b418fd0ffa6d9f147">MVM</link> ()</para>
+
+<para>paraméter nélkül hívható konstruktor </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_m_v_m_1a4d02ac8bb1dcc2ec5fcf1832cc662f44">addClient</link> (<link linkend="_class_client">Client</link> *client_in)</para>
+
+<para>Hozzáad egy új klienst. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_m_v_m_1aaf3ab005673a931c43b503fd277b3ef1">addContract</link> (<link linkend="_class_client">Client</link> *client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)</para>
+</listitem>
+            <listitem><para><link linkend="_class_client">Client</link> * <link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">getClient</link> (const std::string name_in, const std::string somekindofID)</para>
+
+<para>Visszaadja a keresett ügyfelet a neve alapján. </para>
+</listitem>
+            <listitem><para>const std::string <link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">getCompanyDetails</link> ()</para>
+
+<para>Az <link linkend="_class_m_v_m">MVM</link> adatait adja vissza. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_m_v_m_1aa1e7db7cfe6de5a5c2bca90a1b9cce84">deleteClient</link> (const std::string name_in, const std::string somekindofID)</para>
+
+<para>Kitöröl egy ügyfelet a neve alapján. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_m_v_m_1acc3d356b0b8e2fef4a7b56b480daec0c">save</link> ()</para>
+
+<para>Biztonsági mentés fájlba <?linebreak?> </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_m_v_m_1aac79d563bd302a9441385ae5b16ebc0e">load_from_save</link> (int version_id_in)</para>
+
+<para>Beolvassa a ügyfeleket és a szerződéseiket egy fájlból. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_m_v_m_1af8d9a226af83b063fe0bb7defb8e616c">load_from_console</link> ()</para>
+
+<para>Belvas egy contractet a console-ról. </para>
+</listitem>
+            <listitem><para><link linkend="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00">~MVM</link> ()</para>
+
+<para>Destruktor. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_company">Company</link> <link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM_company</link> = <link linkend="_class_company">Company</link>(&quot;Meseorszagi Villamos Muvek ZRT.&quot;, &quot;10760798244&quot;)</para>
+</listitem>
+            <listitem><para>static int <link linkend="_class_m_v_m_1a76ee8bd73194a5f2b0bc46c7b5cf22dc">save_version</link> = 0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Ügyfeleket tároló class. </para>
+
+
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>clients</entry><entry>
+<para>Ügyfeleket tároló indexelhető MyVektor </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__m_v_m_8h_source_1l00023">23</link> of file <link linkend="__m_v_m_8h_source">MVM.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_m_v_m_1acc3149bc47a4df1b418fd0ffa6d9f147"/><section>
+    <title>MVM()</title>
+<indexterm><primary>MVM</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>MVM</secondary></indexterm>
+<para><computeroutput>MVM::MVM ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>paraméter nélkül hívható konstruktor </para>
+</para>
+<para>
+Definition at line <link linkend="__m_v_m_8h_source_1l00073">73</link> of file <link linkend="__m_v_m_8h_source">MVM.h</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00"/><section>
+    <title>~MVM()</title>
+<indexterm><primary>~MVM</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>~MVM</secondary></indexterm>
+<para><computeroutput>MVM::~MVM ( )</computeroutput></para><para>
+
+<para>Destruktor. </para>
+</para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00281">281</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_m_v_m_1a4d02ac8bb1dcc2ec5fcf1832cc662f44"/><section>
+    <title>addClient()</title>
+<indexterm><primary>addClient</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>addClient</secondary></indexterm>
+<para><computeroutput>void MVM::addClient (<link linkend="_class_client">Client</link> * client_in)</computeroutput></para><para>
+
+<para>Hozzáad egy új klienst. </para>
+</para>
+
+<para>Eltárolja a klienst, amit előre létre kell hozni, de a felszabadítást az <link linkend="_class_m_v_m">MVM</link> osztály végzi 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>client_in</entry><entry>
+<para>Szerződést kötő ügyfél </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00010">10</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1aaf3ab005673a931c43b503fd277b3ef1"/><section>
+    <title>addContract()</title>
+<indexterm><primary>addContract</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>addContract</secondary></indexterm>
+<para><computeroutput>void MVM::addContract (<link linkend="_class_client">Client</link> * client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, double tariff_in = <computeroutput>0.0</computeroutput>
+, double balance_in = <computeroutput>0.0</computeroutput>
+, double consumption_in = <computeroutput>0.0</computeroutput>
+)</computeroutput></para>
+<para>@briefHozzáad egy szerződést</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>client_in</entry><entry>
+<para>Szerződést kötő ügyfél </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ctype_in</entry><entry>
+<para>Szerződés típusa </para>
+</entry>
+                            </row>
+                            <row>
+<entry>year_begin</entry><entry>
+<para>Szerződéskötés kezdeti éve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month_begin</entry><entry>
+<para>Szerződéskötés kezdeti hónapja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day_begin</entry><entry>
+<para>Szerződéskötés kezdeti napja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>year_end</entry><entry>
+<para>Szerződéskötés végső éve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month_end</entry><entry>
+<para>Szerződéskötés végső hónapja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day_end</entry><entry>
+<para>Szerződéskötés végső napja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>invo_in_year</entry><entry>
+<para>Legutóbbi számlázás éve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>invo_in_month</entry><entry>
+<para>Legutóbbi számlázás hónapja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>invo_in_day</entry><entry>
+<para>Legutóbbi számlázás napja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>tariff_in</entry><entry>
+<para>KWh-kénti ár </para>
+</entry>
+                            </row>
+                            <row>
+<entry>balance_in</entry><entry>
+<para>Bejövő egyenleg </para>
+</entry>
+                            </row>
+                            <row>
+<entry>consumption_in</entry><entry>
+<para>Bejövő fogyasztás </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00014">14</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1aa1e7db7cfe6de5a5c2bca90a1b9cce84"/><section>
+    <title>deleteClient()</title>
+<indexterm><primary>deleteClient</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>deleteClient</secondary></indexterm>
+<para><computeroutput>void MVM::deleteClient (const std::string name_in, const std::string somekindofID)</computeroutput></para><para>
+
+<para>Kitöröl egy ügyfelet a neve alapján. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name_in</entry><entry>
+<para>Törlendő ügyfél neve </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00034">34</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2"/><section>
+    <title>getClient()</title>
+<indexterm><primary>getClient</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>getClient</secondary></indexterm>
+<para><computeroutput><link linkend="_class_client">Client</link> * MVM::getClient (const std::string name_in, const std::string somekindofID)</computeroutput></para><para>
+
+<para>Visszaadja a keresett ügyfelet a neve alapján. </para>
+</para>
+
+<para>A függvény mivel nem tudja hogy a client melyik alosztályát próbáljuk megkapni, így a módszer az hogy a sublientinfóját hasonlítjuk össze azzal amire számítanánk hogy lesz 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name_in</entry><entry>
+<para>Keresett ügyfél neve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>somekindofID</entry><entry>
+<para>A keresett ügyfél valamilyen azonosítója </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Keresett ügyfél </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00019">19</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed"/><section>
+    <title>getCompanyDetails()</title>
+<indexterm><primary>getCompanyDetails</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>getCompanyDetails</secondary></indexterm>
+<para><computeroutput>const std::string MVM::getCompanyDetails ( )</computeroutput></para><para>
+
+<para>Az <link linkend="_class_m_v_m">MVM</link> adatait adja vissza. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para><link linkend="_class_m_v_m">MVM</link> adatai </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00030">30</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1af8d9a226af83b063fe0bb7defb8e616c"/><section>
+    <title>load_from_console()</title>
+<indexterm><primary>load_from_console</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>load_from_console</secondary></indexterm>
+<para><computeroutput>void MVM::load_from_console ( )</computeroutput></para><para>
+
+<para>Belvas egy contractet a console-ról. </para>
+</para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00260">260</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1aac79d563bd302a9441385ae5b16ebc0e"/><section>
+    <title>load_from_save()</title>
+<indexterm><primary>load_from_save</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>load_from_save</secondary></indexterm>
+<para><computeroutput>void MVM::load_from_save (int version_id_in)</computeroutput></para><para>
+
+<para>Beolvassa a ügyfeleket és a szerződéseiket egy fájlból. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>beolvasandó</entry><entry>
+<para>verzió azonosítója </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00238">238</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1acc3d356b0b8e2fef4a7b56b480daec0c"/><section>
+    <title>save()</title>
+<indexterm><primary>save</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>save</secondary></indexterm>
+<para><computeroutput>void MVM::save ( )</computeroutput></para><para>
+
+<para>Biztonsági mentés fájlba <?linebreak?> </para>
+</para>
+<para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00038">38</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a"/><section>
+    <title>MVM_company</title>
+<indexterm><primary>MVM_company</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>MVM_company</secondary></indexterm>
+<para><computeroutput><link linkend="_class_company">Company</link> MVM::MVM_company = <link linkend="_class_company">Company</link>(&quot;Meseorszagi Villamos Muvek ZRT.&quot;, &quot;10760798244&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Az <link linkend="_class_m_v_m">MVM</link> adatai </para>
+<para>
+Definition at line <link linkend="__m_v_m_8h_source_1l00063">63</link> of file <link linkend="__m_v_m_8h_source">MVM.h</link>.</para>
+</section>
+<anchor xml:id="_class_m_v_m_1a76ee8bd73194a5f2b0bc46c7b5cf22dc"/><section>
+    <title>save_version</title>
+<indexterm><primary>save_version</primary><secondary>MVM</secondary></indexterm>
+<indexterm><primary>MVM</primary><secondary>save_version</secondary></indexterm>
+<para><computeroutput>int MVM::save_version = 0<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>A mentések verziószámát tárolja. </para>
+<para>
+Definition at line <link linkend="__m_v_m_8h_source_1l00068">68</link> of file <link linkend="__m_v_m_8h_source">MVM.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+MVM.hMVM.cpp</section>
+</section>

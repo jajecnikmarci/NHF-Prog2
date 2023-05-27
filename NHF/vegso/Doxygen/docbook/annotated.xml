@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_class_client">Client</link>
+<para>Ügyfél adatait tárolja </para>
+<link linkend="_class_company">Company</link>
+<para>Egy cég adatait tárolja </para>
+<link linkend="_class_contract">Contract</link>
+<para>Egy szerződést tárol </para>
+<link linkend="_class_contract__date">Contract_date</link>
+<para>Egy időpárt tárol </para>
+<link linkend="_class_date">Date</link>
+<para>Egy dátumot tárol time_point formátumba </para>
+<link linkend="_class_m_v_m">MVM</link>
+<para>Ügyfeleket tároló class </para>
+<link linkend="_class_my_vector">MyVector&lt; T &gt;</link>
+<para>Indexelhetőséghez std::vektor mintájára saját vektor template </para>
+<link linkend="_class_person">Person</link>
+<para>Magánszemély adatait tárolja </para>
+</section>

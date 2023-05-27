@@ -41,15 +41,15 @@
 <anchor xml:id="_clients_8h_source_1l00079"/>00079 
 <anchor xml:id="_clients_8h_source_1l00083"/><link linkend="_class_person">00083</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_person">Person</link>:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_client">Client</link>{
 <anchor xml:id="_clients_8h_source_1l00084"/>00084 <emphasis role="keyword">private</emphasis>:
-<anchor xml:id="_clients_8h_source_1l00085"/>00085 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">long</emphasis>&#32;ID;
+<anchor xml:id="_clients_8h_source_1l00085"/>00085 &#32;&#32;&#32;&#32;std::string&#32;ID;
 <anchor xml:id="_clients_8h_source_1l00086"/>00086 <emphasis role="keyword">public</emphasis>:
-<anchor xml:id="_clients_8h_source_1l00092"/><link linkend="_class_person_1a019a151f54037f9e1a66f0bf1d1c33c1">00092</link> &#32;&#32;&#32;&#32;<link linkend="_class_person_1a019a151f54037f9e1a66f0bf1d1c33c1">Person</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>,&#32;<emphasis role="keywordtype">long</emphasis>&#32;ID_in=0)
+<anchor xml:id="_clients_8h_source_1l00092"/><link linkend="_class_person_1a08f43166613723d370fcde4b266e8264">00092</link> &#32;&#32;&#32;&#32;<link linkend="_class_person_1a08f43166613723d370fcde4b266e8264">Person</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>,&#32;std::string&#32;ID_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>)
 <anchor xml:id="_clients_8h_source_1l00093"/>00093 &#32;&#32;&#32;&#32;:&#32;<link linkend="_class_client">Client</link>(std::string(name_in)),&#32;ID(ID_in)
 <anchor xml:id="_clients_8h_source_1l00094"/>00094 &#32;&#32;&#32;&#32;{}
 <anchor xml:id="_clients_8h_source_1l00095"/>00095 
-<anchor xml:id="_clients_8h_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_person_1a87486d9388f3cc56003e3a915d58fe72">setID</link>(<emphasis role="keywordtype">long</emphasis>&#32;ID_in);
+<anchor xml:id="_clients_8h_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_person_1a48bd1dda5186f86d5ea09ba0fb47b87a">setID</link>(std::string&#32;ID_in);
 <anchor xml:id="_clients_8h_source_1l00101"/>00101 
-<anchor xml:id="_clients_8h_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">long</emphasis>&#32;<link linkend="_class_person_1aac50ba2b24ebcdd41cd73d78f7dcda8b">getID</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_clients_8h_source_1l00106"/>00106 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_person_1afd8a761fd1e6982d36df931cf39d0d18">getID</link>()&#32;<emphasis role="keyword">const</emphasis>;
 <anchor xml:id="_clients_8h_source_1l00107"/>00107 
 <anchor xml:id="_clients_8h_source_1l00113"/>00113 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_person_1a112a91312130609eddd72fa6dd86462e">getsub_Client_info</link>();
 <anchor xml:id="_clients_8h_source_1l00114"/>00114 
@@ -58,16 +58,16 @@
 <anchor xml:id="_clients_8h_source_1l00120"/>00120 
 <anchor xml:id="_clients_8h_source_1l00124"/><link linkend="_class_company">00124</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_company">Company</link>:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_client">Client</link>{
 <anchor xml:id="_clients_8h_source_1l00125"/>00125 <emphasis role="keyword">private</emphasis>:
-<anchor xml:id="_clients_8h_source_1l00126"/>00126 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">long</emphasis>&#32;Tax_ID;
+<anchor xml:id="_clients_8h_source_1l00126"/>00126 &#32;&#32;&#32;&#32;std::string&#32;Tax_ID;
 <anchor xml:id="_clients_8h_source_1l00127"/>00127 <emphasis role="keyword">public</emphasis>:
 <anchor xml:id="_clients_8h_source_1l00128"/>00128 
-<anchor xml:id="_clients_8h_source_1l00135"/><link linkend="_class_company_1ac07967ea19d18558176af939c5866989">00135</link> &#32;&#32;&#32;&#32;<link linkend="_class_company_1ac07967ea19d18558176af939c5866989">Company</link>(std::string&#32;name_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>,&#32;<emphasis role="keywordtype">long</emphasis>&#32;ID_in=0)
+<anchor xml:id="_clients_8h_source_1l00135"/><link linkend="_class_company_1a79b0b28b0d462b88ae8a92aaf6ef3542">00135</link> &#32;&#32;&#32;&#32;<link linkend="_class_company_1a79b0b28b0d462b88ae8a92aaf6ef3542">Company</link>(std::string&#32;name_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>,&#32;std::string&#32;ID_in=<emphasis role="stringliteral">&quot;&quot;</emphasis>)
 <anchor xml:id="_clients_8h_source_1l00136"/>00136 &#32;&#32;&#32;&#32;:&#32;<link linkend="_class_client">Client</link>(name_in),&#32;Tax_ID(ID_in)
 <anchor xml:id="_clients_8h_source_1l00137"/>00137 &#32;&#32;&#32;&#32;{}
 <anchor xml:id="_clients_8h_source_1l00138"/>00138 
-<anchor xml:id="_clients_8h_source_1l00143"/>00143 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_company_1a81fa31e65ff4161fc6e782f2067975c4">setID</link>(<emphasis role="keywordtype">long</emphasis>&#32;ID_in);
+<anchor xml:id="_clients_8h_source_1l00143"/>00143 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_company_1a6e08c872488ba07ff4ede28930116c8c">setID</link>(std::string&#32;ID_in);
 <anchor xml:id="_clients_8h_source_1l00144"/>00144 
-<anchor xml:id="_clients_8h_source_1l00149"/>00149 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">long</emphasis>&#32;<link linkend="_class_company_1a9b294a107223caaad48dc38b5b7a1508">getID</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_clients_8h_source_1l00149"/>00149 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_company_1a1ba074e68753c4e9e049f4f210137bac">getID</link>()&#32;<emphasis role="keyword">const</emphasis>;
 <anchor xml:id="_clients_8h_source_1l00150"/>00150 
 <anchor xml:id="_clients_8h_source_1l00156"/>00156 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_company_1aef6b11a716b32be62330fd8968c4371f">getsub_Client_info</link>();
 <anchor xml:id="_clients_8h_source_1l00157"/>00157 

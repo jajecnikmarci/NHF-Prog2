@@ -32,14 +32,14 @@
 <anchor xml:id="__m_v_m_8h_source_1l00045"/>00045 
 <anchor xml:id="__m_v_m_8h_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1aaf3ab005673a931c43b503fd277b3ef1">addContract</link>(<link linkend="_class_client">Client</link>*&#32;client_in,&#32;ContractType&#32;ctype_in,&#32;<emphasis role="keywordtype">int</emphasis>&#32;year_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;year_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_year,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_month,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_day,&#32;<emphasis role="keywordtype">double</emphasis>&#32;tariff_in&#32;=&#32;0.0,&#32;<emphasis role="keywordtype">double</emphasis>&#32;balance_in&#32;=&#32;0.0,&#32;<emphasis role="keywordtype">double</emphasis>&#32;consumption_in&#32;=&#32;0.0);
 <anchor xml:id="__m_v_m_8h_source_1l00064"/>00064 
-<anchor xml:id="__m_v_m_8h_source_1l00070"/>00070 &#32;&#32;&#32;&#32;<link linkend="_class_client">Client</link>*&#32;<link linkend="_class_m_v_m_1ad829a10312d549619216c8dab1ce00f6">getClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in);
-<anchor xml:id="__m_v_m_8h_source_1l00071"/>00071 
-<anchor xml:id="__m_v_m_8h_source_1l00076"/>00076 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;<link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">getCompanyDetails</link>();
-<anchor xml:id="__m_v_m_8h_source_1l00077"/>00077 
-<anchor xml:id="__m_v_m_8h_source_1l00082"/>00082 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1a85592d6dbe4adadb6fe4cbfb1b4861f2">deleteClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in);
-<anchor xml:id="__m_v_m_8h_source_1l00083"/>00083 
-<anchor xml:id="__m_v_m_8h_source_1l00087"/>00087 &#32;&#32;&#32;&#32;<link linkend="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00">~MVM</link>();
-<anchor xml:id="__m_v_m_8h_source_1l00088"/>00088 };
-<anchor xml:id="__m_v_m_8h_source_1l00089"/>00089 
-<anchor xml:id="__m_v_m_8h_source_1l00090"/>00090 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SKELETON_MVM_H</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00071"/>00071 &#32;&#32;&#32;&#32;<link linkend="_class_client">Client</link>*&#32;<link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">getClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in,<emphasis role="keyword">const</emphasis>&#32;std::string&#32;somekindofID);
+<anchor xml:id="__m_v_m_8h_source_1l00072"/>00072 
+<anchor xml:id="__m_v_m_8h_source_1l00077"/>00077 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;<link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">getCompanyDetails</link>();
+<anchor xml:id="__m_v_m_8h_source_1l00078"/>00078 
+<anchor xml:id="__m_v_m_8h_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1aa1e7db7cfe6de5a5c2bca90a1b9cce84">deleteClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;somekindofID);
+<anchor xml:id="__m_v_m_8h_source_1l00084"/>00084 
+<anchor xml:id="__m_v_m_8h_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<link linkend="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00">~MVM</link>();
+<anchor xml:id="__m_v_m_8h_source_1l00089"/>00089 };
+<anchor xml:id="__m_v_m_8h_source_1l00090"/>00090 
+<anchor xml:id="__m_v_m_8h_source_1l00091"/>00091 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SKELETON_MVM_H</emphasis>
 </programlisting></section>

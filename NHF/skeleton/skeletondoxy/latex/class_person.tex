@@ -18,11 +18,11 @@ Inheritance diagram for Person\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_person_a019a151f54037f9e1a66f0bf1d1c33c1}{Person}} (const std\+::string name\+\_\+in=\char`\"{}\char`\"{}, long ID\+\_\+in=0)
+\mbox{\hyperlink{class_person_a08f43166613723d370fcde4b266e8264}{Person}} (const std\+::string name\+\_\+in=\char`\"{}\char`\"{}, std\+::string ID\+\_\+in=\char`\"{}\char`\"{})
 \begin{DoxyCompactList}\small\item\em Alapértékes konstruktor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_person_a87486d9388f3cc56003e3a915d58fe72}{set\+ID}} (long ID\+\_\+in)
+void \mbox{\hyperlink{class_person_a48bd1dda5186f86d5ea09ba0fb47b87a}{set\+ID}} (std\+::string ID\+\_\+in)
 \begin{DoxyCompactList}\small\item\em Személyigazolvány beállítása. \end{DoxyCompactList}\item 
-long \mbox{\hyperlink{class_person_aac50ba2b24ebcdd41cd73d78f7dcda8b}{get\+ID}} () const
+std\+::string \mbox{\hyperlink{class_person_afd8a761fd1e6982d36df931cf39d0d18}{get\+ID}} () const
 \begin{DoxyCompactList}\small\item\em Magánszemély személyigazolványszámát adja vissza. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_person_a112a91312130609eddd72fa6dd86462e}{getsub\+\_\+\+Client\+\_\+info}} ()
 \begin{DoxyCompactList}\small\item\em Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-\/ben. \end{DoxyCompactList}\item 
@@ -54,7 +54,7 @@ Magánszemély adatait tárolja.
 
 
 \begin{DoxyParams}{Parameters}
-{\em ID} & A személy személyazonosító száma \\
+{\em ID} & A személy személyazonosító száma 8 jegyű \\
 \hline
 \end{DoxyParams}
 
@@ -64,11 +64,11 @@ Definition at line \mbox{\hyperlink{clients_8h_source_l00083}{83}} of file \mbox
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_person_a019a151f54037f9e1a66f0bf1d1c33c1}\label{class_person_a019a151f54037f9e1a66f0bf1d1c33c1}} 
+\mbox{\Hypertarget{class_person_a08f43166613723d370fcde4b266e8264}\label{class_person_a08f43166613723d370fcde4b266e8264}} 
 \index{Person@{Person}!Person@{Person}}
 \index{Person@{Person}!Person@{Person}}
 \doxysubsubsection{\texorpdfstring{Person()}{Person()}}
-{\footnotesize\ttfamily Person\+::\+Person (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in = {\ttfamily \char`\"{}\char`\"{}},  }\item[{long}]{ID\+\_\+in = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Person\+::\+Person (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in = {\ttfamily \char`\"{}\char`\"{}},  }\item[{std\+::string}]{ID\+\_\+in = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -104,11 +104,11 @@ Definition at line \mbox{\hyperlink{clients_8cpp_source_l00047}{47}} of file \mb
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_person_aac50ba2b24ebcdd41cd73d78f7dcda8b}\label{class_person_aac50ba2b24ebcdd41cd73d78f7dcda8b}} 
+\mbox{\Hypertarget{class_person_afd8a761fd1e6982d36df931cf39d0d18}\label{class_person_afd8a761fd1e6982d36df931cf39d0d18}} 
 \index{Person@{Person}!getID@{getID}}
 \index{getID@{getID}!Person@{Person}}
 \doxysubsubsection{\texorpdfstring{getID()}{getID()}}
-{\footnotesize\ttfamily long Person\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily std\+::string Person\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -142,11 +142,11 @@ Reimplemented from \mbox{\hyperlink{class_client_a1b7af92ea4fa34d7cc1c8767bd1767
 
 Definition at line \mbox{\hyperlink{clients_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{clients_8cpp_source}{clients.\+cpp}}.
 
-\mbox{\Hypertarget{class_person_a87486d9388f3cc56003e3a915d58fe72}\label{class_person_a87486d9388f3cc56003e3a915d58fe72}} 
+\mbox{\Hypertarget{class_person_a48bd1dda5186f86d5ea09ba0fb47b87a}\label{class_person_a48bd1dda5186f86d5ea09ba0fb47b87a}} 
 \index{Person@{Person}!setID@{setID}}
 \index{setID@{setID}!Person@{Person}}
 \doxysubsubsection{\texorpdfstring{setID()}{setID()}}
-{\footnotesize\ttfamily void Person\+::set\+ID (\begin{DoxyParamCaption}\item[{long}]{ID\+\_\+in }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Person\+::set\+ID (\begin{DoxyParamCaption}\item[{std\+::string}]{ID\+\_\+in }\end{DoxyParamCaption})}
 
 
 

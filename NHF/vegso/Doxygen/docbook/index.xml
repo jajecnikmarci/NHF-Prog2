@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>MVM_vegso</title>
+    </info>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="class_client.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_company.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_contract.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_contract__date.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_date.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_m_v_m.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_my_vector.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_person.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="clients_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="clients_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="contracts_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="contracts_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="date_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="date_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_m_v_m_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_m_v_m_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="myvektor_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_test_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

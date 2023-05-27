@@ -23,7 +23,7 @@
 </listitem>
             <listitem><para>void <link linkend="_class_m_v_m_1aaf3ab005673a931c43b503fd277b3ef1">addContract</link> (<link linkend="_class_client">Client</link> *client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)</para>
 </listitem>
-            <listitem><para><link linkend="_class_client">Client</link> * <link linkend="_class_m_v_m_1ad829a10312d549619216c8dab1ce00f6">getClient</link> (const std::string name_in)</para>
+            <listitem><para><link linkend="_class_client">Client</link> * <link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">getClient</link> (const std::string name_in, const std::string somekindofID)</para>
 
 <para>Visszaadja a keresett ügyfelet a neve alapján. </para>
 </listitem>
@@ -31,7 +31,7 @@
 
 <para>Az <link linkend="_class_m_v_m">MVM</link> adatait adja vissza. </para>
 </listitem>
-            <listitem><para>void <link linkend="_class_m_v_m_1a85592d6dbe4adadb6fe4cbfb1b4861f2">deleteClient</link> (const std::string name_in)</para>
+            <listitem><para>void <link linkend="_class_m_v_m_1aa1e7db7cfe6de5a5c2bca90a1b9cce84">deleteClient</link> (const std::string name_in, const std::string somekindofID)</para>
 
 <para>Kitöröl egy ügyfelet a neve alapján. </para>
 </listitem>
@@ -44,7 +44,7 @@
 <simplesect>
     <title>Static Public Attributes    </title>
         <itemizedlist>
-            <listitem><para>static <link linkend="_class_company">Company</link> <link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM_company</link> = <link linkend="_class_company">Company</link>(&quot;MVM ZRT.&quot;, 10760798244)</para>
+            <listitem><para>static <link linkend="_class_company">Company</link> <link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM_company</link> = <link linkend="_class_company">Company</link>(&quot;MVM ZRT.&quot;, &quot;10760798244&quot;)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -77,7 +77,7 @@ Definition at line <link linkend="__m_v_m_8h_source_1l00038">38</link> of file <
 <para>Destruktor. </para>
 </para>
 <para>
-Definition at line <link linkend="__m_v_m_8cpp_source_1l00035">35</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00037">37</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
 </section>
 </section>
 <section>
@@ -214,11 +214,11 @@ Parameters</title>
 <para>
 Definition at line <link linkend="__m_v_m_8cpp_source_1l00014">14</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
 </section>
-<anchor xml:id="_class_m_v_m_1a85592d6dbe4adadb6fe4cbfb1b4861f2"/><section>
+<anchor xml:id="_class_m_v_m_1aa1e7db7cfe6de5a5c2bca90a1b9cce84"/><section>
     <title>deleteClient()</title>
 <indexterm><primary>deleteClient</primary><secondary>MVM</secondary></indexterm>
 <indexterm><primary>MVM</primary><secondary>deleteClient</secondary></indexterm>
-<para><computeroutput>void MVM::deleteClient (const std::string name_in)</computeroutput></para><para>
+<para><computeroutput>void MVM::deleteClient (const std::string name_in, const std::string somekindofID)</computeroutput></para><para>
 
 <para>Kitöröl egy ügyfelet a neve alapján. </para>
 </para>
@@ -245,18 +245,18 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="__m_v_m_8cpp_source_1l00031">31</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00033">33</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
 </section>
-<anchor xml:id="_class_m_v_m_1ad829a10312d549619216c8dab1ce00f6"/><section>
+<anchor xml:id="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2"/><section>
     <title>getClient()</title>
 <indexterm><primary>getClient</primary><secondary>MVM</secondary></indexterm>
 <indexterm><primary>MVM</primary><secondary>getClient</secondary></indexterm>
-<para><computeroutput><link linkend="_class_client">Client</link> * MVM::getClient (const std::string name_in)</computeroutput></para><para>
+<para><computeroutput><link linkend="_class_client">Client</link> * MVM::getClient (const std::string name_in, const std::string somekindofID)</computeroutput></para><para>
 
 <para>Visszaadja a keresett ügyfelet a neve alapján. </para>
 </para>
 
-<para>
+<para>A függvény mivel nem tudja hogy a client melyik alosztályát próbáljuk megkapni, így a módszer az hogy a sublientinfóját hasonlítjuk össze azzal amire számítanánk hogy lesz 
                 <formalpara>
                     <title>
 Parameters</title>
@@ -269,6 +269,11 @@ Parameters</title>
                             <row>
 <entry>name_in</entry><entry>
 <para>Keresett ügyfél neve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>somekindofID</entry><entry>
+<para>A keresett ügyfél valamilyen azonosítója </para>
 </entry>
                             </row>
                         </tbody>
@@ -299,7 +304,7 @@ Definition at line <link linkend="__m_v_m_8cpp_source_1l00020">20</link> of file
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="__m_v_m_8cpp_source_1l00027">27</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
+Definition at line <link linkend="__m_v_m_8cpp_source_1l00029">29</link> of file <link linkend="__m_v_m_8cpp_source">MVM.cpp</link>.</para>
 </section>
 </section>
 <section>
@@ -308,7 +313,7 @@ Definition at line <link linkend="__m_v_m_8cpp_source_1l00027">27</link> of file
     <title>MVM_company</title>
 <indexterm><primary>MVM_company</primary><secondary>MVM</secondary></indexterm>
 <indexterm><primary>MVM</primary><secondary>MVM_company</secondary></indexterm>
-<para><computeroutput><link linkend="_class_company">Company</link> MVM::MVM_company = <link linkend="_class_company">Company</link>(&quot;MVM ZRT.&quot;, 10760798244)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para><computeroutput><link linkend="_class_company">Company</link> MVM::MVM_company = <link linkend="_class_company">Company</link>(&quot;MVM ZRT.&quot;, &quot;10760798244&quot;)<computeroutput>[static]</computeroutput></computeroutput></para>
 <para>Az <link linkend="_class_m_v_m">MVM</link> adatai </para>
 <para>
 Definition at line <link linkend="__m_v_m_8h_source_1l00033">33</link> of file <link linkend="__m_v_m_8h_source">MVM.h</link>.</para>

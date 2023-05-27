@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_contract__date" xml:lang="en-US">
+<title>Contract_date Class Reference</title>
+<indexterm><primary>Contract_date</primary></indexterm>
+<para>
+
+<para>Egy időpárt tárol. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;date.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_contract__date_1a8840df4af4eb76e1c701dcf5aa9c24d8">Contract_date</link> ()</para>
+
+<para>paraméter nélkül hívható konstruktor </para>
+</listitem>
+            <listitem><para><link linkend="_class_contract__date_1a94fa01dd3c812dafbd2b8536abc1a7d4">Contract_date</link> (<link linkend="_class_date">Date</link> begin_date, <link linkend="_class_date">Date</link> end_date)</para>
+
+<para>Konstruktor kezdő és végdátum megadásával. </para>
+</listitem>
+            <listitem><para><link linkend="_class_contract__date_1a689419facd8963a894f27858c9997b56">Contract_date</link> (int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end)</para>
+
+<para>Konstruktor intekkel megadott paraméterekből. </para>
+</listitem>
+            <listitem><para><link linkend="_class_date">Date</link> <link linkend="_class_contract__date_1ae9239c157785b2afd78125aff7df31cd">getBegin</link> () const</para>
+
+<para>Visszaadja a kezdeti időpontot. </para>
+</listitem>
+            <listitem><para><link linkend="_class_date">Date</link> <link linkend="_class_contract__date_1a205ddfaf285d153b01ac81edb19a2a45">getEnd</link> () const</para>
+
+<para>Visszaadja a végső időpontot. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract__date_1a96b800d3b24f62e3ff85b4fabcc86688">setBegin</link> (<link linkend="_class_date">Date</link> beg_in)</para>
+
+<para>Beállítja a kezdeti időpontot Date-ből. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract__date_1a6644688a83cccbe3becd55d99bd5d872">setBegin</link> (int year, int month, int day)</para>
+
+<para>Beállítja a kezdeti időpontot intekből. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract__date_1a4f2dbf299ee0ebb870de95ab189c11d8">setEnd</link> (<link linkend="_class_date">Date</link> end_in)</para>
+
+<para>Beállítja a végső időpontot Date-ből. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract__date_1a2a5399e4a07a2f59ca4e67d88f328242">setEnd</link> (int year, int month, int day)</para>
+
+<para>Beállítja a végső időpontot intekből. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_contract__date_1ab03f84a312bef61c3be332ab48cfe32c">contains</link> (const <link linkend="_class_date">Date</link> &amp;date_in) const</para>
+
+<para>Ellenőrzi hogy a paraméterként kapott dátum a dátumpár között van-e. </para>
+</listitem>
+            <listitem><para><link linkend="_class_contract__date">Contract_date</link> &amp; <link linkend="_class_contract__date_1a2aaf65032185157fb06cdb7481d54790">operator=</link> (const <link linkend="_class_contract__date">Contract_date</link> &amp;contractDate_in)</para>
+
+<para>= operátor az = jel helyes működéséhez </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Egy időpárt tárol. </para>
+
+
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>beging</entry><entry>
+<para>Az kezdeti időpont </para>
+</entry>
+                            </row>
+                            <row>
+<entry>end</entry><entry>
+<para>A végső időpont </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8h_source_1l00101">101</link> of file <link linkend="_date_8h_source">date.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_contract__date_1a8840df4af4eb76e1c701dcf5aa9c24d8"/><section>
+    <title>Contract_date()<computeroutput>[1/3]</computeroutput></title>
+<indexterm><primary>Contract_date</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>Contract_date</secondary></indexterm>
+<para><computeroutput>Contract_date::Contract_date ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>paraméter nélkül hívható konstruktor </para>
+</para>
+<para>
+Definition at line <link linkend="_date_8h_source_1l00111">111</link> of file <link linkend="_date_8h_source">date.h</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1a94fa01dd3c812dafbd2b8536abc1a7d4"/><section>
+    <title>Contract_date()<computeroutput>[2/3]</computeroutput></title>
+<indexterm><primary>Contract_date</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>Contract_date</secondary></indexterm>
+<para><computeroutput>Contract_date::Contract_date (<link linkend="_class_date">Date</link> begin_date, <link linkend="_class_date">Date</link> end_date)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Konstruktor kezdő és végdátum megadásával. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>begin_date</entry><entry>
+<para>Kezdődátum </para>
+</entry>
+                            </row>
+                            <row>
+<entry>end_date</entry><entry>
+<para>Végdátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8h_source_1l00119">119</link> of file <link linkend="_date_8h_source">date.h</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1a689419facd8963a894f27858c9997b56"/><section>
+    <title>Contract_date()<computeroutput>[3/3]</computeroutput></title>
+<indexterm><primary>Contract_date</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>Contract_date</secondary></indexterm>
+<para><computeroutput>Contract_date::Contract_date (int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Konstruktor intekkel megadott paraméterekből. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>year_begin</entry><entry>
+<para>Bejövő kezdeti év </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month_begin</entry><entry>
+<para>Bejövő kezdeti hónap </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day_begin</entry><entry>
+<para>Bejövő kezdeti nap </para>
+</entry>
+                            </row>
+                            <row>
+<entry>year_end</entry><entry>
+<para>Bejövő végzeti év </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month_end</entry><entry>
+<para>Bejövő végzeti hónap </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day_end</entry><entry>
+<para>Bejövő végzeti nap </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8h_source_1l00132">132</link> of file <link linkend="_date_8h_source">date.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_contract__date_1ab03f84a312bef61c3be332ab48cfe32c"/><section>
+    <title>contains()</title>
+<indexterm><primary>contains</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>contains</secondary></indexterm>
+<para><computeroutput>bool Contract_date::contains (const <link linkend="_class_date">Date</link> &amp; date_in) const</computeroutput></para><para>
+
+<para>Ellenőrzi hogy a paraméterként kapott dátum a dátumpár között van-e. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>date</entry><entry>
+<para>paraméterként kapott dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>A dátumpár között van? </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00093">93</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1ae9239c157785b2afd78125aff7df31cd"/><section>
+    <title>getBegin()</title>
+<indexterm><primary>getBegin</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>getBegin</secondary></indexterm>
+<para><computeroutput><link linkend="_class_date">Date</link> Contract_date::getBegin ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a kezdeti időpontot. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>kezdeti időpont </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00063">63</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1a205ddfaf285d153b01ac81edb19a2a45"/><section>
+    <title>getEnd()</title>
+<indexterm><primary>getEnd</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>getEnd</secondary></indexterm>
+<para><computeroutput><link linkend="_class_date">Date</link> Contract_date::getEnd ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a végső időpontot. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Végső időpont </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00067">67</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1a2aaf65032185157fb06cdb7481d54790"/><section>
+    <title>operator=()</title>
+<indexterm><primary>operator=</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_class_contract__date">Contract_date</link> &amp; Contract_date::operator= (const <link linkend="_class_contract__date">Contract_date</link> &amp; contractDate_in)</computeroutput></para><para>
+
+<para>= operátor az = jel helyes működéséhez </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>contractDate_in</entry><entry>
+<para>Bejövő contractDate </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Visszaadandó contractDate </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00097">97</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1a96b800d3b24f62e3ff85b4fabcc86688"/><section>
+    <title>setBegin()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>setBegin</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>setBegin</secondary></indexterm>
+<para><computeroutput>void Contract_date::setBegin (<link linkend="_class_date">Date</link> beg_in)</computeroutput></para><para>
+
+<para>Beállítja a kezdeti időpontot Date-ből. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>beg_in</entry><entry>
+<para>Bejövő dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00071">71</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1a6644688a83cccbe3becd55d99bd5d872"/><section>
+    <title>setBegin()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>setBegin</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>setBegin</secondary></indexterm>
+<para><computeroutput>void Contract_date::setBegin (int year, int month, int day)</computeroutput></para><para>
+
+<para>Beállítja a kezdeti időpontot intekből. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>year</entry><entry>
+<para>Beállítandó év </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month</entry><entry>
+<para>Beállítandó hónap </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day</entry><entry>
+<para>Beállítandó nap </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00076">76</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1a4f2dbf299ee0ebb870de95ab189c11d8"/><section>
+    <title>setEnd()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>setEnd</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>setEnd</secondary></indexterm>
+<para><computeroutput>void Contract_date::setEnd (<link linkend="_class_date">Date</link> end_in)</computeroutput></para><para>
+
+<para>Beállítja a végső időpontot Date-ből. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>beg_in</entry><entry>
+<para>Bejövő dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00082">82</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract__date_1a2a5399e4a07a2f59ca4e67d88f328242"/><section>
+    <title>setEnd()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>setEnd</primary><secondary>Contract_date</secondary></indexterm>
+<indexterm><primary>Contract_date</primary><secondary>setEnd</secondary></indexterm>
+<para><computeroutput>void Contract_date::setEnd (int year, int month, int day)</computeroutput></para><para>
+
+<para>Beállítja a végső időpontot intekből. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>year</entry><entry>
+<para>Beállítandó év </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month</entry><entry>
+<para>Beállítandó hónap </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day</entry><entry>
+<para>Beállítandó nap </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00087">87</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+date.hdate.cpp</section>
+</section>

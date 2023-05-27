@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_contracts_8h_source" xml:lang="en-US">
+<title>contracts.h</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_contracts_8h_source_1l00001"/>00001 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00002"/>00002 <emphasis role="comment">//&#32;Created&#32;by&#32;Jajecnik&#32;Marcell&#32;on&#32;2023.&#32;05.&#32;05..</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00003"/>00003 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00004"/>00004 
+<anchor xml:id="_contracts_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#ifndef&#32;SKELETON_CONTRACTS_H</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#define&#32;SKELETON_CONTRACTS_H</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;clients.h&quot;</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;iomanip&quot;</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;fstream&quot;</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;MVM.h&quot;</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00012"/>00012 
+<anchor xml:id="_contracts_8h_source_1l00013"/>00013 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_client">Client</link>;
+<anchor xml:id="_contracts_8h_source_1l00014"/>00014 
+<anchor xml:id="_contracts_8h_source_1l00018"/>00018 <emphasis role="keyword">enum&#32;class</emphasis>&#32;ContractType&#32;{
+<anchor xml:id="_contracts_8h_source_1l00019"/>00019 &#32;&#32;&#32;&#32;Regular,
+<anchor xml:id="_contracts_8h_source_1l00020"/>00020 &#32;&#32;&#32;&#32;VIP,
+<anchor xml:id="_contracts_8h_source_1l00021"/>00021 &#32;&#32;&#32;&#32;Premium,
+<anchor xml:id="_contracts_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;Corporate,
+<anchor xml:id="_contracts_8h_source_1l00023"/>00023 &#32;&#32;&#32;&#32;Student,
+<anchor xml:id="_contracts_8h_source_1l00024"/>00024 &#32;&#32;&#32;&#32;SeniorCitizen,
+<anchor xml:id="_contracts_8h_source_1l00025"/>00025 &#32;&#32;&#32;&#32;Government,
+<anchor xml:id="_contracts_8h_source_1l00026"/>00026 &#32;&#32;&#32;&#32;Onetime
+<anchor xml:id="_contracts_8h_source_1l00027"/>00027 };
+<anchor xml:id="_contracts_8h_source_1l00028"/>00028 
+<anchor xml:id="_contracts_8h_source_1l00041"/><link linkend="_class_contract">00041</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_contract">Contract</link>&#32;{
+<anchor xml:id="_contracts_8h_source_1l00042"/>00042 
+<anchor xml:id="_contracts_8h_source_1l00043"/>00043 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_contracts_8h_source_1l00044"/>00044 
+<anchor xml:id="_contracts_8h_source_1l00048"/><link linkend="_class_contract_1ac389a32c8012febf14c222ea23c84e71">00048</link> &#32;&#32;&#32;&#32;<link linkend="_class_contract_1ac389a32c8012febf14c222ea23c84e71">Contract</link>()&#32;{};
+<anchor xml:id="_contracts_8h_source_1l00049"/>00049 
+<anchor xml:id="_contracts_8h_source_1l00068"/><link linkend="_class_contract_1aef06ae6813a94a1154bf1b0a5f985444">00068</link> &#32;&#32;&#32;&#32;<link linkend="_class_contract_1aef06ae6813a94a1154bf1b0a5f985444">Contract</link>(<link linkend="_class_client">Client</link>*&#32;client_in,&#32;ContractType&#32;ctype_in,&#32;<emphasis role="keywordtype">int</emphasis>&#32;year_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;year_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_year,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_month,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_day,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;ContractID_in&#32;,<emphasis role="keywordtype">double</emphasis>&#32;tariff_in=0.0,&#32;<emphasis role="keywordtype">double</emphasis>&#32;balance_in=0.0,&#32;<emphasis role="keywordtype">double</emphasis>&#32;consumption_in=0.0)
+<anchor xml:id="_contracts_8h_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:client(client_in),contract_ID(ContractID_in),&#32;contract_type(ctype_in),&#32;contract_time(year_begin,&#32;month_begin,&#32;day_begin,&#32;year_end,&#32;month_end,&#32;day_end),&#32;last_invoicing(invo_in_year,&#32;invo_in_month,&#32;invo_in_day),&#32;tariff(tariff_in),&#32;balance(balance_in),&#32;consumption(consumption_in)
+<anchor xml:id="_contracts_8h_source_1l00070"/>00070 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_contracts_8h_source_1l00071"/>00071 
+<anchor xml:id="_contracts_8h_source_1l00072"/>00072 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Setter&#32;functions</emphasis>
+<anchor xml:id="_contracts_8h_source_1l00077"/>00077 <emphasis role="comment"></emphasis>&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1a96cec0aff3df76236cc75e3bf63ef5ff">setCtype</link>(ContractType&#32;ctype_in);
+<anchor xml:id="_contracts_8h_source_1l00078"/>00078 
+<anchor xml:id="_contracts_8h_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1ab5517c38f4f1d68e597071ae0a9e8b66">setTariff</link>(<emphasis role="keywordtype">double</emphasis>&#32;tariff_in);
+<anchor xml:id="_contracts_8h_source_1l00084"/>00084 
+<anchor xml:id="_contracts_8h_source_1l00089"/>00089 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1ad08bea11d8567f530ec5274d4ab56383">setBalance</link>(<emphasis role="keywordtype">double</emphasis>&#32;balance_in);
+<anchor xml:id="_contracts_8h_source_1l00090"/>00090 
+<anchor xml:id="_contracts_8h_source_1l00095"/>00095 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1a5b850852413aa46c9bc8de86a96f1362">addConsumption</link>(<emphasis role="keywordtype">double</emphasis>&#32;con_in);
+<anchor xml:id="_contracts_8h_source_1l00096"/>00096 
+<anchor xml:id="_contracts_8h_source_1l00101"/>00101 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1a986868745160d0e296d894ee2bd88178">setLast_invoicing</link>(<link linkend="_class_date">Date</link>&#32;last_in);
+<anchor xml:id="_contracts_8h_source_1l00102"/>00102 
+<anchor xml:id="_contracts_8h_source_1l00107"/>00107 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1aaf9ae551436a51ac41d2f08149366c79">setCtime</link>(<link linkend="_class_contract__date">Contract_date</link>&#32;ctime_in);
+<anchor xml:id="_contracts_8h_source_1l00108"/>00108 
+<anchor xml:id="_contracts_8h_source_1l00113"/>00113 &#32;&#32;&#32;&#32;<link linkend="_class_client">Client</link>*&#32;<link linkend="_class_contract_1a2a54f1a29ab8a88a7c63d5aa7cdc0a58">getClient</link>();
+<anchor xml:id="_contracts_8h_source_1l00114"/>00114 
+<anchor xml:id="_contracts_8h_source_1l00119"/>00119 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_class_contract_1a222d689da62cfcd441933b7d48aa1840">getContractID</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_contracts_8h_source_1l00120"/>00120 
+<anchor xml:id="_contracts_8h_source_1l00125"/>00125 &#32;&#32;&#32;ContractType&#32;<link linkend="_class_contract_1a68ae31a64d04c565de2c42731985eeae">getCtype</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_contracts_8h_source_1l00126"/>00126 
+<anchor xml:id="_contracts_8h_source_1l00131"/>00131 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_contract_1a35dcdf9c4752101f31a34f80b38e9abc">getTariff</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_contracts_8h_source_1l00132"/>00132 
+<anchor xml:id="_contracts_8h_source_1l00137"/>00137 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_contract_1a55ef08f4db0f8146fc42c2bb410b7960">getBalance</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_contracts_8h_source_1l00138"/>00138 
+<anchor xml:id="_contracts_8h_source_1l00143"/>00143 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_contract_1a2c1439dea2951f6fe07b889061b89541">getConsumption</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_contracts_8h_source_1l00144"/>00144 
+<anchor xml:id="_contracts_8h_source_1l00149"/>00149 &#32;&#32;&#32;&#32;<link linkend="_class_contract__date">Contract_date</link>&#32;<link linkend="_class_contract_1a90dfc571475e24dab6be516786704708">getCtime</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_contracts_8h_source_1l00150"/>00150 
+<anchor xml:id="_contracts_8h_source_1l00155"/>00155 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;<link linkend="_class_contract_1a39ab8eac1fca9c006f52421fb3b47de6">Ctype_toString</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_contracts_8h_source_1l00156"/>00156 
+<anchor xml:id="_contracts_8h_source_1l00161"/>00161 &#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;<link linkend="_class_contract_1aa5fae1ce32f260c950f6cf135fef5ab4">getLast_invoicing</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_contracts_8h_source_1l00162"/>00162 
+<anchor xml:id="_contracts_8h_source_1l00167"/>00167 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1aec090387ce04a78ead889f19cf17db4f">pay</link>(<emphasis role="keywordtype">double</emphasis>&#32;amount);
+<anchor xml:id="_contracts_8h_source_1l00168"/>00168 
+<anchor xml:id="_contracts_8h_source_1l00173"/>00173 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1a3039cab38cd967e1d35d7736217671ae">invoice</link>(&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;today);
+<anchor xml:id="_contracts_8h_source_1l00174"/>00174 
+<anchor xml:id="_contracts_8h_source_1l00178"/>00178 &#32;&#32;&#32;&#32;<link linkend="_class_contract_1ac4be25f545f310d6e563326568612814">~Contract</link>();
+<anchor xml:id="_contracts_8h_source_1l00179"/>00179 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_contracts_8h_source_1l00180"/>00180 
+<anchor xml:id="_contracts_8h_source_1l00181"/>00181 &#32;&#32;&#32;&#32;<link linkend="_class_client">Client</link>*&#32;client;
+<anchor xml:id="_contracts_8h_source_1l00182"/>00182 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;contract_ID;
+<anchor xml:id="_contracts_8h_source_1l00183"/>00183 &#32;&#32;&#32;&#32;ContractType&#32;contract_type;
+<anchor xml:id="_contracts_8h_source_1l00184"/>00184 &#32;&#32;&#32;&#32;<link linkend="_class_contract__date">Contract_date</link>&#32;contract_time;
+<anchor xml:id="_contracts_8h_source_1l00185"/>00185 &#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;last_invoicing;
+<anchor xml:id="_contracts_8h_source_1l00186"/>00186 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;tariff;
+<anchor xml:id="_contracts_8h_source_1l00187"/>00187 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;balance;
+<anchor xml:id="_contracts_8h_source_1l00188"/>00188 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;consumption;
+<anchor xml:id="_contracts_8h_source_1l00189"/>00189 
+<anchor xml:id="_contracts_8h_source_1l00190"/>00190 };
+<anchor xml:id="_contracts_8h_source_1l00191"/>00191 
+<anchor xml:id="_contracts_8h_source_1l00192"/>00192 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SKELETON_CONTRACTS_H</emphasis>
+</programlisting></section>

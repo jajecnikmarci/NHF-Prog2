@@ -1,0 +1,717 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_contract" xml:lang="en-US">
+<title>Contract Class Reference</title>
+<indexterm><primary>Contract</primary></indexterm>
+<para>
+
+<para>Egy szerződést tárol. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;contracts.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_contract_1ac389a32c8012febf14c222ea23c84e71">Contract</link> ()</para>
+
+<para>Paraméter nélküli konstruktor. </para>
+</listitem>
+            <listitem><para><link linkend="_class_contract_1aef06ae6813a94a1154bf1b0a5f985444">Contract</link> (<link linkend="_class_client">Client</link> *client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, size_t ContractID_in, double tariff_in=0.0, double balance_in=0.0, double consumption_in=0.0)</para>
+
+<para>Alapértékes konstruktor egy szerződéshez. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract_1a96cec0aff3df76236cc75e3bf63ef5ff">setCtype</link> (ContractType ctype_in)</para>
+
+<para>Beállítja a szerződés típusát. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract_1ab5517c38f4f1d68e597071ae0a9e8b66">setTariff</link> (double tariff_in)</para>
+
+<para>Beállítja az új tarifát. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract_1ad08bea11d8567f530ec5274d4ab56383">setBalance</link> (double balance_in)</para>
+
+<para>Beállítja a jelenlegi egyenleget. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract_1a5b850852413aa46c9bc8de86a96f1362">addConsumption</link> (double con_in)</para>
+
+<para>Hozzáad a fogyasztott mennyiséghez. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract_1a986868745160d0e296d894ee2bd88178">setLast_invoicing</link> (<link linkend="_class_date">Date</link> last_in)</para>
+
+<para>Beállítja a legutolsó számlázás idejét. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract_1aaf9ae551436a51ac41d2f08149366c79">setCtime</link> (<link linkend="_class_contract__date">Contract_date</link> ctime_in)</para>
+
+<para>Beállítja a szerződés időtartományát. </para>
+</listitem>
+            <listitem><para><link linkend="_class_client">Client</link> * <link linkend="_class_contract_1a2a54f1a29ab8a88a7c63d5aa7cdc0a58">getClient</link> ()</para>
+
+<para>Visszaadja az ügyfél adatait. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_class_contract_1a222d689da62cfcd441933b7d48aa1840">getContractID</link> () const</para>
+
+<para>Visszaadja a szerződés azonosítóját. </para>
+</listitem>
+            <listitem><para>ContractType <link linkend="_class_contract_1a68ae31a64d04c565de2c42731985eeae">getCtype</link> () const</para>
+
+<para>Visszaadja a szerződés típusát. </para>
+</listitem>
+            <listitem><para>double <link linkend="_class_contract_1a35dcdf9c4752101f31a34f80b38e9abc">getTariff</link> () const</para>
+
+<para>Visszaadja a tarifát. </para>
+</listitem>
+            <listitem><para>double <link linkend="_class_contract_1a55ef08f4db0f8146fc42c2bb410b7960">getBalance</link> () const</para>
+
+<para>Visszaadja a jelenlegi egyenleget. </para>
+</listitem>
+            <listitem><para>double <link linkend="_class_contract_1a2c1439dea2951f6fe07b889061b89541">getConsumption</link> () const</para>
+
+<para>Visszaadja az eddigi fogyasztást a legutóbbi számla kiállítása óta. </para>
+</listitem>
+            <listitem><para><link linkend="_class_contract__date">Contract_date</link> <link linkend="_class_contract_1a90dfc571475e24dab6be516786704708">getCtime</link> () const</para>
+
+<para>Visszaadja a szerződés időtartományát. </para>
+</listitem>
+            <listitem><para>const std::string <link linkend="_class_contract_1a39ab8eac1fca9c006f52421fb3b47de6">Ctype_toString</link> () const</para>
+
+<para>A szerződés típusát adja vissza stringként. </para>
+</listitem>
+            <listitem><para><link linkend="_class_date">Date</link> <link linkend="_class_contract_1aa5fae1ce32f260c950f6cf135fef5ab4">getLast_invoicing</link> () const</para>
+
+<para>Visszaadja a legutótóbbi számla kiállításának az időpontját. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract_1aec090387ce04a78ead889f19cf17db4f">pay</link> (double amount)</para>
+
+<para>Befizetés egyenlegrendezéshez. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_contract_1a3039cab38cd967e1d35d7736217671ae">invoice</link> (const <link linkend="_class_date">Date</link> &amp;today)</para>
+
+<para>Számla kiállítása fájlba. </para>
+</listitem>
+            <listitem><para><link linkend="_class_contract_1ac4be25f545f310d6e563326568612814">~Contract</link> ()</para>
+
+<para>Destruktor. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Egy szerződést tárol. </para>
+
+
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>client</entry><entry>
+<para>Tárolja a szerződéstkötő adatait </para>
+</entry>
+                            </row>
+                            <row>
+<entry>contract_ID</entry><entry>
+<para>A szerződés azonosítószáma </para>
+</entry>
+                            </row>
+                            <row>
+<entry>contract_type</entry><entry>
+<para>A szerződés típusát tárolja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>contract_time</entry><entry>
+<para>A szerződés időtartamát adja meg egy kezdő és egy végdátummal </para>
+</entry>
+                            </row>
+                            <row>
+<entry>last_invoicing</entry><entry>
+<para>Utolsó számlakibocsájtás ideje </para>
+</entry>
+                            </row>
+                            <row>
+<entry>tariff</entry><entry>
+<para>A KWh-kénti árat adja meg </para>
+</entry>
+                            </row>
+                            <row>
+<entry>balance</entry><entry>
+<para>Tárolja a szerződéshez tartozó számla egyenlegét </para>
+</entry>
+                            </row>
+                            <row>
+<entry>consumption</entry><entry>
+<para>Tárolja a fogyasztást a legutóbbi számlakibocsájtás óta </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8h_source_1l00041">41</link> of file <link linkend="_contracts_8h_source">contracts.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_contract_1ac389a32c8012febf14c222ea23c84e71"/><section>
+    <title>Contract()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Contract</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>Contract</secondary></indexterm>
+<para><computeroutput>Contract::Contract ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Paraméter nélküli konstruktor. </para>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8h_source_1l00048">48</link> of file <link linkend="_contracts_8h_source">contracts.h</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1aef06ae6813a94a1154bf1b0a5f985444"/><section>
+    <title>Contract()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Contract</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>Contract</secondary></indexterm>
+<para><computeroutput>Contract::Contract (<link linkend="_class_client">Client</link> * client_in, ContractType ctype_in, int year_begin, int month_begin, int day_begin, int year_end, int month_end, int day_end, int invo_in_year, int invo_in_month, int invo_in_day, size_t ContractID_in, double tariff_in = <computeroutput>0.0</computeroutput>
+, double balance_in = <computeroutput>0.0</computeroutput>
+, double consumption_in = <computeroutput>0.0</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Alapértékes konstruktor egy szerződéshez. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>client_in</entry><entry>
+<para>Szerződést kötő ügyfél (kötelező) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ctype_in</entry><entry>
+<para>Szerződés típusa </para>
+</entry>
+                            </row>
+                            <row>
+<entry>year_begin</entry><entry>
+<para>Szerződés kezdeti éve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month_begin</entry><entry>
+<para>Szerződés kezdeti hónapja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day_begin</entry><entry>
+<para>Szerződés kezdeti napja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>year_end</entry><entry>
+<para>Szerződés végső éve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month_end</entry><entry>
+<para>Szerződés végső hónapja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day_end</entry><entry>
+<para>Szerződés végső napja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>invo_in_year</entry><entry>
+<para>Legutóbbi számlázás éve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>invo_in_month</entry><entry>
+<para>Legutóbbi számlázás hónapja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>invo_in_day</entry><entry>
+<para>Legutóbbi számlázás napja </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ContractID_in</entry><entry>
+<para>A szerződés azonosítószáma </para>
+</entry>
+                            </row>
+                            <row>
+<entry>tariff_in</entry><entry>
+<para>KWh-kénti ár </para>
+</entry>
+                            </row>
+                            <row>
+<entry>balance_in</entry><entry>
+<para>Jelenlegi egyenleg </para>
+</entry>
+                            </row>
+                            <row>
+<entry>consumption_in</entry><entry>
+<para>Jelenlegi fogyasztás </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8h_source_1l00068">68</link> of file <link linkend="_contracts_8h_source">contracts.h</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1ac4be25f545f310d6e563326568612814"/><section>
+    <title>~Contract()</title>
+<indexterm><primary>~Contract</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>~Contract</secondary></indexterm>
+<para><computeroutput>Contract::~Contract ( )</computeroutput></para><para>
+
+<para>Destruktor. </para>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00124">124</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_contract_1a5b850852413aa46c9bc8de86a96f1362"/><section>
+    <title>addConsumption()</title>
+<indexterm><primary>addConsumption</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>addConsumption</secondary></indexterm>
+<para><computeroutput>void Contract::addConsumption (double con_in)</computeroutput></para><para>
+
+<para>Hozzáad a fogyasztott mennyiséghez. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>con_in</entry><entry>
+<para>Bejövő fogyasztás </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00019">19</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a39ab8eac1fca9c006f52421fb3b47de6"/><section>
+    <title>Ctype_toString()</title>
+<indexterm><primary>Ctype_toString</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>Ctype_toString</secondary></indexterm>
+<para><computeroutput>const std::string Contract::Ctype_toString ( ) const</computeroutput></para><para>
+
+<para>A szerződés típusát adja vissza stringként. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>szerződés típusa adja vissza stringként </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00059">59</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a55ef08f4db0f8146fc42c2bb410b7960"/><section>
+    <title>getBalance()</title>
+<indexterm><primary>getBalance</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>getBalance</secondary></indexterm>
+<para><computeroutput>double Contract::getBalance ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a jelenlegi egyenleget. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Jelenlegi egyenleg </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00047">47</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a2a54f1a29ab8a88a7c63d5aa7cdc0a58"/><section>
+    <title>getClient()</title>
+<indexterm><primary>getClient</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>getClient</secondary></indexterm>
+<para><computeroutput><link linkend="_class_client">Client</link> * Contract::getClient ( )</computeroutput></para><para>
+
+<para>Visszaadja az ügyfél adatait. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Ügyfél adatai </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00031">31</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a2c1439dea2951f6fe07b889061b89541"/><section>
+    <title>getConsumption()</title>
+<indexterm><primary>getConsumption</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>getConsumption</secondary></indexterm>
+<para><computeroutput>double Contract::getConsumption ( ) const</computeroutput></para><para>
+
+<para>Visszaadja az eddigi fogyasztást a legutóbbi számla kiállítása óta. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Eddigi fogyasztás </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00051">51</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a222d689da62cfcd441933b7d48aa1840"/><section>
+    <title>getContractID()</title>
+<indexterm><primary>getContractID</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>getContractID</secondary></indexterm>
+<para><computeroutput>size_t Contract::getContractID ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a szerződés azonosítóját. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>szerződés azonosítója </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00035">35</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a90dfc571475e24dab6be516786704708"/><section>
+    <title>getCtime()</title>
+<indexterm><primary>getCtime</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>getCtime</secondary></indexterm>
+<para><computeroutput><link linkend="_class_contract__date">Contract_date</link> Contract::getCtime ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a szerződés időtartományát. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Szerződés időtartománya </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00055">55</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a68ae31a64d04c565de2c42731985eeae"/><section>
+    <title>getCtype()</title>
+<indexterm><primary>getCtype</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>getCtype</secondary></indexterm>
+<para><computeroutput>ContractType Contract::getCtype ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a szerződés típusát. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Szerződés típusa </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00039">39</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1aa5fae1ce32f260c950f6cf135fef5ab4"/><section>
+    <title>getLast_invoicing()</title>
+<indexterm><primary>getLast_invoicing</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>getLast_invoicing</secondary></indexterm>
+<para><computeroutput><link linkend="_class_date">Date</link> Contract::getLast_invoicing ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a legutótóbbi számla kiállításának az időpontját. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Legutótóbbi számla kiállításának az időpontja </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00073">73</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a35dcdf9c4752101f31a34f80b38e9abc"/><section>
+    <title>getTariff()</title>
+<indexterm><primary>getTariff</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>getTariff</secondary></indexterm>
+<para><computeroutput>double Contract::getTariff ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a tarifát. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Jelenlegi tarifa </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00043">43</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a3039cab38cd967e1d35d7736217671ae"/><section>
+    <title>invoice()</title>
+<indexterm><primary>invoice</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>invoice</secondary></indexterm>
+<para><computeroutput>void Contract::invoice (const <link linkend="_class_date">Date</link> &amp; today)</computeroutput></para><para>
+
+<para>Számla kiállítása fájlba. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>today</entry><entry>
+<para>számla kiállításának napja (név amiatt mert a számlakiállítás napja általában a jelenlegi nappal egyezik meg) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00081">81</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1aec090387ce04a78ead889f19cf17db4f"/><section>
+    <title>pay()</title>
+<indexterm><primary>pay</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>pay</secondary></indexterm>
+<para><computeroutput>void Contract::pay (double amount)</computeroutput></para><para>
+
+<para>Befizetés egyenlegrendezéshez. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>amount</entry><entry>
+<para>Befizetett összeg </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00077">77</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1ad08bea11d8567f530ec5274d4ab56383"/><section>
+    <title>setBalance()</title>
+<indexterm><primary>setBalance</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>setBalance</secondary></indexterm>
+<para><computeroutput>void Contract::setBalance (double balance_in)</computeroutput></para><para>
+
+<para>Beállítja a jelenlegi egyenleget. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>balance_in</entry><entry>
+<para>Beállítandó egyenleg </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00015">15</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1aaf9ae551436a51ac41d2f08149366c79"/><section>
+    <title>setCtime()</title>
+<indexterm><primary>setCtime</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>setCtime</secondary></indexterm>
+<para><computeroutput>void Contract::setCtime (<link linkend="_class_contract__date">Contract_date</link> ctime_in)</computeroutput></para><para>
+
+<para>Beállítja a szerződés időtartományát. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ctime_in</entry><entry>
+<para>Bejövő időtartomány </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00027">27</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a96cec0aff3df76236cc75e3bf63ef5ff"/><section>
+    <title>setCtype()</title>
+<indexterm><primary>setCtype</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>setCtype</secondary></indexterm>
+<para><computeroutput>void Contract::setCtype (ContractType ctype_in)</computeroutput></para><para>
+
+<para>Beállítja a szerződés típusát. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ctype_in</entry><entry>
+<para>Beállítandó szerződéstípus </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00007">7</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1a986868745160d0e296d894ee2bd88178"/><section>
+    <title>setLast_invoicing()</title>
+<indexterm><primary>setLast_invoicing</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>setLast_invoicing</secondary></indexterm>
+<para><computeroutput>void Contract::setLast_invoicing (<link linkend="_class_date">Date</link> last_in)</computeroutput></para><para>
+
+<para>Beállítja a legutolsó számlázás idejét. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>last_in</entry><entry>
+<para>Számlázás időpontja </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00023">23</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_contract_1ab5517c38f4f1d68e597071ae0a9e8b66"/><section>
+    <title>setTariff()</title>
+<indexterm><primary>setTariff</primary><secondary>Contract</secondary></indexterm>
+<indexterm><primary>Contract</primary><secondary>setTariff</secondary></indexterm>
+<para><computeroutput>void Contract::setTariff (double tariff_in)</computeroutput></para><para>
+
+<para>Beállítja az új tarifát. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>tariff_in</entry><entry>
+<para>Beállítandó tarifa </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_contracts_8cpp_source_1l00011">11</link> of file <link linkend="_contracts_8cpp_source">contracts.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+contracts.hcontracts.cpp</section>
+</section>

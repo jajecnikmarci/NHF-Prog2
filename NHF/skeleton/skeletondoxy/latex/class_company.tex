@@ -18,11 +18,11 @@ Inheritance diagram for Company\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_company_ac07967ea19d18558176af939c5866989}{Company}} (std\+::string name\+\_\+in=\char`\"{}\char`\"{}, long ID\+\_\+in=0)
+\mbox{\hyperlink{class_company_a79b0b28b0d462b88ae8a92aaf6ef3542}{Company}} (std\+::string name\+\_\+in=\char`\"{}\char`\"{}, std\+::string ID\+\_\+in=\char`\"{}\char`\"{})
 \begin{DoxyCompactList}\small\item\em Alapértékes kontruktor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_company_a81fa31e65ff4161fc6e782f2067975c4}{set\+ID}} (long ID\+\_\+in)
+void \mbox{\hyperlink{class_company_a6e08c872488ba07ff4ede28930116c8c}{set\+ID}} (std\+::string ID\+\_\+in)
 \begin{DoxyCompactList}\small\item\em Cég adószámának állítása. \end{DoxyCompactList}\item 
-long \mbox{\hyperlink{class_company_a9b294a107223caaad48dc38b5b7a1508}{get\+ID}} () const
+std\+::string \mbox{\hyperlink{class_company_a1ba074e68753c4e9e049f4f210137bac}{get\+ID}} () const
 \begin{DoxyCompactList}\small\item\em Cég adószámát adja vissza. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_company_aef6b11a716b32be62330fd8968c4371f}{getsub\+\_\+\+Client\+\_\+info}} ()
 \begin{DoxyCompactList}\small\item\em Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-\/ben. \end{DoxyCompactList}\item 
@@ -54,7 +54,7 @@ Egy cég adatait tárolja.
 
 
 \begin{DoxyParams}{Parameters}
-{\em Tax\+\_\+\+ID} & A cég adóazonosító száma \\
+{\em Tax\+\_\+\+ID} & A cég adóazonosító száma 11 jegyű \\
 \hline
 \end{DoxyParams}
 
@@ -64,11 +64,11 @@ Definition at line \mbox{\hyperlink{clients_8h_source_l00124}{124}} of file \mbo
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_company_ac07967ea19d18558176af939c5866989}\label{class_company_ac07967ea19d18558176af939c5866989}} 
+\mbox{\Hypertarget{class_company_a79b0b28b0d462b88ae8a92aaf6ef3542}\label{class_company_a79b0b28b0d462b88ae8a92aaf6ef3542}} 
 \index{Company@{Company}!Company@{Company}}
 \index{Company@{Company}!Company@{Company}}
 \doxysubsubsection{\texorpdfstring{Company()}{Company()}}
-{\footnotesize\ttfamily Company\+::\+Company (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+\_\+in = {\ttfamily \char`\"{}\char`\"{}},  }\item[{long}]{ID\+\_\+in = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Company\+::\+Company (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+\_\+in = {\ttfamily \char`\"{}\char`\"{}},  }\item[{std\+::string}]{ID\+\_\+in = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -104,11 +104,11 @@ Definition at line \mbox{\hyperlink{clients_8cpp_source_l00064}{64}} of file \mb
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_company_a9b294a107223caaad48dc38b5b7a1508}\label{class_company_a9b294a107223caaad48dc38b5b7a1508}} 
+\mbox{\Hypertarget{class_company_a1ba074e68753c4e9e049f4f210137bac}\label{class_company_a1ba074e68753c4e9e049f4f210137bac}} 
 \index{Company@{Company}!getID@{getID}}
 \index{getID@{getID}!Company@{Company}}
 \doxysubsubsection{\texorpdfstring{getID()}{getID()}}
-{\footnotesize\ttfamily long Company\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily std\+::string Company\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -142,11 +142,11 @@ Reimplemented from \mbox{\hyperlink{class_client_a1b7af92ea4fa34d7cc1c8767bd1767
 
 Definition at line \mbox{\hyperlink{clients_8cpp_source_l00059}{59}} of file \mbox{\hyperlink{clients_8cpp_source}{clients.\+cpp}}.
 
-\mbox{\Hypertarget{class_company_a81fa31e65ff4161fc6e782f2067975c4}\label{class_company_a81fa31e65ff4161fc6e782f2067975c4}} 
+\mbox{\Hypertarget{class_company_a6e08c872488ba07ff4ede28930116c8c}\label{class_company_a6e08c872488ba07ff4ede28930116c8c}} 
 \index{Company@{Company}!setID@{setID}}
 \index{setID@{setID}!Company@{Company}}
 \doxysubsubsection{\texorpdfstring{setID()}{setID()}}
-{\footnotesize\ttfamily void Company\+::set\+ID (\begin{DoxyParamCaption}\item[{long}]{ID\+\_\+in }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Company\+::set\+ID (\begin{DoxyParamCaption}\item[{std\+::string}]{ID\+\_\+in }\end{DoxyParamCaption})}
 
 
 
