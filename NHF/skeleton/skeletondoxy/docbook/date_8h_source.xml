@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_date_8h_source" xml:lang="en-US">
+<title>date.h</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_date_8h_source_1l00001"/>00001 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_date_8h_source_1l00002"/>00002 <emphasis role="comment">//&#32;Created&#32;by&#32;Jajecnik&#32;Marcell&#32;on&#32;2023.&#32;05.&#32;04..</emphasis>
+<anchor xml:id="_date_8h_source_1l00003"/>00003 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_date_8h_source_1l00004"/>00004 
+<anchor xml:id="_date_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#ifndef&#32;SKELETON_DATE_H</emphasis>
+<anchor xml:id="_date_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#define&#32;SKELETON_DATE_H</emphasis>
+<anchor xml:id="_date_8h_source_1l00007"/>00007 
+<anchor xml:id="_date_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;iostream&gt;</emphasis>
+<anchor xml:id="_date_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&lt;chrono&gt;</emphasis>
+<anchor xml:id="_date_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;sstream&quot;</emphasis>
+<anchor xml:id="_date_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&quot;iomanip&quot;</emphasis>
+<anchor xml:id="_date_8h_source_1l00012"/>00012 
+<anchor xml:id="_date_8h_source_1l00016"/><link linkend="_class_date">00016</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_date">Date</link>&#32;{
+<anchor xml:id="_date_8h_source_1l00017"/>00017 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_date_8h_source_1l00018"/>00018 &#32;&#32;&#32;&#32;std::chrono::system_clock::time_point&#32;tp;
+<anchor xml:id="_date_8h_source_1l00019"/>00019 
+<anchor xml:id="_date_8h_source_1l00020"/>00020 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_date_8h_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>(){}
+<anchor xml:id="_date_8h_source_1l00022"/>00022 
+<anchor xml:id="_date_8h_source_1l00029"/><link linkend="_class_date_1a5874432b5f7339205866055201e885d7">00029</link> &#32;&#32;&#32;&#32;<link linkend="_class_date_1a5874432b5f7339205866055201e885d7">Date</link>(<emphasis role="keywordtype">int</emphasis>&#32;year,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day):&#32;tp(<link linkend="_class_date_1a2202e96fc67fd8c0912acf73e953c7f1">into_date</link>(year,month,day))&#32;{}
+<anchor xml:id="_date_8h_source_1l00030"/>00030 
+<anchor xml:id="_date_8h_source_1l00038"/>00038 &#32;&#32;&#32;&#32;std::chrono::system_clock::time_point&#32;<link linkend="_class_date_1a2202e96fc67fd8c0912acf73e953c7f1">into_date</link>(<emphasis role="keywordtype">int</emphasis>&#32;year,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day);
+<anchor xml:id="_date_8h_source_1l00039"/>00039 
+<anchor xml:id="_date_8h_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_date_1a03ecf64f9dcda29cbe2162c0e256b80e">print_date</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00043"/>00043 
+<anchor xml:id="_date_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_date_1a4b253a95e1347f37a25a973bc94857e3">operator==</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;in)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00050"/>00050 
+<anchor xml:id="_date_8h_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_date_1a9bbef6e5e1e067ec4130d217ea596c80">operator&lt;</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;in)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00057"/>00057 
+<anchor xml:id="_date_8h_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_date_1ad83b1f55dc7621fb8b0dd2f973ace99b">operator&gt;</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;in)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00064"/>00064 
+<anchor xml:id="_date_8h_source_1l00070"/>00070 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_date_1aa4d58863899698a3ef3e41f4d99d2842">operator&lt;=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;in)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00071"/>00071 
+<anchor xml:id="_date_8h_source_1l00077"/>00077 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_date_1a134dc22bcb3df0056c44d440652a351c">operator&gt;=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;in)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00078"/>00078 
+<anchor xml:id="_date_8h_source_1l00084"/>00084 &#32;&#32;&#32;&#32;std::string&#32;<link linkend="_class_date_1aceba42d25cb6a888cea3428f80d50359">toString</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00085"/>00085 };
+<anchor xml:id="_date_8h_source_1l00086"/>00086 
+<anchor xml:id="_date_8h_source_1l00093"/>00093 std::ostream&amp;&#32;operator&lt;&lt;(std::ostream&#32;os,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;date);
+<anchor xml:id="_date_8h_source_1l00094"/>00094 
+<anchor xml:id="_date_8h_source_1l00095"/>00095 
+<anchor xml:id="_date_8h_source_1l00096"/>00096 
+<anchor xml:id="_date_8h_source_1l00101"/><link linkend="_class_contract__date">00101</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_contract__date">Contract_date</link>&#32;{
+<anchor xml:id="_date_8h_source_1l00102"/>00102 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_date_8h_source_1l00103"/>00103 &#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;begin;
+<anchor xml:id="_date_8h_source_1l00104"/>00104 &#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;end;
+<anchor xml:id="_date_8h_source_1l00105"/>00105 
+<anchor xml:id="_date_8h_source_1l00106"/>00106 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_date_8h_source_1l00107"/>00107 
+<anchor xml:id="_date_8h_source_1l00111"/><link linkend="_class_contract__date_1a8840df4af4eb76e1c701dcf5aa9c24d8">00111</link> &#32;&#32;&#32;&#32;<link linkend="_class_contract__date_1a8840df4af4eb76e1c701dcf5aa9c24d8">Contract_date</link>(){}
+<anchor xml:id="_date_8h_source_1l00112"/>00112 
+<anchor xml:id="_date_8h_source_1l00122"/><link linkend="_class_contract__date_1a689419facd8963a894f27858c9997b56">00122</link> &#32;&#32;&#32;&#32;<link linkend="_class_contract__date_1a689419facd8963a894f27858c9997b56">Contract_date</link>(<emphasis role="keywordtype">int</emphasis>&#32;year_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;year_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day_end)
+<anchor xml:id="_date_8h_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;begin(<link linkend="_class_date">Date</link>(year_begin,&#32;month_begin,&#32;day_begin)),&#32;end(<link linkend="_class_date">Date</link>(year_end,&#32;month_end,&#32;day_end))
+<anchor xml:id="_date_8h_source_1l00124"/>00124 &#32;&#32;&#32;&#32;{}
+<anchor xml:id="_date_8h_source_1l00125"/>00125 
+<anchor xml:id="_date_8h_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;<link linkend="_class_contract__date_1ae9239c157785b2afd78125aff7df31cd">getBegin</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00131"/>00131 
+<anchor xml:id="_date_8h_source_1l00136"/>00136 &#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;<link linkend="_class_contract__date_1a205ddfaf285d153b01ac81edb19a2a45">getEnd</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00137"/>00137 
+<anchor xml:id="_date_8h_source_1l00144"/>00144 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract__date_1a6644688a83cccbe3becd55d99bd5d872">setBegin</link>(<emphasis role="keywordtype">int</emphasis>&#32;year,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day);
+<anchor xml:id="_date_8h_source_1l00145"/>00145 
+<anchor xml:id="_date_8h_source_1l00152"/>00152 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract__date_1a2a5399e4a07a2f59ca4e67d88f328242">setEnd</link>(<emphasis role="keywordtype">int</emphasis>&#32;year,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day);
+<anchor xml:id="_date_8h_source_1l00153"/>00153 
+<anchor xml:id="_date_8h_source_1l00159"/>00159 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_contract__date_1ab03f84a312bef61c3be332ab48cfe32c">contains</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;date_in)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_date_8h_source_1l00160"/>00160 
+<anchor xml:id="_date_8h_source_1l00161"/>00161 
+<anchor xml:id="_date_8h_source_1l00167"/>00167 &#32;&#32;&#32;&#32;<link linkend="_class_contract__date">Contract_date</link>&amp;&#32;<link linkend="_class_contract__date_1a2aaf65032185157fb06cdb7481d54790">operator=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_contract__date">Contract_date</link>&amp;&#32;contractDate_in);
+<anchor xml:id="_date_8h_source_1l00168"/>00168 };
+<anchor xml:id="_date_8h_source_1l00169"/>00169 
+<anchor xml:id="_date_8h_source_1l00170"/>00170 
+<anchor xml:id="_date_8h_source_1l00171"/>00171 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SKELETON_DATE_H</emphasis>
+</programlisting></section>

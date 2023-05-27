@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__m_v_m_8h_source" xml:lang="en-US">
+<title>MVM.h</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__m_v_m_8h_source_1l00001"/>00001 <emphasis role="comment">//</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00002"/>00002 <emphasis role="comment">//&#32;Created&#32;by&#32;Jajecnik&#32;Marcell&#32;on&#32;2023.&#32;05.&#32;04..</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00003"/>00003 <emphasis role="comment">//</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00004"/>00004 
+<anchor xml:id="__m_v_m_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#ifndef&#32;SKELETON_MVM_H</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#define&#32;SKELETON_MVM_H</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00007"/>00007 
+<anchor xml:id="__m_v_m_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;clients.h&quot;</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;myvektor.hpp&quot;</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;date.h&quot;</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&quot;contracts.h&quot;</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&lt;iostream&gt;</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&lt;chrono&gt;</emphasis>
+<anchor xml:id="__m_v_m_8h_source_1l00014"/>00014 
+<anchor xml:id="__m_v_m_8h_source_1l00015"/>00015 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_client">Client</link>;
+<anchor xml:id="__m_v_m_8h_source_1l00016"/>00016 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_company">Company</link>;
+<anchor xml:id="__m_v_m_8h_source_1l00017"/>00017 <emphasis role="keyword">enum&#32;class</emphasis>&#32;ContractType;
+<anchor xml:id="__m_v_m_8h_source_1l00018"/>00018 
+<anchor xml:id="__m_v_m_8h_source_1l00023"/><link linkend="_class_m_v_m">00023</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_m_v_m">MVM</link>&#32;{
+<anchor xml:id="__m_v_m_8h_source_1l00024"/>00024 <emphasis role="keyword">private</emphasis>:
+<anchor xml:id="__m_v_m_8h_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<link linkend="_class_my_vector">MyVector&lt;Client *&gt;</link>&#32;clients;
+<anchor xml:id="__m_v_m_8h_source_1l00029"/>00029 
+<anchor xml:id="__m_v_m_8h_source_1l00036"/>00036 &#32;&#32;&#32;&#32;ContractType&#32;Ctype_fromString(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;contract_type);
+<anchor xml:id="__m_v_m_8h_source_1l00037"/>00037 
+<anchor xml:id="__m_v_m_8h_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;load_from_stream(std::istream&amp;&#32;is);
+<anchor xml:id="__m_v_m_8h_source_1l00042"/>00042 
+<anchor xml:id="__m_v_m_8h_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;is_all_number(std::string&amp;&#32;str_in);
+<anchor xml:id="__m_v_m_8h_source_1l00050"/>00050 
+<anchor xml:id="__m_v_m_8h_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;is_string_double(std::string&amp;&#32;str_in);
+<anchor xml:id="__m_v_m_8h_source_1l00058"/>00058 &#32;&#32;&#32;&#32;
+<anchor xml:id="__m_v_m_8h_source_1l00059"/>00059 <emphasis role="keyword">public</emphasis>:
+<anchor xml:id="__m_v_m_8h_source_1l00063"/><link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">00063</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_company">Company</link>&#32;<link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM_company</link>;
+<anchor xml:id="__m_v_m_8h_source_1l00064"/>00064 
+<anchor xml:id="__m_v_m_8h_source_1l00068"/><link linkend="_class_m_v_m_1a76ee8bd73194a5f2b0bc46c7b5cf22dc">00068</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_m_v_m_1a76ee8bd73194a5f2b0bc46c7b5cf22dc">save_version</link>;
+<anchor xml:id="__m_v_m_8h_source_1l00069"/>00069 
+<anchor xml:id="__m_v_m_8h_source_1l00073"/><link linkend="_class_m_v_m_1acc3149bc47a4df1b418fd0ffa6d9f147">00073</link> &#32;&#32;&#32;&#32;<link linkend="_class_m_v_m_1acc3149bc47a4df1b418fd0ffa6d9f147">MVM</link>()&#32;{}
+<anchor xml:id="__m_v_m_8h_source_1l00074"/>00074 
+<anchor xml:id="__m_v_m_8h_source_1l00079"/>00079 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1a4d02ac8bb1dcc2ec5fcf1832cc662f44">addClient</link>(<link linkend="_class_client">Client</link>*&#32;client_in);
+<anchor xml:id="__m_v_m_8h_source_1l00080"/>00080 
+<anchor xml:id="__m_v_m_8h_source_1l00098"/>00098 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1aaf3ab005673a931c43b503fd277b3ef1">addContract</link>(<link linkend="_class_client">Client</link>*&#32;client_in,&#32;ContractType&#32;ctype_in,&#32;<emphasis role="keywordtype">int</emphasis>&#32;year_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day_begin,&#32;<emphasis role="keywordtype">int</emphasis>&#32;year_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;month_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;day_end,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_year,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_month,&#32;<emphasis role="keywordtype">int</emphasis>&#32;invo_in_day,&#32;<emphasis role="keywordtype">double</emphasis>&#32;tariff_in&#32;=&#32;0.0,&#32;<emphasis role="keywordtype">double</emphasis>&#32;balance_in&#32;=&#32;0.0,&#32;<emphasis role="keywordtype">double</emphasis>&#32;consumption_in&#32;=&#32;0.0);
+<anchor xml:id="__m_v_m_8h_source_1l00099"/>00099 
+<anchor xml:id="__m_v_m_8h_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<link linkend="_class_client">Client</link>*&#32;<link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">getClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in,<emphasis role="keyword">const</emphasis>&#32;std::string&#32;somekindofID);
+<anchor xml:id="__m_v_m_8h_source_1l00107"/>00107 
+<anchor xml:id="__m_v_m_8h_source_1l00112"/>00112 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;<link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">getCompanyDetails</link>();
+<anchor xml:id="__m_v_m_8h_source_1l00113"/>00113 
+<anchor xml:id="__m_v_m_8h_source_1l00118"/>00118 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1aa1e7db7cfe6de5a5c2bca90a1b9cce84">deleteClient</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&#32;name_in,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;somekindofID);
+<anchor xml:id="__m_v_m_8h_source_1l00119"/>00119 
+<anchor xml:id="__m_v_m_8h_source_1l00121"/>00121 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1acc3d356b0b8e2fef4a7b56b480daec0c">save</link>();
+<anchor xml:id="__m_v_m_8h_source_1l00122"/>00122 &#32;&#32;&#32;&#32;
+<anchor xml:id="__m_v_m_8h_source_1l00123"/>00123 
+<anchor xml:id="__m_v_m_8h_source_1l00128"/>00128 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1aac79d563bd302a9441385ae5b16ebc0e">load_from_save</link>(<emphasis role="keywordtype">int</emphasis>&#32;version_id_in);
+<anchor xml:id="__m_v_m_8h_source_1l00129"/>00129 
+<anchor xml:id="__m_v_m_8h_source_1l00131"/>00131 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_m_v_m_1af8d9a226af83b063fe0bb7defb8e616c">load_from_console</link>();
+<anchor xml:id="__m_v_m_8h_source_1l00132"/>00132 
+<anchor xml:id="__m_v_m_8h_source_1l00136"/>00136 &#32;&#32;&#32;&#32;<link linkend="_class_m_v_m_1afbd4ab1c335c46b4c6837fd5c957ee00">~MVM</link>();
+<anchor xml:id="__m_v_m_8h_source_1l00137"/>00137 };
+<anchor xml:id="__m_v_m_8h_source_1l00138"/>00138 
+<anchor xml:id="__m_v_m_8h_source_1l00139"/>00139 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SKELETON_MVM_H</emphasis>
+</programlisting></section>

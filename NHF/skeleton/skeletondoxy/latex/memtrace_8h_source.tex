@@ -1,0 +1,240 @@
+\hypertarget{memtrace_8h_source}{}\doxysection{memtrace.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00001}00001\ \textcolor{comment}{/*********************************}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00002}00002\ \textcolor{comment}{Memoriaszivargas-\/detektor}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00003}00003\ \textcolor{comment}{Keszitette:\ Peregi\ Tamas,\ BME\ IIT,\ 2011}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00004}00004\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ petamas@iit.bme.hu}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00005}00005\ \textcolor{comment}{Kanari:\ \ \ \ \ Szeberenyi\ Imre,\ 2013.,}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00006}00006\ \textcolor{comment}{VS\ 2012:\ \ \ \ Szeberényi\ Imre,\ 2015.,}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00007}00007\ \textcolor{comment}{mem\_dump:\ \ \ 2016.}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00008}00008\ \textcolor{comment}{inclue-\/ok:\ \ 2017.,\ 2018.,\ 2019.,\ 2021.}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00009}00009\ \textcolor{comment}{*********************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00011}00011\ \textcolor{preprocessor}{\#ifndef\ MEMTRACE\_H}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ MEMTRACE\_H}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00014}00014\ \textcolor{preprocessor}{\#if\ defined(MEMTRACE)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00016}00016\ \textcolor{comment}{/*ha\ definiálva\ van,\ akkor\ a\ hibakat\ ebbe\ a\ fajlba\ írja,\ egyébkent\ stderr-\/re*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00017}00017\ \textcolor{comment}{/*\#define\ MEMTRACE\_ERRFILE\ MEMTRACE.ERR*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00019}00019\ \textcolor{comment}{/*ha\ definialva\ van,\ akkor\ futas\ kozben\ lancolt\ listat\ epit.\ Javasolt\ a\ hasznalata*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00022}00022\ \textcolor{comment}{/*ha\ definialva\ van,\ akkor\ futas\ kozben\ fajlba\ irja\ a\ foglalasokat*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00023}00023\ \textcolor{comment}{/*ekkor\ nincs\ ellenorzes,\ csak\ naplozas*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00024}00024\ \textcolor{comment}{/*\#define\ MEMTRACE\_TO\_FILE*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00026}00026\ \textcolor{comment}{/*ha\ definialva\ van,\ akkor\ a\ megallaskor\ automatikus\ riport\ keszul\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00027}00027\ \textcolor{preprocessor}{\#define\ MEMTRACE\_AUTO}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00029}00029\ \textcolor{comment}{/*ha\ definialva\ van,\ akkor\ malloc()/calloc()/realloc()/free()\ kovetve\ lesz*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00030}00030\ \textcolor{preprocessor}{\#define\ MEMTRACE\_C}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00032}00032\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE\_C}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00033}00033\ \ \ \ \ \textcolor{comment}{/*ha\ definialva\ van,\ akkor\ free(NULL)\ nem\ okoz\ hibat*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00034}00034\ \textcolor{preprocessor}{\ \ \ \ \#define\ ALLOW\_FREE\_NULL}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00035}00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00037}00037\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00038}00038\ \ \ \ \ \textcolor{comment}{/*ha\ definialva\ van,\ akkor\ new/delete/new[]/delete[]\ kovetve\ lesz*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00039}00039\ \textcolor{preprocessor}{\ \ \ \ \#define\ MEMTRACE\_CPP}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00042}00042\ \textcolor{preprocessor}{\#if\ defined(\_\_cplusplus)\ \&\&\ defined(MEMTRACE\_TO\_MEMORY)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00043}00043\ \ \ \ \ \textcolor{comment}{/*ha\ definialva\ van,\ akkor\ atexit\ helyett\ objektumot\ hasznal*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00044}00044\ \ \ \ \ \textcolor{comment}{/*ajanlott\ bekapcsolni*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00045}00045\ \textcolor{preprocessor}{\ \ \ \ \#define\ USE\_ATEXIT\_OBJECT}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00046}00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00048}00048\ \textcolor{comment}{/******************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00049}00049\ \textcolor{comment}{/*\ INNEN\ NE\ MODOSITSD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00050}00050\ \textcolor{comment}{/******************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00051}00051\ \textcolor{preprocessor}{\#ifdef\ NO\_MEMTRACE\_TO\_FILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00052}00052\ \textcolor{preprocessor}{\ \ \ \ \#undef\ MEMTRACE\_TO\_FILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00053}00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00055}00055\ \textcolor{preprocessor}{\#ifdef\ NO\_MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00056}00056\ \textcolor{preprocessor}{\ \ \ \ \#undef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00057}00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00059}00059\ \textcolor{preprocessor}{\#ifndef\ MEMTRACE\_AUTO}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00060}00060\ \textcolor{preprocessor}{\ \ \ \ \#undef\ USE\_ATEXIT\_OBJECT}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00061}00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00063}00063\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00064}00064\ \textcolor{preprocessor}{\ \ \ \ \#define\ START\_NAMESPACE\ namespace\ memtrace\ \{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00065}00065\ \textcolor{preprocessor}{\ \ \ \ \#define\ END\_NAMESPACE\ \}\ }\textcolor{comment}{/*namespace*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00066}00066\ \textcolor{preprocessor}{\ \ \ \ \#define\ TRACEC(func)\ memtrace::func}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00067}00067\ \textcolor{preprocessor}{\ \ \ \ \#include\ <new>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00068}00068\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00069}00069\ \textcolor{preprocessor}{\ \ \ \ \#define\ START\_NAMESPACE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00070}00070\ \textcolor{preprocessor}{\ \ \ \ \#define\ END\_NAMESPACE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00071}00071\ \textcolor{preprocessor}{\ \ \ \ \#define\ TRACEC(func)\ func}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00072}00072\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00074}00074\ \textcolor{comment}{//\ THROW\ deklaráció\ változatai}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00075}00075\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00076}00076\ \ \ \textcolor{comment}{//\ VS\ rosszul\ kezeli\ az\ \_\_cplusplus\ makrot}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00077}00077\ \textcolor{preprocessor}{\ \ \#if\ \_MSC\_VER\ <\ 1900}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//\ *\ nem\ biztos,\ hogy\ jó\ így\ *}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00079}00079\ \textcolor{preprocessor}{\ \ \ \ \#define\ THROW\_BADALLOC}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00080}00080\ \textcolor{preprocessor}{\ \ \ \ \#define\ THROW\_NOTHING}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00081}00081\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ C++11\ vagy\ újabb}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00083}00083\ \textcolor{preprocessor}{\ \ \ \ \#define\ THROW\_BADALLOC\ noexcept(false)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00084}00084\ \textcolor{preprocessor}{\ \ \ \ \#define\ THROW\_NOTHING\ noexcept}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00085}00085\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00086}00086\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00087}00087\ \textcolor{preprocessor}{\ \ \#if\ \_\_cplusplus\ <\ 201103L}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00088}00088\ \ \ \ \ \textcolor{comment}{//\ C++2003\ vagy\ régebbi}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00089}00089\ \textcolor{preprocessor}{\ \ \ \ \#define\ THROW\_BADALLOC\ throw\ (std::bad\_alloc)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00090}00090\ \textcolor{preprocessor}{\ \ \ \ \#define\ THROW\_NOTHING\ throw\ ()}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00091}00091\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ C++11\ vagy\ újabb}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00093}00093\ \textcolor{preprocessor}{\ \ \ \ \#define\ THROW\_BADALLOC\ noexcept(false)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00094}00094\ \textcolor{preprocessor}{\ \ \ \ \#define\ THROW\_NOTHING\ noexcept}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00095}00095\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00096}00096\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00098}00098\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00099}00099\ \ \ \ \ \textcolor{keywordtype}{int}\ allocated\_blocks();}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00100}00100\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00102}00102\ \textcolor{preprocessor}{\#if\ defined(MEMTRACE\_TO\_MEMORY)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00103}00103\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mem\_check(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00105}00105\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00106}00106\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00108}00108\ \textcolor{preprocessor}{\#if\ defined(MEMTRACE\_TO\_MEMORY)\ \&\&\ defined(USE\_ATEXIT\_OBJECT)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00109}00109\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00110}00110\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00111}00111\ \ \ \ \ \textcolor{keyword}{class\ }atexit\_class\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ counter;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ err;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ atexit\_class()\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00117}00117\ \textcolor{preprocessor}{\#if\ defined(CPORTA)\ \&\&\ !defined(CPORTA\_NOSETBUF)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (counter\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setbuf(stdout,\ 0);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ setbuf(stderr,\ 0);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00122}00122\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ counter++;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ check()\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(-\/-\/counter\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ err\ =\ mem\_check();}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ err;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \string~atexit\_class()\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ check();}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00135}00135\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00137}00137\ \textcolor{keyword}{static}\ atexit\_class\ atexit\_obj;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00139}00139\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00140}00140\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*MEMTRACE\_TO\_MEMORY\ \&\&\ USE\_ATEXIT\_OBJECT*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00142}00142\ \textcolor{comment}{/*Innentol\ csak\ a\ "{}normal"{}\ include\ eseten\ kell,\ kulonben\ osszezavarja\ a\ mukodest*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00143}00143\ \textcolor{preprocessor}{\#ifndef\ FROM\_MEMTRACE\_CPP}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00144}00144\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00145}00145\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00146}00146\ \textcolor{preprocessor}{\ \ \ \ \#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00147}00147\ \textcolor{comment}{/*\ ide\ gyűjtjük\ a\ nemtrace-\/vel\ összeakadó\ headereket,\ hogy\ előbb\ legyenek\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00149}00149\ \textcolor{preprocessor}{\ \ \ \ \#include\ <fstream>}\ \ \textcolor{comment}{//\ VS\ 2013\ headerjében\ van\ deleted\ definició}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00150}00150\ \textcolor{preprocessor}{\ \ \ \ \#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00151}00151\ \textcolor{preprocessor}{\ \ \ \ \#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00152}00152\ \textcolor{preprocessor}{\ \ \ \ \#include\ <list>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00153}00153\ \textcolor{preprocessor}{\ \ \ \ \#include\ <map>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00154}00154\ \textcolor{preprocessor}{\ \ \ \ \#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00155}00155\ \textcolor{preprocessor}{\ \ \ \ \#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00156}00156\ \textcolor{preprocessor}{\ \ \ \ \#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00157}00157\ \textcolor{preprocessor}{\ \ \ \ \#include\ <iomanip>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00158}00158\ \textcolor{preprocessor}{\ \ \ \ \#include\ <locale>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00159}00159\ \textcolor{preprocessor}{\ \ \ \ \#include\ <typeinfo>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00160}00160\ \textcolor{preprocessor}{\ \ \ \ \#include\ <ostream>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00161}00161\ \textcolor{preprocessor}{\ \ \ \ \#include\ <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00162}00162\ \textcolor{preprocessor}{\ \ \ \ \#include\ <ctime>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00163}00163\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00164}00164\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE\_CPP}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00165}00165\ \ \ \ \ \textcolor{keyword}{namespace\ }std\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ void\ (*new\_handler)();}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00167}00167\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00168}00168\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00170}00170\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE\_C}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00171}00171\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00172}00172\ \textcolor{preprocessor}{\ \ \ \ \#undef\ malloc}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00173}00173\ \textcolor{preprocessor}{\ \ \ \ \#define\ malloc(size)\ TRACEC(traced\_malloc)(size,\#size,\_\_LINE\_\_,\_\_FILE\_\_)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00174}00174\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ traced\_malloc(\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *size\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00176}00176\ \textcolor{preprocessor}{\ \ \ \ \#undef\ calloc}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00177}00177\ \textcolor{preprocessor}{\ \ \ \ \#define\ calloc(count,size)\ TRACEC(traced\_calloc)(count,\ size,\ \#count"{},"{}}\#size,\_\_LINE\_\_,\_\_FILE\_\_)}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00178}00178\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ traced\_calloc(\textcolor{keywordtype}{size\_t}\ count,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *size\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00180}00180\ \textcolor{preprocessor}{\ \ \ \ \#undef\ free}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00181}00181\ \textcolor{preprocessor}{\ \ \ \ \#define\ free(p)\ TRACEC(traced\_free)(p,\ \#p,\_\_LINE\_\_,\_\_FILE\_\_)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00182}00182\ \ \ \ \ \textcolor{keywordtype}{void}\ traced\_free(\textcolor{keywordtype}{void}\ *\ p,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *size\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00184}00184\ \textcolor{preprocessor}{\ \ \ \ \#undef\ realloc}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00185}00185\ \textcolor{preprocessor}{\ \ \ \ \#define\ realloc(old,size)\ TRACEC(traced\_realloc)(old,size,\#size,\_\_LINE\_\_,\_\_FILE\_\_)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00186}00186\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ traced\_realloc(\textcolor{keywordtype}{void}\ *\ old,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *size\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00188}00188\ \ \ \ \ \textcolor{keywordtype}{void}\ mem\_dump(\textcolor{keywordtype}{void}\ \textcolor{keyword}{const}\ *mem,\ \textcolor{keywordtype}{size\_t}\ size,\ FILE*\ fp\ =\ stdout);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00191}00191\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00192}00192\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*MEMTRACE\_C*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00194}00194\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE\_CPP}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00195}00195\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00196}00196\ \textcolor{preprocessor}{\ \ \ \ \#undef\ set\_new\_handler}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00197}00197\ \textcolor{preprocessor}{\ \ \ \ \#define\ set\_new\_handler(f)\ TRACEC(\_set\_new\_handler)(f)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00198}00198\ \ \ \ \ \textcolor{keywordtype}{void}\ \_set\_new\_handler(std::new\_handler\ h);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00200}00200\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_delete\_call(\textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00201}00201\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00203}00203\ \textcolor{keywordtype}{void}\ *\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}(\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ THROW\_BADALLOC;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00204}00204\ \textcolor{keywordtype}{void}\ *\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}[](\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ THROW\_BADALLOC;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00205}00205\ \textcolor{keywordtype}{void}\ *\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}(\textcolor{keywordtype}{size\_t}\ size)\ THROW\_BADALLOC;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00206}00206\ \textcolor{keywordtype}{void}\ *\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}[](\textcolor{keywordtype}{size\_t}\ size)\ THROW\_BADALLOC;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00207}00207\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}\ *\ p)\ \ THROW\_NOTHING;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00208}00208\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}[](\textcolor{keywordtype}{void}\ *\ p)\ THROW\_NOTHING;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00210}00210\ \textcolor{preprocessor}{\#if\ \_\_cplusplus\ >=\ 201402L}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00211}00211\ \textcolor{comment}{//\ sized\ delete\ miatt:\ http://www.open-\/std.org/jtc1/sc22/wg21/docs/papers/2013/n3536.html}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00212}00212\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}\ *\ p,\ size\_t)\ \ THROW\_NOTHING;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00213}00213\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}[](\textcolor{keywordtype}{void}\ *\ p,\ size\_t)\ THROW\_NOTHING;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00214}00214\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00216}00216\ \textcolor{comment}{/*\ Visual\ C++\ 2012\ miatt\ kell,\ mert\ háklis,\ hogy\ nincs\ megfelelő\ delete,\ bár\ senki\ sem\ használja\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00217}00217\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}\ *p,\ int,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)\ THROW\_NOTHING;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00218}00218\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}[](\textcolor{keywordtype}{void}\ *p,\ int,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)\ THROW\_NOTHING;}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00221}00221\ \textcolor{preprocessor}{\#define\ new\ new(\_\_LINE\_\_,\ \_\_FILE\_\_)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00222}00222\ \textcolor{preprocessor}{\#define\ delete\ memtrace::set\_delete\_call(\_\_LINE\_\_,\ \_\_FILE\_\_),delete}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00224}00224\ \textcolor{preprocessor}{\#ifdef\ CPORTA}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00225}00225\ \textcolor{preprocessor}{\#define\ system(...)\ \ }\textcolor{comment}{//\ system(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00226}00226\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00228}00228\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*MEMTRACE\_CPP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00230}00230\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*FROM\_MEMTRACE\_CPP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00231}00231\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00232}00232\ \textcolor{preprocessor}{\#pragma\ message\ (\ "{}MEMTRACE\ NOT\ DEFINED"{}}\ )}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00233}00233\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*MEMTRACE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8h_source_l00235}00235\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*MEMTRACE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__test_8cpp_source" xml:lang="en-US">
+<title>Test.cpp</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="__test_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;iostream&gt;</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00002"/>00002 
+<anchor xml:id="__test_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;gtest_lite.h&quot;</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;memtrace.h&quot;</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;MVM.h&quot;</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00006"/>00006 
+<anchor xml:id="__test_8cpp_source_1l00018"/>00018 <emphasis role="preprocessor">#define&#32;TST&#32;9</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00019"/>00019 
+<anchor xml:id="__test_8cpp_source_1l00020"/>00020 
+<anchor xml:id="__test_8cpp_source_1l00021"/>00021 
+<anchor xml:id="__test_8cpp_source_1l00022"/>00022 <emphasis role="preprocessor">#define&#32;MEMTRACE_H</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00023"/>00023 
+<anchor xml:id="__test_8cpp_source_1l00024"/>00024 <emphasis role="keywordtype">int</emphasis>&#32;main()&#32;{
+<anchor xml:id="__test_8cpp_source_1l00025"/>00025 
+<anchor xml:id="__test_8cpp_source_1l00026"/>00026 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;0</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00027"/>00027 
+<anchor xml:id="__test_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;TEST(<link linkend="_class_my_vector">MyVector</link>,&#32;tesztek)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00029"/>00029 
+<anchor xml:id="__test_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_my_vector">MyVector&lt;int&gt;</link>&#32;int_test;
+<anchor xml:id="__test_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_my_vector">MyVector&lt;double&gt;</link>&#32;double_test;
+<anchor xml:id="__test_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(10,&#32;int_test.<link linkend="_class_my_vector_1adbd398910d7ae5c2b42132e10ac6f749">capacity</link>());&#32;<emphasis role="comment">//&#32;Alapertelmezett&#32;ertek</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(0,&#32;int_test.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>());
+<anchor xml:id="__test_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int_test.<link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">push_back</link>(1);
+<anchor xml:id="__test_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(1,&#32;int_test.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>());
+<anchor xml:id="__test_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int_test.<link linkend="_class_my_vector_1aa896e95bb435535bdcc0b3e7bcb7f6fe">pop_back</link>();
+<anchor xml:id="__test_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(0,&#32;int_test.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>());
+<anchor xml:id="__test_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int_test.<link linkend="_class_my_vector_1aa896e95bb435535bdcc0b3e7bcb7f6fe">pop_back</link>();&#32;<emphasis role="comment">//Torles&#32;ha&#32;nincs&#32;semmi&#32;bajt&#32;okoz-e?</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00039"/>00039 
+<anchor xml:id="__test_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;11;&#32;++i)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int_test.<link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">push_back</link>(i);
+<anchor xml:id="__test_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;double_test.<link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">push_back</link>(i);
+<anchor xml:id="__test_8cpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__test_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(20,&#32;int_test.<link linkend="_class_my_vector_1adbd398910d7ae5c2b42132e10ac6f749">capacity</link>());
+<anchor xml:id="__test_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(11,&#32;int_test.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>());
+<anchor xml:id="__test_8cpp_source_1l00046"/>00046 
+<anchor xml:id="__test_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;11;&#32;++i)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int_test.<link linkend="_class_my_vector_1adac3ad2d58897e80d95a64f0ec0b4229">erase</link>(0);
+<anchor xml:id="__test_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;double_test.<link linkend="_class_my_vector_1aa896e95bb435535bdcc0b3e7bcb7f6fe">pop_back</link>();
+<anchor xml:id="__test_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__test_8cpp_source_1l00051"/>00051 
+<anchor xml:id="__test_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(0,&#32;int_test.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>());
+<anchor xml:id="__test_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(0,&#32;double_test.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>());
+<anchor xml:id="__test_8cpp_source_1l00054"/>00054 
+<anchor xml:id="__test_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;5;&#32;++i)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int_test.<link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">push_back</link>(i);
+<anchor xml:id="__test_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__test_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;5;&#32;i++)
+<anchor xml:id="__test_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__test_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(i,&#32;int_test[i]);
+<anchor xml:id="__test_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__test_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(int_test[-1],&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(int_test[5],&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00064"/>00064 
+<anchor xml:id="__test_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;}&#32;END
+<anchor xml:id="__test_8cpp_source_1l00066"/>00066 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00067"/>00067 
+<anchor xml:id="__test_8cpp_source_1l00068"/>00068 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;1</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00069"/>00069 
+<anchor xml:id="__test_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;TEST(<link linkend="_class_date">Date</link>,&#32;tesztek)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00071"/>00071 
+<anchor xml:id="__test_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;a(2023,&#32;05,&#32;14);
+<anchor xml:id="__test_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(std::string(<emphasis role="stringliteral">&quot;2023-05-14&quot;</emphasis>)==&#32;a.toString());
+<anchor xml:id="__test_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(<link linkend="_class_date">Date</link>&#32;b(1700,&#32;05,&#32;14),&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(<link linkend="_class_date">Date</link>&#32;c(2000,&#32;0,&#32;14),&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;b(2000,&#32;1,&#32;14);
+<anchor xml:id="__test_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;c(2000,&#32;1,&#32;14);
+<anchor xml:id="__test_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(b&#32;==&#32;c);
+<anchor xml:id="__test_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;d(2000,&#32;2,&#32;14);
+<anchor xml:id="__test_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;e(2000,&#32;3,&#32;14);
+<anchor xml:id="__test_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_FALSE(d&#32;==&#32;e);
+<anchor xml:id="__test_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(d&gt;b);
+<anchor xml:id="__test_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(b&#32;&lt;=&#32;d);
+<anchor xml:id="__test_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(d&gt;=b);
+<anchor xml:id="__test_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e.print_date();
+<anchor xml:id="__test_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::cout&lt;&lt;std::endl;
+<anchor xml:id="__test_8cpp_source_1l00087"/>00087 
+<anchor xml:id="__test_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;}END
+<anchor xml:id="__test_8cpp_source_1l00089"/>00089 
+<anchor xml:id="__test_8cpp_source_1l00090"/>00090 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00091"/>00091 
+<anchor xml:id="__test_8cpp_source_1l00092"/>00092 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;2</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00093"/>00093 
+<anchor xml:id="__test_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;TEST(<link linkend="_class_contract__date">Contract_date</link>,&#32;tesztek)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00095"/>00095 
+<anchor xml:id="__test_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;a(2000,&#32;3,&#32;14);
+<anchor xml:id="__test_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_contract__date">Contract_date</link>&#32;c(2000,&#32;3,&#32;14,&#32;2222,&#32;03,&#32;12);
+<anchor xml:id="__test_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(a==&#32;c.getBegin());
+<anchor xml:id="__test_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;b(2222,&#32;03,&#32;12);
+<anchor xml:id="__test_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_contract__date">Contract_date</link>&#32;d(2000,&#32;3,&#32;14,&#32;2222,&#32;03,&#32;12);
+<anchor xml:id="__test_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(b==&#32;d.getEnd());
+<anchor xml:id="__test_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;c.setBegin(2222,&#32;03,&#32;12);
+<anchor xml:id="__test_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(b&#32;==&#32;c.getBegin());
+<anchor xml:id="__test_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;d.setEnd(2000,&#32;3,&#32;14);
+<anchor xml:id="__test_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(a&#32;==&#32;d.getEnd());
+<anchor xml:id="__test_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;c.setBegin(a);
+<anchor xml:id="__test_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(a&#32;==&#32;c.getBegin());
+<anchor xml:id="__test_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;i(2300,&#32;03,&#32;02);
+<anchor xml:id="__test_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;c.setEnd(i);
+<anchor xml:id="__test_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(i&#32;==&#32;c.getEnd());
+<anchor xml:id="__test_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(<link linkend="_class_contract__date">Contract_date</link>&#32;e(2400,&#32;3,&#32;14,&#32;2222,&#32;03,&#32;12),&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_contract__date">Contract_date</link>&#32;f(2000,&#32;3,&#32;14,&#32;2222,&#32;03,&#32;12);
+<anchor xml:id="__test_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_date">Date</link>&#32;g(2000,&#32;3,&#32;15);
+<anchor xml:id="__test_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(f.contains(g));
+<anchor xml:id="__test_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_contract__date">Contract_date</link>&#32;h(2020,&#32;3,&#32;14,&#32;2202,&#32;03,&#32;12);
+<anchor xml:id="__test_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;f=h;
+<anchor xml:id="__test_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(<link linkend="_class_date">Date</link>(2020,&#32;3,&#32;14)==&#32;f.getBegin());
+<anchor xml:id="__test_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(<link linkend="_class_date">Date</link>(2202,&#32;03,&#32;12)==&#32;f.getEnd());
+<anchor xml:id="__test_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(f.setBegin(2222,&#32;03,&#32;12),&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(f.setEnd(2000,&#32;03,&#32;12),&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(f.setBegin(<link linkend="_class_date">Date</link>(2222,&#32;03,&#32;12)),&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(f.setEnd(<link linkend="_class_date">Date</link>(2000,&#32;03,&#32;12)),&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00123"/>00123 
+<anchor xml:id="__test_8cpp_source_1l00124"/>00124 &#32;&#32;&#32;&#32;}END
+<anchor xml:id="__test_8cpp_source_1l00125"/>00125 
+<anchor xml:id="__test_8cpp_source_1l00126"/>00126 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00127"/>00127 
+<anchor xml:id="__test_8cpp_source_1l00128"/>00128 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;3</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00129"/>00129 
+<anchor xml:id="__test_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;TEST(<link linkend="_class_client">Client</link>,&#32;tesztek)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00131"/>00131 
+<anchor xml:id="__test_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_client">Client</link>*&#32;a=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_client">Client</link>(<emphasis role="stringliteral">&quot;En&quot;</emphasis>);
+<anchor xml:id="__test_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(0,&#32;a-&gt;<link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link>());
+<anchor xml:id="__test_8cpp_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(std::string(<emphasis role="stringliteral">&quot;En&quot;</emphasis>)==&#32;a-&gt;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>());
+<anchor xml:id="__test_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_contract">Contract</link>&#32;b(a,&#32;ContractType::Regular,&#32;2000,&#32;03,&#32;11,&#32;2004,&#32;03,&#32;12,&#32;2003,&#32;12,&#32;22,&#32;a-&gt;<link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link>()&#32;+&#32;1,&#32;74);
+<anchor xml:id="__test_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;a-&gt;<link linkend="_class_client_1a5952ea10336391d9641b0ad019a0b955">addContract</link>(b);
+<anchor xml:id="__test_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(1,&#32;a-&gt;<link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link>());
+<anchor xml:id="__test_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(1,&#32;a-&gt;<link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">getContract</link>(1).<link linkend="_class_contract_1a222d689da62cfcd441933b7d48aa1840">getContractID</link>());
+<anchor xml:id="__test_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(std::string(<emphasis role="stringliteral">&quot;Client&#32;name:&#32;En&quot;</emphasis>)==&#32;a-&gt;<link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">getsub_Client_info</link>());
+<anchor xml:id="__test_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(a-&gt;<link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">getContract</link>(0),&#32;std::range_error);
+<anchor xml:id="__test_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;a;
+<anchor xml:id="__test_8cpp_source_1l00142"/>00142 
+<anchor xml:id="__test_8cpp_source_1l00143"/>00143 &#32;&#32;&#32;&#32;}END
+<anchor xml:id="__test_8cpp_source_1l00144"/>00144 
+<anchor xml:id="__test_8cpp_source_1l00145"/>00145 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00146"/>00146 
+<anchor xml:id="__test_8cpp_source_1l00147"/>00147 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;4</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00148"/>00148 
+<anchor xml:id="__test_8cpp_source_1l00149"/>00149 &#32;&#32;&#32;&#32;TEST(<link linkend="_class_person">Person</link>,&#32;tesztek)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_person">Person</link>&#32;a(<emphasis role="stringliteral">&quot;En&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;167890ke&quot;</emphasis>);
+<anchor xml:id="__test_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_STREQ(<emphasis role="stringliteral">&quot;167890ke&quot;</emphasis>,&#32;a.getID().c_str());
+<anchor xml:id="__test_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(<emphasis role="stringliteral">&quot;Person&#32;name:&#32;En,&#32;ID:&#32;167890ke&quot;</emphasis>==a.<link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">getsub_Client_info</link>());
+<anchor xml:id="__test_8cpp_source_1l00153"/>00153 
+<anchor xml:id="__test_8cpp_source_1l00154"/>00154 &#32;&#32;&#32;&#32;}END
+<anchor xml:id="__test_8cpp_source_1l00155"/>00155 
+<anchor xml:id="__test_8cpp_source_1l00156"/>00156 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00157"/>00157 
+<anchor xml:id="__test_8cpp_source_1l00158"/>00158 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;5</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00159"/>00159 
+<anchor xml:id="__test_8cpp_source_1l00160"/>00160 &#32;&#32;&#32;&#32;TEST(<link linkend="_class_company">Company</link>,&#32;tesztek)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00161"/>00161 
+<anchor xml:id="__test_8cpp_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_company">Company</link>&#32;a(<emphasis role="stringliteral">&quot;En&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;16789034647&quot;</emphasis>);
+<anchor xml:id="__test_8cpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_STREQ(<emphasis role="stringliteral">&quot;16789034647&quot;</emphasis>,&#32;a.getID().c_str());
+<anchor xml:id="__test_8cpp_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_STREQ(<emphasis role="stringliteral">&quot;Company&#32;name:&#32;En,&#32;Tax&#32;ID:&#32;16789034647&quot;</emphasis>,&#32;a.<link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">getsub_Client_info</link>().c_str());
+<anchor xml:id="__test_8cpp_source_1l00165"/>00165 
+<anchor xml:id="__test_8cpp_source_1l00166"/>00166 &#32;&#32;&#32;&#32;}END
+<anchor xml:id="__test_8cpp_source_1l00167"/>00167 
+<anchor xml:id="__test_8cpp_source_1l00168"/>00168 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00169"/>00169 
+<anchor xml:id="__test_8cpp_source_1l00170"/>00170 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;6</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00171"/>00171 
+<anchor xml:id="__test_8cpp_source_1l00172"/>00172 &#32;&#32;&#32;&#32;TEST(<link linkend="_class_contract">Contract</link>,&#32;tesztek)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00173"/>00173 
+<anchor xml:id="__test_8cpp_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_client">Client</link>*&#32;a=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_client">Client</link>(<emphasis role="stringliteral">&quot;En&quot;</emphasis>);
+<anchor xml:id="__test_8cpp_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_contract">Contract</link>&#32;b(a,&#32;ContractType::Regular,&#32;2000,&#32;03,&#32;11,&#32;2004,&#32;03,&#32;12,&#32;2003,&#32;12,&#32;22,&#32;a-&gt;<link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link>()&#32;+&#32;1,&#32;74);
+<anchor xml:id="__test_8cpp_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b.setCtype(ContractType::VIP);
+<anchor xml:id="__test_8cpp_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(ContractType::VIP==&#32;b.getCtype());
+<anchor xml:id="__test_8cpp_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_STREQ(<emphasis role="stringliteral">&quot;VIP&quot;</emphasis>,&#32;b.Ctype_toString().c_str());
+<anchor xml:id="__test_8cpp_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b.setTariff(84);
+<anchor xml:id="__test_8cpp_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(84,&#32;b.getTariff());
+<anchor xml:id="__test_8cpp_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b.addConsumption(55);
+<anchor xml:id="__test_8cpp_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(55,&#32;b.getConsumption());
+<anchor xml:id="__test_8cpp_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b.setBalance(-66);
+<anchor xml:id="__test_8cpp_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(-66,&#32;b.getBalance());
+<anchor xml:id="__test_8cpp_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b.pay(66);
+<anchor xml:id="__test_8cpp_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(0,&#32;b.getBalance());
+<anchor xml:id="__test_8cpp_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(<link linkend="_class_date">Date</link>(2003,&#32;12,&#32;22)==&#32;b.getLast_invoicing());
+<anchor xml:id="__test_8cpp_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b.setLast_invoicing(<link linkend="_class_date">Date</link>(2000,&#32;03,&#32;11));
+<anchor xml:id="__test_8cpp_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(<link linkend="_class_date">Date</link>(2000,&#32;03,&#32;11)==&#32;b.getLast_invoicing());
+<anchor xml:id="__test_8cpp_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(a-&gt;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>()&#32;==&#32;b.getClient()-&gt;getName());
+<anchor xml:id="__test_8cpp_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_contract__date">Contract_date</link>&#32;c(2000,&#32;3,&#32;14,&#32;2222,&#32;03,&#32;12);
+<anchor xml:id="__test_8cpp_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;b.setCtime(c);
+<anchor xml:id="__test_8cpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(b.getCtime().getBegin()&#32;==&#32;c.getBegin()&#32;&amp;&amp;&#32;b.getCtime().getEnd()&#32;==&#32;c.getEnd());
+<anchor xml:id="__test_8cpp_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(1,&#32;b.getContractID());
+<anchor xml:id="__test_8cpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">delete</emphasis>&#32;a;
+<anchor xml:id="__test_8cpp_source_1l00196"/>00196 
+<anchor xml:id="__test_8cpp_source_1l00197"/>00197 &#32;&#32;&#32;&#32;}END
+<anchor xml:id="__test_8cpp_source_1l00198"/>00198 
+<anchor xml:id="__test_8cpp_source_1l00199"/>00199 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00200"/>00200 
+<anchor xml:id="__test_8cpp_source_1l00201"/>00201 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;7</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00202"/>00202 
+<anchor xml:id="__test_8cpp_source_1l00203"/>00203 &#32;&#32;&#32;&#32;TEST(<link linkend="_class_m_v_m">MVM</link>,&#32;tesztek)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00204"/>00204 
+<anchor xml:id="__test_8cpp_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_m_v_m">MVM</link>&#32;mvm;
+<anchor xml:id="__test_8cpp_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_person">Person</link>*&#32;a&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_person">Person</link>(<emphasis role="stringliteral">&quot;En&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;198245uf&quot;</emphasis>);
+<anchor xml:id="__test_8cpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mvm.<link linkend="_class_m_v_m_1a4d02ac8bb1dcc2ec5fcf1832cc662f44">addClient</link>(a);
+<anchor xml:id="__test_8cpp_source_1l00208"/>00208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_TRUE(a&#32;==&#32;mvm.<link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">getClient</link>(<emphasis role="stringliteral">&quot;En&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;198245uf&quot;</emphasis>));
+<anchor xml:id="__test_8cpp_source_1l00209"/>00209 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mvm.<link linkend="_class_m_v_m_1aaf3ab005673a931c43b503fd277b3ef1">addContract</link>(a,&#32;ContractType::Regular,&#32;2000,&#32;03,&#32;11,&#32;2004,&#32;03,&#32;12,&#32;2003,&#32;12,&#32;22);
+<anchor xml:id="__test_8cpp_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_EQ(a-&gt;<link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link>()&#32;&#32;,&#32;mvm.<link linkend="_class_m_v_m_1ab162eae819f75665f30ccfb180374fe2">getClient</link>(<emphasis role="stringliteral">&quot;En&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;198245uf&quot;</emphasis>)-&gt;<link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">getContract</link>(1).<link linkend="_class_contract_1a222d689da62cfcd441933b7d48aa1840">getContractID</link>());
+<anchor xml:id="__test_8cpp_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_STREQ(<emphasis role="stringliteral">&quot;Company&#32;name:&#32;Meseorszagi&#32;Villamos&#32;Muvek&#32;ZRT.,&#32;Tax&#32;ID:&#32;10760798244&quot;</emphasis>,&#32;mvm.<link linkend="_class_m_v_m_1a15c1b579505a0a699119de338e3f72ed">getCompanyDetails</link>().c_str());
+<anchor xml:id="__test_8cpp_source_1l00212"/>00212 &#32;&#32;&#32;&#32;}END
+<anchor xml:id="__test_8cpp_source_1l00213"/>00213 
+<anchor xml:id="__test_8cpp_source_1l00214"/>00214 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00215"/>00215 
+<anchor xml:id="__test_8cpp_source_1l00216"/>00216 <emphasis role="preprocessor">#if&#32;TST&#32;&gt;&#32;8</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00217"/>00217 
+<anchor xml:id="__test_8cpp_source_1l00218"/>00218 
+<anchor xml:id="__test_8cpp_source_1l00219"/>00219 &#32;&#32;&#32;&#32;<link linkend="_class_m_v_m">MVM</link>&#32;mvm;
+<anchor xml:id="__test_8cpp_source_1l00220"/>00220 &#32;&#32;&#32;&#32;TEST(Fajlkezeles,&#32;szamlazas)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_person">Person</link>*&#32;a&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_person">Person</link>(<emphasis role="stringliteral">&quot;En&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;1982451&quot;</emphasis>);
+<anchor xml:id="__test_8cpp_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mvm.addClient(a);
+<anchor xml:id="__test_8cpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mvm.addContract(a,&#32;ContractType::Regular,&#32;2000,&#32;03,&#32;11,&#32;2004,&#32;03,&#32;12,&#32;2003,&#32;12,&#32;22);
+<anchor xml:id="__test_8cpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;a-&gt;<link linkend="_class_client_1a3383798ffb163dfa5a35cebc1c30b523">save_invoice</link>(1,&#32;<link linkend="_class_date">Date</link>(2004,&#32;02,&#32;14));
+<anchor xml:id="__test_8cpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;}END
+<anchor xml:id="__test_8cpp_source_1l00226"/>00226 &#32;&#32;&#32;&#32;TEST(Fajlkezeles,&#32;load_from_console)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;5;&#32;i++)
+<anchor xml:id="__test_8cpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="__test_8cpp_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;mvm.load_from_console();
+<anchor xml:id="__test_8cpp_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="__test_8cpp_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(mvm.load_from_console(),&#32;std::invalid_argument);
+<anchor xml:id="__test_8cpp_source_1l00232"/>00232 
+<anchor xml:id="__test_8cpp_source_1l00233"/>00233 &#32;&#32;&#32;&#32;}&#32;END
+<anchor xml:id="__test_8cpp_source_1l00234"/>00234 &#32;&#32;&#32;&#32;TEST(Fajlkezeles,&#32;save)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_NO_THROW(mvm.save());
+<anchor xml:id="__test_8cpp_source_1l00236"/>00236 &#32;&#32;&#32;&#32;}&#32;END
+<anchor xml:id="__test_8cpp_source_1l00237"/>00237 &#32;&#32;&#32;&#32;TEST(Fajlkezeles,&#32;load_from_file)&#32;{
+<anchor xml:id="__test_8cpp_source_1l00238"/>00238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_m_v_m">MVM</link>&#32;mvm2;
+<anchor xml:id="__test_8cpp_source_1l00239"/>00239 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_THROW(mvm2.<link linkend="_class_m_v_m_1aac79d563bd302a9441385ae5b16ebc0e">load_from_save</link>(10),&#32;std::ios_base::failure);
+<anchor xml:id="__test_8cpp_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;EXPECT_NO_THROW(mvm2.<link linkend="_class_m_v_m_1aac79d563bd302a9441385ae5b16ebc0e">load_from_save</link>(1));
+<anchor xml:id="__test_8cpp_source_1l00241"/>00241 &#32;&#32;&#32;&#32;}&#32;END
+<anchor xml:id="__test_8cpp_source_1l00242"/>00242 &#32;&#32;&#32;&#32;
+<anchor xml:id="__test_8cpp_source_1l00243"/>00243 
+<anchor xml:id="__test_8cpp_source_1l00244"/>00244 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="__test_8cpp_source_1l00245"/>00245 
+<anchor xml:id="__test_8cpp_source_1l00246"/>00246 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="__test_8cpp_source_1l00247"/>00247 
+<anchor xml:id="__test_8cpp_source_1l00248"/>00248 }
+</programlisting></section>

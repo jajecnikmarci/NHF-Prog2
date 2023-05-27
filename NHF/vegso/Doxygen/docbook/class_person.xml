@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_person" xml:lang="en-US">
+<title>Person Class Reference</title>
+<indexterm><primary>Person</primary></indexterm>
+<para>
+
+<para>Magánszemély adatait tárolja. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;clients.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Person:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_person.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_person_1a08f43166613723d370fcde4b266e8264">Person</link> (const std::string name_in=&quot;&quot;, std::string ID_in=&quot;&quot;)</para>
+
+<para>Alapértékes konstruktor. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_person_1a48bd1dda5186f86d5ea09ba0fb47b87a">setID</link> (std::string ID_in)</para>
+
+<para>Személyigazolvány beállítása. </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_person_1afd8a761fd1e6982d36df931cf39d0d18">getID</link> () const</para>
+
+<para>Magánszemély személyigazolványszámát adja vissza. </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_person_1a112a91312130609eddd72fa6dd86462e">getsub_Client_info</link> ()</para>
+
+<para>Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben. </para>
+</listitem>
+            <listitem><para><link linkend="_class_person_1a700ffd693321c5fe6880262acf43d4da">~Person</link> ()</para>
+
+<para>Destruktor. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_client">Client</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_client_1a8c050fbceb45574cbeb7753dd40d6f7f">Client</link> (const std::string name_in)</para>
+
+<para>Alapértékes kontruktor. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link> ()</para>
+
+<para>Visszaadja a kliens által eddig kötött szerződések számát. </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link> () const</para>
+
+<para>Visszadja a kliens nevét. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_client_1a5952ea10336391d9641b0ad019a0b955">addContract</link> (<link linkend="_class_contract">Contract</link> &amp;contract_in)</para>
+
+<para>Szerződés hozzáadása a mycontracts hez. </para>
+</listitem>
+            <listitem><para>virtual std::string <link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">getsub_Client_info</link> ()</para>
+
+<para>Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_client_1a3383798ffb163dfa5a35cebc1c30b523">save_invoice</link> (size_t contract_index, const <link linkend="_class_date">Date</link> &amp;date)</para>
+
+<para>Számlát állít ki fájlba. </para>
+</listitem>
+            <listitem><para><link linkend="_class_contract">Contract</link> &amp; <link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">getContract</link> (size_t contract_ID)</para>
+
+<para>Visszaadja azt a szerződést aminek az azonosítóját megadtuk. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_client_1a897ff0f31827f7be3c661623341605ed">~Client</link> ()</para>
+
+<para>Virtuális destruktor. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>Magánszemély adatait tárolja. </para>
+
+
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ID</entry><entry>
+<para>A személy személyazonosító száma 8 jegyű </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_clients_8h_source_1l00083">83</link> of file <link linkend="_clients_8h_source">clients.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_person_1a08f43166613723d370fcde4b266e8264"/><section>
+    <title>Person()</title>
+<indexterm><primary>Person</primary><secondary>Person</secondary></indexterm>
+<indexterm><primary>Person</primary><secondary>Person</secondary></indexterm>
+<para><computeroutput>Person::Person (const std::string name_in = <computeroutput>&quot;&quot;</computeroutput>
+, std::string ID_in = <computeroutput>&quot;&quot;</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Alapértékes konstruktor. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name_in</entry><entry>
+<para>Bejövő magánszemély neve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ID_in</entry><entry>
+<para>Bejövő magánszemély személyigazolványszáma </para>
+</entry>
+                            </row>
+                            <row>
+<entry>SumOfAll_contract</entry><entry>
+<para>A kliens által eddig kötött szerződések száma (nem jelenlegi) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_clients_8h_source_1l00092">92</link> of file <link linkend="_clients_8h_source">clients.h</link>.</para>
+</section>
+<anchor xml:id="_class_person_1a700ffd693321c5fe6880262acf43d4da"/><section>
+    <title>~Person()</title>
+<indexterm><primary>~Person</primary><secondary>Person</secondary></indexterm>
+<indexterm><primary>Person</primary><secondary>~Person</secondary></indexterm>
+<para><computeroutput>Person::~Person ( )</computeroutput></para><para>
+
+<para>Destruktor. </para>
+</para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00048">48</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_person_1afd8a761fd1e6982d36df931cf39d0d18"/><section>
+    <title>getID()</title>
+<indexterm><primary>getID</primary><secondary>Person</secondary></indexterm>
+<indexterm><primary>Person</primary><secondary>getID</secondary></indexterm>
+<para><computeroutput>std::string Person::getID ( ) const</computeroutput></para><para>
+
+<para>Magánszemély személyigazolványszámát adja vissza. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Magánszemély személyigazolványszáma </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00040">40</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_person_1a112a91312130609eddd72fa6dd86462e"/><section>
+    <title>getsub_Client_info()</title>
+<indexterm><primary>getsub_Client_info</primary><secondary>Person</secondary></indexterm>
+<indexterm><primary>Person</primary><secondary>getsub_Client_info</secondary></indexterm>
+<para><computeroutput>std::string Person::getsub_Client_info ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>gyermek osztály személyes adatai kiíráshoz egy string-ben </para>
+</formalpara>
+</para>
+<para>
+Reimplemented from <link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">Client</link>.</para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00036">36</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_person_1a48bd1dda5186f86d5ea09ba0fb47b87a"/><section>
+    <title>setID()</title>
+<indexterm><primary>setID</primary><secondary>Person</secondary></indexterm>
+<indexterm><primary>Person</primary><secondary>setID</secondary></indexterm>
+<para><computeroutput>void Person::setID (std::string ID_in)</computeroutput></para><para>
+
+<para>Személyigazolvány beállítása. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ID_in</entry><entry>
+<para>Beérkező személyigazolványszám </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00044">44</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+clients.hclients.cpp</section>
+</section>

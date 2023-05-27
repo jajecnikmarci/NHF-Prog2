@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_my_vector" xml:lang="en-US">
+<title>MyVector&lt; T &gt; Class Template Reference</title>
+<indexterm><primary>MyVector&lt; T &gt;</primary></indexterm>
+<para>
+
+<para>Indexelhetőséghez std::vektor mintájára saját vektor template. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;myvektor.hpp&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_my_vector_1ac356762c5ced52c0d934476cef32e472">MyVector</link> ()</para>
+
+<para>Alapértékes konstruktor. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">push_back</link> (T value)</para>
+
+<para>Bejövő objektum tárolása. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link> () const</para>
+
+<para>Visszaadja a tárolt objektumok számát. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_class_my_vector_1adbd398910d7ae5c2b42132e10ac6f749">capacity</link> () const</para>
+
+<para>Visszaadja a jelenlegi kapacitást. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_my_vector_1adac3ad2d58897e80d95a64f0ec0b4229">erase</link> (size_t pos)</para>
+
+<para>Egy elem eltávolítása a tárolt objektumok közül egy bizonyos helyről. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_my_vector_1aa896e95bb435535bdcc0b3e7bcb7f6fe">pop_back</link> ()</para>
+
+<para>Utolsó objektum eltávolítása. </para>
+</listitem>
+            <listitem><para>T &amp; <link linkend="_class_my_vector_1acf173c5fcfee199d9bb6a524de8e83db">operator[]</link> (size_t i)</para>
+
+<para>[] operátor az indexelhetőséghez </para>
+</listitem>
+            <listitem><para>const T &amp; <link linkend="_class_my_vector_1a142a57270d9e3306994a616ae2b07a4b">operator[]</link> (size_t i) const</para>
+
+<para>[] operátor az indexelhetőséghez constans formában is </para>
+</listitem>
+            <listitem><para><link linkend="_class_my_vector_1abe59f181259ff63fa583f4bd87a9737e">~MyVector</link> ()</para>
+
+<para>Destruktor. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<simplesect><title>template&lt;typename T&gt;<?linebreak?>class MyVector&lt; T &gt;</title></simplesect>
+
+<para>Indexelhetőséghez std::vektor mintájára saját vektor template. </para>
+
+
+
+<para>
+                <formalpara>
+                    <title>
+Template Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>
+<para>Tárolt objektumok fajtája</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>m_buffer</entry><entry>
+<para>Az adat buffer elejére mutató pointer </para>
+</entry>
+                            </row>
+                            <row>
+<entry>m_capacity</entry><entry>
+<para>A maximális kapacitás a jelenlegi foglalt területtel </para>
+</entry>
+                            </row>
+                            <row>
+<entry>m_size</entry><entry>
+<para>A jelenleg tárolt objektumok száma </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00021">21</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_my_vector_1ac356762c5ced52c0d934476cef32e472"/><section>
+    <title>MyVector()</title>
+<indexterm><primary>MyVector</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>MyVector</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput><link linkend="_class_my_vector">MyVector</link>&lt; T &gt;<link linkend="_class_my_vector">::MyVector</link> ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Alapértékes konstruktor. </para>
+</para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00049">49</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_my_vector_1abe59f181259ff63fa583f4bd87a9737e"/><section>
+    <title>~MyVector()</title>
+<indexterm><primary>~MyVector</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>~MyVector</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput><link linkend="_class_my_vector">MyVector</link>&lt; T &gt;::~<link linkend="_class_my_vector">MyVector</link> ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Destruktor. </para>
+</para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00127">127</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_my_vector_1adbd398910d7ae5c2b42132e10ac6f749"/><section>
+    <title>capacity()</title>
+<indexterm><primary>capacity</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>capacity</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput>size_t <link linkend="_class_my_vector">MyVector</link>&lt; T &gt;::capacity ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Visszaadja a jelenlegi kapacitást. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>jelenlegi kapacitás </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00077">77</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_my_vector_1adac3ad2d58897e80d95a64f0ec0b4229"/><section>
+    <title>erase()</title>
+<indexterm><primary>erase</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>erase</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput>void <link linkend="_class_my_vector">MyVector</link>&lt; T &gt;::erase (size_t pos)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Egy elem eltávolítása a tárolt objektumok közül egy bizonyos helyről. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pos</entry><entry>
+<para>Az eltávolítandó objektum indexe </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00085">85</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_my_vector_1acf173c5fcfee199d9bb6a524de8e83db"/><section>
+    <title>operator[]()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>operator[]</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>operator[]</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput>T &amp; <link linkend="_class_my_vector">MyVector</link>&lt; T &gt;::operator[] (size_t i)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>[] operátor az indexelhetőséghez </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>i</entry><entry>
+<para>Az elérni kívánt objektum indexe </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Visszaadandó objektum </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00109">109</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_my_vector_1a142a57270d9e3306994a616ae2b07a4b"/><section>
+    <title>operator[]()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>operator[]</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>operator[]</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput>const T &amp; <link linkend="_class_my_vector">MyVector</link>&lt; T &gt;::operator[] (size_t i) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>[] operátor az indexelhetőséghez constans formában is </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>i</entry><entry>
+<para>Az elérni kívánt objektum indexe </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Visszaadandó objektum </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00119">119</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_my_vector_1aa896e95bb435535bdcc0b3e7bcb7f6fe"/><section>
+    <title>pop_back()</title>
+<indexterm><primary>pop_back</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>pop_back</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput>void <link linkend="_class_my_vector">MyVector</link>&lt; T &gt;::pop_back ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Utolsó objektum eltávolítása. </para>
+</para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00098">98</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd"/><section>
+    <title>push_back()</title>
+<indexterm><primary>push_back</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>push_back</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput>void <link linkend="_class_my_vector">MyVector</link>&lt; T &gt;::push_back (T value)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Bejövő objektum tárolása. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>value</entry><entry>
+<para>Bejövő objektum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00057">57</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2"/><section>
+    <title>size()</title>
+<indexterm><primary>size</primary><secondary>MyVector&lt; T &gt;</secondary></indexterm>
+<indexterm><primary>MyVector&lt; T &gt;</primary><secondary>size</secondary></indexterm>
+<computeroutput>template&lt;typename T &gt; </computeroutput><para><computeroutput>size_t <link linkend="_class_my_vector">MyVector</link>&lt; T &gt;::size ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Visszaadja a tárolt objektumok számát. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>tárolt objektumok száma </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_myvektor_8hpp_source_1l00069">69</link> of file <link linkend="_myvektor_8hpp_source">myvektor.hpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+myvektor.hpp</section>
+</section>

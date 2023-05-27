@@ -1,0 +1,216 @@
+\hypertarget{class_client}{}\doxysection{Client Class Reference}
+\label{class_client}\index{Client@{Client}}
+
+
+Ügyfél adatait tárolja.  
+
+
+
+
+{\ttfamily \#include $<$clients.\+h$>$}
+
+Inheritance diagram for Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_client}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_client_a8c050fbceb45574cbeb7753dd40d6f7f}{Client}} (const std\+::string name\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Alapértékes kontruktor. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{get\+Sum\+Of\+All\+\_\+\+Contract}} ()
+\begin{DoxyCompactList}\small\item\em Visszaadja a kliens által eddig kötött szerződések számát. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Visszadja a kliens nevét. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_a5952ea10336391d9641b0ad019a0b955}{add\+Contract}} (\mbox{\hyperlink{class_contract}{Contract}} \&contract\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Szerződés hozzáadása a mycontracts hez. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_client_a1b7af92ea4fa34d7cc1c8767bd1767c6}{getsub\+\_\+\+Client\+\_\+info}} ()
+\begin{DoxyCompactList}\small\item\em Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-\/ben. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_client_a3383798ffb163dfa5a35cebc1c30b523}{save\+\_\+invoice}} (size\+\_\+t contract\+\_\+index, const \mbox{\hyperlink{class_date}{Date}} \&date)
+\begin{DoxyCompactList}\small\item\em Számlát állít ki fájlba. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_contract}{Contract}} \& \mbox{\hyperlink{class_client_a53f8972b665226da2e582e35f8cfca1d}{get\+Contract}} (size\+\_\+t contract\+\_\+\+ID)
+\begin{DoxyCompactList}\small\item\em Visszaadja azt a szerződést aminek az azonosítóját megadtuk. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_client_a897ff0f31827f7be3c661623341605ed}{$\sim$\+Client}} ()
+\begin{DoxyCompactList}\small\item\em Virtuális destruktor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ügyfél adatait tárolja. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Az ügyfél neve \\
+\hline
+{\em mycontracts} & Az ügyfél szerződéseit tároló tömb \\
+\hline
+{\em Sum\+Of\+All\+\_\+contracts} & Azt tárolja hogy a kliens megléte alatt összesen hány szerződést kötött (A szerződés azonosítására használ a felhasználó számára) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clients_8h_source_l00021}{21}} of file \mbox{\hyperlink{clients_8h_source}{clients.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_client_a8c050fbceb45574cbeb7753dd40d6f7f}\label{class_client_a8c050fbceb45574cbeb7753dd40d6f7f}} 
+\index{Client@{Client}!Client@{Client}}
+\index{Client@{Client}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{Client()}{Client()}}
+{\footnotesize\ttfamily Client\+::\+Client (\begin{DoxyParamCaption}\item[{const std\+::string}]{name\+\_\+in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Alapértékes kontruktor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+\_\+in} & Ügyfél neve \\
+\hline
+{\em sumof\+Contracts} & A kliens által eddig kötött szerződések száma (nem jelenlegi) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clients_8h_source_l00033}{33}} of file \mbox{\hyperlink{clients_8h_source}{clients.\+h}}.
+
+\mbox{\Hypertarget{class_client_a897ff0f31827f7be3c661623341605ed}\label{class_client_a897ff0f31827f7be3c661623341605ed}} 
+\index{Client@{Client}!````~Client@{$\sim$Client}}
+\index{````~Client@{$\sim$Client}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{$\sim$Client()}{~Client()}}
+{\footnotesize\ttfamily virtual Client\+::$\sim$\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Virtuális destruktor. 
+
+
+
+Definition at line \mbox{\hyperlink{clients_8h_source_l00077}{77}} of file \mbox{\hyperlink{clients_8h_source}{clients.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_client_a5952ea10336391d9641b0ad019a0b955}\label{class_client_a5952ea10336391d9641b0ad019a0b955}} 
+\index{Client@{Client}!addContract@{addContract}}
+\index{addContract@{addContract}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{addContract()}{addContract()}}
+{\footnotesize\ttfamily void Client\+::add\+Contract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_contract}{Contract}} \&}]{contract\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Szerződés hozzáadása a mycontracts hez. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contract\+\_\+in} & a hozzáadandó szerződésre mutató referencia. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clients_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{clients_8cpp_source}{clients.\+cpp}}.
+
+\mbox{\Hypertarget{class_client_a53f8972b665226da2e582e35f8cfca1d}\label{class_client_a53f8972b665226da2e582e35f8cfca1d}} 
+\index{Client@{Client}!getContract@{getContract}}
+\index{getContract@{getContract}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getContract()}{getContract()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_contract}{Contract}} \& Client\+::get\+Contract (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{contract\+\_\+\+ID }\end{DoxyParamCaption})}
+
+
+
+Visszaadja azt a szerződést aminek az azonosítóját megadtuk. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contract\+\_\+\+ID} & A szerződés azonosítója \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{clients_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{clients_8cpp_source}{clients.\+cpp}}.
+
+\mbox{\Hypertarget{class_client_a6865c5e1c8179faa4f3d2a47e500b772}\label{class_client_a6865c5e1c8179faa4f3d2a47e500b772}} 
+\index{Client@{Client}!getName@{getName}}
+\index{getName@{getName}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Client\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszadja a kliens nevét. 
+
+\begin{DoxyReturn}{Returns}
+kliens neve 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{clients_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{clients_8cpp_source}{clients.\+cpp}}.
+
+\mbox{\Hypertarget{class_client_a1b7af92ea4fa34d7cc1c8767bd1767c6}\label{class_client_a1b7af92ea4fa34d7cc1c8767bd1767c6}} 
+\index{Client@{Client}!getsub\_Client\_info@{getsub\_Client\_info}}
+\index{getsub\_Client\_info@{getsub\_Client\_info}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getsub\_Client\_info()}{getsub\_Client\_info()}}
+{\footnotesize\ttfamily std\+::string Client\+::getsub\+\_\+\+Client\+\_\+info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-\/ben. 
+
+\begin{DoxyReturn}{Returns}
+gyermek osztály személyes adatai kiíráshoz egy string-\/ben 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_person_a112a91312130609eddd72fa6dd86462e}{Person}}, and \mbox{\hyperlink{class_company_aef6b11a716b32be62330fd8968c4371f}{Company}}.
+
+
+
+Definition at line \mbox{\hyperlink{clients_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{clients_8cpp_source}{clients.\+cpp}}.
+
+\mbox{\Hypertarget{class_client_abe53568f6774300b5a9b6d173ed6f118}\label{class_client_abe53568f6774300b5a9b6d173ed6f118}} 
+\index{Client@{Client}!getSumOfAll\_Contract@{getSumOfAll\_Contract}}
+\index{getSumOfAll\_Contract@{getSumOfAll\_Contract}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{getSumOfAll\_Contract()}{getSumOfAll\_Contract()}}
+{\footnotesize\ttfamily size\+\_\+t Client\+::get\+Sum\+Of\+All\+\_\+\+Contract (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Visszaadja a kliens által eddig kötött szerződések számát. 
+
+\begin{DoxyReturn}{Returns}
+kliens által eddig kötött szerződések száma 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{clients_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{clients_8cpp_source}{clients.\+cpp}}.
+
+\mbox{\Hypertarget{class_client_a3383798ffb163dfa5a35cebc1c30b523}\label{class_client_a3383798ffb163dfa5a35cebc1c30b523}} 
+\index{Client@{Client}!save\_invoice@{save\_invoice}}
+\index{save\_invoice@{save\_invoice}!Client@{Client}}
+\doxysubsubsection{\texorpdfstring{save\_invoice()}{save\_invoice()}}
+{\footnotesize\ttfamily void Client\+::save\+\_\+invoice (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{contract\+\_\+index,  }\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{date }\end{DoxyParamCaption})}
+
+
+
+Számlát állít ki fájlba. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contract\+\_\+index} & A szerződés sorszáma a tárolt szerződések között \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clients_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{clients_8cpp_source}{clients.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+clients.\+h\item 
+clients.\+cpp\end{DoxyCompactItemize}

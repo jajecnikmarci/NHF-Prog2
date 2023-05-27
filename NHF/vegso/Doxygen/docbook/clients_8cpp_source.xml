@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_clients_8cpp_source" xml:lang="en-US">
+<title>clients.cpp</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_clients_8cpp_source_1l00001"/>00001 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_clients_8cpp_source_1l00002"/>00002 <emphasis role="comment">//&#32;Created&#32;by&#32;Jajecnik&#32;Marcell&#32;on&#32;2023.&#32;05.&#32;04..</emphasis>
+<anchor xml:id="_clients_8cpp_source_1l00003"/>00003 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_clients_8cpp_source_1l00004"/>00004 
+<anchor xml:id="_clients_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;clients.h&quot;</emphasis>
+<anchor xml:id="_clients_8cpp_source_1l00006"/>00006 
+<anchor xml:id="_clients_8cpp_source_1l00007"/><link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">00007</link> std::string&#32;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">Client::getName</link>()<emphasis role="keyword">&#32;const</emphasis>{
+<anchor xml:id="_clients_8cpp_source_1l00008"/>00008 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;name;
+<anchor xml:id="_clients_8cpp_source_1l00009"/>00009 }
+<anchor xml:id="_clients_8cpp_source_1l00010"/>00010 
+<anchor xml:id="_clients_8cpp_source_1l00011"/><link linkend="_class_client_1a5952ea10336391d9641b0ad019a0b955">00011</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_client_1a5952ea10336391d9641b0ad019a0b955">Client::addContract</link>(<link linkend="_class_contract">Contract</link>&amp;&#32;contract_in)&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(contract_in.<link linkend="_class_contract_1a222d689da62cfcd441933b7d48aa1840">getContractID</link>()&gt;SumOfAll_contract)&#32;SumOfAll_contract&#32;=&#32;contract_in.<link linkend="_class_contract_1a222d689da62cfcd441933b7d48aa1840">getContractID</link>();
+<anchor xml:id="_clients_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;mycontracts.<link linkend="_class_my_vector_1a1e15063e3a5e1e8153be007099777ccd">push_back</link>(contract_in);
+<anchor xml:id="_clients_8cpp_source_1l00014"/>00014 }
+<anchor xml:id="_clients_8cpp_source_1l00015"/>00015 
+<anchor xml:id="_clients_8cpp_source_1l00016"/><link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">00016</link> <emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">Client::getSumOfAll_Contract</link>()&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;SumOfAll_contract;
+<anchor xml:id="_clients_8cpp_source_1l00018"/>00018 }
+<anchor xml:id="_clients_8cpp_source_1l00019"/>00019 
+<anchor xml:id="_clients_8cpp_source_1l00020"/><link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">00020</link> std::string&#32;<link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">Client::getsub_Client_info</link>()&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Client&#32;name:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>();
+<anchor xml:id="_clients_8cpp_source_1l00022"/>00022 }
+<anchor xml:id="_clients_8cpp_source_1l00023"/>00023 
+<anchor xml:id="_clients_8cpp_source_1l00024"/><link linkend="_class_client_1a3383798ffb163dfa5a35cebc1c30b523">00024</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_client_1a3383798ffb163dfa5a35cebc1c30b523">Client::save_invoice</link>(<emphasis role="keywordtype">size_t</emphasis>&#32;contract_index,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&amp;&#32;date)&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">getContract</link>(contract_index).<link linkend="_class_contract_1a3039cab38cd967e1d35d7736217671ae">invoice</link>(date);
+<anchor xml:id="_clients_8cpp_source_1l00026"/>00026 }
+<anchor xml:id="_clients_8cpp_source_1l00027"/>00027 
+<anchor xml:id="_clients_8cpp_source_1l00028"/><link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">00028</link> <link linkend="_class_contract">Contract</link>&#32;&amp;<link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">Client::getContract</link>(<emphasis role="keywordtype">size_t</emphasis>&#32;contract_index)&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(contract_index&lt;=0&#32;||&#32;contract_index&gt;<link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link>())&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::range_error(<emphasis role="stringliteral">&quot;Túl/alul&#32;indexelés&quot;</emphasis>);&#32;<emphasis role="comment">//&#32;Programozói&#32;hiba</emphasis>
+<anchor xml:id="_clients_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;mycontracts.<link linkend="_class_my_vector_1ac167e7f4cf1f1f6a01053db2e5efd3a2">size</link>();&#32;++i)&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(mycontracts[i].getContractID()==contract_index)&#32;<emphasis role="keywordflow">return</emphasis>&#32;mycontracts[i];
+<anchor xml:id="_clients_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_clients_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::range_error(<emphasis role="stringliteral">&quot;Már&#32;törölt&#32;szerződés&quot;</emphasis>);&#32;<emphasis role="comment">//&#32;Lehetne&#32;saját&#32;exception&#32;classal</emphasis>
+<anchor xml:id="_clients_8cpp_source_1l00034"/>00034 }
+<anchor xml:id="_clients_8cpp_source_1l00035"/>00035 
+<anchor xml:id="_clients_8cpp_source_1l00036"/><link linkend="_class_person_1a112a91312130609eddd72fa6dd86462e">00036</link> std::string&#32;<link linkend="_class_person_1a112a91312130609eddd72fa6dd86462e">Person::getsub_Client_info</link>()&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Person&#32;name:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>()&#32;+&#32;<emphasis role="stringliteral">&quot;,&#32;ID:&#32;&quot;</emphasis>&#32;+&#32;ID;
+<anchor xml:id="_clients_8cpp_source_1l00038"/>00038 }
+<anchor xml:id="_clients_8cpp_source_1l00039"/>00039 
+<anchor xml:id="_clients_8cpp_source_1l00040"/><link linkend="_class_person_1afd8a761fd1e6982d36df931cf39d0d18">00040</link> std::string&#32;<link linkend="_class_person_1afd8a761fd1e6982d36df931cf39d0d18">Person::getID</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_clients_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;ID;
+<anchor xml:id="_clients_8cpp_source_1l00042"/>00042 }
+<anchor xml:id="_clients_8cpp_source_1l00043"/>00043 
+<anchor xml:id="_clients_8cpp_source_1l00044"/><link linkend="_class_person_1a48bd1dda5186f86d5ea09ba0fb47b87a">00044</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_person_1a48bd1dda5186f86d5ea09ba0fb47b87a">Person::setID</link>(std::string&#32;ID_in)&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;ID=ID_in;
+<anchor xml:id="_clients_8cpp_source_1l00046"/>00046 }
+<anchor xml:id="_clients_8cpp_source_1l00047"/>00047 
+<anchor xml:id="_clients_8cpp_source_1l00048"/><link linkend="_class_person_1a700ffd693321c5fe6880262acf43d4da">00048</link> <link linkend="_class_person_1a700ffd693321c5fe6880262acf43d4da">Person::~Person</link>()&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00049"/>00049 
+<anchor xml:id="_clients_8cpp_source_1l00050"/>00050 }
+<anchor xml:id="_clients_8cpp_source_1l00051"/>00051 
+<anchor xml:id="_clients_8cpp_source_1l00052"/><link linkend="_class_company_1a1ba074e68753c4e9e049f4f210137bac">00052</link> std::string&#32;<link linkend="_class_company_1a1ba074e68753c4e9e049f4f210137bac">Company::getID</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_clients_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Tax_ID;
+<anchor xml:id="_clients_8cpp_source_1l00054"/>00054 }
+<anchor xml:id="_clients_8cpp_source_1l00055"/>00055 
+<anchor xml:id="_clients_8cpp_source_1l00056"/><link linkend="_class_company_1a6e08c872488ba07ff4ede28930116c8c">00056</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_company_1a6e08c872488ba07ff4ede28930116c8c">Company::setID</link>(std::string&#32;ID_in)&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;Tax_ID=ID_in;
+<anchor xml:id="_clients_8cpp_source_1l00058"/>00058 }
+<anchor xml:id="_clients_8cpp_source_1l00059"/>00059 
+<anchor xml:id="_clients_8cpp_source_1l00060"/><link linkend="_class_company_1aef6b11a716b32be62330fd8968c4371f">00060</link> std::string&#32;<link linkend="_class_company_1aef6b11a716b32be62330fd8968c4371f">Company::getsub_Client_info</link>()&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Company&#32;name:&#32;&quot;</emphasis>&#32;+&#32;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>()&#32;+&#32;<emphasis role="stringliteral">&quot;,&#32;Tax&#32;ID:&#32;&quot;</emphasis>&#32;+&#32;Tax_ID;
+<anchor xml:id="_clients_8cpp_source_1l00062"/>00062 }
+<anchor xml:id="_clients_8cpp_source_1l00063"/>00063 
+<anchor xml:id="_clients_8cpp_source_1l00064"/><link linkend="_class_company_1a61c2a9ec178e683310583ef15635b53c">00064</link> <link linkend="_class_company_1a61c2a9ec178e683310583ef15635b53c">Company::~Company</link>()&#32;{
+<anchor xml:id="_clients_8cpp_source_1l00065"/>00065 
+<anchor xml:id="_clients_8cpp_source_1l00066"/>00066 }
+</programlisting></section>

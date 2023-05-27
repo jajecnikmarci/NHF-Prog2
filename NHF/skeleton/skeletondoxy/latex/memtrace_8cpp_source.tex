@@ -1,0 +1,549 @@
+\hypertarget{memtrace_8cpp_source}{}\doxysection{memtrace.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00001}00001\ \textcolor{comment}{/*********************************}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00002}00002\ \textcolor{comment}{Memoriaszivargas-\/detektor}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00003}00003\ \textcolor{comment}{Keszitette:\ Peregi\ Tamas,\ BME\ IIT,\ 2011}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00004}00004\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ petamas@iit.bme.hu}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00005}00005\ \textcolor{comment}{Kanari:\ \ \ \ \ Szeberenyi\ Imre,\ 2013.}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00006}00006\ \textcolor{comment}{VS\ 2012:\ \ \ \ Szeberényi\ Imre,\ 2015.,}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00007}00007\ \textcolor{comment}{mem\_dump:\ \ \ 2016.}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00008}00008\ \textcolor{comment}{meset\ felszabaditaskor:\ 2018.}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00009}00009\ \textcolor{comment}{typo:\ \ \ \ \ \ \ 2019.}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00010}00010\ \textcolor{comment}{*********************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00012}00012\ \textcolor{comment}{/*definialni\ kell,\ ha\ nem\ paracssorbol\ allitjuk\ be\ (-\/DMEMTRACE)\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00013}00013\ \textcolor{comment}{/*\#define\ MEMTRACE\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_CRT\_SECURE\_NO\_WARNINGS\ 1}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#define\ FROM\_MEMTRACE\_CPP}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}memtrace.h"{}}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#define\ FMALLOC\ 0}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#define\ FCALLOC\ 1}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#define\ FREALLOC\ 2}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#define\ FFREE\ 3}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00032}00032\ \textcolor{preprocessor}{\#define\ FNEW\ 4}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00033}00033\ \textcolor{preprocessor}{\#define\ FDELETE\ 5}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00034}00034\ \textcolor{preprocessor}{\#define\ FNEWARR\ 6}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00035}00035\ \textcolor{preprocessor}{\#define\ FDELETEARR\ 7}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00036}00036\ \textcolor{preprocessor}{\#define\ COMP(a,d)\ (((a)<=3\ \&\&\ (d)<=3)\ ||\ ((d)==(a)+1))}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00037}00037\ \textcolor{preprocessor}{\#define\ PU(p)\ \ \ ((char*)p+CANARY\_LEN)\ \ \ }\textcolor{comment}{//\ mem\ pointerbol\ user\ poi}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00038}00038\ \textcolor{preprocessor}{\#define\ P(pu)\ \ \ ((char*)pu-\/CANARY\_LEN)\ \ }\textcolor{comment}{//\ user\ pointerbol\ mem\ poi}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00039}00039\ \textcolor{preprocessor}{\#define\ XSTR(s)\ STR(s)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00040}00040\ \textcolor{preprocessor}{\#define\ STR(s)\ \ \#s}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00041}00041\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00042}00042\ \textcolor{comment}{/*\ Segedfuggvenyek\ es\ egyebek\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00043}00043\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00044}00044\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{static}\ FILE\ *fperror;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00046}00046\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CANARY\_LEN\ =\ 64;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00048}00048\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ CANARY\_LEN\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00050}00050\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ canary\_byte1\ =\ \textcolor{charliteral}{'k'};}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ canary\_byte2\ =\ \textcolor{charliteral}{'K'};}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ random\_byte;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{FALSE,TRUE\}\ BOOL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pretty[]\ =\ \{\textcolor{stringliteral}{"{}malloc("{}},\ \textcolor{stringliteral}{"{}calloc("{}},\ \textcolor{stringliteral}{"{}realloc("{}},\ \textcolor{stringliteral}{"{}free("{}},}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}new"{}},\ \textcolor{stringliteral}{"{}delete"{}},\ \textcolor{stringliteral}{"{}new[]"{}},\ \textcolor{stringliteral}{"{}delete[]"{}}\};}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ basename(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ s)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s1,*s2;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ s1\ =\ strrchr(s,\textcolor{charliteral}{'/'});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(s1==NULL)\ s1\ =\ s;\ \textcolor{keywordflow}{else}\ s1++;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ s2\ =\ strrchr(s1,\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(s2==NULL)\ s2\ =\ s1;\ \textcolor{keywordflow}{else}\ s2++;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s2;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}\ *StrCpy(\textcolor{keywordtype}{char}\ **\ to,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ from)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(from\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ *to\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *to\ =\ (\textcolor{keywordtype}{char}*)malloc(strlen(from)+1);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(*to)\ strcpy(*to,\ from);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *to;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *canary\_malloc(\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *p\ =\ (\textcolor{keywordtype}{char}\ *)malloc(size+2*CANARY\_LEN);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ memset(p,\ canary\_byte1,\ CANARY\_LEN);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ memset(p+CANARY\_LEN,\ data,\ size);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ memset(p+CANARY\_LEN+size,\ canary\_byte2,\ CANARY\_LEN);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ chk\_canary(\textcolor{keywordtype}{void}\ *p,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *pc\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*)p;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ CANARY\_LEN;\ i++)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pc[i]\ !=\ canary\_byte1)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ pc\ +=\ CANARY\_LEN+size;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ CANARY\_LEN;\ i++)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pc[i]\ !=\ canary\_byte2)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ f;\ \ \textcolor{comment}{/*\ allocator\ func\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\ par\_txt;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\ file;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00107}00107\ \ \ \ \ \}\ call\_t;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keyword}{static}\ call\_t\ pack(\textcolor{keywordtype}{int}\ f,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ par\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ call\_t\ ret;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ ret.f\ =\ f;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ ret.line\ =\ line;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ StrCpy(\&ret.par\_txt,\ par\_txt);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ StrCpy(\&ret.file,\ file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00116}00116\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ print\_call(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ msg,\ call\_t\ call)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(msg)\ fprintf(fperror,\ \textcolor{stringliteral}{"{}\%s"{}},\ msg);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ fprintf(fperror,\ \textcolor{stringliteral}{"{}\%s"{}},\ pretty[call.f]);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ fprintf(fperror,\ \textcolor{stringliteral}{"{}\%s"{}},\ call.par\_txt\ ?\ call.par\_txt\ :\ \textcolor{stringliteral}{"{}?"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (call.f\ <=\ 3)\ fprintf(fperror,\ \textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ fprintf(fperror,\textcolor{stringliteral}{"{}\ @\ \%s:"{}},\ call.file\ ?\ basename(call.file)\ :\ \textcolor{stringliteral}{"{}?"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ fprintf(fperror,\textcolor{stringliteral}{"{}\%d\(\backslash\)n"{}},call.line\ ?\ call.line\ :\ 0);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00125}00125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{comment}{/*\ memoriateruletet\ dump\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ dump\_memory(\textcolor{keywordtype}{void}\ \textcolor{keyword}{const}\ *mem,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{size\_t}\ can\_len,\ FILE*\ fp)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *m=(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}\ *)\ mem;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ s,\ o;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (can\_len\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}Dump\ (addr:\ \%p\ kanari\ hossz:\ \%d):\(\backslash\)n"{}},\ m+can\_len,\ (\textcolor{keywordtype}{int})can\_len);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}Dump:\ (addr:\ \%p)\ \(\backslash\)n"{}},\ m);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ size\ +=\ 2*can\_len;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (s\ =\ 0;\ s\ <\ (size+15)/16;\ s++)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\%04x:\%c\ "{}},\ s*16,\ s*16\ <\ can\_len\ ||\ s*16\ >=\ size-\/can\_len\ ?\ \textcolor{charliteral}{'\ '}\ :\ \textcolor{charliteral}{'*'});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (o\ =\ 0;\ o\ <\ 16;\ o++)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o\ ==\ 8)\ fprintf(fp,\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s*16+o\ <\ size)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\%02x\ "{}},\ m[s*16+o]);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\ \ \ "{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (o\ =\ 0;\ o\ <\ 16;\ o++)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s*16+o\ <\ size)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\%c"{}},\ isprint(m[s*16+o])\ ?\ m[s*16+o]\ :\ \textcolor{charliteral}{'.'});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fp,\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00155}00155\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{keywordtype}{void}\ mem\_dump(\textcolor{keywordtype}{void}\ \textcolor{keyword}{const}\ *mem,\ \textcolor{keywordtype}{size\_t}\ size,\ FILE*\ fp)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ dump\_memory(mem,\ size,\ 0,\ fp);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00159}00159\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00161}00161\ \ \ \ \ \textcolor{keyword}{static}\ BOOL\ dying;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00163}00163\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ die(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ msg,\ \textcolor{keywordtype}{void}\ *\ p,\ \textcolor{keywordtype}{size\_t}\ size,\ call\_t\ *\ a,\ call\_t\ *\ d)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00164}00164\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_ERRFILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ fperror\ =\ fopen(XSTR(MEMTRACE\_ERRFILE),\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00166}00166\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ fprintf(fperror,\textcolor{stringliteral}{"{}\%s\(\backslash\)n"{}},msg);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fperror,\ \textcolor{stringliteral}{"{}\(\backslash\)tPointer:\(\backslash\)t\%p"{}},\ PU(p));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (size)\ fprintf(fperror,\textcolor{stringliteral}{"{}\ (\%d\ byte)"{}},\ (\textcolor{keywordtype}{int})size);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fperror,\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a)\ print\_call(\textcolor{stringliteral}{"{}\(\backslash\)tFoglalas:\(\backslash\)t"{}},\ *a);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (d)\ print\_call(\textcolor{stringliteral}{"{}\(\backslash\)tFelszabaditas:\(\backslash\)t"{}},\ *d);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p)\ dump\_memory(p,\ size,\ CANARY\_LEN,\ fperror);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ dying\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ exit(120);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00179}00179\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00181}00181\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00182}00182\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00184}00184\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00185}00185\ \textcolor{comment}{/*\ MEMTRACE\_TO\_MEMORY\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00186}00186\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00188}00188\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00189}00189\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00190}00190\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_registry\_item\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ p;\ \ \ \ \textcolor{comment}{/*\ mem\ pointer*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size;\ \textcolor{comment}{/*\ size*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ call\_t\ call;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\_registry\_item\ *\ next;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00195}00195\ \ \ \ \ \}\ registry\_item;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00197}00197\ \ \ \ \ \textcolor{keyword}{static}\ registry\_item\ registry;\ \textcolor{comment}{/*sentinel*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00199}00199\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ print\_registry\_item(registry\_item\ *\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ print\_registry\_item(p-\/>next);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fperror,\ \textcolor{stringliteral}{"{}\(\backslash\)t\%p\%5d\ byte\ "{}},p-\/>p,\ (\textcolor{keywordtype}{int})p-\/>size);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ print\_call(NULL,\ p-\/>call);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(p-\/>call.par\_txt)\ free(p-\/>call.par\_txt);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(p-\/>call.file)\ free(p-\/>call.file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ free(p);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00208}00208\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00210}00210\ \ \ \ \ \textcolor{comment}{/*\ ha\ nincs\ hiba,\ akkor\ 0-\/val\ tér\ vissza\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00211}00211\ \ \ \ \ \textcolor{keywordtype}{int}\ mem\_check(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(dying)\ \textcolor{keywordflow}{return}\ \ 2;\ \ \ \ \textcolor{comment}{/*\ címzési\ hiba\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(registry.next)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*szivarog*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00217}00217\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_ERRFILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fperror\ =\ fopen(XSTR(MEMTRACE\_ERRFILE),\ \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00219}00219\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(fperror,\ \textcolor{stringliteral}{"{}Szivargas:\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ print\_registry\_item(registry.next);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ registry.next\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ memória\ fogyás\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00226}00226\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00227}00227\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00228}00228\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*MEMTRACE\_TO\_MEMORY*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00230}00230\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00231}00231\ \textcolor{comment}{/*\ MEMTRACE\_TO\_FILE\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00232}00232\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00234}00234\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE\_TO\_FILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00235}00235\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00236}00236\ \ \ \ \ \textcolor{keyword}{static}\ FILE\ *\ trace\_file;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00237}00237\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00238}00238\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00240}00240\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00241}00241\ \textcolor{comment}{/*\ register/unregister\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00242}00242\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00244}00244\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00245}00245\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ allocated\_blks;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00247}00247\ \ \ \ \ \textcolor{keywordtype}{int}\ allocated\_blocks()\ \{\ \textcolor{keywordflow}{return}\ allocated\_blks;\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00249}00249\ \ \ \ \ \textcolor{keyword}{static}\ BOOL\ register\_memory(\textcolor{keywordtype}{void}\ *\ p,\ \textcolor{keywordtype}{size\_t}\ size,\ call\_t\ call)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ allocated\_blks++;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00252}00252\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_FILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(trace\_file,\ \textcolor{stringliteral}{"{}\%p\(\backslash\)t\%d\(\backslash\)t\%s\%s"{}},\ PU(p),\ (\textcolor{keywordtype}{int})size,\ pretty[call.f],\ call.par\_txt\ ?\ call.par\_txt\ :\ \textcolor{stringliteral}{"{}?"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (call.f\ <=\ 3)\ fprintf(trace\_file,\ \textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(trace\_file,\ \textcolor{stringliteral}{"{}\(\backslash\)t\%d\(\backslash\)t\%s\(\backslash\)n"{}},\ call.line,\ call.file\ ?\ call.file\ :\ \textcolor{stringliteral}{"{}?"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ fflush(trace\_file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00257}00257\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00258}00258\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \{\textcolor{comment}{/*C-\/blokk*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ registry\_item\ *\ n\ =\ (registry\_item*)malloc(\textcolor{keyword}{sizeof}(registry\_item));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(n==NULL)\ \textcolor{keywordflow}{return}\ FALSE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>p\ =\ p;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>size\ =\ size;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>call\ =\ call;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>next\ =\ registry.next;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ registry.next\ =\ n;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \}\textcolor{comment}{/*C-\/blokk*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00268}00268\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00271}00271\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00273}00273\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{keyword}{static}\ registry\_item\ *find\_registry\_item(\textcolor{keywordtype}{void}\ *\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ registry\_item\ *n\ =\ \&registry;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(;\ n-\/>next\ \&\&\ n-\/>next-\/>p\ !=\ p\ ;\ n=n-\/>next);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00279}00279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00281}00281\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ unregister\_memory(\textcolor{keywordtype}{void}\ *\ p,\ call\_t\ call)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00283}00283\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_FILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(trace\_file,\ \textcolor{stringliteral}{"{}\%p\(\backslash\)t\%d\(\backslash\)t\%s\%s"{}},\ PU(p),\ -\/1,\ pretty[call.f],\ call.par\_txt\ ?\ call.par\_txt\ :\ \textcolor{stringliteral}{"{}?"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (call.f\ <=\ 3)\ fprintf(trace\_file,\ \textcolor{stringliteral}{"{})"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(trace\_file,\textcolor{stringliteral}{"{}\(\backslash\)t\%d\(\backslash\)t\%s\(\backslash\)n"{}},call.line,\ call.file\ ?\ call.file\ :\ \textcolor{stringliteral}{"{}?"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ fflush(trace\_file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00288}00288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00289}00289\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \{\ \textcolor{comment}{/*C-\/blokk*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ registry\_item\ *\ n\ =\ find\_registry\_item(p);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(n-\/>next)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ allocated\_blks-\/-\/;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ registry\_item\ *\ r\ =\ n-\/>next;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n-\/>next\ =\ r-\/>next;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(COMP(r-\/>call.f,call.f))\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ chk\ =\ chk\_canary(r-\/>p,\ r-\/>size);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (chk\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die(\textcolor{stringliteral}{"{}Blokk\ elott\ serult\ a\ memoria:"{}},\ r-\/>p,r-\/>size,\&r-\/>call,\&call);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (chk\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die(\textcolor{stringliteral}{"{}Blokk\ utan\ serult\ a\ memoria"{}},\ r-\/>p,r-\/>size,\&r-\/>call,\&call);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*rendben\ van\ minden*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(call.par\_txt)\ free(call.par\_txt);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(r-\/>call.par\_txt)\ free(r-\/>call.par\_txt);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(call.file)\ free(call.file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(r-\/>call.file)\ free(r-\/>call.file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memset(PU(r-\/>p),\ \textcolor{charliteral}{'f'},\ r-\/>size);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PU(r-\/>p)[r-\/>size-\/1]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free(r);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*hibas\ felszabaditas*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die(\textcolor{stringliteral}{"{}Hibas\ felszabaditas:"{}},r-\/>p,r-\/>size,\&r-\/>call,\&call);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die(\textcolor{stringliteral}{"{}Nem\ letezo,\ vagy\ mar\ felszabaditott\ adat\ felszabaditasa:"{}},\ p,\ 0,NULL,\&call);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{/*C-\/blokk*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00318}00318\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00319}00319\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00320}00320\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00322}00322\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00323}00323\ \textcolor{comment}{/*\ C-\/stílusú\ memóriakezelés\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00324}00324\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00326}00326\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE\_C}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00327}00327\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00328}00328\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ traced\_malloc(\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ par\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ p;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ p\ =\ canary\_malloc(size,\ random\_byte);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!register\_memory(p,size,pack(FMALLOC,par\_txt,line,file)))\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free(p);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PU(p);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00340}00340\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00342}00342\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ traced\_calloc(\textcolor{keywordtype}{size\_t}\ count,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ par\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ p;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size\ *=\ count;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ canary\_malloc(size,\ 0);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!register\_memory(p,size,pack(FCALLOC,par\_txt,line,file)))\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free(p);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PU(p);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00355}00355\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00357}00357\ \ \ \ \ \textcolor{keywordtype}{void}\ traced\_free(\textcolor{keywordtype}{void}\ *\ pu,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ par\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pu)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ unregister\_memory(P(pu),\ pack(FFREE,par\_txt,line,file));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ free(P(pu));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*free(NULL)\ eset*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00364}00364\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_FILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(trace\_file,\textcolor{stringliteral}{"{}\%s\(\backslash\)t\%d\(\backslash\)t\%10s\(\backslash\)t"{}},\textcolor{stringliteral}{"{}NULL"{}},-\/1,pretty[FFREE]);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(trace\_file,\textcolor{stringliteral}{"{}\%d\(\backslash\)t\%s\(\backslash\)n"{}},line,file\ ?\ file\ :\ \textcolor{stringliteral}{"{}?"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fflush(trace\_file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00368}00368\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00369}00369\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ifndef\ ALLOW\_FREE\_NULL}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \{\textcolor{comment}{/*C-\/blokk*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ call\_t\ call;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ call\ =\ pack(FFREE,par\_txt,line,file);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die(\textcolor{stringliteral}{"{}free(NULL)\ hivasa:"{}},NULL,0,NULL,\&call);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{comment}{/*C-\/blokk*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00375}00375\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00377}00377\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00379}00379\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ traced\_realloc(\textcolor{keywordtype}{void}\ *\ old,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ par\_txt,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ p;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ oldsize\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ registry\_item\ *\ n;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00385}00385\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ find\_registry\_item(P(old));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n)\ oldsize\ =\ n-\/>next-\/>size;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ canary\_malloc(size,\ random\_byte);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00389}00389\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ realloc(old,\ size);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00391}00391\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Ha\ sikerult\ a\ foglalas,\ regisztraljuk*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ register\_memory(p,size,pack(FREALLOC,\ par\_txt,\ line,file));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (old)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00396}00396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cpsize\ =\ 2*CANARY\_LEN;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (oldsize\ <\ size)\ cpsize\ +=\ oldsize;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ cpsize\ +=\ size;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memcpy(p,\ P(old),\ cpsize);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00401}00401\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ unregister\_memory(P(old),\ pack(FREALLOC,\ par\_txt,\ line,\ file));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00403}00403\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free\ P(old);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00405}00405\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PU(p);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00411}00411\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00412}00412\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00413}00413\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00414}00414\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*MEMTRACE\_C*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00415}00415\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00416}00416\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00417}00417\ \textcolor{comment}{/*\ C++-\/stílusú\ memóriakezelés\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00418}00418\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00420}00420\ \textcolor{preprocessor}{\#ifdef\ MEMTRACE\_CPP}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00421}00421\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00422}00422\ \ \ \ \ std::new\_handler\ \_new\_handler;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00424}00424\ \ \ \ \ \textcolor{keywordtype}{void}\ \_set\_new\_handler(std::new\_handler\ h)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \_new\_handler\ =\ h;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00427}00427\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00429}00429\ \ \ \ \ \textcolor{keyword}{static}\ call\_t\ delete\_call;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00430}00430\ \ \ \ \ \textcolor{keyword}{static}\ BOOL\ delete\_called;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00432}00432\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_delete\_call(\textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00434}00434\ \ \ \ \ \ \ \ \ delete\_call=pack(0,\textcolor{stringliteral}{"{}"{}},line,file);\ \textcolor{comment}{/*func\ értéke\ lényegtelen,\ majd\ felülírjuk*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00435}00435\ \ \ \ \ \ \ \ \ delete\_called\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00436}00436\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00437}00437\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00438}00438\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ traced\_new(\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file,\ \textcolor{keywordtype}{int}\ func)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00439}00439\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00440}00440\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;;)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ p\ =\ canary\_malloc(size,\ random\_byte);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00442}00442\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(p)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00443}00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ register\_memory(p,size,pack(func,\textcolor{stringliteral}{"{}"{}},line,file));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00444}00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PU(p);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00445}00445\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00446}00446\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00447}00447\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_new\_handler\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::bad\_alloc();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00449}00449\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00450}00450\ \ \ \ \ \ \ \ \ \ \ \ \ \_new\_handler();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00451}00451\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00452}00452\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00453}00453\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00454}00454\ \ \ \ \ \textcolor{keywordtype}{void}\ traced\_delete(\textcolor{keywordtype}{void}\ *\ pu,\ \textcolor{keywordtype}{int}\ func)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00455}00455\ \ \ \ \ \ \ \ \ initialize();}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00456}00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pu)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00457}00457\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*kiolvasom\ call-\/t,\ ha\ van*/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00458}00458\ \ \ \ \ \ \ \ \ \ \ \ \ memtrace::call\_t\ call\ =\ delete\_called\ ?\ (delete\_call.f=func,\ delete\_call)\ :\ pack(func,NULL,0,NULL);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00459}00459\ \ \ \ \ \ \ \ \ \ \ \ \ memtrace::unregister\_memory(P(pu),call);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00460}00460\ \ \ \ \ \ \ \ \ \ \ \ \ free(P(pu));}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00461}00461\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00462}00462\ \ \ \ \ \ \ \ \ delete\_called=FALSE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00463}00463\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00464}00464\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00466}00466\ \textcolor{keywordtype}{void}\ *\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}(\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ THROW\_BADALLOC\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00467}00467\ \ \ \ \ \textcolor{keywordflow}{return}\ memtrace::traced\_new(size,line,file,FNEW);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00468}00468\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00469}00469\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00470}00470\ \textcolor{keywordtype}{void}\ *\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}[](\textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{int}\ line,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file)\ THROW\_BADALLOC\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00471}00471\ \ \ \ \ \textcolor{keywordflow}{return}\ memtrace::traced\_new(size,line,file,FNEWARR);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00472}00472\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00473}00473\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00474}00474\ \textcolor{keywordtype}{void}\ *\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}(\textcolor{keywordtype}{size\_t}\ size)\ THROW\_BADALLOC\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00475}00475\ \ \ \ \ \textcolor{keywordflow}{return}\ memtrace::traced\_new(size,0,NULL,FNEW);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00476}00476\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00478}00478\ \textcolor{keywordtype}{void}\ *\ \textcolor{keyword}{operator}\ \textcolor{keyword}{new}[](\textcolor{keywordtype}{size\_t}\ size)\ THROW\_BADALLOC\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00479}00479\ \ \ \ \ \textcolor{keywordflow}{return}\ memtrace::traced\_new(size,0,NULL,FNEWARR);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00480}00480\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00481}00481\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00482}00482\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}\ *\ p)\ THROW\_NOTHING\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00483}00483\ \ \ \ \ memtrace::traced\_delete(p,FDELETE);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00484}00484\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00485}00485\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00486}00486\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}[](\textcolor{keywordtype}{void}\ *\ p)\ THROW\_NOTHING\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00487}00487\ \ \ \ \ memtrace::traced\_delete(p,FDELETEARR);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00488}00488\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00489}00489\ \textcolor{preprocessor}{\#if\ \_\_cplusplus\ >=\ 201402L}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00490}00490\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}\ *\ p,\ size\_t)\ THROW\_NOTHING\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00491}00491\ \ \ \ \ memtrace::traced\_delete(p,FDELETE);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00492}00492\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00493}00493\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00494}00494\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}[](\textcolor{keywordtype}{void}\ *\ p,\ size\_t)\ THROW\_NOTHING\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00495}00495\ \ \ \ \ memtrace::traced\_delete(p,FDELETEARR);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00496}00496\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00497}00497\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00499}00499\ \textcolor{comment}{/*\ Visual\ C++\ 2012\ miatt\ kell,\ mert\ háklis,\ hogy\ nincs\ megfelelő\ delete,\ bár\ senki\ sem\ használja\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00500}00500\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}(\textcolor{keywordtype}{void}\ *\ p,\ int,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)\ THROW\_NOTHING\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00501}00501\ \ \ \ \ memtrace::traced\_delete(p,FDELETE);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00502}00502\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00503}00503\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00504}00504\ \textcolor{keywordtype}{void}\ \textcolor{keyword}{operator}\ \textcolor{keyword}{delete}[](\textcolor{keywordtype}{void}\ *\ p,\ int,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)\ THROW\_NOTHING\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00505}00505\ \ \ \ \ memtrace::traced\_delete(p,FDELETE);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00506}00506\ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00507}00507\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00508}00508\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*MEMTRACE\_CPP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00509}00509\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00510}00510\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00511}00511\ \textcolor{comment}{/*\ initialize\ */}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00512}00512\ \textcolor{comment}{/*******************************************************************/}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00513}00513\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00514}00514\ START\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00515}00515\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ initialize()\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ BOOL\ first\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00517}00517\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(first)\ \{}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00518}00518\ \ \ \ \ \ \ \ \ \ \ \ \ fperror\ =\ stderr;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00519}00519\ \ \ \ \ \ \ \ \ \ \ \ \ random\_byte\ =\ (\textcolor{keywordtype}{unsigned}\ char)time(NULL);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00520}00520\ \ \ \ \ \ \ \ \ \ \ \ \ first\ =\ FALSE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ dying\ =\ FALSE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00522}00522\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_MEMORY}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00523}00523\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ registry.next\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00524}00524\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#if\ !defined(USE\_ATEXIT\_OBJECT)\ \&\&\ defined(MEMTRACE\_AUTO)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00525}00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ atexit((\textcolor{keywordtype}{void}(*)(\textcolor{keywordtype}{void}))mem\_check);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00526}00526\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00527}00527\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00528}00528\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_TO\_FILE}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00529}00529\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ trace\_file\ =\ fopen(\textcolor{stringliteral}{"{}memtrace.dump"{}},\textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00530}00530\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00531}00531\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#ifdef\ MEMTRACE\_CPP}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00532}00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_new\_handler\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ delete\_called\ =\ FALSE;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00534}00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ delete\_call\ =\ pack(0,NULL,0,NULL);}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00535}00535\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00536}00536\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00537}00537\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00538}00538\ }
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00539}00539\ \textcolor{preprocessor}{\#if\ defined(MEMTRACE\_TO\_MEMORY)\ \&\&\ defined(USE\_ATEXIT\_OBJECT)}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00540}00540\ \ \ \ \ \textcolor{keywordtype}{int}\ atexit\_class::counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00541}00541\ \ \ \ \ \textcolor{keywordtype}{int}\ atexit\_class::err\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00542}00542\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00543}00543\ END\_NAMESPACE}
+\DoxyCodeLine{\Hypertarget{memtrace_8cpp_source_l00544}00544\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

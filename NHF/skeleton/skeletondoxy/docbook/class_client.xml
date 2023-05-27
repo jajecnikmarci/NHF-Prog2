@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_client" xml:lang="en-US">
+<title>Client Class Reference</title>
+<indexterm><primary>Client</primary></indexterm>
+<para>
+
+<para>Ügyfél adatait tárolja. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;clients.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Client:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_client.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_client_1a8c050fbceb45574cbeb7753dd40d6f7f">Client</link> (const std::string name_in)</para>
+
+<para>Alapértékes kontruktor. </para>
+</listitem>
+            <listitem><para>size_t <link linkend="_class_client_1abe53568f6774300b5a9b6d173ed6f118">getSumOfAll_Contract</link> ()</para>
+
+<para>Visszaadja a kliens által eddig kötött szerződések számát. </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link> () const</para>
+
+<para>Visszadja a kliens nevét. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_client_1a5952ea10336391d9641b0ad019a0b955">addContract</link> (<link linkend="_class_contract">Contract</link> &amp;contract_in)</para>
+
+<para>Szerződés hozzáadása a mycontracts hez. </para>
+</listitem>
+            <listitem><para>virtual std::string <link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">getsub_Client_info</link> ()</para>
+
+<para>Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_client_1a3383798ffb163dfa5a35cebc1c30b523">save_invoice</link> (size_t contract_index, const <link linkend="_class_date">Date</link> &amp;date)</para>
+
+<para>Számlát állít ki fájlba. </para>
+</listitem>
+            <listitem><para><link linkend="_class_contract">Contract</link> &amp; <link linkend="_class_client_1a53f8972b665226da2e582e35f8cfca1d">getContract</link> (size_t contract_ID)</para>
+
+<para>Visszaadja azt a szerződést aminek az azonosítóját megadtuk. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_client_1a897ff0f31827f7be3c661623341605ed">~Client</link> ()</para>
+
+<para>Virtuális destruktor. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Ügyfél adatait tárolja. </para>
+
+
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name</entry><entry>
+<para>Az ügyfél neve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mycontracts</entry><entry>
+<para>Az ügyfél szerződéseit tároló tömb </para>
+</entry>
+                            </row>
+                            <row>
+<entry>SumOfAll_contracts</entry><entry>
+<para>Azt tárolja hogy a kliens megléte alatt összesen hány szerződést kötött (A szerződés azonosítására használ a felhasználó számára) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_clients_8h_source_1l00021">21</link> of file <link linkend="_clients_8h_source">clients.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_client_1a8c050fbceb45574cbeb7753dd40d6f7f"/><section>
+    <title>Client()</title>
+<indexterm><primary>Client</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>Client</secondary></indexterm>
+<para><computeroutput>Client::Client (const std::string name_in)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Alapértékes kontruktor. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>name_in</entry><entry>
+<para>Ügyfél neve </para>
+</entry>
+                            </row>
+                            <row>
+<entry>sumofContracts</entry><entry>
+<para>A kliens által eddig kötött szerződések száma (nem jelenlegi) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_clients_8h_source_1l00033">33</link> of file <link linkend="_clients_8h_source">clients.h</link>.</para>
+</section>
+<anchor xml:id="_class_client_1a897ff0f31827f7be3c661623341605ed"/><section>
+    <title>~Client()</title>
+<indexterm><primary>~Client</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>~Client</secondary></indexterm>
+<para><computeroutput>virtual Client::~Client ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Virtuális destruktor. </para>
+</para>
+<para>
+Definition at line <link linkend="_clients_8h_source_1l00077">77</link> of file <link linkend="_clients_8h_source">clients.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_client_1a5952ea10336391d9641b0ad019a0b955"/><section>
+    <title>addContract()</title>
+<indexterm><primary>addContract</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>addContract</secondary></indexterm>
+<para><computeroutput>void Client::addContract (<link linkend="_class_contract">Contract</link> &amp; contract_in)</computeroutput></para><para>
+
+<para>Szerződés hozzáadása a mycontracts hez. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>contract_in</entry><entry>
+<para>a hozzáadandó szerződésre mutató referencia. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00011">11</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_client_1a53f8972b665226da2e582e35f8cfca1d"/><section>
+    <title>getContract()</title>
+<indexterm><primary>getContract</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>getContract</secondary></indexterm>
+<para><computeroutput><link linkend="_class_contract">Contract</link> &amp; Client::getContract (size_t contract_ID)</computeroutput></para><para>
+
+<para>Visszaadja azt a szerződést aminek az azonosítóját megadtuk. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>contract_ID</entry><entry>
+<para>A szerződés azonosítója </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00028">28</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>std::string Client::getName ( ) const</computeroutput></para><para>
+
+<para>Visszadja a kliens nevét. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>kliens neve </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00007">7</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6"/><section>
+    <title>getsub_Client_info()</title>
+<indexterm><primary>getsub_Client_info</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>getsub_Client_info</secondary></indexterm>
+<para><computeroutput>std::string Client::getsub_Client_info ( )<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>gyermek osztály személyes adatai kiíráshoz egy string-ben </para>
+</formalpara>
+</para>
+<para>
+Reimplemented in <link linkend="_class_person_1a112a91312130609eddd72fa6dd86462e">Person</link>, and <link linkend="_class_company_1aef6b11a716b32be62330fd8968c4371f">Company</link>.</para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00020">20</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_client_1abe53568f6774300b5a9b6d173ed6f118"/><section>
+    <title>getSumOfAll_Contract()</title>
+<indexterm><primary>getSumOfAll_Contract</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>getSumOfAll_Contract</secondary></indexterm>
+<para><computeroutput>size_t Client::getSumOfAll_Contract ( )</computeroutput></para><para>
+
+<para>Visszaadja a kliens által eddig kötött szerződések számát. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>kliens által eddig kötött szerződések száma </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00016">16</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_client_1a3383798ffb163dfa5a35cebc1c30b523"/><section>
+    <title>save_invoice()</title>
+<indexterm><primary>save_invoice</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>save_invoice</secondary></indexterm>
+<para><computeroutput>void Client::save_invoice (size_t contract_index, const <link linkend="_class_date">Date</link> &amp; date)</computeroutput></para><para>
+
+<para>Számlát állít ki fájlba. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>contract_index</entry><entry>
+<para>A szerződés sorszáma a tárolt szerződések között </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_clients_8cpp_source_1l00024">24</link> of file <link linkend="_clients_8cpp_source">clients.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+clients.hclients.cpp</section>
+</section>

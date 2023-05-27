@@ -1,0 +1,47 @@
+\hypertarget{_m_v_m_8cpp_source}{}\doxysection{MVM.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00001}00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00002}00002\ \textcolor{comment}{//\ Created\ by\ Jajecnik\ Marcell\ on\ 2023.\ 05.\ 04..}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}MVM.h"{}}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00007}00007\ \mbox{\hyperlink{class_company}{Company}}\ \mbox{\hyperlink{class_m_v_m_a867aeb59ccbb16febf87084cf89d518a}{MVM::MVM\_company}}\ =\ \mbox{\hyperlink{class_company}{Company}}(\textcolor{stringliteral}{"{}MVM\ ZRT."{}},\ \textcolor{stringliteral}{"{}10760798244"{}});}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00009}\mbox{\hyperlink{class_m_v_m_a4d02ac8bb1dcc2ec5fcf1832cc662f44}{00009}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_v_m_a4d02ac8bb1dcc2ec5fcf1832cc662f44}{MVM::addClient}}(\mbox{\hyperlink{class_client}{Client}}*\ client\_in)\ \{}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00010}00010\ \ \ \ \ clients.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(client\_in);}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00011}00011\ \}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00014}\mbox{\hyperlink{class_m_v_m_aaf3ab005673a931c43b503fd277b3ef1}{00014}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_v_m_aaf3ab005673a931c43b503fd277b3ef1}{MVM::addContract}}(\mbox{\hyperlink{class_client}{Client}}*\ client\_in,\ ContractType\ ctype\_in,\ \textcolor{keywordtype}{int}\ year\_begin,\ \textcolor{keywordtype}{int}\ month\_begin,\ \textcolor{keywordtype}{int}\ day\_begin,\ \textcolor{keywordtype}{int}\ year\_end,\ \textcolor{keywordtype}{int}\ month\_end,\ \textcolor{keywordtype}{int}\ day\_end,\ \textcolor{keywordtype}{int}\ invo\_in\_year,\ \textcolor{keywordtype}{int}\ invo\_in\_month,\ \textcolor{keywordtype}{int}\ invo\_in\_day,\ \textcolor{keywordtype}{double}\ tariff\_in,\ \textcolor{keywordtype}{double}\ balance\_in,\ \textcolor{keywordtype}{double}\ consumption\_in)\ \{}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00015}00015\ ;}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00016}00016\ \mbox{\hyperlink{class_contract}{Contract}}\ new\_contract(client\_in,\ ctype\_in,\ year\_begin,\ month\_begin,\ day\_begin,\ year\_end,\ month\_end,\ day\_end,\ invo\_in\_year,\ invo\_in\_month,\ invo\_in\_day,\ (client\_in-\/>\mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{getSumOfAll\_Contract}}()\ +\ 1),\ tariff\_in,\ balance\_in,\ consumption\_in);}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00017}00017\ \ \ \ \ client\_in-\/>\mbox{\hyperlink{class_client_a5952ea10336391d9641b0ad019a0b955}{addContract}}(new\_contract);}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00020}\mbox{\hyperlink{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}{00020}}\ \mbox{\hyperlink{class_client}{Client}}\ *\mbox{\hyperlink{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}{MVM::getClient}}(\textcolor{keyword}{const}\ std::string\ name\_in,\ \textcolor{keyword}{const}\ std::string\ somekindofID)\ \{}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ clients.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}();\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ std::string\ subclient\_info\ =\ clients[i]-\/>getsub\_Client\_info();}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (name\_in\ ==\ clients[i]-\/>getName()\ \&\&\ (subclient\_info.substr(subclient\_info.length()\ -\/\ 11,\ 11)\ ==\ somekindofID\ ||\ subclient\_info.substr(subclient\_info.length()\ -\/\ 8,\ 8)\ ==\ somekindofID));}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ clients[i];}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00029}\mbox{\hyperlink{class_m_v_m_a15c1b579505a0a699119de338e3f72ed}{00029}}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_m_v_m_a15c1b579505a0a699119de338e3f72ed}{MVM::getCompanyDetails}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Company\ name:\ "{}}\ +\ \mbox{\hyperlink{class_m_v_m_a867aeb59ccbb16febf87084cf89d518a}{MVM\_company}}.\mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{getName}}()\ +\ \textcolor{stringliteral}{"{},\ Tax\ ID:\ "{}}\ +\ \mbox{\hyperlink{class_m_v_m_a867aeb59ccbb16febf87084cf89d518a}{MVM\_company}}.\mbox{\hyperlink{class_company_a1ba074e68753c4e9e049f4f210137bac}{getID}}();}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00033}\mbox{\hyperlink{class_m_v_m_aa1e7db7cfe6de5a5c2bca90a1b9cce84}{00033}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_m_v_m_aa1e7db7cfe6de5a5c2bca90a1b9cce84}{MVM::deleteClient}}(\textcolor{keyword}{const}\ std::string\ name\_in,\ \textcolor{keyword}{const}\ std::string\ somekindofID)\ \{}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}{getClient}}(name\_in,\ somekindofID);}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00037}\mbox{\hyperlink{class_m_v_m_afbd4ab1c335c46b4c6837fd5c957ee00}{00037}}\ \mbox{\hyperlink{class_m_v_m_afbd4ab1c335c46b4c6837fd5c957ee00}{MVM::\string~MVM}}()\{}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ clients.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}();\ i++)}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00039}00039\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ clients[i];}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_m_v_m_8cpp_source_l00042}00042\ \}}
+
+\end{DoxyCode}

@@ -8,7 +8,7 @@ std::string Client::getName() const{
     return name;
 }
 
-void Client::addContract(Contract* contract_in) {
+void Client::addContract(Contract& contract_in) {
     SumOfAll_contract++;
     mycontracts.push_back(contract_in);
 }
@@ -21,15 +21,26 @@ std::string Client::getsub_Client_info() {
     return "Client name: " + getName();
 }
 
-std::string Person::getsub_Client_info() {
-    return "Person name: " + getName() + ", ID: " + std::to_string(ID);
+void Client::save_invoice(size_t contract_index, const Date& date) {
+    getContract(contract_index).invoice(date);
 }
 
-long Person::getID() const {
+Contract &Client::getContract(size_t contract_index) {
+    if (contract_index<=0 || contract_index>getSumOfAll_Contract()) throw std::range_error("Nem létező contract");
+    for (size_t i = 0; i < mycontracts.size(); ++i) {
+        if (mycontracts[i].getContractID()==contract_index) return mycontracts[i];
+    }
+}
+
+std::string Person::getsub_Client_info() {
+    return "Person name: " + getName() + ", ID: " + ID;
+}
+
+std::string Person::getID() const {
     return ID;
 }
 
-void Person::setID(long ID_in) {
+void Person::setID(std::string ID_in) {
     ID=ID_in;
 }
 
@@ -37,20 +48,18 @@ Person::~Person() {
 
 }
 
-long Company::getID() const {
+std::string Company::getID() const {
     return Tax_ID;
 }
 
-void Company::setID(long ID_in) {
+void Company::setID(std::string ID_in) {
     Tax_ID=ID_in;
 }
 
 std::string Company::getsub_Client_info() {
-    return "Company name: " + getName() + ", Tax ID: " + std::to_string(Tax_ID);
+    return "Company name: " + getName() + ", Tax ID: " + Tax_ID;
 }
 
-
 Company::~Company() {
-    //Felszabad�tani a foglalt contractet
 
 }

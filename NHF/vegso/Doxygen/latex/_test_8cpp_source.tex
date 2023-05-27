@@ -1,0 +1,242 @@
+\hypertarget{_test_8cpp_source}{}\doxysection{Test.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}gtest\_lite.h"{}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}memtrace.h"{}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}MVM.h"{}}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#define\ TST\ 9}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ MEMTRACE\_H}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00024}00024\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#if\ TST\ >\ 0}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00028}00028\ \ \ \ \ TEST(\mbox{\hyperlink{class_my_vector}{MyVector}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_my_vector}{MyVector<int>}}\ int\_test;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_my_vector}{MyVector<double>}}\ double\_test;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ EXPECT\_EQ(10,\ int\_test.\mbox{\hyperlink{class_my_vector_adbd398910d7ae5c2b42132e10ac6f749}{capacity}}());\ \textcolor{comment}{//\ Alapertelmezett\ ertek}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ EXPECT\_EQ(0,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(1);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ EXPECT\_EQ(1,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_aa896e95bb435535bdcc0b3e7bcb7f6fe}{pop\_back}}();}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ EXPECT\_EQ(0,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_aa896e95bb435535bdcc0b3e7bcb7f6fe}{pop\_back}}();\ \textcolor{comment}{//Torles\ ha\ nincs\ semmi\ bajt\ okoz-\/e?}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 11;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(i);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ double\_test.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(i);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ EXPECT\_EQ(20,\ int\_test.\mbox{\hyperlink{class_my_vector_adbd398910d7ae5c2b42132e10ac6f749}{capacity}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ EXPECT\_EQ(11,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 11;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_adac3ad2d58897e80d95a64f0ec0b4229}{erase}}(0);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ double\_test.\mbox{\hyperlink{class_my_vector_aa896e95bb435535bdcc0b3e7bcb7f6fe}{pop\_back}}();}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ EXPECT\_EQ(0,\ int\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ EXPECT\_EQ(0,\ double\_test.\mbox{\hyperlink{class_my_vector_ac167e7f4cf1f1f6a01053db2e5efd3a2}{size}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 5;\ ++i)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ int\_test.\mbox{\hyperlink{class_my_vector_a1e15063e3a5e1e8153be007099777ccd}{push\_back}}(i);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 5;\ i++)}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ EXPECT\_EQ(i,\ int\_test[i]);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ EXPECT\_THROW(int\_test[-\/1],\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ EXPECT\_THROW(int\_test[5],\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00065}00065\ \ \ \ \ \}\ END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00066}00066\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00068}00068\ \textcolor{preprocessor}{\#if\ TST\ >\ 1}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00070}00070\ \ \ \ \ TEST(\mbox{\hyperlink{class_date}{Date}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ a(2023,\ 05,\ 14);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(std::string(\textcolor{stringliteral}{"{}2023-\/05-\/14"{}})==\ a.toString());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ EXPECT\_THROW(\mbox{\hyperlink{class_date}{Date}}\ b(1700,\ 05,\ 14),\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ EXPECT\_THROW(\mbox{\hyperlink{class_date}{Date}}\ c(2000,\ 0,\ 14),\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ b(2000,\ 1,\ 14);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ c(2000,\ 1,\ 14);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(b\ ==\ c);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ d(2000,\ 2,\ 14);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ e(2000,\ 3,\ 14);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ EXPECT\_FALSE(d\ ==\ e);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(d>b);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(b\ <=\ d);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(d>=b);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ e.print\_date();}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ std::cout<<std::endl;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00088}00088\ \ \ \ \ \}END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00090}00090\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00092}00092\ \textcolor{preprocessor}{\#if\ TST\ >\ 2}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00094}00094\ \ \ \ \ TEST(\mbox{\hyperlink{class_contract__date}{Contract\_date}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ a(2000,\ 3,\ 14);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\ c(2000,\ 3,\ 14,\ 2222,\ 03,\ 12);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(a==\ c.getBegin());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ b(2222,\ 03,\ 12);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\ d(2000,\ 3,\ 14,\ 2222,\ 03,\ 12);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(b==\ d.getEnd());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ c.setBegin(2222,\ 03,\ 12);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(b\ ==\ c.getBegin());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ d.setEnd(2000,\ 3,\ 14);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(a\ ==\ d.getEnd());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ c.setBegin(a);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(a\ ==\ c.getBegin());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ i(2300,\ 03,\ 02);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ c.setEnd(i);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(i\ ==\ c.getEnd());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ EXPECT\_THROW(\mbox{\hyperlink{class_contract__date}{Contract\_date}}\ e(2400,\ 3,\ 14,\ 2222,\ 03,\ 12),\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\ f(2000,\ 3,\ 14,\ 2222,\ 03,\ 12);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_date}{Date}}\ g(2000,\ 3,\ 15);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(f.contains(g));}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\ h(2020,\ 3,\ 14,\ 2202,\ 03,\ 12);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ f=h;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{class_date}{Date}}(2020,\ 3,\ 14)==\ f.getBegin());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{class_date}{Date}}(2202,\ 03,\ 12)==\ f.getEnd());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ EXPECT\_THROW(f.setBegin(2222,\ 03,\ 12),\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ EXPECT\_THROW(f.setEnd(2000,\ 03,\ 12),\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ EXPECT\_THROW(f.setBegin(\mbox{\hyperlink{class_date}{Date}}(2222,\ 03,\ 12)),\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ EXPECT\_THROW(f.setEnd(\mbox{\hyperlink{class_date}{Date}}(2000,\ 03,\ 12)),\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00124}00124\ \ \ \ \ \}END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00126}00126\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00128}00128\ \textcolor{preprocessor}{\#if\ TST\ >\ 3}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00130}00130\ \ \ \ \ TEST(\mbox{\hyperlink{class_client}{Client}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client}{Client}}*\ a=\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_client}{Client}}(\textcolor{stringliteral}{"{}En"{}});}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ EXPECT\_EQ(0,\ a-\/>\mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{getSumOfAll\_Contract}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(std::string(\textcolor{stringliteral}{"{}En"{}})==\ a-\/>\mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{getName}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_contract}{Contract}}\ b(a,\ ContractType::Regular,\ 2000,\ 03,\ 11,\ 2004,\ 03,\ 12,\ 2003,\ 12,\ 22,\ a-\/>\mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{getSumOfAll\_Contract}}()\ +\ 1,\ 74);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ a-\/>\mbox{\hyperlink{class_client_a5952ea10336391d9641b0ad019a0b955}{addContract}}(b);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ EXPECT\_EQ(1,\ a-\/>\mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{getSumOfAll\_Contract}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ EXPECT\_EQ(1,\ a-\/>\mbox{\hyperlink{class_client_a53f8972b665226da2e582e35f8cfca1d}{getContract}}(1).\mbox{\hyperlink{class_contract_a222d689da62cfcd441933b7d48aa1840}{getContractID}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(std::string(\textcolor{stringliteral}{"{}Client\ name:\ En"{}})==\ a-\/>\mbox{\hyperlink{class_client_a1b7af92ea4fa34d7cc1c8767bd1767c6}{getsub\_Client\_info}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ EXPECT\_THROW(a-\/>\mbox{\hyperlink{class_client_a53f8972b665226da2e582e35f8cfca1d}{getContract}}(0),\ std::range\_error);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ a;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00143}00143\ \ \ \ \ \}END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00145}00145\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00147}00147\ \textcolor{preprocessor}{\#if\ TST\ >\ 4}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00149}00149\ \ \ \ \ TEST(\mbox{\hyperlink{class_person}{Person}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_person}{Person}}\ a(\textcolor{stringliteral}{"{}En"{}},\ \textcolor{stringliteral}{"{}167890ke"{}});}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ EXPECT\_STREQ(\textcolor{stringliteral}{"{}167890ke"{}},\ a.getID().c\_str());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(\textcolor{stringliteral}{"{}Person\ name:\ En,\ ID:\ 167890ke"{}}==a.\mbox{\hyperlink{class_client_a1b7af92ea4fa34d7cc1c8767bd1767c6}{getsub\_Client\_info}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00154}00154\ \ \ \ \ \}END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00156}00156\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00158}00158\ \textcolor{preprocessor}{\#if\ TST\ >\ 5}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00160}00160\ \ \ \ \ TEST(\mbox{\hyperlink{class_company}{Company}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_company}{Company}}\ a(\textcolor{stringliteral}{"{}En"{}},\ \textcolor{stringliteral}{"{}16789034647"{}});}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ EXPECT\_STREQ(\textcolor{stringliteral}{"{}16789034647"{}},\ a.getID().c\_str());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ EXPECT\_STREQ(\textcolor{stringliteral}{"{}Company\ name:\ En,\ Tax\ ID:\ 16789034647"{}},\ a.\mbox{\hyperlink{class_client_a1b7af92ea4fa34d7cc1c8767bd1767c6}{getsub\_Client\_info}}().c\_str());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00166}00166\ \ \ \ \ \}END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00168}00168\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00170}00170\ \textcolor{preprocessor}{\#if\ TST\ >\ 6}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00172}00172\ \ \ \ \ TEST(\mbox{\hyperlink{class_contract}{Contract}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_client}{Client}}*\ a=\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_client}{Client}}(\textcolor{stringliteral}{"{}En"{}});}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_contract}{Contract}}\ b(a,\ ContractType::Regular,\ 2000,\ 03,\ 11,\ 2004,\ 03,\ 12,\ 2003,\ 12,\ 22,\ a-\/>\mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{getSumOfAll\_Contract}}()\ +\ 1,\ 74);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ b.setCtype(ContractType::VIP);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(ContractType::VIP==\ b.getCtype());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ EXPECT\_STREQ(\textcolor{stringliteral}{"{}VIP"{}},\ b.Ctype\_toString().c\_str());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ b.setTariff(84);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ EXPECT\_EQ(84,\ b.getTariff());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ b.addConsumption(55);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ EXPECT\_EQ(55,\ b.getConsumption());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ b.setBalance(-\/66);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ EXPECT\_EQ(-\/66,\ b.getBalance());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ b.pay(66);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ EXPECT\_EQ(0,\ b.getBalance());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{class_date}{Date}}(2003,\ 12,\ 22)==\ b.getLast\_invoicing());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ b.setLast\_invoicing(\mbox{\hyperlink{class_date}{Date}}(2000,\ 03,\ 11));}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(\mbox{\hyperlink{class_date}{Date}}(2000,\ 03,\ 11)==\ b.getLast\_invoicing());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(a-\/>\mbox{\hyperlink{class_client_a6865c5e1c8179faa4f3d2a47e500b772}{getName}}()\ ==\ b.getClient()-\/>getName());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_contract__date}{Contract\_date}}\ c(2000,\ 3,\ 14,\ 2222,\ 03,\ 12);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ b.setCtime(c);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(b.getCtime().getBegin()\ ==\ c.getBegin()\ \&\&\ b.getCtime().getEnd()\ ==\ c.getEnd());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ EXPECT\_EQ(1,\ b.getContractID());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ a;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00197}00197\ \ \ \ \ \}END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00199}00199\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00201}00201\ \textcolor{preprocessor}{\#if\ TST\ >\ 7}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00203}00203\ \ \ \ \ TEST(\mbox{\hyperlink{class_m_v_m}{MVM}},\ tesztek)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_v_m}{MVM}}\ mvm;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_person}{Person}}*\ a\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_person}{Person}}(\textcolor{stringliteral}{"{}En"{}},\ \textcolor{stringliteral}{"{}198245uf"{}});}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ mvm.\mbox{\hyperlink{class_m_v_m_a4d02ac8bb1dcc2ec5fcf1832cc662f44}{addClient}}(a);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ EXPECT\_TRUE(a\ ==\ mvm.\mbox{\hyperlink{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}{getClient}}(\textcolor{stringliteral}{"{}En"{}},\ \textcolor{stringliteral}{"{}198245uf"{}}));}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ mvm.\mbox{\hyperlink{class_m_v_m_aaf3ab005673a931c43b503fd277b3ef1}{addContract}}(a,\ ContractType::Regular,\ 2000,\ 03,\ 11,\ 2004,\ 03,\ 12,\ 2003,\ 12,\ 22);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ EXPECT\_EQ(a-\/>\mbox{\hyperlink{class_client_abe53568f6774300b5a9b6d173ed6f118}{getSumOfAll\_Contract}}()\ \ ,\ mvm.\mbox{\hyperlink{class_m_v_m_ab162eae819f75665f30ccfb180374fe2}{getClient}}(\textcolor{stringliteral}{"{}En"{}},\ \textcolor{stringliteral}{"{}198245uf"{}})-\/>\mbox{\hyperlink{class_client_a53f8972b665226da2e582e35f8cfca1d}{getContract}}(1).\mbox{\hyperlink{class_contract_a222d689da62cfcd441933b7d48aa1840}{getContractID}}());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ EXPECT\_STREQ(\textcolor{stringliteral}{"{}Company\ name:\ Meseorszagi\ Villamos\ Muvek\ ZRT.,\ Tax\ ID:\ 10760798244"{}},\ mvm.\mbox{\hyperlink{class_m_v_m_a15c1b579505a0a699119de338e3f72ed}{getCompanyDetails}}().c\_str());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00212}00212\ \ \ \ \ \}END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00214}00214\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00216}00216\ \textcolor{preprocessor}{\#if\ TST\ >\ 8}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00219}00219\ \ \ \ \ \mbox{\hyperlink{class_m_v_m}{MVM}}\ mvm;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00220}00220\ \ \ \ \ TEST(Fajlkezeles,\ szamlazas)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_person}{Person}}*\ a\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_person}{Person}}(\textcolor{stringliteral}{"{}En"{}},\ \textcolor{stringliteral}{"{}1982451"{}});}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ mvm.addClient(a);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ mvm.addContract(a,\ ContractType::Regular,\ 2000,\ 03,\ 11,\ 2004,\ 03,\ 12,\ 2003,\ 12,\ 22);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ a-\/>\mbox{\hyperlink{class_client_a3383798ffb163dfa5a35cebc1c30b523}{save\_invoice}}(1,\ \mbox{\hyperlink{class_date}{Date}}(2004,\ 02,\ 14));}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00225}00225\ \ \ \ \ \}END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00226}00226\ \ \ \ \ TEST(Fajlkezeles,\ load\_from\_console)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ 5;\ i++)}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ mvm.load\_from\_console();}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ EXPECT\_THROW(mvm.load\_from\_console(),\ std::invalid\_argument);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00233}00233\ \ \ \ \ \}\ END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00234}00234\ \ \ \ \ TEST(Fajlkezeles,\ save)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ EXPECT\_NO\_THROW(mvm.save());}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00236}00236\ \ \ \ \ \}\ END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00237}00237\ \ \ \ \ TEST(Fajlkezeles,\ load\_from\_file)\ \{}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_m_v_m}{MVM}}\ mvm2;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ EXPECT\_THROW(mvm2.\mbox{\hyperlink{class_m_v_m_aac79d563bd302a9441385ae5b16ebc0e}{load\_from\_save}}(10),\ std::ios\_base::failure);}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ EXPECT\_NO\_THROW(mvm2.\mbox{\hyperlink{class_m_v_m_aac79d563bd302a9441385ae5b16ebc0e}{load\_from\_save}}(1));}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00241}00241\ \ \ \ \ \}\ END}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00242}00242\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00244}00244\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00246}00246\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{_test_8cpp_source_l00248}00248\ \}}
+
+\end{DoxyCode}

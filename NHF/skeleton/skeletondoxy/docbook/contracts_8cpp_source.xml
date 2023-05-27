@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_contracts_8cpp_source" xml:lang="en-US">
+<title>contracts.cpp</title>
+<programlisting linenumbering="unnumbered"><anchor xml:id="_contracts_8cpp_source_1l00001"/>00001 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_contracts_8cpp_source_1l00002"/>00002 <emphasis role="comment">//&#32;Created&#32;by&#32;Jajecnik&#32;Marcell&#32;on&#32;2023.&#32;05.&#32;05..</emphasis>
+<anchor xml:id="_contracts_8cpp_source_1l00003"/>00003 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_contracts_8cpp_source_1l00004"/>00004 
+<anchor xml:id="_contracts_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;contracts.h&quot;</emphasis>
+<anchor xml:id="_contracts_8cpp_source_1l00006"/>00006 
+<anchor xml:id="_contracts_8cpp_source_1l00007"/><link linkend="_class_contract_1a96cec0aff3df76236cc75e3bf63ef5ff">00007</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1a96cec0aff3df76236cc75e3bf63ef5ff">Contract::setCtype</link>(ContractType&#32;ctype_in)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00008"/>00008 &#32;&#32;&#32;&#32;contract_type&#32;=&#32;ctype_in;
+<anchor xml:id="_contracts_8cpp_source_1l00009"/>00009 }
+<anchor xml:id="_contracts_8cpp_source_1l00010"/>00010 
+<anchor xml:id="_contracts_8cpp_source_1l00011"/><link linkend="_class_contract_1ab5517c38f4f1d68e597071ae0a9e8b66">00011</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1ab5517c38f4f1d68e597071ae0a9e8b66">Contract::setTariff</link>(<emphasis role="keywordtype">double</emphasis>&#32;tariff_in)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;tariff&#32;=&#32;tariff_in;
+<anchor xml:id="_contracts_8cpp_source_1l00013"/>00013 }
+<anchor xml:id="_contracts_8cpp_source_1l00014"/>00014 
+<anchor xml:id="_contracts_8cpp_source_1l00015"/><link linkend="_class_contract_1ad08bea11d8567f530ec5274d4ab56383">00015</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1ad08bea11d8567f530ec5274d4ab56383">Contract::setBalance</link>(<emphasis role="keywordtype">double</emphasis>&#32;balance_in)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;balance&#32;=&#32;balance_in;
+<anchor xml:id="_contracts_8cpp_source_1l00017"/>00017 }
+<anchor xml:id="_contracts_8cpp_source_1l00018"/>00018 
+<anchor xml:id="_contracts_8cpp_source_1l00019"/><link linkend="_class_contract_1a5b850852413aa46c9bc8de86a96f1362">00019</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1a5b850852413aa46c9bc8de86a96f1362">Contract::addConsumption</link>(<emphasis role="keywordtype">double</emphasis>&#32;con_in)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;consumption&#32;+=&#32;con_in;
+<anchor xml:id="_contracts_8cpp_source_1l00021"/>00021 }
+<anchor xml:id="_contracts_8cpp_source_1l00022"/>00022 
+<anchor xml:id="_contracts_8cpp_source_1l00023"/><link linkend="_class_contract_1a986868745160d0e296d894ee2bd88178">00023</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1a986868745160d0e296d894ee2bd88178">Contract::setLast_invoicing</link>(<link linkend="_class_date">Date</link>&#32;last_in)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;last_invoicing&#32;=&#32;last_in;
+<anchor xml:id="_contracts_8cpp_source_1l00025"/>00025 }
+<anchor xml:id="_contracts_8cpp_source_1l00026"/>00026 
+<anchor xml:id="_contracts_8cpp_source_1l00027"/><link linkend="_class_contract_1aaf9ae551436a51ac41d2f08149366c79">00027</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1aaf9ae551436a51ac41d2f08149366c79">Contract::setCtime</link>(<link linkend="_class_contract__date">Contract_date</link>&#32;ctime_in)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;contract_time&#32;=&#32;ctime_in;
+<anchor xml:id="_contracts_8cpp_source_1l00029"/>00029 }
+<anchor xml:id="_contracts_8cpp_source_1l00030"/>00030 
+<anchor xml:id="_contracts_8cpp_source_1l00031"/><link linkend="_class_contract_1a2a54f1a29ab8a88a7c63d5aa7cdc0a58">00031</link> <link linkend="_class_client">Client</link>*&#32;<link linkend="_class_contract_1a2a54f1a29ab8a88a7c63d5aa7cdc0a58">Contract::getClient</link>()&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;client;
+<anchor xml:id="_contracts_8cpp_source_1l00033"/>00033 }
+<anchor xml:id="_contracts_8cpp_source_1l00034"/>00034 
+<anchor xml:id="_contracts_8cpp_source_1l00035"/><link linkend="_class_contract_1a222d689da62cfcd441933b7d48aa1840">00035</link> <emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_class_contract_1a222d689da62cfcd441933b7d48aa1840">Contract::getContractID</link>()<emphasis role="keyword">&#32;const</emphasis>{
+<anchor xml:id="_contracts_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;contract_ID;
+<anchor xml:id="_contracts_8cpp_source_1l00037"/>00037 }
+<anchor xml:id="_contracts_8cpp_source_1l00038"/>00038 
+<anchor xml:id="_contracts_8cpp_source_1l00039"/><link linkend="_class_contract_1a68ae31a64d04c565de2c42731985eeae">00039</link> ContractType&#32;<link linkend="_class_contract_1a68ae31a64d04c565de2c42731985eeae">Contract::getCtype</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_contracts_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;contract_type;
+<anchor xml:id="_contracts_8cpp_source_1l00041"/>00041 }
+<anchor xml:id="_contracts_8cpp_source_1l00042"/>00042 
+<anchor xml:id="_contracts_8cpp_source_1l00043"/><link linkend="_class_contract_1a35dcdf9c4752101f31a34f80b38e9abc">00043</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_contract_1a35dcdf9c4752101f31a34f80b38e9abc">Contract::getTariff</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_contracts_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;tariff;
+<anchor xml:id="_contracts_8cpp_source_1l00045"/>00045 }
+<anchor xml:id="_contracts_8cpp_source_1l00046"/>00046 
+<anchor xml:id="_contracts_8cpp_source_1l00047"/><link linkend="_class_contract_1a55ef08f4db0f8146fc42c2bb410b7960">00047</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_contract_1a55ef08f4db0f8146fc42c2bb410b7960">Contract::getBalance</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_contracts_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;balance;
+<anchor xml:id="_contracts_8cpp_source_1l00049"/>00049 }
+<anchor xml:id="_contracts_8cpp_source_1l00050"/>00050 
+<anchor xml:id="_contracts_8cpp_source_1l00051"/><link linkend="_class_contract_1a2c1439dea2951f6fe07b889061b89541">00051</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_contract_1a2c1439dea2951f6fe07b889061b89541">Contract::getConsumption</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_contracts_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;consumption;
+<anchor xml:id="_contracts_8cpp_source_1l00053"/>00053 }
+<anchor xml:id="_contracts_8cpp_source_1l00054"/>00054 
+<anchor xml:id="_contracts_8cpp_source_1l00055"/><link linkend="_class_contract_1a90dfc571475e24dab6be516786704708">00055</link> <link linkend="_class_contract__date">Contract_date</link>&#32;<link linkend="_class_contract_1a90dfc571475e24dab6be516786704708">Contract::getCtime</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_contracts_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;contract_time;
+<anchor xml:id="_contracts_8cpp_source_1l00057"/>00057 }
+<anchor xml:id="_contracts_8cpp_source_1l00058"/>00058 
+<anchor xml:id="_contracts_8cpp_source_1l00059"/><link linkend="_class_contract_1a39ab8eac1fca9c006f52421fb3b47de6">00059</link> <emphasis role="keyword">const</emphasis>&#32;std::string&#32;<link linkend="_class_contract_1a39ab8eac1fca9c006f52421fb3b47de6">Contract::Ctype_toString</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_contracts_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(contract_type)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ContractType::Regular:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Regular&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ContractType::VIP:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;VIP&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ContractType::Premium:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Premium&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ContractType::Corporate:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Corporate&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ContractType::Student:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Student&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ContractType::SeniorCitizen:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;SeniorCitizen&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ContractType::Government:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Government&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;ContractType::Onetime:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Onetime&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="stringliteral">&quot;Unknown&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_contracts_8cpp_source_1l00071"/>00071 }
+<anchor xml:id="_contracts_8cpp_source_1l00072"/>00072 
+<anchor xml:id="_contracts_8cpp_source_1l00073"/><link linkend="_class_contract_1aa5fae1ce32f260c950f6cf135fef5ab4">00073</link> <link linkend="_class_date">Date</link>&#32;<link linkend="_class_contract_1aa5fae1ce32f260c950f6cf135fef5ab4">Contract::getLast_invoicing</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_contracts_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;last_invoicing;
+<anchor xml:id="_contracts_8cpp_source_1l00075"/>00075 }
+<anchor xml:id="_contracts_8cpp_source_1l00076"/>00076 
+<anchor xml:id="_contracts_8cpp_source_1l00077"/><link linkend="_class_contract_1aec090387ce04a78ead889f19cf17db4f">00077</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1aec090387ce04a78ead889f19cf17db4f">Contract::pay</link>(<emphasis role="keywordtype">double</emphasis>&#32;amount)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;balance&#32;+=&#32;amount;
+<anchor xml:id="_contracts_8cpp_source_1l00079"/>00079 }
+<anchor xml:id="_contracts_8cpp_source_1l00080"/>00080 
+<anchor xml:id="_contracts_8cpp_source_1l00081"/><link linkend="_class_contract_1a3039cab38cd967e1d35d7736217671ae">00081</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_contract_1a3039cab38cd967e1d35d7736217671ae">Contract::invoice</link>(&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_date">Date</link>&#32;&amp;today)&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;std::ofstream&#32;outfile;
+<anchor xml:id="_contracts_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;std::string&#32;filename&#32;=&#32;client-&gt;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>()&#32;+&#32;<emphasis role="stringliteral">&quot;_&quot;</emphasis>&#32;+&#32;std::to_string(contract_ID)&#32;+&#32;<emphasis role="stringliteral">&quot;.txt&quot;</emphasis>;
+<anchor xml:id="_contracts_8cpp_source_1l00084"/>00084 
+<anchor xml:id="_contracts_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;outfile.open(filename);
+<anchor xml:id="_contracts_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Write&#32;contract&#32;details</emphasis>
+<anchor xml:id="_contracts_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Contract&#32;details:&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;&#32;
+<anchor xml:id="_contracts_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;outfile&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Seller&#32;details:&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;outfile&lt;&lt;<emphasis role="stringliteral">&quot;Seller&#32;name:&#32;&quot;</emphasis>&lt;&lt;&#32;<link linkend="_class_m_v_m_1a867aeb59ccbb16febf87084cf89d518a">MVM::MVM_company</link>.<link linkend="_class_company_1aef6b11a716b32be62330fd8968c4371f">getsub_Client_info</link>()&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Client&#32;name:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;<link linkend="_class_contract_1a2a54f1a29ab8a88a7c63d5aa7cdc0a58">getClient</link>()-&gt;<link linkend="_class_client_1a6865c5e1c8179faa4f3d2a47e500b772">getName</link>()&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Client&#32;ID:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;<link linkend="_class_contract_1a2a54f1a29ab8a88a7c63d5aa7cdc0a58">getClient</link>()-&gt;<link linkend="_class_client_1a1b7af92ea4fa34d7cc1c8767bd1767c6">getsub_Client_info</link>()&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Contract&#32;type:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;<link linkend="_class_contract_1a39ab8eac1fca9c006f52421fb3b47de6">Ctype_toString</link>()&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Contract&#32;start&#32;date:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;<link linkend="_class_contract_1a90dfc571475e24dab6be516786704708">getCtime</link>().<link linkend="_class_contract__date_1ae9239c157785b2afd78125aff7df31cd">getBegin</link>().<link linkend="_class_date_1aceba42d25cb6a888cea3428f80d50359">toString</link>()&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Contract&#32;end&#32;date:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;<link linkend="_class_contract_1a90dfc571475e24dab6be516786704708">getCtime</link>().<link linkend="_class_contract__date_1a205ddfaf285d153b01ac81edb19a2a45">getEnd</link>().<link linkend="_class_date_1aceba42d25cb6a888cea3428f80d50359">toString</link>()&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Last&#32;invoicing&#32;date:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;<link linkend="_class_contract_1aa5fae1ce32f260c950f6cf135fef5ab4">getLast_invoicing</link>().<link linkend="_class_date_1aceba42d25cb6a888cea3428f80d50359">toString</link>()&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Tariff:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;<link linkend="_class_contract_1a35dcdf9c4752101f31a34f80b38e9abc">getTariff</link>()&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;Ft/KWh&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Balance:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;<link linkend="_class_contract_1a55ef08f4db0f8146fc42c2bb410b7960">getBalance</link>()&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;Ft&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Consumption&#32;since&#32;last&#32;invoicing:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;<link linkend="_class_contract_1a2c1439dea2951f6fe07b889061b89541">getConsumption</link>()&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;KWh&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00099"/>00099 
+<anchor xml:id="_contracts_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Calculate&#32;invoice&#32;details</emphasis>
+<anchor xml:id="_contracts_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;consumption&#32;=&#32;<link linkend="_class_contract_1a2c1439dea2951f6fe07b889061b89541">getConsumption</link>();
+<anchor xml:id="_contracts_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;prev_balance&#32;=<link linkend="_class_contract_1a55ef08f4db0f8146fc42c2bb410b7960">getBalance</link>();
+<anchor xml:id="_contracts_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;tariff&#32;=&#32;<link linkend="_class_contract_1a35dcdf9c4752101f31a34f80b38e9abc">getTariff</link>();
+<anchor xml:id="_contracts_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;vat&#32;=&#32;0.27;&#32;<emphasis role="comment">//&#32;Value&#32;added&#32;tax</emphasis>
+<anchor xml:id="_contracts_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;subtotal&#32;=&#32;consumption&#32;*&#32;tariff;
+<anchor xml:id="_contracts_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;total&#32;=&#32;subtotal&#32;*&#32;(1&#32;+&#32;vat);
+<anchor xml:id="_contracts_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;new_balance&#32;=&#32;prev_balance&#32;+&#32;total;
+<anchor xml:id="_contracts_8cpp_source_1l00108"/>00108 
+<anchor xml:id="_contracts_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Write&#32;invoice&#32;details</emphasis>
+<anchor xml:id="_contracts_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Invoice&#32;details:&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Invoice&#32;date:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;today.<link linkend="_class_date_1aceba42d25cb6a888cea3428f80d50359">toString</link>()&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Previous&#32;balance:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;prev_balance&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;Ft&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Tariff:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;tariff&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;Ft/KWh&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Consumption:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;consumption&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;KWh&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Subtotal:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;subtotal&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;Ft&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;VAT&#32;(&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;vat*100&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;%):&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;subtotal&#32;*&#32;vat&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;Ft&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Total:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;total&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;Ft&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;outfile&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;New&#32;balance:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;std::fixed&#32;&lt;&lt;&#32;std::setprecision(2)&#32;&lt;&lt;&#32;new_balance&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;&#32;Ft&quot;</emphasis>&#32;&lt;&lt;&#32;std::endl;
+<anchor xml:id="_contracts_8cpp_source_1l00120"/>00120 
+<anchor xml:id="_contracts_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;outfile.close();
+<anchor xml:id="_contracts_8cpp_source_1l00122"/>00122 }
+<anchor xml:id="_contracts_8cpp_source_1l00123"/>00123 
+<anchor xml:id="_contracts_8cpp_source_1l00124"/><link linkend="_class_contract_1ac4be25f545f310d6e563326568612814">00124</link> <link linkend="_class_contract_1ac4be25f545f310d6e563326568612814">Contract::~Contract</link>()&#32;{
+<anchor xml:id="_contracts_8cpp_source_1l00125"/>00125 
+<anchor xml:id="_contracts_8cpp_source_1l00126"/>00126 }
+</programlisting></section>

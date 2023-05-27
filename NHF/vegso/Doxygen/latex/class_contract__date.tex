@@ -1,0 +1,290 @@
+\hypertarget{class_contract__date}{}\doxysection{Contract\+\_\+date Class Reference}
+\label{class_contract__date}\index{Contract\_date@{Contract\_date}}
+
+
+Egy időpárt tárol.  
+
+
+
+
+{\ttfamily \#include $<$date.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_contract__date_a8840df4af4eb76e1c701dcf5aa9c24d8}{Contract\+\_\+date}} ()
+\begin{DoxyCompactList}\small\item\em paraméter nélkül hívható konstruktor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_contract__date_a94fa01dd3c812dafbd2b8536abc1a7d4}{Contract\+\_\+date}} (\mbox{\hyperlink{class_date}{Date}} begin\+\_\+date, \mbox{\hyperlink{class_date}{Date}} end\+\_\+date)
+\begin{DoxyCompactList}\small\item\em Konstruktor kezdő és végdátum megadásával. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_contract__date_a689419facd8963a894f27858c9997b56}{Contract\+\_\+date}} (int year\+\_\+begin, int month\+\_\+begin, int day\+\_\+begin, int year\+\_\+end, int month\+\_\+end, int day\+\_\+end)
+\begin{DoxyCompactList}\small\item\em Konstruktor intekkel megadott paraméterekből. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_contract__date_ae9239c157785b2afd78125aff7df31cd}{get\+Begin}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a kezdeti időpontot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_date}{Date}} \mbox{\hyperlink{class_contract__date_a205ddfaf285d153b01ac81edb19a2a45}{get\+End}} () const
+\begin{DoxyCompactList}\small\item\em Visszaadja a végső időpontot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract__date_a96b800d3b24f62e3ff85b4fabcc86688}{set\+Begin}} (\mbox{\hyperlink{class_date}{Date}} beg\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Beállítja a kezdeti időpontot Date-\/ből. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract__date_a6644688a83cccbe3becd55d99bd5d872}{set\+Begin}} (int year, int month, int day)
+\begin{DoxyCompactList}\small\item\em Beállítja a kezdeti időpontot intekből. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract__date_a4f2dbf299ee0ebb870de95ab189c11d8}{set\+End}} (\mbox{\hyperlink{class_date}{Date}} end\+\_\+in)
+\begin{DoxyCompactList}\small\item\em Beállítja a végső időpontot Date-\/ből. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_contract__date_a2a5399e4a07a2f59ca4e67d88f328242}{set\+End}} (int year, int month, int day)
+\begin{DoxyCompactList}\small\item\em Beállítja a végső időpontot intekből. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_contract__date_ab03f84a312bef61c3be332ab48cfe32c}{contains}} (const \mbox{\hyperlink{class_date}{Date}} \&date\+\_\+in) const
+\begin{DoxyCompactList}\small\item\em Ellenőrzi hogy a paraméterként kapott dátum a dátumpár között van-\/e. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_contract__date}{Contract\+\_\+date}} \& \mbox{\hyperlink{class_contract__date_a2aaf65032185157fb06cdb7481d54790}{operator=}} (const \mbox{\hyperlink{class_contract__date}{Contract\+\_\+date}} \&contract\+Date\+\_\+in)
+\begin{DoxyCompactList}\small\item\em = operátor az = jel helyes működéséhez \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Egy időpárt tárol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em beging} & Az kezdeti időpont \\
+\hline
+{\em end} & A végső időpont \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8h_source_l00101}{101}} of file \mbox{\hyperlink{date_8h_source}{date.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_contract__date_a8840df4af4eb76e1c701dcf5aa9c24d8}\label{class_contract__date_a8840df4af4eb76e1c701dcf5aa9c24d8}} 
+\index{Contract\_date@{Contract\_date}!Contract\_date@{Contract\_date}}
+\index{Contract\_date@{Contract\_date}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{Contract\_date()}{Contract\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Contract\+\_\+date\+::\+Contract\+\_\+date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+paraméter nélkül hívható konstruktor 
+
+
+
+Definition at line \mbox{\hyperlink{date_8h_source_l00111}{111}} of file \mbox{\hyperlink{date_8h_source}{date.\+h}}.
+
+\mbox{\Hypertarget{class_contract__date_a94fa01dd3c812dafbd2b8536abc1a7d4}\label{class_contract__date_a94fa01dd3c812dafbd2b8536abc1a7d4}} 
+\index{Contract\_date@{Contract\_date}!Contract\_date@{Contract\_date}}
+\index{Contract\_date@{Contract\_date}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{Contract\_date()}{Contract\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Contract\+\_\+date\+::\+Contract\+\_\+date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{begin\+\_\+date,  }\item[{\mbox{\hyperlink{class_date}{Date}}}]{end\+\_\+date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor kezdő és végdátum megadásával. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em begin\+\_\+date} & Kezdődátum \\
+\hline
+{\em end\+\_\+date} & Végdátum \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8h_source_l00119}{119}} of file \mbox{\hyperlink{date_8h_source}{date.\+h}}.
+
+\mbox{\Hypertarget{class_contract__date_a689419facd8963a894f27858c9997b56}\label{class_contract__date_a689419facd8963a894f27858c9997b56}} 
+\index{Contract\_date@{Contract\_date}!Contract\_date@{Contract\_date}}
+\index{Contract\_date@{Contract\_date}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{Contract\_date()}{Contract\_date()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Contract\+\_\+date\+::\+Contract\+\_\+date (\begin{DoxyParamCaption}\item[{int}]{year\+\_\+begin,  }\item[{int}]{month\+\_\+begin,  }\item[{int}]{day\+\_\+begin,  }\item[{int}]{year\+\_\+end,  }\item[{int}]{month\+\_\+end,  }\item[{int}]{day\+\_\+end }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor intekkel megadott paraméterekből. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year\+\_\+begin} & Bejövő kezdeti év \\
+\hline
+{\em month\+\_\+begin} & Bejövő kezdeti hónap \\
+\hline
+{\em day\+\_\+begin} & Bejövő kezdeti nap \\
+\hline
+{\em year\+\_\+end} & Bejövő végzeti év \\
+\hline
+{\em month\+\_\+end} & Bejövő végzeti hónap \\
+\hline
+{\em day\+\_\+end} & Bejövő végzeti nap \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8h_source_l00132}{132}} of file \mbox{\hyperlink{date_8h_source}{date.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_contract__date_ab03f84a312bef61c3be332ab48cfe32c}\label{class_contract__date_ab03f84a312bef61c3be332ab48cfe32c}} 
+\index{Contract\_date@{Contract\_date}!contains@{contains}}
+\index{contains@{contains}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily bool Contract\+\_\+date\+::contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date}{Date}} \&}]{date\+\_\+in }\end{DoxyParamCaption}) const}
+
+
+
+Ellenőrzi hogy a paraméterként kapott dátum a dátumpár között van-\/e. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & paraméterként kapott dátum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dátumpár között van? 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00093}{93}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract__date_ae9239c157785b2afd78125aff7df31cd}\label{class_contract__date_ae9239c157785b2afd78125aff7df31cd}} 
+\index{Contract\_date@{Contract\_date}!getBegin@{getBegin}}
+\index{getBegin@{getBegin}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{getBegin()}{getBegin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} Contract\+\_\+date\+::get\+Begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a kezdeti időpontot. 
+
+\begin{DoxyReturn}{Returns}
+kezdeti időpont 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract__date_a205ddfaf285d153b01ac81edb19a2a45}\label{class_contract__date_a205ddfaf285d153b01ac81edb19a2a45}} 
+\index{Contract\_date@{Contract\_date}!getEnd@{getEnd}}
+\index{getEnd@{getEnd}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{getEnd()}{getEnd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date}{Date}} Contract\+\_\+date\+::get\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Visszaadja a végső időpontot. 
+
+\begin{DoxyReturn}{Returns}
+Végső időpont 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract__date_a2aaf65032185157fb06cdb7481d54790}\label{class_contract__date_a2aaf65032185157fb06cdb7481d54790}} 
+\index{Contract\_date@{Contract\_date}!operator=@{operator=}}
+\index{operator=@{operator=}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_contract__date}{Contract\+\_\+date}} \& Contract\+\_\+date\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_contract__date}{Contract\+\_\+date}} \&}]{contract\+Date\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+= operátor az = jel helyes működéséhez 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contract\+Date\+\_\+in} & Bejövő contract\+Date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Visszaadandó contract\+Date 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract__date_a96b800d3b24f62e3ff85b4fabcc86688}\label{class_contract__date_a96b800d3b24f62e3ff85b4fabcc86688}} 
+\index{Contract\_date@{Contract\_date}!setBegin@{setBegin}}
+\index{setBegin@{setBegin}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{setBegin()}{setBegin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Contract\+\_\+date\+::set\+Begin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{beg\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Beállítja a kezdeti időpontot Date-\/ből. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em beg\+\_\+in} & Bejövő dátum \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract__date_a6644688a83cccbe3becd55d99bd5d872}\label{class_contract__date_a6644688a83cccbe3becd55d99bd5d872}} 
+\index{Contract\_date@{Contract\_date}!setBegin@{setBegin}}
+\index{setBegin@{setBegin}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{setBegin()}{setBegin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Contract\+\_\+date\+::set\+Begin (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption})}
+
+
+
+Beállítja a kezdeti időpontot intekből. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Beállítandó év \\
+\hline
+{\em month} & Beállítandó hónap \\
+\hline
+{\em day} & Beállítandó nap \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract__date_a4f2dbf299ee0ebb870de95ab189c11d8}\label{class_contract__date_a4f2dbf299ee0ebb870de95ab189c11d8}} 
+\index{Contract\_date@{Contract\_date}!setEnd@{setEnd}}
+\index{setEnd@{setEnd}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{setEnd()}{setEnd()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Contract\+\_\+date\+::set\+End (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_date}{Date}}}]{end\+\_\+in }\end{DoxyParamCaption})}
+
+
+
+Beállítja a végső időpontot Date-\/ből. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em beg\+\_\+in} & Bejövő dátum \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+\mbox{\Hypertarget{class_contract__date_a2a5399e4a07a2f59ca4e67d88f328242}\label{class_contract__date_a2a5399e4a07a2f59ca4e67d88f328242}} 
+\index{Contract\_date@{Contract\_date}!setEnd@{setEnd}}
+\index{setEnd@{setEnd}!Contract\_date@{Contract\_date}}
+\doxysubsubsection{\texorpdfstring{setEnd()}{setEnd()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Contract\+\_\+date\+::set\+End (\begin{DoxyParamCaption}\item[{int}]{year,  }\item[{int}]{month,  }\item[{int}]{day }\end{DoxyParamCaption})}
+
+
+
+Beállítja a végső időpontot intekből. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & Beállítandó év \\
+\hline
+{\em month} & Beállítandó hónap \\
+\hline
+{\em day} & Beállítandó nap \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{date_8cpp_source_l00087}{87}} of file \mbox{\hyperlink{date_8cpp_source}{date.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+date.\+h\item 
+date.\+cpp\end{DoxyCompactItemize}

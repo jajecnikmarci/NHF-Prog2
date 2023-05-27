@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_date" xml:lang="en-US">
+<title>Date Class Reference</title>
+<indexterm><primary>Date</primary></indexterm>
+<para>
+
+<para>Egy dátumot tárol time_point formátumba. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;date.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_date_1a5874432b5f7339205866055201e885d7">Date</link> (int year, int month, int day)</para>
+</listitem>
+            <listitem><para>std::chrono::system_clock::time_point <link linkend="_class_date_1a2202e96fc67fd8c0912acf73e953c7f1">into_date</link> (int year, int month, int day)</para>
+
+<para>Időponttá alakít egy dátumot. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_date_1a03ecf64f9dcda29cbe2162c0e256b80e">print_date</link> () const</para>
+
+<para>Kiírja az időpontot. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_date_1a4b253a95e1347f37a25a973bc94857e3">operator==</link> (const <link linkend="_class_date">Date</link> &amp;in) const</para>
+
+<para>== operátor összehasonlításhoz </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_date_1a9bbef6e5e1e067ec4130d217ea596c80">operator&lt;</link> (const <link linkend="_class_date">Date</link> &amp;in) const</para>
+
+<para>&lt; operátor összehasonlításhoz </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_date_1ad83b1f55dc7621fb8b0dd2f973ace99b">operator&gt;</link> (const <link linkend="_class_date">Date</link> &amp;in) const</para>
+
+<para>&gt; operátor összehasonlításhoz </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_date_1aa4d58863899698a3ef3e41f4d99d2842">operator&lt;=</link> (const <link linkend="_class_date">Date</link> &amp;in) const</para>
+
+<para>&lt;= operátor összehasonlításhoz </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_date_1a134dc22bcb3df0056c44d440652a351c">operator&gt;=</link> (const <link linkend="_class_date">Date</link> &amp;in) const</para>
+
+<para>&gt;= operátor összehasonlításhoz </para>
+</listitem>
+            <listitem><para>std::string <link linkend="_class_date_1aceba42d25cb6a888cea3428f80d50359">toString</link> () const</para>
+
+<para>Visszaadja a dátumot string formátumban. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Egy dátumot tárol time_point formátumba. </para>
+
+
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>tp</entry><entry>
+<para>tárolt dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8h_source_1l00016">16</link> of file <link linkend="_date_8h_source">date.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_date_1a4e59ed4ba66eec61c27460c5d09fa1bd"/><section>
+    <title>Date()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Date</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>Date</secondary></indexterm>
+<para><computeroutput>Date::Date ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_date_8h_source_1l00021">21</link> of file <link linkend="_date_8h_source">date.h</link>.</para>
+</section>
+<anchor xml:id="_class_date_1a5874432b5f7339205866055201e885d7"/><section>
+    <title>Date()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Date</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>Date</secondary></indexterm>
+<para><computeroutput>Date::Date (int year, int month, int day)<computeroutput>[inline]</computeroutput></computeroutput></para>
+<para>@Konstruktor</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>year</entry><entry>
+<para>Beállítandó év </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month</entry><entry>
+<para>Beállítandó hónap </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day</entry><entry>
+<para>Beállítandó nap </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_date_8h_source_1l00029">29</link> of file <link linkend="_date_8h_source">date.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_date_1a2202e96fc67fd8c0912acf73e953c7f1"/><section>
+    <title>into_date()</title>
+<indexterm><primary>into_date</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>into_date</secondary></indexterm>
+<para><computeroutput>std::chrono::system_clock::time_point Date::into_date (int year, int month, int day)</computeroutput></para><para>
+
+<para>Időponttá alakít egy dátumot. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>year</entry><entry>
+<para>Bejövő év </para>
+</entry>
+                            </row>
+                            <row>
+<entry>month</entry><entry>
+<para>Bejövő hónap </para>
+</entry>
+                            </row>
+                            <row>
+<entry>day</entry><entry>
+<para>Bejövő nap </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>időponttá alakított dátum </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00007">7</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_date_1a9bbef6e5e1e067ec4130d217ea596c80"/><section>
+    <title>operator&lt;()</title>
+<indexterm><primary>operator&lt;</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>operator&lt;</secondary></indexterm>
+<para><computeroutput>bool Date::operator&lt; (const <link linkend="_class_date">Date</link> &amp; in) const</computeroutput></para><para>
+
+<para>&lt; operátor összehasonlításhoz </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>
+<para>Összehasonlítandó dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Kisebb? </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00028">28</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_date_1aa4d58863899698a3ef3e41f4d99d2842"/><section>
+    <title>operator&lt;=()</title>
+<indexterm><primary>operator&lt;=</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>operator&lt;=</secondary></indexterm>
+<para><computeroutput>bool Date::operator&lt;= (const <link linkend="_class_date">Date</link> &amp; in) const</computeroutput></para><para>
+
+<para>&lt;= operátor összehasonlításhoz </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>
+<para>Összehasonlítandó dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Kisebb vagy egyenlő? </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00036">36</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_date_1a4b253a95e1347f37a25a973bc94857e3"/><section>
+    <title>operator==()</title>
+<indexterm><primary>operator==</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>operator==</secondary></indexterm>
+<para><computeroutput>bool Date::operator== (const <link linkend="_class_date">Date</link> &amp; in) const</computeroutput></para><para>
+
+<para>== operátor összehasonlításhoz </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>
+<para>Összehasonlítandó dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Egyenlőek </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00024">24</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_date_1ad83b1f55dc7621fb8b0dd2f973ace99b"/><section>
+    <title>operator&gt;()</title>
+<indexterm><primary>operator&gt;</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>operator&gt;</secondary></indexterm>
+<para><computeroutput>bool Date::operator&gt; (const <link linkend="_class_date">Date</link> &amp; in) const</computeroutput></para><para>
+
+<para>&gt; operátor összehasonlításhoz </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>
+<para>Összehasonlítandó dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Nagyobb? </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00032">32</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_date_1a134dc22bcb3df0056c44d440652a351c"/><section>
+    <title>operator&gt;=()</title>
+<indexterm><primary>operator&gt;=</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>operator&gt;=</secondary></indexterm>
+<para><computeroutput>bool Date::operator&gt;= (const <link linkend="_class_date">Date</link> &amp; in) const</computeroutput></para><para>
+
+<para>&gt;= operátor összehasonlításhoz </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>in</entry><entry>
+<para>Összehasonlítandó dátum </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Nagyobb vagy egyenlő? </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00040">40</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_date_1a03ecf64f9dcda29cbe2162c0e256b80e"/><section>
+    <title>print_date()</title>
+<indexterm><primary>print_date</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>print_date</secondary></indexterm>
+<para><computeroutput>void Date::print_date ( ) const</computeroutput></para><para>
+
+<para>Kiírja az időpontot. </para>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00017">17</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_date_1aceba42d25cb6a888cea3428f80d50359"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>Date</secondary></indexterm>
+<indexterm><primary>Date</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>std::string Date::toString ( ) const</computeroutput></para><para>
+
+<para>Visszaadja a dátumot string formátumban. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_date_8cpp_source_1l00044">44</link> of file <link linkend="_date_8cpp_source">date.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+date.hdate.cpp</section>
+</section>
