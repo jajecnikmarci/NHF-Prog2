@@ -89,7 +89,6 @@ Demonstrálja a működést külön modulként fordított tesztprogrammal! A meg
 
 *A program osztálydiagramja, a fontosabb adattagokkal és függvényekkel*
 
-
 @startuml
 !theme black-knight
 
@@ -97,6 +96,8 @@ MyVektor -- MVM::clients
 Client -- MVM::clients
 class "MVM" as MVM {
     - MyVektor<Client*> clients - tárolja az ügyfelek adatait
+    - static Company MVM_company = Company("Meseorszagi Villamos Muvek ZRT.", "10760798244") - Az MVM adatai
+    - static int save_version = 0 - legutóbbi mentés verziószáma
 
     + MVM() - Default konstruktor
     + static Company adatok - az MVM adatai a számla kiállításához, mivel nem változik így statikus
@@ -104,6 +105,10 @@ class "MVM" as MVM {
     + void addClient(Client* client_in) - hozzáad egy ügyfelet
     + Client* getClient(const std::string name_in,const std::string somekindofID) - Kikeresi a meglévő ügyfelek közül a keresettet
     + const std::string getCompanyDetails() - Az MVM adatait adja vissza
+    + void deleteClient (const std::string name_in, const std::string somekindofID) - töröl egy ügyfelet
+    + void save() - biztonsági mentést készít
+    + void load_from_save (int version_id_in) - Beolvassa a ügyfeleket és a szerzo ̋déseiket egy fájlból.
+    + void load_from_console () - Belvas egy contractet a console-ról.
     + ~MVM() - Destruktor ami felszabadítja a tárolt ügyfeleket
 }
 
@@ -138,6 +143,7 @@ Company <|-Client
 class "Company" as Company{
     - std::string Tax_ID - adóazonosító szám
     + std::string getID() const - visszaadja az adóazonosító számot
+    + Company (std::string name_in="", std::string ID_in="") - Alapértékes konstruktor
     + void setID(std::string ID-in) - beállítja az adóazonosító számot
     + std::string getsub_Client_info() - Visszaadja a gyermek osztály személyes adatait kiíráshoz egy string-ben
     + ~Company() - Destruktor
@@ -175,7 +181,8 @@ class "Contract" as Contract {
     + void setCtime(Contract_date ctime_in) - beállítja a szerződés hosszát
     + void setLast_invoicing(Date last_in) - beálllítja a legutóbbi számlázás idejét
     + void pay(double amount) - befizetés
-    + invoicing(const Date& today) - számla készítése a legutóbbi számlakiállítás óta
+    + void invoice (const Date &today) - számla készítése a legutóbbi számlakiállítás óta
+    + const std::string Ctype_toString () const - Ctype-ot alakít string formátumba
     + ~Client() - destruktor
 }
 
@@ -239,7 +246,6 @@ class "MyVektor<T>" as MyVektor {
 }
     
 @enduml
-
 
 - A person és a company osztályok publikus módon öröklődnek a client-ből
 - A myvektor generikus osztály az indexelhetőséghez
