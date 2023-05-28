@@ -30,7 +30,7 @@ Contract &Client::getContract(size_t contract_index) {
     for (size_t i = 0; i < mycontracts.size(); ++i) {
         if (mycontracts[i].getContractID()==contract_index) return mycontracts[i];
     }
-    throw std::range_error("Már törölt szerződés"); // Lehetne saját exception classal
+    throw std::range_error("Már nem letezo szerzodes");
 }
 
 std::string Person::getsub_Client_info() {

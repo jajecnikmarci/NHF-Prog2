@@ -86,8 +86,8 @@ int main() {
             EXPECT_TRUE(b <= d);
             EXPECT_TRUE(d >= b);
             e.print_date();
-            std::cout << std::endl;
 
+            std::cout << " = " << e<< std::endl;
         }END
 
 #endif
@@ -153,7 +153,8 @@ int main() {
             Person a("En", "167890ke");
             EXPECT_STREQ("167890ke", a.getID().c_str());
             EXPECT_TRUE("Person name: En, ID: 167890ke" == a.getsub_Client_info());
-
+            a.setID("123132al");
+            EXPECT_TRUE(a.getID() == "123132al");
         }END
 
 #endif
@@ -165,7 +166,8 @@ int main() {
             Company a("En", "16789034647");
             EXPECT_STREQ("16789034647", a.getID().c_str());
             EXPECT_STREQ("Company name: En, Tax ID: 16789034647", a.getsub_Client_info().c_str());
-
+            a.setID("12313212345");
+            EXPECT_TRUE(a.getID() == "12313212345");
         }END
 
 #endif
@@ -195,7 +197,7 @@ int main() {
             b.setCtime(c);
             EXPECT_TRUE(b.getCtime().getBegin() == c.getBegin() && b.getCtime().getEnd() == c.getEnd());
             EXPECT_EQ(1, b.getContractID());
-            delete a;
+            delete a;///Mivel nem lett létrehozva a főosztály ami ezt felszabadítaná
 
         }END
 
@@ -241,6 +243,7 @@ int main() {
             MVM mvm2;
             EXPECT_THROW(mvm2.load_from_save(10), std::ios_base::failure);///Nem létező mentés
             EXPECT_NO_THROW(mvm2.load_from_save(1));
+            EXPECT_THROW(mvm2.load_from_save(0), std::invalid_argument);
         } END
 
 
