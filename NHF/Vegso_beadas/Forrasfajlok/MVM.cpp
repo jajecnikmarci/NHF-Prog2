@@ -4,8 +4,8 @@
 
 #include "MVM.h"
 
-Company MVM::MVM_company = Company("Meseorszagi Villamos Muvek ZRT.", "10760798244");
-int MVM::save_version = 0;
+//Company MVM::MVM_company = Company("Meseorszagi Villamos Muvek ZRT.", "10760798244");
+//int MVM::save_version = 0;
 
 void MVM::addClient(Client* client_in) {
     clients.push_back(client_in);
@@ -76,7 +76,7 @@ void MVM::save() {
     outputFile.close();
 }
 
-bool MVM::is_all_number(std::string& str_in) {
+bool MVM::is_all_number(const std::string& str_in) {
     for (size_t i = 0; i < str_in.length(); i++)
     {
         if (!std::isdigit(str_in[i])) return false;
@@ -86,7 +86,7 @@ bool MVM::is_all_number(std::string& str_in) {
 
 bool MVM::is_string_double(std::string& str_in) {
     size_t str_len = str_in.length();
-    int i = 0;
+    size_t i = 0;
     while (i<str_len&&str_in[i]!='.')
     {
         if (!std::isdigit(str_in[i])) return false;
@@ -241,6 +241,7 @@ void MVM::load_from_save(int version_id_in) {
     inputFile.open(filename, std::ios::in);
     if (!inputFile.is_open()) {
         std::cerr << "Error opening file for reading: " << filename << std::endl;
+        inputFile.close();
         throw std::ios_base::failure("Error opening file for reading: " + filename);
     }
     while (inputFile)
@@ -248,11 +249,12 @@ void MVM::load_from_save(int version_id_in) {
         try {
             load_from_stream(inputFile);
         }
-        catch (const std::invalid_argument& ia) {
+        catch (std::invalid_argument ia) {
             std::cerr << "Invalid argument: " << ia.what() << '\n';
+            inputFile.close();
             throw std::invalid_argument("Rossz forrasfajl");
         }
-        catch (const std::out_of_range& end) { break; }
+        catch (std::out_of_range end) { break; }
     }
     inputFile.close();
 }

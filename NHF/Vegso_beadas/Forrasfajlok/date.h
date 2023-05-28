@@ -90,7 +90,7 @@ public:
  * @param date kiírandó dátum
  * @return Kiírja a dátumot majd visszaadja az ostream-et
  */
-std::ostream& operator<<(std::ostream os, const Date& date);
+std::ostream& operator<<(std::ostream& os, const Date& date);
 
 
 

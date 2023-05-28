@@ -18,7 +18,7 @@ void Date::print_date() const {
     std::time_t tt = std::chrono::system_clock::to_time_t(tp);
     char buffer[11];
     std::strftime(buffer, 11, "%Y-%m-%d", std::localtime(&tt));
-    std::cout << "Date entered: " << buffer;
+    std::cout << "Date: " << buffer;
 }
 
 bool Date::operator==(const Date& in) const {
@@ -55,7 +55,7 @@ std::string Date::toString() const {
 }
 
 
-std::ostream& operator<<(std::ostream os, const Date& date) {
+std::ostream& operator<<(std::ostream& os, const Date& date) {
     date.print_date();
     return os;
 }

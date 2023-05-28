@@ -46,7 +46,7 @@ private:
      * \param str_in Bejövő string
      * \return Csak számok vannak benne?
      */
-    bool is_all_number(std::string& str_in);
+    bool is_all_number(const std::string& str_in);
 
     /**
      * @brief Megmondja egy stringről hogy double alakú-e
